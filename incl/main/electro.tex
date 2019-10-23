@@ -60,21 +60,21 @@ The time constant ($\tau$) is defined as.
 Even though the graph for (??) have a horizontal asymptote, the capacitor is defined as fully charged at $5\tau$.
 
 \section{Circuit diagrams}
-
-indsæt diagrammer
+Electric circuits are visually represented in circuit diagrams. Aside from the above-mentioned elements, they introduce three terms: nodes, branches, and loops. A \textit{node}, indicated by a dot in the circuit, connects the circuit elements. These elements are also called \textit{branches}, i.e. are the voltage supply, resistors, capacitors, and the like, all branches. Lastly, is any closed path in the circuit, in which no node is encountered more than than once (citér bcircuit, 27), called a \textit{loop}.
 \subsection{Kirchhoff's Laws}
 \textbf{Kirchoff's Current Law}
 \\
-KCL states that in a circuit the algebraic sum of all currents in a node is equal to zero. In other words, Past this point, the path of the circuit splits in two. The current in $P$ does not accumulate (as it would e.g. in a battery). Instead, all electrons flowing to that point split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law, which states that.
+Observe a circuit up until a node, past which the path of the circuit splits in two. The current encountering the node does not accumulate (as it would e.g. in a battery). Instead, all electrons flowing to that node split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law (KCL), which states that the algebraic sum of all currents in a node is equal to zero. 
 \begin{align}
 \sum_{j=1}^{N} i_{j}(t) = 0
 \end{align}
 where $i_{j}(t)$ is the $k$'th current entering the node through branch $j$, with $N$ branches connected to the node.\cite[page~32]{bcircuit}
 \\
-\textbf{Kirchoff's Voltage Law}
+\\
+\textbf{Kirchoff's Voltage Law (KVL}
 \\
 KCL states that in a circuit the algebraic sum of all currents in a loop is equal to zero. This law can be express mathematically  as.
 \begin{align}
 \sum_{j=1}^{N} v_{j}(t) = 0
 \end{align}
-where $V_{j}(t)$ is the voltage in the $k$'th loop with N voltages.\cite[page~34]{bcircuit}
+where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}
