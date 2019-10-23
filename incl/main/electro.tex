@@ -1,12 +1,13 @@
 \chapter{Electromagnetism}
-In this chapter if a function is assumed constant it is noted with capitalization of it original notation. 
+\section{Intro}
+Electric circuits are fundamental building blocks in, more or less, every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electric circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical source (a battery, for instance).
 \\ 
-A circuit is an electronic system which consists of different elements with different functions, that change the way the circuit acts. The different elements of the circuit can be split into two categories, active and passive. Active elements supply energy to the system, such as a battery, whereas passive elements absorbs energy such as a light bulb. A circuit with a battery and a bulb can be represented in the following way.
+In this chapter, if a function is assumed constant, it is noted with capitalization of its original notation. 
+\\ 
 \\
-This circuit consist of an active element, a battery and a passive element, a light bulb. Charges are transported by the current from the + side of the battery through the light bulb that absorbs the energy from the charges which then and are transported to the - of the battery.
+A circuit is an electronic system which consists of different elements with different functions, that change the way the circuit acts. The different elements of the circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorbs energy, e.g. a light bulb. A circuit with a battery and a bulb can be represented in the following way. (incl. fig.)\\ This circuit consist of an active element, a battery and a passive element, a light bulb. Charges are transported by the current from the + side of the battery through the light bulb that absorbs the energy from the charges which then and are transported to the - of the battery.
 \\
-\textbf{Current}
-\\
+\section{Current}
 Current is what makes charges move in a circuit. The size of a current can be defined as the charge that is moved over time. This can be expressed as the following relation.
 \begin{align}
 i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{-\infty}^{t}i(x)dx
@@ -17,13 +18,6 @@ There exists two types of current, Alternating Current(AC) and Direct current(DC
 \\
 More
 \\
-\textbf{Kirchoff's Current Law}
-\\
-KCL states that in a circuit the algebraic sum of all currents in a node is equal to zero.
-\begin{align}
-\sum_{j=1}^{N} i_{j}(t) = 0
-\end{align}
-"$i_{j}(t)$ is the $k$'th current entering the node through branch $j$  with $N$ branches connected to the node" (Diff. or cite).
 \\
 \textbf{Resistance}
 \\
@@ -41,13 +35,6 @@ V=\dfrac{dU(q)}{dq}
 \\
 Where $U(q)$ is the function for potential energy, given a charge $q$. $U(q)$ is measured in Joules($J$).
 \\
-\textbf{Kirchoff's Voltage Law}
-\\
-KCL states that in a circuit the algebraic sum of all currents in a loop is equal to zero. This law can be express mathematically  as.
-\begin{align}
-\sum_{j=1}^{N} v_{j}(t) = 0
-\end{align}
-$V_{j}(t)$ is the voltage in the $k$'th loop with N voltages.
 \\
 \textbf{Capacitor}
 \\
@@ -63,6 +50,7 @@ Q=CV
 \end{align}
 More?
 \\
+\\
 \textbf{Time constant}
 \\
 The time constant ($\tau$) is defined as.
@@ -70,7 +58,23 @@ The time constant ($\tau$) is defined as.
 \tau = RC
 \end{align}
 Even though the graph for (??) have a horizontal asymptote, the capacitor is defined as fully charged at $5\tau$.
+
+\section{Circuit diagrams}
+
+indsæt diagrammer
+\subsection{Kirchhoff's Laws}
+\textbf{Kirchoff's Current Law}
 \\
-\textbf{Figure}
+KCL states that in a circuit the algebraic sum of all currents in a node is equal to zero. In other words, Past this point, the path of the circuit splits in two. The current in $P$ does not accumulate (as it would e.g. in a battery). Instead, all electrons flowing to that point split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law, which states that.
+\begin{align}
+\sum_{j=1}^{N} i_{j}(t) = 0
+\end{align}
+where $i_{j}(t)$ is the $k$'th current entering the node through branch $j$, with $N$ branches connected to the node.\cite[page~32]{bcircuit}
 \\
-The elements and their properties in a circuit can be represented in a diagram as seen in the simple RC-circuit in  figure.
+\textbf{Kirchoff's Voltage Law}
+\\
+KCL states that in a circuit the algebraic sum of all currents in a loop is equal to zero. This law can be express mathematically  as.
+\begin{align}
+\sum_{j=1}^{N} v_{j}(t) = 0
+\end{align}
+where $V_{j}(t)$ is the voltage in the $k$'th loop with N voltages.\cite[page~34]{bcircuit}
