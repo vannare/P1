@@ -1,0 +1,76 @@
+\chapter{Electromagnetism}
+In this chapter if a function is assumed constant it is noted with capitalization of it original notation. 
+\\ 
+A circuit is an electronic system which consists of different elements with different functions, that change the way the circuit acts. The different elements of the circuit can be split into two categories, active and passive. Active elements supply energy to the system, such as a battery, whereas passive elements absorbs energy such as a light bulb. A circuit with a battery and a bulb can be represented in the following way.
+\\
+This circuit consist of an active element, a battery and a passive element, a light bulb. Charges are transported by the current from the + side of the battery through the light bulb that absorbs the energy from the charges which then and are transported to the - of the battery.
+\\
+\textbf{Current}
+\\
+Current is what makes charges move in a circuit. The size of a current can be defined as the charge that is moved over time. This can be expressed as the following relation.
+\begin{align}
+i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{-\infty}^{t}i(x)dx
+\end{align}
+$i(t)$ is the current to a given time $t$, $i(t)$ is measured in ampere($A$), time ($t$) in seconds ($s$) and $q(t)$ the function for the charge at a given time $t$, $q(t)$ i measured in Coulomb($C)$
+\\
+There exists two types of current, Alternating Current(AC) and Direct current(DC). The electric flow with AC is constant and DC changes over time, see figure.
+\\
+More
+\\
+\textbf{Kirchoff's Current Law}
+\\
+KCL states that in a circuit the algebraic sum of all currents in a node is equal to zero.
+\begin{align}
+\sum_{j=1}^{N} i_{j}(t) = 0
+\end{align}
+"$i_{j}(t)$ is the $k$'th current entering the node through branch $j$  with $N$ branches connected to the node" (Diff. or cite).
+\\
+\textbf{Resistance}
+\\
+When a resistor a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
+\begin{align}
+v(t)=R\cdot i(t),  R\geq0
+\end{align}
+\\
+\textbf{Voltage}
+\\
+Voltage($V$), also called electric potential difference is the change of potential energy a charge undergoes when it passes through two given points in a circuit. This be expressed and the following equation.
+\begin{align}
+V=\dfrac{dU(q)}{dq}
+\end{align}
+\\
+Where $U(q)$ is the function for potential energy, given a charge $q$. $U(q)$ is measured in Joules($J$).
+\\
+\textbf{Kirchoff's Voltage Law}
+\\
+KCL states that in a circuit the algebraic sum of all currents in a loop is equal to zero. This law can be express mathematically  as.
+\begin{align}
+\sum_{j=1}^{N} v_{j}(t) = 0
+\end{align}
+$V_{j}(t)$ is the voltage in the $k$'th loop with N voltages.
+\\
+\textbf{Capacitor}
+\\
+A capacitor is a passive element of a circuit. A capacitor consist of 2 similar sizes plates. When voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can hold when it's fully charged, the capacitor get charged when positive charges are transferred from one plate through the circuit to the other plate. The capacitance is given by the following equation.
+\begin{align}
+C=\dfrac{\epsilon_{0}A}{d}
+\end{align}
+Where C is the capacitance measured in Fahrad($F$), $\epsilon_{0}$ is the permittivity of free space which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates measured in square meters $(m^{2})$ and $d$ is the distance between the 2 plates measured in meters $m$.
+\\
+The charge of a capacitor across a voltage($V$) and capacitance of ($C)$ is equal to.
+\begin{align}
+Q=CV	
+\end{align}
+More?
+\\
+\textbf{Time constant}
+\\
+The time constant ($\tau$) is defined as.
+\begin{align}
+\tau = RC
+\end{align}
+Even though the graph for (??) have a horizontal asymptote, the capacitor is defined as fully charged at $5\tau$.
+\\
+\textbf{Figure}
+\\
+The elements and their properties in a circuit can be represented in a diagram as seen in the simple RC-circuit in  figure.
