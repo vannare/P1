@@ -1,2 +1,34 @@
 \chapter{Differential equations}
-jfhdhf
+
+\section{What is a differential equation?}
+A differential equation is any equation, which includes a derivative. These equations aren't solved with a number, like a traditional equation. These equations are solved with a function, or rather a class of function. \\
+A 'normal' equation would look something like this: $2x+4=12$. This equation could be solved with an $x=4$. However, a differential equation would look something like this instead: $\frac{dy}{dx} = y$. This equation asks "What function is it's own derivative?", which we of course can answer with $y=e^x$. \\
+
+\subsection{Some examples of a differential equation}
+We know from physics that the force applied to an object, is the product of the object's mass, and the acceleration resulting from the applied force. This is often written as: 
+\begin{align*}
+	F=ma
+\end{align*}
+Where $F$ is force, $m$ is mass, and $a$ is acceleration. \\
+We know that acceleration is a change in speed over some time interval. This means that acceleration is the derivative of speed, with respect to time:
+\begin{align}
+	a = \frac{dv}{dt}
+\end{align}
+it also follows that speed is a change in position, over time. Meaning that acceleration can be described with the following equation:
+\begin{align*}
+	a = \frac{dv}{dt} \rightarrow a = \frac{d^2u}{dt^2}
+\end{align*}
+Here $u$ represents the object position, meaning that $du$ is the objects change in position. \\
+Thus force can be described as follows:
+\begin{align}
+	 F = m\frac{d^2u}{dt^2}
+\end{align}
+\\
+The following are a few other examples of differential equations:
+\begin{align}
+	af''+bf'+cf =& 5\frac{dy}{dx}		\\
+	24cos(t)=&\frac{d^3y}{dx^3}			\\
+	f(x)=4f(x) 						
+\end{align}
+\section{The order of a differential equation}
+The order of a differential equation, is denoted as the the degree of the largest degree derivative, present in the equation. Meaning that (2.3) is a second order differential equation. (2.4) is a third order differential equation, and (2.5) is a first order differential equation.
