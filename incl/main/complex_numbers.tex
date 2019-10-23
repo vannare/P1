@@ -1,5 +1,6 @@
 \chapter{Complex Numbers}
 \section{Intro}
+In the following chapter these sources are used as background information \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.
 When simply using real numbers, you cannot always get the right answer to a given equation. An example of this could be the equation $x^2=-1$. Therefore sometimes we have to use a different number system, which uses the number $i$. 
 \begin{align*}
 i=\sqrt{-1}
@@ -22,12 +23,7 @@ An example of this is the numbers: $2i$ and $-7i$, these are called pure imagina
 If you put another part on these imaginary numbers, thus $a+bi$ you get the complex numbers. Example $3+4i$ and $-12i+6$. In this case, $a$ is the real part and $b$, where $i$ is, is the imaginary part. $a$ and $b$ are real numbers. By using this method you can make all pure imaginary numbers into a complex number by writing it like this: $0+3i$. $3i$ does not stand alone anymore and is, therefore, a complex number now. You can also rewrite every real number into a complex by doing this $2+0i$. \\
 By using complex numbers you can, therefore, find a solution to any given polynomial equation. \\ 
 When plotting complex numbers you use the complex plane. The axes are different from the normal coordinate system, instead of the normal $x$ and $y$-axes, you instead have the real part and the imaginary part as the axes. An example of this is shown in the picture below.
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[scale=0.45]{fig/img/complex_plan.png}
-   \caption{This shows how to graph the complex number: $7+3i$, on the complex plane.}
-   \end{center}
-\end{figure}
+
 
 
 \section{Adding and Subtracting}
@@ -52,11 +48,11 @@ When multiplying with complex numbers it can get a little different than multipl
 \end{align*}
 The difference is when $x$ is multiplied by $x$ the result is $x^2$, but since there is a definition for $i^2=-1$ the procedure is slightly different. 
 This can be described on a general form:
-\begin{align*}
+\begin{align}
 (a + bi)(c + di) &= a(c + di) + bi(c + di)
 &= ac + adi + bci + bdi^2
 &= (ac - bd) + i(ad + bc)
-\end{align*}
+\end{align}
 Since $i^2 = -1$ then $bdi^2$ can be described as $-bd$.
 
 \section{Dividing}
@@ -81,13 +77,3 @@ This can again be described more generally:
 &= \frac{ac+bd}{a^2+b^2}+i \frac{bc-ad}{a^2+b^2}				
 \end{align*}
 \end{center}
-
-\section{The Complex Exponential Equation}
-The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. 
-%(noget mere tekst)
-The complex equation of $z=a+ib$ is:
-\begin{align}
-e^z=e^{a+ib}=e^ae^{ib}=e^a\cos(b)+i\sin(b)
-\end{align}
-This function has the property:
-$$\mid e^{a+ib} \mid = \mid e^x \mid$$
