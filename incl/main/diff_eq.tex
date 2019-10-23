@@ -30,5 +30,45 @@ The following are a few other examples of differential equations:
 	24cos(t)=&\frac{d^3y}{dx^3}			\\
 	f(x)=4f(x) 						
 \end{align}
-\section{The order of a differential equation}
+
+\subsection{The order of a differential equation}
 The order of a differential equation, is denoted as the the degree of the largest degree derivative, present in the equation. Meaning that (2.3) is a second order differential equation. (2.4) is a third order differential equation, and (2.5) is a first order differential equation.
+
+\subsection{Separable differential equations}
+A separable differential equation is an equation that takes the form:
+\begin{align}
+	G(y)\frac{dy}{dx}=H(x)
+\end{align}
+The equation can then be re-written and solved as follows, assuming that the integral exists\footnote{Assume that $dx$ and $dy$ can be manipulated algebraically. }:
+\begin{align}
+	G(y)dy=&H(x)dx				\\
+	\int G(y)dy =& \int H(x)dx
+\end{align}
+From here the functions would just need to be integrated, as usual.\\
+From there y could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.
+\subsection{Example of separable function}
+What would the solution be to the following differential equation, with the given condition?
+\begin{align*}
+	\frac{dy}{dx} =& 6y^2x\\
+	y(1)=&\frac{1}{25}
+\end{align*}
+The first step is to rewrite the equation, such that it follows the form of (2.6):
+\begin{align*}
+	\frac{1}{y^2}\frac{dy}{dx}=6x
+\end{align*}
+Then rewrite the equation to fit the form of (2.7), and then integrate both sides the equations:
+\begin{align*}
+	\frac{1}{y^2}dy=&6x dx				\\
+	\int \frac{1}{y^2}dy=&\int 6x dx		\\
+	-\frac{1}{y}=&3x^2+c		
+\end{align*}
+Given the initial condition the integration constant can be found:
+\begin{align*}
+	-\frac{1}{\frac{1}{25}}=&3+c
+	c=%-28
+\end{align*}
+This would mean that y could be isolated, and the equation would be solved in this specific case:
+\begin{align*}
+	-\frac{1}{y}=&3x^2-28\\
+	y=&-\frac{1}{3x^2-28}
+\end{align*}
