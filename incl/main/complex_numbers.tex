@@ -1,4 +1,38 @@
 \chapter{Complex Numbers}
+%Example boks
+\definecolor{ceruleantitle}{RGB}{2,58,119}
+\definecolor{ceruleantitleback}{RGB}{146,230,246}
+
+\newtcolorbox[
+  auto counter,
+  number within=section
+]{myexample}[2][]{%
+  breakable,
+  enhanced,
+  colback=white,
+  colbacktitle=white,
+  arc=0pt,
+  leftrule=1pt,
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  titlerule=0pt,
+  colframe=ceruleantitleback,
+  fonttitle=\normalcolor,
+  overlay={
+    \node[
+      outer sep=0pt,
+      anchor=east,
+      text width=2.5cm,
+      minimum height=4ex,
+      fill=ceruleantitleback,
+      font=\color{ceruleantitle}\sffamily\scshape
+    ] at (title.west) {example~\thetcbcounter};
+  },
+  title=#2,
+  #1
+}
+
 \section{Intro}
 In the following chapter these sources are used as background information \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.
 When simply using real numbers, you cannot always get the right answer to a given equation. An example of this could be the equation $x^2=-1$. Therefore sometimes we have to use a different number system, which uses the number $i$. 
@@ -42,10 +76,14 @@ Similarly this can be put in a general form:
 From the examples above we can see that subtracting and adding with complex numbers is identical to subtracting and adding other and more familiar variables such as ($x$, $y$ so on).
 
 \section{Multiplying}
-When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=sqrt(-1)$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. So if we take an example: \\
+When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=sqrt(-1)$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. \\
+\begin{myexample}
+\
+Example
 \begin{align*}
 (3+5i)(4-3i) = 12 - 9i + 20i - 15i^2 = 12 + 11i - 15 \cdot (-1) = 27 + 11i
 \end{align*}
+\end{myexample}
 The difference is when $x$ is multiplied by $x$ the result is $x^2$, but since there is a definition for $i^2=-1$ the procedure is slightly different. 
 This can be described on a general form:
 \begin{align}
@@ -55,8 +93,13 @@ This can be described on a general form:
 \end{align}
 Since $i^2 = -1$ then $bdi^2$ can be described as $-bd$.
 
+
+
 \section{Dividing}
-When dividing with a complex number the aim is to get some values we can put on the general form $a + bi$. Here is an example:
+When dividing with a complex number the aim is to get some values we can put on the general form $a + bi$. 
+\begin{myexample}
+\
+Example
 \begin{align*}
 \frac{18 + 10i}{3 + 2i} &= \frac{(18 + 10i)(3 - 2i)}{(3+2i)(3-2i)} \\[1em]
 &= \frac{54 - 36i + 30i - 20i^2}{9 - 9i^2} \\[1em]
@@ -65,6 +108,7 @@ When dividing with a complex number the aim is to get some values we can put on 
 &= \frac{74}{18} - \frac{6}{18}i \\[1em]
 &= \frac{37}{9} - \frac{1}{3}i
 \end{align*}
+\end{myexample}
 From the example $\frac{37}{9} - \frac{1}{3}i$ is now on the form $a+bi$ with a and b being fractions. In the example the denominator is being conjugated and as a result of that the imaginary part of the denominator $bi$ disappears and is only left in the numerator. 
 This can again be described more generally:
 \begin{center}
@@ -77,3 +121,53 @@ This can again be described more generally:
 &= \frac{ac+bd}{a^2+b^2}+i \frac{bc-ad}{a^2+b^2}				
 \end{align*}
 \end{center}
+
+\section{The Complex Exponential Equation}
+The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. \\
+%(noget mere tekst)
+
+%Definition boks
+\definecolor{greentitle}{RGB}{7,125,13}
+\definecolor{greentitleback}{RGB}{216,233,213}
+
+\newtcolorbox[
+  auto counter,
+  number within=section
+]{mydefinition}[2][]{%
+  breakable,
+  enhanced,
+  colback=white,
+  colbacktitle=white,
+  arc=0pt,
+  leftrule=1pt,
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  titlerule=0pt,
+  colframe=greentitleback,
+  fonttitle=\normalcolor,
+  overlay={
+    \node[
+      outer sep=0pt,
+      anchor=east,
+      text width=2.5cm,
+      minimum height=4ex,
+      fill=greentitleback,
+      font=\color{greentitle}\sffamily\scshape
+    ] at (title.west) {def.~\thetcbcounter};
+  },
+  title=#2,
+  #1
+}
+
+
+\begin{mydefinition}
+\
+ The complex equation of $z=a+ib$ is:
+\begin{align}
+e^z=e^{a+ib}=e^ae^{ib}=e^a\cos(b)+i\sin(b)
+\end{align}
+This function has the property:
+$$\mid e^{a+ib} \mid = \mid e^x \mid$$
+\end{mydefinition}
+
