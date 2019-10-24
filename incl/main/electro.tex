@@ -16,18 +16,7 @@ $i(t)$ is the current to a given time $t$, $i(t)$ is measured in ampere($A$), ti
 \\
 There exists two types of current, Alternating Current(AC) and Direct current(DC). The electric flow with AC is constant and DC changes over time, see figure.
 \\
-More
-\\
-\\
-\textbf{Resistance}
-\\
-When a resistor a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
-\begin{align}
-v(t)=R\cdot i(t),  R\geq0
-\end{align}
-\\
-\textbf{Voltage}
-\\
+\section{Voltage}
 Voltage($V$), also called electric potential difference is the change of potential energy a charge undergoes when it passes through two given points in a circuit. This be expressed and the following equation.
 \begin{align}
 V=\dfrac{dU(q)}{dq}
@@ -35,10 +24,16 @@ V=\dfrac{dU(q)}{dq}
 \\
 Where $U(q)$ is the function for potential energy, given a charge $q$. $U(q)$ is measured in Joules($J$).
 \\
+More
 \\
-\textbf{Capacitor}
+\section{Resistor}
+When a resistor a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
+\begin{align}
+v(t)=R\cdot i(t),  R\geq0
+\end{align}
 \\
-A capacitor is a passive element of a circuit. A capacitor consist of 2 similar sizes plates. When voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can hold when it's fully charged, the capacitor get charged when positive charges are transferred from one plate through the circuit to the other plate. The capacitance is given by the following equation.
+\section{Capacitor}
+A capacitor is a passive element of a circuit. A capacitor consist of 2 similar sizes plates. When voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can hold when it's fully charged, the capacitor get charged when positive charges are transferred from one plate through the circuit to the other plate. The capacitance is given by the following equation.\
 \begin{align}
 C=\dfrac{\epsilon_{0}A}{d}
 \end{align}
@@ -50,7 +45,6 @@ Q=CV
 \end{align}
 More?
 \\
-\\
 \textbf{Time constant}
 \\
 The time constant ($\tau$) is defined as.
@@ -60,7 +54,14 @@ The time constant ($\tau$) is defined as.
 Even though the graph for (??) have a horizontal asymptote, the capacitor is defined as fully charged at $5\tau$.
 
 \section{Circuit diagrams}
-Electric circuits are visually represented in circuit diagrams. Aside from the above-mentioned elements, they introduce three terms: nodes, branches, and loops. A \textit{node}, indicated by a dot in the circuit, connects the circuit elements. These elements are also called \textit{branches}, i.e. are the voltage supply, resistors, capacitors, and the like, all branches. Lastly, is any closed path in the circuit, in which no node is encountered more than than once (citér bcircuit, 27), called a \textit{loop}.
+Electric circuits are visually represented in circuit diagrams. Aside from the above-mentioned elements, they introduce three terms: nodes, branches, and loops. A \textit{node} connects the circuit elements. These elements are also called \textit{branches}, i.e. are the voltage supply, resistors, capacitors, and the like, all branches. Lastly, is any closed path in the circuit, in which no node is encountered more than than once, called a \textit{loop}\cite[page~32]{bcircuit}. An example of a circuit is shown below.
+
+\begin{figure}[H]
+ \input{fig/tikz/bcircuit}
+\end{figure}
+
+This circuit has five branches, which are shown marked in color: a battery (in blue), three resistors ($R_1, R_2,$ and $R_3$, in red), and the light bulb (in green). The three nodes of the circuit, illustrated by the black lines, connect the branches. Additionally, there are three loops, all of which have same starting and ending point, $V_{battery}$. The first loop passes through $R_1$ and $R_2$, and returns to the starting point. Similarly, the second loop passes through $R_1$ and $R_3$, and returns. The third, and final, loop is the circuit in its entirety, so to speak: it runs through $R_1$, next the light bulb, and then returns. 
+
 \subsection{Kirchhoff's Laws}
 \textbf{Kirchoff's Current Law}
 \\
@@ -77,4 +78,5 @@ KCL states that in a circuit the algebraic sum of all currents in a loop is equa
 \begin{align}
 \sum_{j=1}^{N} v_{j}(t) = 0
 \end{align}
-where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}
+where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}\\
+
