@@ -4,12 +4,15 @@
 to[battery, battery1=$V_{battery}$, color=blue] (0,2)
 to[resistor, R=$R_1$, color=red] (2,2)
 to[resistor, R=$R_2$, color=red] (2,0)
-to[short, *-] (0,0)
-[short, *-](2,2) to [short, *-] (3,2)
+to[short, -] (0,0)
+[short, -](2,2) to [short, -] (3,2)
 to[resistor, R=$R_3$, color=red](3,0)
-to[short, *-] (2,0)
+to[short, -] (2,0)
 [short](3,2) to [short] (5,2)
 to [lamp, l=$R_{\text{bulb}}$, color=green](5,0)
-to [short, *-] (3,0);
+to [short, -] (3,0)
+(0,0) to [short, l_=$N_3$, -] (5,0)
+(2,2) to [short, l^=$N_2$, -] (5,2)
+(0,1) to [short, l^=$N_1$, -] (0,2);
 \end{circuitikz}
 \end{center}
