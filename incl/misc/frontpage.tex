@@ -2,50 +2,62 @@
 % ------------------------------------------------------------------------------
 
 
-\backgroundsetup{
-  scale = 1,
-  angle=0,
-  opacity=1,
-  contents = {
-    \includegraphics[width=\paperwidth,height=\paperheight]{fig/img/aau/waves.pdf}
-  }
-}
-\BgThispage
-\pdfbookmark[0]{Front page}{frontpage}
-\begin{titlepage}
-  \centering
-  \phantom{}
-  \vspace{2cm}
+\begin{titlepage} % Suppresses headers and footers on the title page
 
-  % AAU badge
-  \begin{minipage}[c]{0.2\paperwidth}
-    \centering
-    \makebox[0pt]{
-      \input{fig/tikz/aau-badge}
-    }
-  \end{minipage}
-
-  % Main contents
-  \vspace{4cm}
-  {\fontfamily{bch}\selectfont
-    \fboxsep0pt\colorbox{white}{
-      \begin{minipage}{\textwidth}
-        \centering
-        \color{AAUblue1}
-
-        \vspace{2em}
-        {\Huge\bfseries\projecttitle}
-
-        {\Large\bfseries\projectsubtitle}
-
-        \bigskip
-        \parbox{\textwidth}{\centering\large\projectauthors}
-
-        \bigskip
-        {\bfseries\large{\projectnumber} Project, Group \projectgroup, \projectdegree}
-        \vspace{2em}
-      \end{minipage}
-    }
-  }
+	\centering % Centre everything on the title page
+	
+	\scshape % Use small caps for all text on the title page
+	
+	\vspace*{\baselineskip} % White space at the top of the page
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
+	\rule{\textwidth}{0.4pt} % Thin horizontal rule
+	
+	\vspace{0.75\baselineskip} % Whitespace above the title
+	
+	{\LARGE RC-CIRCUITS\\~\\\large -SIMULATION OF TECHNOLOGICAL SYSTEMS } % Title
+	
+	\vspace{0.75\baselineskip} % Whitespace below the title
+	
+	\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
+	\rule{\textwidth}{1.6pt} % Thick horizontal rule
+	
+	\vspace{2\baselineskip} % Whitespace after the title block
+	
+	%------------------------------------------------
+	%	Subtitle
+	%------------------------------------------------
+	
+	\Large Project report\\\large C.2-5% Subtitle or further description
+	
+	\vspace*{3\baselineskip} % Whitespace under the subtitle
+	
+	%------------------------------------------------
+	%	Editor(s)
+	%------------------------------------------------
+	
+	\fbox{\includegraphics[scale=0.40]{fig/img/front}}
+	
+	\vspace{0.5\baselineskip} % Whitespace before the editors
+	
+	
+	
+	\vfill % Whitespace between editor names and publisher logo
+	
+	%------------------------------------------------
+	%	Publisher
+	%------------------------------------------------
+	
+	
+	
+	\vspace{0.3\baselineskip} % Whitespace under the publisher logo
+	
+	\large Aalborg university % Publication year
+	
+	{\large Mathematics technology} % Publisher
 
 \end{titlepage}
