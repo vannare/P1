@@ -84,6 +84,12 @@ KCL states that in a circuit the algebraic sum of all currents in a loop is equa
 where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}\\
 
 \section{RC Circuit}
+An RC circuit is an electric circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed across a resistor will discharge back through the resistor \cite[p~21]{artof}. "The voltage across the capacitor, which is time dependant, can be found using Kirchhoff's current law." (husk citation)
+
+\begin{figure}[H]
+ \input{fig/tikz/rc}
+\end{figure}
+
 \begin{align}\label{I_C}
 I_{C}= C \dfrac{dv}{dt}
 \end{align}
@@ -187,21 +193,25 @@ V_B C - V_B C \cdot e^{-\frac{t}{RC}} &= q \\
 q(t) &= V_B C(1-e^{-\frac{t}{RC}}) \\
 V_C(t) &= \frac{q(t)}{c} = V_B (1 - e^{-\frac{t}{RC}})
 \end{align*}
-\\
-\subsection{RC circuit example}
-faasdf
+
 \subsection{RC circuit experiment}
 In the following section an RC circuit experiment has been made and data from an RC circuit will be compared to values from a mathematical model. \\
+
 \subsection{Theoretical values}
 In the following example the following values are being used:
+
 \begin{align*}
-R = 4770\Omega \\
-C = 97.61nF
+ R = 4770\Omega \\
+ C = 97.61nF
 \end{align*}
+
 The circuit is therefore going to look like this:
 \begin{figure}[H]
  \input{fig/tikz/excircuit.tex}
 \end{figure}
-\subsection{Test values comparison}
 
+\subsection{Test values comparison}
+\begin{figure}[H]
+ \includegraphics{fig/img/eks_1.pdf}
+ \end{figure}
 
