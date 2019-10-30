@@ -14,7 +14,6 @@ import numpy as np #bruges til plots og arrays
 from matplotlib.ticker import FormatStrFormatter #ticks på plottet
 from scipy import stats #regression
 import matplotlib.patches as mpatches #gør plottet pænere
-import matplotlib.pyplot as plt #gør plottet pænere
 
 """data handling------------------------------------------------------------"""
 
@@ -123,6 +122,9 @@ black_patch = mpatches.Patch(color='black', label='Input Voltage')
 r_val_str = '$R^2$ ={0:.6f} '.format(r_squared)                     #used in next block of code
 #the below function adds the legend to the top right
 plt.legend(handles=[black_patch, blue_patch, red_patch, mpatches.Patch(fc = 'None', ec = 'None', label = r_val_str)])
+
+plt.xlabel('Time (time constants)')
+plt.ylabel('Voltage across capacitor (volts)')
 
 """Printing the results-----------------------------------------------------"""
 
