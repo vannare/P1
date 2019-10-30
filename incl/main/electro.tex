@@ -27,8 +27,9 @@ Where $U(q)$ is the function for potential energy, given a charge $q$. $U(q)$ is
 More
 \\
 \section{Resistor}
-When a resistor a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
-\begin{align}
+When a resistor which is a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
+\begin{align} 
+\label{Ohm}
 v(t)=R\cdot i(t),  R\geq0
 \end{align}
 \\
@@ -42,6 +43,7 @@ Where C is the capacitance measured in Fahrad($F$), $\epsilon_{0}$ is the permit
 \\
 The charge of a capacitor across a voltage($V$) and capacitance of ($C)$ is equal to.
 \begin{align}
+\label{QCV}
 Q=CV	
 \end{align}
 More?
@@ -82,16 +84,98 @@ KCL states that in a circuit the algebraic sum of all currents in a loop is equa
 where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}\\
 
 \section{RC Circuit}
-asdf
-\subsection{Transient analysis}
-blah
+An RC circuit is an electric circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed across a resistor will discharge back through the resistor \cite[p~21]{artof}. "The voltage across the capacitor, which is time dependant, can be found using Kirchhoff's current law." (husk citation)
 
+\begin{figure}[H]
+ \input{fig/tikz/rc}
+\end{figure}
+
+\begin{align}\label{I_C}
+I_{C}= C \dfrac{dv}{dt}
+\end{align}
+\subsection{Transient analysis}
+To find out how the the voltage of a capacitor is changed over time when it's charged and discharged. To do this transient analysis is used. First the function for when the capacitor is discharged is found.
+\\
+In a RC-circuit, according the Kirchoff's Current Law states that the sum of the currents in a node is equal to zero. This can be written as the equation.
+\begin{align}
+I_{C}+I_{R}=0 \Leftrightarrow \\
+I_{C}= -I_{R}
+\end{align}
+\\
+If we insert the definition of the current of the capacitor \eqref{I_C} and the resistor \eqref{Ohm} in the equation above we get.
+\begin{align}
+C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
+\Leftrightarrow \dfrac{dv}{dt} &= \dfrac{-V}{R}\dfrac{1}{C} \\
+\Leftrightarrow dv &= \dfrac{-V}{R}\dfrac{1}{C}dt \\
+\Leftrightarrow \dfrac{1}{V}dv &= \dfrac{-1}{RC}dt
+\end{align}
+To isolate the voltage each side of the equation is integrated.
+\begin{align}
+\int \dfrac{1}{V}dv = \dfrac{-1}{RC} \int dt \\
+\rightarrow \ln(V) = \dfrac{-t}{RC} + A \\
+\rightarrow V = e^{\frac{-t}{RC}}e^{A}
+\end{align}
+Since A is the constant of integration, the constant $e^A$ can be defined as a new constant we define as $e^A=B$.
+\\
+By definition the starting voltage of the capacitor is given by $V_C(t=0)=V_0$. By inserting this and B is the equation is gives following: 
+\begin{align}
+V(t)= e^{\frac{-t}{RC}}B \\
+V(0)= B = V_0
+\end{align}
+By this we can conclude that the constant $B$ is equal to start voltage $V_0$. By inserting this the final function if found.
+\begin{align}
+\label{V_down}
+\Aboxed{
+ V(t) = V_0e^{\frac{-t}{RC}}
+ }
+\end{align}
+\eqref{V_down} is the function which describes how the voltage decreases over time when the capacitor the discharged.
+\\
+\\
+Now the function for when the capacitor charges is derived.
+Using KCL which states that the sum of the voltages over a loop must be equal to zero. In a RC circuit with a battery this can be written algebraic as. 
+\begin{align}
+V_B-V_R-V_C \\
+\Leftrightarrow V_B=V_R+V_C
+\end{align}
+$V_R$ and $V_C$ have negative sign since their elements creates a negative  potential difference when charges passed trough them.
+\\
+By Ohm's law \eqref{Ohm} the voltage of the resistor can be expressed $V_R=IR$. By the definition of a capacitor \eqref{QCV} the voltage of the capacitor can we expressed as $V_C=\dfrac{Q}{C}$. This is inserted in the equation above.
+\begin{align}
+V_B=V_R+V_C \\
+\rightarrow V_B = IR+\dfrac{Q}{C}
+\end{align}
+As stated earlier the current is defined as $I =\dfrac{dq}{dt}$ this is inserted in the place of $I_R$.
+\begin{align}
+V_B &= \dfrac{dq}{dt} R + \dfrac{Q}{C} \\
+\Leftrightarrow V_B - \dfrac{Q}{C} &= \dfrac{dq}{dt}R \\
+\Leftrightarrow \dfrac{1}{R}dt &= \dfrac{1}{V_B-\dfrac{q}{C}}dq \\
+\Leftrightarrow \dfrac{1}{RC}dt &= \dfrac{1}{q-V_BC} dq
+\end{align}
+Both side are then integrated
+\\
+\begin{align}
+-\dfrac{1}{RC}\int_{0}^t dt &= \int_{0}^q \dfrac{1}{q-V_BC}dq \\
+\rightarrow -\dfrac{t}{RC} &= \ln(q-V_BC) |_{0}^{q} \\
+\Leftrightarrow -\dfrac{t}{RC} &= \ln(\dfrac{q-V_BC}{-V_BC}) \\
+\Leftrightarrow e^{\dfrac{-t}{RC}} &= \dfrac{q-V_BC}{-V_BC} \\
+\Leftrightarrow q &= V_BC(1-e^{\frac{-t}{RC}})
+\end{align}
+The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$ the function for the voltage is found.
+\begin{align}
+\label{V_up}
+\Aboxed{
+V_C=V_B(1-e^{\frac{-t}{RC}})
+}
+\end{align}
+\eqref{V_up} is the function which describes how the voltage increases over time when the capacitor the charged.
 \begin{align}
 V_R &= I \cdot R \\
 V_C &= \frac{q}{C} \\
 \int \frac{1}{a} &= \ln(a) \\
 \ln(a) - \ln(b) &= \ln(\frac{a}{b})
 \end{align}
+\\
 \begin{align*}
 V_B &= V_R + V_C \\
 V_B &= I \cdot R + \frac{q}{C} \\
@@ -110,14 +194,17 @@ q(t) &= V_B C(1-e^{-\frac{t}{RC}}) \\
 V_C(t) &= \frac{q(t)}{c} = V_B (1 - e^{-\frac{t}{RC}})
 \end{align*}
 
-\section{RC circuit experiment}
+\subsection{RC circuit experiment}
 In the following section an RC circuit experiment has been made and data from an RC circuit will be compared to values from a mathematical model. \\
+
 \subsection{Theoretical values}
 In the following example the following values are being used:
+
 \begin{align*}
-R = 4770\Omega \\
-C = 97.61nF
+ R = 4770\Omega \\
+ C = 97.61nF
 \end{align*}
+
 The circuit is therefore going to look like this:
 \begin{figure}[H]
 \input{fig/tikz/excircuit.tex}
@@ -153,4 +240,8 @@ gu
 \includegraphics[scale=1]{fig/img/eks_1}
 \end{figure}
 
+\subsection{Test values comparison}
+\begin{figure}[H]
+ \includegraphics{fig/img/eks_1.pdf}
+ \end{figure}
 
