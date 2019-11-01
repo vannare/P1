@@ -187,26 +187,27 @@ V_C(t) &= \frac{q(t)}{c} = V_B (1 - e^{-\frac{t}{RC}})
 \end{align*}
 
 \subsection{RC circuit experiment}
-In the following section an RC circuit experiment has been made and data from an RC circuit will be compared to values from a mathematical model. \\
+In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model. \\
 
 \subsection{Theoretical values}
-In the following example the following values are being used:
+The resistance and capacitor in the experiment, had the following values:
 
 \begin{align*}
- R = 4770\Omega \\
- C = 97.61nF
+ R =& 4770\Omega \\
+ C =& 97.61nF
 \end{align*}
 
-The circuit is therefore going to look like this:
+The circuit was set up as follows:
 \begin{figure}[H]
-\input{fig/tikz/excircuit.tex}
+	\input{fig/tikz/excircuit.tex}
 \end{figure}
-From these two numbers it is possible to calculate the time constant $\tau$, which is $RC = \tau$. In this case $\tau$ is:
+The time constant $\tau$, is then calculated $\tau = RC$. In this case $\tau$ is:
 \begin{align*}
-4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s \\
+	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s \\
 \end{align*}
-Furthermore, the time constant together with the formula for increasing or decreasing voltage and current can be put in a table. Since the formula $V_{charge}(t)=V_B(1-e^{\frac{-t}{RC}})$ contains $e^{\frac{-t}{RC}}$ then table values can be calculated for different $\tau$ values. If different $\tau$ values are put in the function then $e$ becomes: $e^{\frac{-\tau}{\tau}}$ and for two $\tau$ it looks like: $e^{\frac{-2\tau}{\tau}}$. Hereby a table can be created for $V_{charge}$ and $V_{discharge}$:
+Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $V_{charge}(t)=V_B(1-e^{\frac{-t}{RC}})$ contains $e^{\frac{-t}{RC}}$ then the table values can be calculated for different $\tau$ values. Hereby a table can be created for $V_{charge}$ and $V_{discharge}$:
 \begin{table}[H]
+\center
 \begin{tabular}{|l|l|l|}
 \hline
 $\tau$ & $V_{charge}$ & $V_{decharge}$ \\ \hline
@@ -217,13 +218,12 @@ $\tau$ & $V_{charge}$ & $V_{decharge}$ \\ \hline
 5      & 99.3\%       & 0.7\%          \\ \hline
 \end{tabular}
 \end{table}
-It is generally considered that $5\tau$ is fully charged or discharged. \\
-Now it is possible to find the time it takes for the capacitor to be fully charged (or discharged):
+Generally, the capacitor is considered fully charged, or discharged, at $5\tau$. \\
+The time it takes for the capacitor to be fully charged, or discharged, is in this case:
 \begin{align*}
 5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s \\
 &= 2.33 ms
 \end{align*}
-It is now possible to conclude that after $2.33 ms$ the capacitor is fully charged and waiting another $2.33 ms$ the capacitor is fully discharged. 
 \subsection{Test values comparison}
 gu
 
