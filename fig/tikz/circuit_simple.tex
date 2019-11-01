@@ -1,7 +1,10 @@
 \begin{center}
 	\begin{circuitikz}[american voltages]
-		\draw
-		to[V, v=$U_q$] (0, 2)
-		to[ground]
+	\draw 
+		(0,0) to[battery, battery1=$V_{battery}$] (0,2)
+		to[lamp, l=$Lightbulb$] (2, 2)
+		to[short] (2,0)
+		to[resistor, R=$R$] (0,0);
+		
 	\end{circuitikz}
 \end{center}
