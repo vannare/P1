@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis lines =center,
+xlabel={t},
+ylabel={i(t)},
+    height=7cm, width=9cm,
+    xmin=0, xmax=10, ymin=-2, ymax=2]
+\addplot [
+    domain=0:10, 
+    samples=100, 
+    color=red,
+]
+{1};
+\addlegendentry{$DC$}
+\addplot [
+    domain=0:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {sin(\x r)};
+\addlegendentry{$AC$}
+\end{axis}
+\end{tikzpicture}
