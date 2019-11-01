@@ -228,15 +228,17 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 &= 2.33 ms
 \end{align*}
 \subsection{Test values comparison}
-gu
-
-\begin{figure}
+\begin{figure}[H]
+	\center
+		\includegraphics[clip, trim=7cm 11cm 7cm 11cm, scale=1]{fig/img/an_dis_RC}
+	\caption{RC circuit}
+\end{figure}
+This section is using the Digilent Discovery 2 for setting up an RC circuit. The first step in setting up an RC circuit is putting in a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator is using an AC step voltage, which simplifies calculations compared to more complex waveforms. The current is then passing through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is then inserted to measure the charging and discharging of the capacitor. The current is first passing through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). If the scopes were, hypothetically, switched around, then it would be measuring the inverse charging/discharging. Lastly, the current is passing through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in REF is created with the same values as in the previous section. \\ \\
+To get the test values compatible with the theoretical values the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. The wave generator, therefore, has to produce $214.6$ hertz ($(2 \cdot 2.33 ms)^{-1} = 214.6 H$). \\
+The data from the theoretical values and the test results can now be compared using python:
+\begin{figure}[H]
 \center
 \includegraphics[scale=1]{fig/img/eks_1}
 \end{figure}
-
-\subsection{Test values comparison}
-\begin{figure}[H]
- \includegraphics{fig/img/eks_1.pdf}
- \end{figure}
+As shown on the graph, the tested results are extremely close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two curves are almost identic.
 
