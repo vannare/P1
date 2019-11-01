@@ -15,9 +15,11 @@ i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{-\infty}^{t}i(x)dx
 \end{align}
 where $i(t)$ is the current (in ampere $A$), to a given time $t$ (in seconds $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb$(C)$.
 \\
-There exists two types of current, Alternating Current (AC) and Direct current (DC). DC current is constant, while AC alternates, see figure. WHAT FIGURE? REFERENCE
-\begin{figure}
+There exists two types of current, Alternating Current (AC) and Direct current (DC). DC current is constant, while AC alternates, see figure \ref{fig:ACDC}. 
+\begin{figure}[H] 
 \input{fig/tikz/ADDC_fig}
+\caption{Current for AC and DC versus time}
+\label{fig:ACDC}
 \end{figure}
 \section{Voltage}
 Voltage ($V$), also called electric potential difference, is the change of potential energy a charge undergoes when it passes through two given points in a circuit. This is expressed in the following equation:
@@ -64,13 +66,13 @@ Observe a circuit up until a node, past which the path of the circuit splits in 
 where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, with $N$ branches connected to the node. \cite[page~32]{bcircuit}
 \\
 \\
-\textbf{Kirchoff's Voltage Law (KVL)}
+\textbf{Kirchoff's Voltage Law}
 \\
-KVL states: In a circuit the algebraic sum of all voltages in a loop is equal to zero. This law can be express mathematically  as.
+KVL states: In a circuit the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically  as.
 \begin{align}
 \sum_{j=1}^{N} v_{j}(t) = 0
 \end{align}
-where $v_{j}(t)$ is the voltage in the $j$'th loop with $N$ voltages.\citep[page~34]{bcircuit}\\
+where $v_{j}(t)$ is the voltage in the $j$'th voltage with $N$ voltages.\citep[page~34]{bcircuit}\\
 
 \section{RC Circuit}
 An RC circuit is an electrical circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed in series with a resistor will discharge back through the resistor \cite[p~21]{artof}. "The voltage across the capacitor, which is time dependant, can be found using Kirchhoff's current law." (husk citation)
@@ -90,7 +92,7 @@ According the Kirchhoff's Current Law states that the sum of the currents in a n
 I_{C}+I_{R}=0 \Leftrightarrow 
 I_{C}= -I_{R}
 \end{align*}
-Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as follows:
+Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as it follows in subsection \ref{SDE}
 \begin{align*}
 C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
 \Leftrightarrow \dfrac{dv}{dt} &= \dfrac{-V}{R}\dfrac{1}{C} \\
