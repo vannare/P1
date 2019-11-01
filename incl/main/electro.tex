@@ -1,53 +1,48 @@
 \chapter{Electromagnetism}
 \section{Intro}
-Electric circuits are fundamental building blocks in, more or less, every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electric circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical source (a battery, for instance).
+Electrical circuits are fundamental building blocks in, more or less, every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical 	source (a battery, for instance).
 \\ 
-In this chapter, if a function is assumed constant, it is noted with capitalization of its original notation. 
+In this chapter, if a function is assumed constant, it is denoted with capitalization of its original notation. 
 \\ 
 \\
-A circuit is an electronic system which consists of different elements with different functions, that change the way the circuit acts. The different elements of the circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorbs energy, e.g. a light bulb. A circuit with a battery and a bulb can be represented in the following way. (incl. fig.)\\ This circuit consist of an active element, a battery and a passive element, a light bulb. Charges are transported by the current from the + side of the battery through the light bulb that absorbs the energy from the charges which then and are transported to the - of the battery.
+A circuit is an electronic system, which consists of different elements with different functions, that change the way the circuit acts. The different elements of the circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorbs energy, e.g. a light bulb. A circuit with a battery and a bulb can be represented in the following way. (incl. fig.)\\ This circuit consist of an active element, a battery, and a passive element, a light bulb. Charge is transported by the current from the positive terminal of the battery, through to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
 \\
 \section{Current}
-Current is what makes charges move in a circuit. The size of a current can be defined as the charge that is moved over time. This can be expressed as the following relation.
+Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation:
 \begin{align}
 i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{-\infty}^{t}i(x)dx
 \end{align}
-$i(t)$ is the current to a given time $t$, $i(t)$ is measured in ampere($A$), time ($t$) in seconds ($s$) and $q(t)$ the function for the charge at a given time $t$, $q(t)$ is measured in Coulomb$(C)$.
+where $i(t)$ is the current (in ampere $A$), to a given time $t$ (in seconds $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb$(C)$.
 \\
-There exists two types of current, Alternating Current(AC) and Direct current(DC). The electric flow with AC is constant and DC changes over time, see figure. WHAT FIGURE? REFERENCE
+There exists two types of current, Alternating Current (AC) and Direct current (DC). DC current is constant, while AC alternates, see figure. WHAT FIGURE? REFERENCE
 \\
 \section{Voltage}
-Voltage($V$), also called electric potential difference is the change of potential energy a charge undergoes when it passes through two given points in a circuit. This be expressed and the following equation.
+Voltage ($V$), also called electric potential difference, is the change of potential energy a charge undergoes when it passes through two given points in a circuit. This is expressed in the following equation:
 \begin{align}
-V=\dfrac{dU(q)}{dq}
+	V=\dfrac{dU(q)}{dq}
 \end{align}
 \\
-Where $U(q)$ is the function for potential energy, given a charge $q$. $U(q)$ is measured in Joules($J$).
-\\
-More
-\\
+where $U(q)$ (in joules $J$) is the function for potential energy, given a charge $q$.
 \section{Resistor}
-When a resistor which is a passive element is added to the circuit it creates a resistance($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by.
+When a resistor, which is a passive element, is added to the circuit it creates a resistance ($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage, the mathematical relation of this is given by:
 \begin{align} 
 \label{Ohm}
 v(t)=R\cdot i(t),  R\geq0
 \end{align}
-\\
-REWRITE FIRST SENTENCE
+where $R$ is resistance.
 \section{Capacitor}
-A capacitor is a passive element of a circuit. A capacitor consist of 2 similar sizes plates. When voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can hold when it's fully charged, the capacitor get charged when positive charges are transferred from one plate through the circuit to the other plate. The capacitance is given by the following equation.\
-\begin{align}
+A capacitor is a passive element of a circuit. A capacitor consist of two similar sizes plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store when it's fully charged. The capacitor gets charged when positive a charge is transferred from one plate, through the circuit, to the other plate. The capacitance is given by the following equation:
+\begin{align*}
 C=\dfrac{\epsilon_{0}A}{d}
-\end{align}
-Where C is the capacitance measured in Fahrad($F$), $\epsilon_{0}$ is the permittivity of free space which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates measured in square meters $(m^{2})$ and $d$ is the distance between the 2 plates measured in meters $m$.
+\end{align*}
+where $C$ is the capacitance (in farad $F$), $\epsilon_{0}$ is the permittivity of free space which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters $(m^{2})$), and $d$ is the distance between the two plates (in meters $m$).
 \\
-The charge of a capacitor across a voltage($V$) and capacitance of ($C)$ is equal to.
+The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
 \begin{align}
 \label{QCV}
 Q=CV	
 \end{align}
-More?
-\\
+
 \textbf{Time constant}
 \\
 The time constant ($\tau$) is defined as.
@@ -57,22 +52,22 @@ The time constant ($\tau$) is defined as.
 Even though the graph for (??) have a horizontal asymptote, the capacitor is defined as fully charged at $5\tau$.
 
 \section{Circuit diagrams}
-Electric circuits are visually represented in circuit diagrams. Aside from the above-mentioned elements, they introduce three terms: nodes, branches, and loops. A \textit{node} connects the circuit elements. These elements are also called \textit{branches}, i.e. are the voltage supply, resistors, capacitors, and the like, all branches. Lastly, is any closed path in the circuit, in which no node is encountered more than than once, called a \textit{loop}\cite[page~32]{bcircuit}. An example of a circuit is shown below.
+Electrical circuits are visually represented in circuit diagrams. In addition of the above-mentioned elements, they introduce three terms: nodes, branches, and loops. A \textit{node} connects the circuit elements. These elements are also called \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. Lastly, is any closed path in the circuit, in which no node is encountered more than than once, called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below.
 
 \begin{figure}[H]
  \input{fig/tikz/bcircuit}
 \end{figure}
 
-This circuit has five branches, which are shown marked in color: a battery (in blue), three resistors ($R_1, R_2,$ and $R_3$, in red), and the light bulb (in green). The three nodes of the circuit ($N_1$, $N_2$, and $N_3$) connect the branches. Additionally, there are three loops, all of which have same starting and ending point, $V_{battery}$. The first loop passes through $R_1$ and $R_2$, and returns to the starting point. Similarly, the second loop passes through $R_1$ and $R_3$, and returns. The third, and final, loop is the circuit in its entirety, so to speak: it runs through $R_1$, then the light bulb, and returns. 
+This circuit has five branches, which are shown marked in color: a battery (in blue), three resistors ($R_1, R_2,$ and $R_3$, in red), and the light bulb (in green). The three nodes of the circuit ($N_1$, $N_2$, and $N_3$) connect the branches. Additionally, there are three loops, all of which have same starting and ending point, $V_{battery}$. The first loop passes through $R_1$ and $R_2$, and returns to the starting point. Similarly, the second loop passes through $R_1$ and $R_3$, and returns. The third, and final, loop runs through $R_1$, then the light bulb, and returns. 
 
 \subsection{Kirchhoff's Laws}
-\textbf{Kirchoff's Current Law}
+\textbf{Kirchhoff's Current Law}
 \\
 Observe a circuit up until a node, past which the path of the circuit splits in two. The current encountering the node does not accumulate (as it would e.g. in a battery). Instead, all electrons flowing to that node split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law (KCL), which states that the algebraic sum of all currents in a node is equal to zero. 
 \begin{align}
 \sum_{j=1}^{N} i_{j}(t) = 0
 \end{align}
-where $i_{j}(t)$ is the $k$'th current entering the node through branch $j$, with $N$ branches connected to the node.\cite[page~32]{bcircuit}
+where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, with $N$ branches connected to the node. \cite[page~32]{bcircuit}
 \\
 \\
 \textbf{Kirchoff's Voltage Law (KVL)}
@@ -84,7 +79,7 @@ KCL states that in a circuit the algebraic sum of all currents in a loop is equa
 where $V_{j}(t)$ is the voltage in the $k$'th loop with $N$ voltages.\citep[page~34]{bcircuit}\\
 
 \section{RC Circuit}
-An RC circuit is an electric circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed across a resistor will discharge back through the resistor \cite[p~21]{artof}. "The voltage across the capacitor, which is time dependant, can be found using Kirchhoff's current law." (husk citation)
+An RC circuit is an electrical circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed in series with a resistor will discharge back through the resistor \cite[p~21]{artof}. "The voltage across the capacitor, which is time dependant, can be found using Kirchhoff's current law." (husk citation)
 
 \begin{figure}[H]
  \input{fig/tikz/rc}
@@ -94,87 +89,84 @@ An RC circuit is an electric circuit consisting of resistors and capacitors. In 
 I_{C}= C \dfrac{dv}{dt}
 \end{align}
 \subsection{Transient analysis}
-To find out how the the voltage of a capacitor is changed over time when it's charged and discharged. To do this transient analysis is used. First the function for when the capacitor is discharged is found.
+To find out how the voltage of a capacitor changes over time when it's charged and discharged, transient analysis is used. The function for a charging capacitor can be found as follows:
 \\
-In a RC-circuit, according the Kirchoff's Current Law states that the sum of the currents in a node is equal to zero. This can be written as the equation.
-\begin{align}
-I_{C}+I_{R}=0 \Leftrightarrow \\
+According the Kirchhoff's Current Law states that the sum of the currents in a node is equal to zero. In the case of an RC-circuit, the law can be written as the following equation:
+\begin{align*}
+I_{C}+I_{R}=0 \Leftrightarrow 
 I_{C}= -I_{R}
-\end{align}
-\\
-If we insert the definition of the current of the capacitor \eqref{I_C} and the resistor \eqref{Ohm} in the equation above we get.
-\begin{align}
+\end{align*}
+Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as follows:
+\begin{align*}
 C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
 \Leftrightarrow \dfrac{dv}{dt} &= \dfrac{-V}{R}\dfrac{1}{C} \\
 \Leftrightarrow dv &= \dfrac{-V}{R}\dfrac{1}{C}dt \\
 \Leftrightarrow \dfrac{1}{V}dv &= \dfrac{-1}{RC}dt
-\end{align}
-To isolate the voltage each side of the equation is integrated.
-\begin{align}
-\int \dfrac{1}{V}dv = \dfrac{-1}{RC} \int dt \\
-\rightarrow \ln(V) = \dfrac{-t}{RC} + A \\
-\rightarrow V = e^{\frac{-t}{RC}}e^{A}
-\end{align}
-Since A is the constant of integration, the constant $e^A$ can be defined as a new constant we define as $e^A=B$.
+\end{align*}
+Both sides of the equation is then integrated, and the Voltage is isolated:
+\begin{align*}
+\int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt \\
+\Leftrightarrow \ln(V) =& \dfrac{-t}{RC} + A \\
+\Leftrightarrow V =& e^{\frac{-t}{RC}}e^{A}
+\end{align*}
+Since A is the constant of integration, the constant $e^A$ can be defined as a new constant $e^A=B$.
 \\
-By definition the starting voltage of the capacitor is given by $V_C(t=0)=V_0$. By inserting this and B is the equation is gives following: 
+By definition the starting voltage of the capacitor is given by $V_C(t=0)=V_0$; inserting this and $B$ yields the following equation: 
 \begin{align}
 V(t)= e^{\frac{-t}{RC}}B \\
 V(0)= B = V_0
 \end{align}
-By this we can conclude that the constant $B$ is equal to start voltage $V_0$. By inserting this the final function if found.
+The constant $B$ is then equal to start voltage $V_0$. By inserting this (3.10) in the final function is found.
 \begin{align}
 \label{V_down}
 \Aboxed{
  V(t) = V_0e^{\frac{-t}{RC}}
  }
 \end{align}
-\eqref{V_down} is the function which describes how the voltage decreases over time when the capacitor the discharged.
+The equation \eqref{V_down} is the function, which describes how the voltage decreases over time, when the capacitor the discharged.
 \\
 \\
-Now the function for when the capacitor charges is derived.
-Using KCL which states that the sum of the voltages over a loop must be equal to zero. In a RC circuit with a battery this can be written algebraic as. 
-\begin{align}
-V_B-V_R-V_C \\
-\Leftrightarrow V_B=V_R+V_C
-\end{align}
-$V_R$ and $V_C$ have negative sign since their elements creates a negative  potential difference when charges passed trough them.
+Now the function for when the capacitor charges is derived. KCL states that the sum of the voltages over a loop must be equal to zero. In an RC circuit with a battery this can be written algebraic as:
+\begin{align*}
+V_B-V_R-V_C =& 0 \\
+\Leftrightarrow V_B=&V_R+V_C
+\end{align*}
+$V_R$ and $V_C$ have negative signs since their elements creates a negative potential difference when charge passes trough them.
 \\
-By Ohm's law \eqref{Ohm} the voltage of the resistor can be expressed $V_R=IR$. By the definition of a capacitor \eqref{QCV} the voltage of the capacitor can we expressed as $V_C=\dfrac{Q}{C}$. This is inserted in the equation above.
-\begin{align}
-V_B=V_R+V_C \\
-\rightarrow V_B = IR+\dfrac{Q}{C}
-\end{align}
-As stated earlier the current is defined as $I =\dfrac{dq}{dt}$ this is inserted in the place of $I_R$.
-\begin{align}
+By Ohm's law \eqref{Ohm} the voltage of the resistor can be expressed as $V_R=IR$. By the definition of a capacitor \eqref{QCV} the voltage of the capacitor can be expressed as $V_C=\dfrac{Q}{C}$. This is inserted in the equation above:
+\begin{align*}
+V_B=&V_R+V_C \\
+\Leftrightarrow \rightarrow V_B =& IR+\dfrac{Q}{C}
+\end{align*}
+As stated earlier current is defined as $I =\dfrac{dq}{dt}$, this is inserted in place of $I_R$. The differentials are then separated
+\begin{align*}
 V_B &= \dfrac{dq}{dt} R + \dfrac{Q}{C} \\
 \Leftrightarrow V_B - \dfrac{Q}{C} &= \dfrac{dq}{dt}R \\
 \Leftrightarrow \dfrac{1}{R}dt &= \dfrac{1}{V_B-\dfrac{q}{C}}dq \\
 \Leftrightarrow \dfrac{1}{RC}dt &= \dfrac{1}{q-V_BC} dq
-\end{align}
+\end{align*}
 Both side are then integrated
-\\
-\begin{align}
+\begin{align*}
 -\dfrac{1}{RC}\int_{0}^t dt &= \int_{0}^q \dfrac{1}{q-V_BC}dq \\
 \rightarrow -\dfrac{t}{RC} &= \ln(q-V_BC) |_{0}^{q} \\
 \Leftrightarrow -\dfrac{t}{RC} &= \ln(\dfrac{q-V_BC}{-V_BC}) \\
 \Leftrightarrow e^{\dfrac{-t}{RC}} &= \dfrac{q-V_BC}{-V_BC} \\
 \Leftrightarrow q &= V_BC(1-e^{\frac{-t}{RC}})
-\end{align}
-The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$ the function for the voltage is found.
+\end{align*}
+The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for voltage is found.
 \begin{align}
 \label{V_up}
 \Aboxed{
 V_C=V_B(1-e^{\frac{-t}{RC}})
 }
 \end{align}
-\eqref{V_up} is the function which describes how the voltage increases over time when the capacitor the charged.
-\begin{align}
+\eqref{V_up} is the function which describes how the voltage increases over time, when the capacitor is charged.
+\begin{align*}
 V_R &= I \cdot R \\
 V_C &= \frac{q}{C} \\
 \int \frac{1}{a} &= \ln(a) \\
 \ln(a) - \ln(b) &= \ln(\frac{a}{b})
-\end{align}
+\end{align*}
 \\
 \begin{align*}
 V_B &= V_R + V_C \\

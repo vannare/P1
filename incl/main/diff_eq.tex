@@ -1,38 +1,38 @@
 \chapter{Differential equations}
 
 \section{What is a differential equation?}
-A differential equation is any equation, which includes a derivative. These equations aren't solved with a number, like a traditional equation. These equations are solved with a function, or rather a class of function. \\
-A 'normal' equation would look something like this: $2x+4=12$. This equation could be solved with an $x=4$. However, a differential equation would look something like this instead: $\frac{dy}{dx} = y$. This equation asks "What function is it's own derivative?", which we of course can answer with $y=e^x$. \\
+A differential equation is any equation, which includes a derivative. These equations aren't solved with a number like a algebraic equations. These equations are solved with a function, or rather a class of function. \\
+A algebraic equation would look something like this: $2x+4=12$. This equation could be solved with $x=4$. However, a differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, of course, know is $y=e^x$. \\
 
-\subsection{Some examples of a differential equation}
-We know from physics that the force applied to an object, is the product of the object's mass, and the acceleration resulting from the applied force. This is often written as: 
+\subsection{Examples of differential equations}
+Newton's second law states that the force applied to an object, is the product of the mass of the object, and the acceleration resulting from the applied force. This is written as: 
 \begin{align*}
 	F=ma
 \end{align*}
-Where $F$ is force, $m$ is mass, and $a$ is acceleration. \\
-We know that acceleration is a change in speed over some time interval. This means that acceleration is the derivative of speed, with respect to time:
+where $F$ is force, $m$ is mass, and $a$ is acceleration. \\
+Acceleration is defined as the change in speed over a time interval. Acceleration is then the derivative of speed, with respect to time:
 \begin{align}
 	a = \frac{dv}{dt}
 \end{align}
-it also follows that speed is a change in position, over time. Meaning that acceleration can be described with the following equation:
+It also follows that speed is a change in position over time. Meaning that acceleration can be described with the following equation:
 \begin{align*}
-	a = \frac{dv}{dt} \rightarrow a = \frac{d^2u}{dt^2}
+	a = \frac{dv}{dt} \rightarrow a = \frac{d^2s}{dt^2}
 \end{align*}
-Here $u$ represents the object position, meaning that $du$ is the objects change in position. \\
+Here $s$ represents the object's position, meaning that $ds$ is the objects change in position. \\
 Thus force can be described as follows:
 \begin{align}
-	 F = m\frac{d^2u}{dt^2}
+	 F = m\frac{d^2s}{dt^2}
 \end{align}
 \\
 The following are a few other examples of differential equations:
 \begin{align}
 	af''+bf'+cf =& 5\frac{dy}{dx}		\\
 	24cos(t)=&\frac{d^3y}{dx^3}			\\
-	f(x)=4f(x) 						
+	f(x)=&4f(x) 						
 \end{align}
 
 \subsection{The order of a differential equation}
-The order of a differential equation, is denoted as the the degree of the largest degree derivative, present in the equation. Meaning that (2.3) is a second order differential equation. (2.4) is a third order differential equation, and (2.5) is a first order differential equation.
+The order of a differential equation, is denoted as the largest degree derivative present in the equation. Equation (2.3) is then a second order differential equation, (2.4) is a third order differential equation, and (2.5) is a first order differential equation.
 
 \subsection{Separable differential equations}
 A separable differential equation is an equation that takes the form:
@@ -44,13 +44,12 @@ The equation can then be re-written and solved as follows, assuming that the int
 	G(y)dy=&H(x)dx				\\
 	\int G(y)dy =& \int H(x)dx
 \end{align}
-From here the functions would just need to be integrated, as usual.\\
-From there y could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.
-\subsection{Example of separable function}
+From here the functions would be integrated, as usual.\\
+Then $y$ could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.
+\subsubsection{Example}
 What would the solution be to the following differential equation, with the given condition?
 \begin{align*}
-	\frac{dy}{dx} =& 6y^2x\\
-	y(1)=&\frac{1}{25}
+	\frac{dy}{dx} = 6y^2x, y(1)=\frac{1}{25}
 \end{align*}
 The first step is to rewrite the equation, such that it follows the form of (2.6):
 \begin{align*}
@@ -64,8 +63,8 @@ Then rewrite the equation to fit the form of (2.7), and then integrate both side
 \end{align*}
 Given the initial condition the integration constant can be found:
 \begin{align*}
-	-\frac{1}{\frac{1}{25}}=&3+c
-	c=%-28
+	-\frac{1}{\frac{1}{25}}=&3\cdot 1^2+c	\\
+	c=&-28
 \end{align*}
 This would mean that y could be isolated, and the equation would be solved in this specific case:
 \begin{align*}
