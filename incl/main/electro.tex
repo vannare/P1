@@ -163,24 +163,6 @@ V_C &= \frac{q}{C} \\
 \int \frac{1}{a} &= \ln(a) \\
 \ln(a) - \ln(b) &= \ln(\frac{a}{b})
 \end{align*}
-\\
-\begin{align*}
-V_B &= V_R + V_C \\
-V_B &= I \cdot R + \frac{q}{C} \\
-V_B &= \frac{dq}{dt} \cdot R + \frac{q}{C} \\
-V_B \cdot \frac{q}{C} &= \frac{dq}{dt} \cdot R \\
-(V_B - \frac{q}{C}) \cdot \frac{1}{R} &= \frac{dq}{dt} \\
-\frac{1}{R} \cdot dt &= \frac{dq}{V_B - \frac{q}{C}} \\
-- \frac{1}{RC} \int_{0}^{t} 1 dt &= \int_{0}^{q} \frac{1}{q-V_B C}dq \\
-[-\frac{t}{RC}]_{0}^{t} &= [\ln(q-V_B C)]_{0}^{q} \\
--\frac{t}{RC} - (-\frac{0}{RC}) &= \ln(q-V_B C) - \ln(V_B C) \\
--\frac{t}{RC} &= \ln(\frac{q-V_B C}{-V_B C}) \\
-e^{-\frac{t}{RC}} &= \frac{q-V_B C}{-V_B C} \\
--V_B C \cdot e^{-\frac{t}{RC}} &= q - V_B C \\
-V_B C - V_B C \cdot e^{-\frac{t}{RC}} &= q \\
-q(t) &= V_B C(1-e^{-\frac{t}{RC}}) \\
-V_C(t) &= \frac{q(t)}{c} = V_B (1 - e^{-\frac{t}{RC}})
-\end{align*}
 
 \subsection{RC circuit experiment}
 In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model. \\
