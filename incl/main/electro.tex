@@ -1,4 +1,4 @@
-\chapter{Basic circuit theory}
+x\chapter{Basic circuit theory}
 \section{Intro}
 Electrical circuits are fundamental building blocks in, more or less, every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical 	source (a battery, for instance).
 \\ 
@@ -81,8 +81,9 @@ An RC circuit is an electrical circuit consisting of resistors and capacitors. I
  \input{fig/tikz/rc}
 \end{figure}
 
+If the voltage in (3.4) is replaced with a change in voltage, with respect to time: $\dfrac{dV}{dt}$, the right side of (3.4) becomes: $C\dfrac{dV}{dt}$. This change in voltage will result in a change in charge, with respect to time. Since current is a change in charge, (3.4) can be rewritten as:
 \begin{align}\label{I_C}
-I_{C}= C \dfrac{dv}{dt}
+I_{C}= C \dfrac{dV}{dt}
 \end{align}
 \subsection{Transient analysis}
 To find out how the voltage of a capacitor changes over time when it's charged and discharged, transient analysis is used. The function for a charging capacitor can be found as follows:
