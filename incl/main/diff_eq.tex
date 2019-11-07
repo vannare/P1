@@ -1,18 +1,12 @@
 \chapter{Differential equations}
 \section{What is a differential equation?}
-A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number.  \\
-The general form of an differential equation look like this
-\begin{align*}
-efef
-\end{align*}
-
-A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $c$ can be found. The complete solution, there is a given starting point and the constant $c$ can be found, and there is not any unknown parts of the solution. \\
-
-A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$. \\
-
-
-
-
+A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number. 
+\\
+A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$
+\\
+The general form of an $N$'th differential equation look like this
+A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $c$ can be found. The complete solution, there is a given starting point and the constant $c$ can be found, and there is not any unknown parts of the solution.
+\\
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example of differential equation of different orders] 
 A first order differential equation:
 $$f(x)=4\frac{df}{dx} $$
@@ -24,7 +18,7 @@ $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
 \section{Linear differential equations}
 A linear $N$'th order differential equation are equations which can be written in following way.
 \begin{align*}
-\sum_{k=n}^{N}a_k\dfrac{d^k}{{dx}^k}y = 
+\sum_{k=0}^{N}\left(\dfrac{d^ky}{dt^k}a_k(t)\right)+b(t)=0
 \end{align*}
 \\
 \textbf{Solving linear FODE}
