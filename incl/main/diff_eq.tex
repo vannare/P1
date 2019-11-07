@@ -1,13 +1,18 @@
 \chapter{Differential equations}
 \section{What is a differential equation?}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Differential equation] 
+A differential equation is an equation which contains one or more derivatives of a function.
+\end{tcolorbox}
 A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number. 
 \\
 A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$
 \\
-The general form of an $N$'th differential equation look like this
 A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $c$ can be found. The complete solution, there is a given starting point and the constant $c$ can be found, and there is not any unknown parts of the solution.
 \\
-\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example of differential equation of different orders] 
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Order of a differential equation]
+The order of a differential equation is determined by the highest derivative present in the differential equation.
+\end{tcolorbox} 
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of differential equation of different orders] 
 A first order differential equation:
 $$f(x)=4\frac{df}{dx} $$
 A second order differential equation:
@@ -15,14 +20,18 @@ $$a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy = 5\frac{dy}{dx}$$
 And a third order differential equation:
 $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
 \end{tcolorbox}
+
 \section{Linear differential equations}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Linearity of a differential equation]
 A linear $N$'th order differential equation are equations which can be written in following way.
 \begin{align*}
 \sum_{k=0}^{N}\left(\dfrac{d^ky}{dt^k}a_k(t)\right)+b(t)=0
 \end{align*}
-\\
-\textbf{Solving linear FODE}
-\\
+where $a_k(t)$ are continuous functions on a given interval.  
+\end{tcolorbox}
+
+\subsection{Solving linear differential equation of first order}
+\begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 2.1: General solution to a first order differential equation]
 A first order linear differential equation in the form of:
 \begin{align} \label{FODE}
 \dfrac{dy}{dx}+h(x)y=g(x)
@@ -32,9 +41,8 @@ Has the general solution:
 y=e^{H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
 Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval.
-\\
-\textbf{Proof}
-\\
+\end{tcolorbox}
+\begin{tcolorbox}[colback=gray!5!white,colframe=gray!!black,title=Proof 2.1]
 Starting with \eqref{FODE}, the equation is multiplied by $e^{H(x)}$ on each side.
 \begin{align*}
 \left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=g(x)e^{H(x)}
@@ -55,7 +63,9 @@ Where $C$ is the constant of integration from the left side of the  equation. By
 \begin{align}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
-\subsection{Separable differential equations} \label{SDE}
+\end{tcolorbox}
+
+\section{Separable differential equations} \label{SDE}
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Separable equation] 
     $$\frac{dy}{dx} = f(x,y)$$
     if the right-hand side of the equation can be expressed as   a function $h(x)$ that depends only on $x$ times a function $g(y)$ that depends only on $y$, then the differential equation is called separable.
@@ -64,7 +74,7 @@ As per this definition, a first order differential equation can be written as
 \begin{align}
 	\frac{dy}{dx}=h(x)g(y)
 \end{align}
-The equation can then be re-written and solved as follows, assuming that the integral exists
+The equation can then be re-written and solved as follows
 \begin{align}
 	g(y)dy=h(x)dx
 \end{align}
@@ -76,7 +86,31 @@ Then both side is integrated
  
 Then the two constants is merged into one symbol $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
 
-\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example using separable differential equation] 
+\subsection{Justification} 
+To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
+ \begin{align}
+	\frac{dy}{dx} &= g(x)p(y)\nonumber\\
+	h(y)\frac{dy}{dx} &= g(x)\label{eq:1},
+ \end{align}
+then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antiderivative of $g(x)$, equation \ref{eq:1} can be rewritten as 
+ \begin{align}
+ 	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
+ \end{align}
+With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $\frac{d}{dx}H(y(x))$:
+ \begin{align*}
+	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
+ \end{align*}
+This term can be substituted in in equation \ref{eq:2}:
+ \begin{align}
+ 	\frac{d}{dx}H(y(x)) &= G'(x)\label{eq:3}.
+ \end{align}
+Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
+ \begin{align*}
+ 	H(y(x)) &= G(x) + C
+ \end{align*}
+This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefor it is justified to treat $\frac{dy}{dx}$ algebraically.
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example using separable differential equation] 
 What would the solution be to the following differential equation, with the given condition?
 \begin{align*}
 	\frac{dy}{dx} = 6y^2x, y(1)=\frac{1}{25}
@@ -103,26 +137,3 @@ This would mean that y could be isolated, and the equation would be solved in th
 \end{align*}
 \end{tcolorbox}
 
-\subsection{Justification} 
-To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
- \begin{align}
-	\frac{dy}{dx} &= g(x)p(y)\nonumber\\
-	h(y)\frac{dy}{dx} &= g(x)\label{eq:1},
- \end{align}
-then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antiderivative of $g(x)$, equation \ref{eq:1} can be rewritten as 
- \begin{align}
- 	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
- \end{align}
-With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $\frac{d}{dx}H(y(x))$:
- \begin{align*}
-	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
- \end{align*}
-This term can be substituted in in equation \ref{eq:2}:
- \begin{align}
- 	\frac{d}{dx}H(y(x)) &= G'(x)\label{eq:3}.
- \end{align}
-Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
- \begin{align*}
- 	H(y(x)) &= G(x) + C
- \end{align*}
-This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefor it is justified to treat $\frac{dy}{dx}$ algebraically.
