@@ -45,7 +45,31 @@ The equation can then be re-written and solved as follows, assuming that the int
 	\int G(y)dy =& \int H(x)dx
 \end{align}
 From here the functions would be integrated, as usual.\\
-Then $y$ could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.
+Then $y$ could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.\\
+\subsection{Justification} 
+To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
+ \begin{align}
+	\frac{dy}{dx} &= g(x)p(y)\nonumber\\
+	h(y)\frac{dy}{dx} &= g(x)\label{eq:1},
+ \end{align}
+then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antiderivative of $g(x)$, equation \ref{eq:1} can be rewritten as 
+ \begin{align}
+ 	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
+ \end{align}
+With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $\frac{d}{dx}H(y(x))$:
+ \begin{align*}
+	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
+ \end{align*}
+This term can be substituted in in equation \ref{eq:2}:
+ \begin{align}
+ 	\frac{d}{dx}H(y(x)) &= G'(x)\label{eq:3}.
+ \end{align}
+Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
+ \begin{align*}
+ 	H(y(x)) &= G(x) + C
+ \end{align*}
+This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefor it is justified to treat $\frac{dy}{dx}$ algebraically.\\
+
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example] 
 What would the solution be to the following differential equation, with the given condition?
 \begin{align*}
