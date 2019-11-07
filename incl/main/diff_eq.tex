@@ -1,52 +1,50 @@
 \chapter{Differential equations}
 
 \section{What is a differential equation?}
-A differential equation is any equation, which includes a derivative. These equations aren't solved with a number like a algebraic equations. These equations are solved with a function, or rather a class of functions. \\
-An algebraic equation would look something like this: $2x+4=12$. This equation could be solved with $x=4$. However, a differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$. \\
-
-\subsection{Examples of differential equations}
-Newton's second law states that the force applied to an object, is the product of the mass of the object, and the acceleration resulting from the applied force. This is written as: 
+A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number.  \\
+The general form of an differential equation look like this
 \begin{align*}
-	F=ma
+efef
 \end{align*}
-where $F$ is force, $m$ is mass, and $a$ is acceleration. \\
-Acceleration is defined as the change in speed over a time interval. Acceleration is then the derivative of speed, with respect to time:
-\begin{align}
-	a = \frac{dv}{dt}
-\end{align}
-It also follows that speed is a change in position over time. Meaning that acceleration can be described with the following equation:
-\begin{align*}
-	a = \frac{dv}{dt} \rightarrow a = \frac{d^2s}{dt^2}
-\end{align*}
-Here $s$ represents the object's position, meaning that $ds$ is the objects change in position. \\
-Thus force can be described as follows:
-\begin{align}
-	 F = m\frac{d^2s}{dt^2}
-\end{align}
-\\
-The following are a few other examples of differential equations:
-\begin{align}
-	af''+bf'+cf =& 5\frac{dy}{dx}		\\
-	24cos(t)=&\frac{d^3y}{dx^3}			\\
-	f(x)=&4f(x) 						
-\end{align}
 
-\subsection{The order of a differential equation}
-The order of a differential equation, is denoted as the largest degree derivative present in the equation. Equation (2.3) is then a second order differential equation, (2.4) is a third order differential equation, and (2.5) is a first order differential equation.
+A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $c$ can be found. The complete solution, there is a given starting point and the constant $c$ can be found, and there is not any unknown parts of the solution. \\
+
+A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$. \\
+
+
+
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example of differential equation of different orders] 
+A first order differential equation:
+$$f(x)=4\frac{df}{dx} $$
+A second order differential equation:
+$$a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy = 5\frac{dy}{dx}$$
+And a third order differential equation:
+$$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
+\end{tcolorbox}
 
 \subsection{Separable differential equations} \label{SDE}
-A separable differential equation is an equation that takes the form:
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Separable equation] 
+    $$\frac{dy}{dx} = f(x,y)$$
+    if the right-hand side of the equation can be expressed as   a function $h(x)$ that depends only on $x$ times a function $g(y)$ that depends only on $y$, then the differential equation is called separable.
+   \end{tcolorbox}
+As per this definition, a first order differential equation can be written as
 \begin{align}
-	G(y)\frac{dy}{dx}=H(x)
+	\frac{dy}{dx}=h(x)g(y)
 \end{align}
-The equation can then be re-written and solved as follows, assuming that the integral exists\footnote{Assume that $dx$ and $dy$ can be manipulated algebraically. }:
+The equation can then be re-written and solved as follows, assuming that the integral exists
 \begin{align}
-	G(y)dy=&H(x)dx				\\
-	\int G(y)dy =& \int H(x)dx
+	g(y)dy=h(x)dx
 \end{align}
-From here the functions would be integrated, as usual.\\
-Then $y$ could be isolated, and the integration constant could be found, if there exists an initial condition for the differential equation.
-\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example] 
+Then both side is integrated
+ \begin{align}
+ \int g(y)dy =\int h(x)dx   \\
+ H(y)=G(x)+C
+ \end{align}
+ 
+Then the two constants is merged into one symbol $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=Example using separable differential equation] 
 What would the solution be to the following differential equation, with the given condition?
 \begin{align*}
 	\frac{dy}{dx} = 6y^2x, y(1)=\frac{1}{25}
