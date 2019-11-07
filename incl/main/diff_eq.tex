@@ -1,5 +1,4 @@
 \chapter{Differential equations}
-
 \section{What is a differential equation?}
 A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number.  \\
 The general form of an differential equation look like this
@@ -22,7 +21,46 @@ $$a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy = 5\frac{dy}{dx}$$
 And a third order differential equation:
 $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
 \end{tcolorbox}
-
+\section{Linear differential equations}
+A linear $N$'th order differential equation are equations which can be written in following way.
+\begin{align*}
+\sum_{k=n}^{N}a_k\dfrac{d^k}{{dx}^k}y = 
+\end{align*}
+\\
+\textbf{Solving linear FODE}
+\\
+A first order linear differential equation in the form of:
+\begin{align} \label{FODE}
+\dfrac{dy}{dx}+h(x)y=g(x)
+\end{align}
+Has the general solution:
+\begin{align}
+y=e^{H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
+\end{align}
+Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval.
+\\
+\textbf{Proof}
+\\
+Starting with \eqref{FODE}, the equation is multiplied by $e^{H(x)}$ on each side.
+\begin{align*}
+\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=g(x)e^{H(x)}
+\\
+\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=g(x)e^{H(x)}
+\end{align*}
+Due to the product rule when differentiating, the left side of the equation can be rewritten as.
+\begin{align*}
+\dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}
+\end{align*}
+Bother side at then integrated with respect to x.
+\begin{align*}
+\int\dfrac{d}{dx}\left(e^{H(x)}y\right)dx=\int g(x)e^{H(x)}dx
+\\
+e^{H(x)}y=\int g(x)e^{H(x)}dx+C
+\end{align*}
+Where $C$ is the constant of integration from the left side of the  equation. By multiplying both sides with $e^{-H(x)}$ the general solution can be found.
+\begin{align}
+y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
+\end{align}
 \subsection{Separable differential equations} \label{SDE}
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Separable equation] 
     $$\frac{dy}{dx} = f(x,y)$$
