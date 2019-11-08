@@ -73,19 +73,19 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
    \end{tcolorbox}
 As per this definition, a first order differential equation can be written as
 \begin{align}
-	\frac{dy}{dx}=h(x)g(y)
+	\frac{dy}{dx}=g(x)p(y).
 \end{align}
 The equation can then be re-written and solved as follows
 \begin{align}
-	g(y)dy=h(x)dx
+	h(y)dy=g(x)dx,
 \end{align}
-Then both side is integrated
+where $h(y) = \frac{1}{p(y)}$. Then both sides are integrated:
  \begin{align}
- \int g(y)dy =\int h(x)dx   \\
- H(y)=G(x)+C
+ 	\int h(y)dy =\int g(x)dx   \\
+ 	H(y)=G(x)+C
  \end{align}
  
-Then the two constants is merged into one symbol $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
+The two constants are merged into one symbol $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
 
 \subsection{Justification} 
 To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
@@ -97,7 +97,7 @@ then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antider
  \begin{align}
  	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
  \end{align}
-With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $\frac{d}{dx}H(y(x))$:
+With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $H(y(x))$:
  \begin{align*}
 	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
  \end{align*}
@@ -107,9 +107,9 @@ This term can be substituted in in equation \ref{eq:2}:
  \end{align}
 Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
  \begin{align*}
- 	H(y(x)) &= G(x) + C
+ 	H(y(x)) &= G(x) + C.
  \end{align*}
-This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefor it is justified to treat $\frac{dy}{dx}$ algebraically.
+This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefore it is justified to treat $\frac{dy}{dx}$ algebraically.
 
 \begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example using separable differential equation] 
 What would the solution be to the following differential equation, with the given condition?
