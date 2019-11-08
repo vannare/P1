@@ -34,11 +34,11 @@ where $a_k(t)$ are continuous functions on a given interval.
 Solving differential equations is not always easy. If a differential equation can be written in a general form, sometimes a general solution can found for it.
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 2.1: General solution to a linear differential equation of the first order]
 A first order linear differential equation in the form of:
-\begin{align} \label{FODE}
+\begin{align} \label{FODE_form}
 \dfrac{dy}{dx}+h(x)y=g(x)
 \end{align}
 Has the general solution:
-\begin{align}
+\begin{align} \label{FODE_solution}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
 Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval.

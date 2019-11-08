@@ -135,21 +135,42 @@ By Ohm's law \eqref{Ohm} the voltage of the resistor can be expressed as $V_R=IR
 V_B=&V_R+V_C \\
 \Leftrightarrow \rightarrow V_B =& IR+\dfrac{Q}{C}
 \end{align*}
-As stated earlier current is defined as $I =\dfrac{dq}{dt}$, this is inserted in place of $I_R$. The differentials are then separated
+As stated earlier current is defined as $I =\dfrac{dq}{dt}$, this is inserted in place of $I_R$. Both sides are also divided by R
 \begin{align*}
-V_B &= \dfrac{dq}{dt} R + \dfrac{Q}{C} \\
-\Leftrightarrow V_B - \dfrac{Q}{C} &= \dfrac{dq}{dt}R \\
-\Leftrightarrow \dfrac{1}{R}dt &= \dfrac{1}{V_B-\dfrac{q}{C}}dq \\
-\Leftrightarrow \dfrac{1}{RC}dt &= \dfrac{1}{q-V_BC} dq
+\dfrac{V_B}{R} &= \dfrac{dq}{dt} + Q\dfrac{1}{RC} \\
 \end{align*}
-Both side are then integrated
+This is a linear differential equation of the first order in the form of \eqref{FODE_form}
 \begin{align*}
--\dfrac{1}{RC}\int_{0}^t dt &= \int_{0}^q \dfrac{1}{q-V_BC}dq \\
-\rightarrow -\dfrac{t}{RC} &= \ln(q-V_BC) |_{0}^{q} \\
-\Leftrightarrow -\dfrac{t}{RC} &= \ln(\dfrac{q-V_BC}{-V_BC}) \\
-\Leftrightarrow e^{\dfrac{-t}{RC}} &= \dfrac{q-V_BC}{-V_BC} \\
-\Leftrightarrow q &= V_BC(1-e^{\frac{-t}{RC}})
+\dfrac{dy}{dx}&=\dfrac{dq}{dt}
+\\
+h(x)=\dfrac{1}{RC} \rightarrow H(x)&=\int \dfrac{1}{RC}=\dfrac{t}{RC}
+\\
+y &= Q(t)
+\\
+g(x)&= \dfrac{V_B}{R}
 \end{align*}
+This in inserted in the general solution \eqref{FODE_solution}
+\begin{align}
+Q(t) = e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{V_B}{R}dt
+\\
+Q(t)= e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
+\end{align}
+The integral is now solved by substitution. First $u$ and $\dfrac{du}{dt}$ is defined.
+\begin{align*}
+u &= \dfrac{t}{RC}
+\\
+\dfrac{du}{dt}&=\dfrac{1}{RC}\rightarrow dt =RC du
+\end{align*} 
+By inserting these definitions in \eqref{Q_1} the equation looks like this.
+\begin{align*}
+Q(t)&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}e^u du
+\\
+Q(t)&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}[e^u]_{0}^{\frac{t}{RC}}
+\\
+Q(t)&=V_B C e^{\frac{-t}{RC}}(e^{\frac{t}{RC}}-1)
+\\
+Q(t)&=V_B C (1-e^{\frac{-t}{RC}})
+\end{align*} 
 The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for voltage is found.
 \begin{align}
 \label{V_up}
@@ -157,14 +178,6 @@ The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equat
 V_C=V_B(1-e^{\frac{-t}{RC}})
 }
 \end{align}
-\eqref{V_up} is the function which describes how the voltage increases over time, when the capacitor is charged.
-\begin{align*}
-V_R &= I \cdot R \\
-V_C &= \frac{q}{C} \\
-\int \frac{1}{a} &= \ln(a) \\
-\ln(a) - \ln(b) &= \ln(\frac{a}{b})
-\end{align*}
-
 \subsection{RC circuit experiment}
 In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model. \\
 
