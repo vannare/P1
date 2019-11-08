@@ -1,8 +1,20 @@
 \chapter{High-pass and low-pass filters}
-intro blah
+The main purpose of filters is to sort out unwanted frequencies from different wave-types. 
 
 \section{Low-pass filters}
-The purpose of a low-pass filter is to filter out unwanted high frequencies. Listening to a such tone brings out the bass and sorts out higher pitches. The low-pass filter is in other words allowing frequencies from 0Hz to a chosen cut-off value. This cut-off value can be described in the following equation:
+The purpose of a low-pass filter is to filter out unwanted high frequencies. Listening to a such tone brings out the bass and sorts out higher pitches. The low-pass filter is in other words allowing frequencies from 0$Hz$ to a chosen cut-off value. This cut-off value can be calculated using the following equation:
 \begin{align*}
 f_{cutoff}=\dfrac{1}{2 \pi RC}
 \end{align*}
+This cut-off value describes a point on the bode plot graph, where the amplitude is decreased by $29.3\%$ and the output is decreased by 3$dB$. The cut-off point is also the point, where the filtering starts getting efficient. This can be expressed using a bode plot, with the frequency on the $x-axis$ and the decibel on the $y-axis$. The bode plot looks like this: \\
+PLOT \\
+The $x-axis$ is a logarithmic axis, where the output is decreased by 20 decibel per decade after the . 
+\begin{figure}[H]
+	\input{fig/tikz/low_pass_circ.tex}
+\end{figure}
+
+
+- bode plot \\
+- circuit \\
+- input/output \\
+- short example (eg. we want a cut-off at 150Hz)
