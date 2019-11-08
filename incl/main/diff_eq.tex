@@ -7,7 +7,7 @@ A differential equation is any equation, which includes a function and its deriv
 \\
 A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$
 \\
-A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $c$ can be found. The complete solution, there is a given starting point and the constant $c$ can be found, and there is not any unknown parts of the solution.
+A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $C$ can be found. The complete solution, there is a given starting point and the constant $C$ can be found, and there is not any unknown parts of the solution.
 \\
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Order of a differential equation]
 The order of a differential equation is determined by the highest derivative present in the differential equation.
@@ -21,7 +21,8 @@ And a third order differential equation:
 $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
 \end{tcolorbox}
 \section{Linear differential equations}
-Linear differential equations are differential equations in which a function and its derivatives appears only in the power of one.
+Linear differential equations are differential equations in which a function and its derivatives appears only in the power of one or zero. eg. $y'^2$ or $e^y$, and the functions are not multiplied by each other.
+e.g $\dfrac{dy}{dx}+y=0$ is linear, where $\dfrac{dy}{dx}y+y=0$ is non-linear.
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: $N$'th order linear differential equation]
 A linear $N$'th order differential equation are equations which can be written in following way.
 \begin{align*}
@@ -38,7 +39,7 @@ A first order linear differential equation in the form of:
 \end{align}
 Has the general solution:
 \begin{align}
-y=e^{H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
+y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
 Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval.
 \end{tcolorbox}
