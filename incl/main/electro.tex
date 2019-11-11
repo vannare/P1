@@ -34,7 +34,7 @@ When a resistor, which is a passive element, is added to the circuit it creates 
 \label{Ohm}
 v(t)=R\cdot i(t),  R\geq0
 \end{align}
-where $R$ is resistance.
+where $R$ is resistance (in Ohm $\omega$).
 \section{Capacitor}
 A capacitor is a passive element of a circuit. A capacitor consist of two similar sizes plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store when it's fully charged. The capacitor gets charged when positive a charge is transferred from one plate, through the circuit, to the other plate. The capacitance is given by the following equation:
 \begin{align*}
@@ -96,11 +96,9 @@ I_{C}= -I_{R}
 Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as it follows in subsection \ref{SDE}
 \begin{align*}
 C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
-\Leftrightarrow \dfrac{dv}{dt} &= \dfrac{-V}{R}\dfrac{1}{C} \\
-\Leftrightarrow dv &= \dfrac{-V}{R}\dfrac{1}{C}dt \\
-\Leftrightarrow \dfrac{1}{V}dv &= \dfrac{-1}{RC}dt
+\dfrac{dv}{dt} &= -V\dfrac{1}{RC} \\
 \end{align*}
-Both sides of the equation is then integrated, and the Voltage is isolated:
+The equation is now in the same form as \eqref{SDE}, in which it can be solved as following:
 \begin{align*}
 \int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt \\
 \Leftrightarrow \ln(V) =& \dfrac{-t}{RC} + A \\
@@ -123,7 +121,9 @@ The constant $B$ is then equal to start voltage $V_0$. By inserting this (3.10) 
 The equation \eqref{V_down} is the function, which describes how the voltage decreases over time, when the capacitor the discharged.
 \\
 \\
-Now the function for when the capacitor charges is derived. KCL states that the sum of the voltages over a loop must be equal to zero. In an RC circuit with a battery this can be written algebraic as:
+Now the function for when the capacitor charges is derived. KCL states that the sum of the voltages over a loop must be equal to zero. 
+\\
+In an RC circuit with a battery this can be written algebraic as:
 \begin{align*}
 V_B-V_R-V_C =& 0 \\
 \Leftrightarrow V_B=&V_R+V_C
@@ -145,15 +145,15 @@ This is a linear differential equation of the first order in the form of \eqref{
 \\
 h(x)=\dfrac{1}{RC} \rightarrow H(x)&=\int \dfrac{1}{RC}=\dfrac{t}{RC}
 \\
-y &= Q(t)
+y &= Q
 \\
 g(x)&= \dfrac{V_B}{R}
 \end{align*}
 This in inserted in the general solution \eqref{FODE_solution}
 \begin{align}
-Q(t) = e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{V_B}{R}dt
+Q&= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{V_B}{R}dt
 \\
-Q(t)= e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
+Q&= e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
 \end{align}
 The integral is now solved by substitution. First $u$ and $\dfrac{du}{dt}$ is defined.
 \begin{align*}
@@ -163,13 +163,13 @@ u &= \dfrac{t}{RC}
 \end{align*} 
 By inserting these definitions in \eqref{Q_1} the equation looks like this.
 \begin{align*}
-Q(t)&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}e^u du
+Q&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}e^u du
 \\
-Q(t)&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}[e^u]_{0}^{\frac{t}{RC}}
+Q&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}[e^u]_{0}^{\frac{t}{RC}}
 \\
-Q(t)&=V_B C e^{\frac{-t}{RC}}(e^{\frac{t}{RC}}-1)
+Q&=V_B C e^{\frac{-t}{RC}}(e^{\frac{t}{RC}}-1)
 \\
-Q(t)&=V_B C (1-e^{\frac{-t}{RC}})
+Q&=V_B C (1-e^{\frac{-t}{RC}})
 \end{align*} 
 The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for voltage is found.
 \begin{align}
@@ -179,16 +179,13 @@ V_C=V_B(1-e^{\frac{-t}{RC}})
 }
 \end{align}
 \subsection{RC circuit experiment}
-In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model. \\
-
+In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model.
 \subsection{Theoretical values}
 The resistance and capacitor in the experiment, had the following values:
-
 \begin{align*}
  R =& 4770\Omega \\
  C =& 97.61nF
 \end{align*}
-
 The circuit was set up as follows:
 \begin{figure}[H]
 	\input{fig/tikz/excircuit.tex}
@@ -216,7 +213,6 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s \\
 &= 2.33 ms
 \end{align*}
-
 \newpage
 \subsection{Test values comparison}
 \begin{figure}[H]
@@ -225,7 +221,7 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 	\caption{RC circuit}
 \end{figure}
 This section is using the Digilent Discovery 2 for setting up an RC circuit. The first step in setting up an RC circuit is putting in a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator is using an AC step voltage, which simplifies calculations compared to more complex waveforms. The current is then passing through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is then inserted to measure the charging and discharging of the capacitor. The current is first passing through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). If the scopes were, hypothetically, switched around, then it would be measuring the inverse charging/discharging. Lastly, the current is passing through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in REF is created with the same values as in the previous section. \\ \\
-To get the test values compatible with the theoretical values the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. The wave generator, therefore, has to produce $214.6$ hertz ($(2 \cdot 2.33 ms)^{-1} = 214.6 H$). \\
+To get the test values compatible with the theoretical values the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. The wave generator, therefore, has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
 The data from the theoretical values and the test results can now be compared using python:
 \begin{figure}[H]
 \center
