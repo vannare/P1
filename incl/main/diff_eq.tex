@@ -95,21 +95,21 @@ To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated a
  \end{align}
 then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antiderivative of $g(x)$, equation \ref{eq:1} can be rewritten as 
  \begin{align}
- 	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
+ 	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}\label{eq:2}.
  \end{align}
-With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $H(y(x))$:
+With the help of the chain rule for differentiation, $\frac{dH}{dy}\frac{dy}{dx}$ is the derivative of the composite function $H(y(x))$:
  \begin{align*}
-	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
+	\frac{d}{dx} H(y(x)) &= \frac{dH}{dy}\frac{dy}{dx}.
  \end{align*}
 This term can be substituted in equation \ref{eq:2}:
  \begin{align}
- 	\frac{d}{dx}H(y(x)) &= G'(x)\label{eq:3}.
+ 	\frac{d}{dx}H(y(x)) &= \frac{dG}{dx}\label{eq:3}.
  \end{align}
-Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
+Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant after integrating both sides:
  \begin{align*}
  	H(y(x)) &= G(x) + C.
  \end{align*}
-This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefore it is justified to treat $\frac{dy}{dx}$ algebraically.
+This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule for differentiation. Therefore it is justified to treat $\frac{dy}{dx}$ algebraically.
 
 \begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example using separable differential equation] 
 What would the solution be to the following differential equation, with the given condition?
