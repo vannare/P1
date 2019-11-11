@@ -34,14 +34,14 @@ where $a_k(t)$ are continuous functions on a given interval.
 Solving differential equations is not always easy. If a differential equation can be written in a general form, sometimes a general solution can found for it.
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 2.1: General solution to a linear differential equation of the first order]
 A first order linear differential equation in the form of:
-\begin{align} \label{FODE}
+\begin{align} \label{FODE_form}
 \dfrac{dy}{dx}+h(x)y=g(x)
 \end{align}
 Has the general solution:
-\begin{align}
+\begin{align} \label{FODE_solution}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
-Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval.
+Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval and $C\in \mathbb{R}$.
 \end{tcolorbox}
 \begin{tcolorbox}[colback=gray!5!white,colframe=gray!!black,title=Proof 2.1]
 Starting with \eqref{FODE}, the equation is multiplied by $e^{H(x)}$ on each side.
@@ -69,23 +69,23 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \section{Separable differential equations} \label{SDE}
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Separable equation] 
     $$\frac{dy}{dx} = f(x,y)$$
-    if the right-hand side of the equation can be expressed as   a function $h(x)$ that depends only on $x$ times a function $g(y)$ that depends only on $y$, then the differential equation is called separable.
+    if the right-hand side of the equation can be expressed as   a function $g(x)$ that depends only on $x$ times a function $p(y)$ that depends only on $y$, then the differential equation is called separable.
    \end{tcolorbox}
 As per this definition, a first order differential equation can be written as
 \begin{align}
-	\frac{dy}{dx}=h(x)g(y)
+	\frac{dy}{dx}=g(x)p(y).
 \end{align}
 The equation can then be re-written and solved as follows
 \begin{align}
-	g(y)dy=h(x)dx
+	h(y)dy=g(x)dx,
 \end{align}
-Then both side is integrated
+where $h(y) = \frac{1}{p(y)}$. Then both sides are integrated:
  \begin{align}
- \int g(y)dy =\int h(x)dx   \\
- H(y)=G(x)+C
+ 	\int h(y)dy =\int g(x)dx   \\
+ 	H(y)=G(x)+C
  \end{align}
  
-Then the two constants is merged into one symbol $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
+The two constants are merged into one constant $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
 
 \subsection{Justification} 
 To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
@@ -97,19 +97,19 @@ then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antider
  \begin{align}
  	H'(y)\frac{dy}{dx} &= G'(x)\label{eq:2}.
  \end{align}
-With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $\frac{d}{dx}H(y(x))$:
+With the help of the chain rule, $H'(y)\frac{dy}{dx}$ is the derivative of the composite function $H(y(x))$:
  \begin{align*}
 	\frac{d}{dx} H(y(x)) &= H'(y(x))\frac{dy}{dx}.
  \end{align*}
-This term can be substituted in in equation \ref{eq:2}:
+This term can be substituted in equation \ref{eq:2}:
  \begin{align}
  	\frac{d}{dx}H(y(x)) &= G'(x)\label{eq:3}.
  \end{align}
 Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant:
  \begin{align*}
- 	H(y(x)) &= G(x) + C
+ 	H(y(x)) &= G(x) + C.
  \end{align*}
-This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefor it is justified to treat $\frac{dy}{dx}$ algebraically.
+This shows that the same result is found wether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule. Therefore it is justified to treat $\frac{dy}{dx}$ algebraically.
 
 \begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example using separable differential equation] 
 What would the solution be to the following differential equation, with the given condition?
@@ -124,14 +124,14 @@ Then rewrite the equation to fit the form of (2.7), and then integrate both side
 \begin{align*}
 	\frac{1}{y^2}dy=&6x dx				\\
 	\int \frac{1}{y^2}dy=&\int 6x dx		\\
-	-\frac{1}{y}=&3x^2+c		
+	-\frac{1}{y}=&3x^2+C		
 \end{align*}
 Given the initial condition the integration constant can be found:
 \begin{align*}
-	-\frac{1}{\frac{1}{25}}=&3\cdot 1^2+c	\\
-	c=&-28
+	-\frac{1}{\frac{1}{25}}=&3\cdot 1^2+C	\\
+	C=&-28
 \end{align*}
-This would mean that y could be isolated, and the equation would be solved in this specific case:
+This would mean that $y$ could be isolated, and the equation would be solved in this specific case:
 \begin{align*}
 	-\frac{1}{y}=&3x^2-28\\
 	y=&-\frac{1}{3x^2-28}
