@@ -42,7 +42,7 @@ ax.legend(handles = [blue_patch, red_patch])
 plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%.1f dB'))
 plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%+.0e Hz'))
 plt.xticks(rotation=45)
-plt.title('Gain of a signal as a function of frequency')       
+plt.title('Gain of a high-pass filter')       
 
 #plotting the figure
 
