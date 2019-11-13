@@ -14,13 +14,12 @@ V = 1
 def gain(f):
     X_C = 1/(2*np.pi*f*C)
     Z = np.sqrt(R**2+X_C**2)
-    v_out = V*(X_C/Z)
-    gain = 20*np.log10(v_out/V)
+    gain = 20*np.log10(R/Z)
     return gain
 
 # setting up the data to be plotted
 
-input_freq = np.linspace(0.0000001, 10**6, 10000)
+input_freq = np.linspace(1, 10**6, 10000)
 output_gain = gain(input_freq)
 freq_cut = 1/(np.pi*2*R*C)
 
@@ -43,11 +42,11 @@ ax.legend(handles = [blue_patch, red_patch])
 plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%.1f dB'))
 plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%+.0e Hz'))
 plt.xticks(rotation=45)
-plt.title('Gain of a signal as a function of frequency')       
+plt.title('Gain of a high-pass filter')       
 
 #plotting the figure
 
 ax.plot(input_freq, output_gain)
 ax.scatter(freq_cut, gain(freq_cut), c = 'red', alpha = 1)
 plt.tight_layout()
-fig.savefig('test.pdf')
+fig.savefig('/home/anders/Desktop/test.pdf')

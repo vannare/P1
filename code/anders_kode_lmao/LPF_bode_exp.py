@@ -43,11 +43,11 @@ ax.legend(handles = [blue_patch, red_patch])
 plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%.1f dB'))
 plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%+.0e Hz'))
 plt.xticks(rotation=45)
-plt.title('Gain of a signal as a function of frequency')       
+plt.title('Gain of low-pass filter')       
 
 #plotting the figure
 
 ax.plot(input_freq, output_gain)
 ax.scatter(freq_cut, gain(freq_cut), c = 'red', alpha = 1)
 plt.tight_layout()
-fig.savefig('test.pdf')
+fig.savefig('/home/anders/Desktop/test.pdf')
