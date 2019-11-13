@@ -9,7 +9,7 @@ f_{cutoff}=\dfrac{1}{2 \pi RC}
 This cut-off value describes a point on the bode plot graph, where the amplitude is decreased by $29.3\%$ and the output is decreased by $3dB$. The cut-off point is also the point, where the filtering starts getting efficient. This can be expressed using a bode plot, with the frequency on the $x-axis$ and the decibel on the $y-axis$. The bode plot looks like this:
 \begin{figure}[H]
 \center
-	\includegraphics[scale=0.7]{fig/img/bode_LPF_plot.pdf}
+	\includegraphics[scale=0.5]{fig/img/bode_LPF_plot.pdf}
 \end{figure}
 The $x-axis$ is a logarithmic axis, where the output is decreased by 20 decibel per decade after the cut-off point.\
 The difference between a high-pass filter and a low-pass can be illustrated using a circuit diagram:
@@ -24,7 +24,7 @@ High-pass filters are in many ways similar to the low-pass filters. The high-pas
 When plotting the graph for the high-pass filter, the bode plot is going to be the opposite of the low-pass filters'. The graph starts in minus decibel and is approaching zero. Until it reaches the cut-off point, the graph is increasing with 20 decibel per decade. When reaching the cut-off point, the graph is 3 decibel short from reaching zero. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$. Here is the bode plot:
 \begin{figure}[H]
 \center
-	\includegraphics[scale=0.7]{fig/img/bode_HPF_plot.pdf}
+	\includegraphics[scale=0.5]{fig/img/bode_HPF_plot.pdf}
 \end{figure}
 The circuit diagram for the high-pass filter is the same as the low-pass filter, but the voltage output is measured around the resistor ($R$) instead of the capacitor ($C$). This can be shown by switching around the two from the previous section:
 \begin{figure}[H]
