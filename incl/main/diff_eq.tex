@@ -1,73 +1,74 @@
 \chapter{Differential equations}
 \section{What is a differential equation?}
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Differential equation] 
-A differential equation is an equation which contains one or more derivatives of a function.
+A differential equation is an equation which, contains one or more derivatives of a function.
 \end{tcolorbox}
-A differential equation is any equation, which includes a function and its derivative. These equations have function as the solution, rather than a number. 
+These equations have a function as a solution, rather than a number. 
 \\
-A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks "What function is its own derivative?", which, is of course $y=e^x$
+A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is of course $y=e^x+C$.
 \\
-A differential equation can either have general solution or a complete solution. When finding the general solution, there is no starting in which the constant $C$ can be found. The complete solution, there is a given starting point and the constant $C$ can be found, and there is not any unknown parts of the solution.
+A differential equation can either have a general solution or a particular solution. When finding the general solution, there is no initial condition, to determine the constant $C$. Finding a particular solution requires an initial condition, from which the constant $C$ can be found.
 \\
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Order of a differential equation]
 The order of a differential equation is determined by the highest derivative present in the differential equation.
 \end{tcolorbox} 
-\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of differential equation of different orders] 
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Examples of differential equations of different orders] 
 A first order differential equation:
 $$f(x)=4\frac{df}{dx} $$
 A second order differential equation:
 $$a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy = 5\frac{dy}{dx}$$
 And a third order differential equation:
-$$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx} + 15\frac{dy}{dx} + 25y = 0$$
+$$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0$$
 \end{tcolorbox}
 \section{Linear differential equations}
-Linear differential equations are differential equations in which a function and its derivatives appears only in the power of one or zero and  and the functions are not multiplied by each other. e.g.. functions containing $y'^2$, $y'y$ or $e^y$ are non-linear. Mathematically a function is said to be linear if it satisfies the following.
+Linear differential equations are differential equations in which a function and its derivatives appear only to the power of one or zero. The functions in a linear differential equation must not be multiplied by each other.
+\\
+Functions containing $\dfrac{d}{dx}y^2$, $\dfrac{dy}{dx}y$, or $e^y$ are non-linear. Mathematically, a function is said to be linear if it satisfies the following conditions:
 \begin{align*}
 \text{Additivity}:
-f(x+y)=f(x)+f(y)
+f(x+y)=&f(x)+f(y)
 \\
 \text{Homogeneity}:
-f(kx)=kf(x)
+f(kx)=&kf(x)
 \end{align*}
-e.g $\dfrac{dy}{dx}+y=0$ is linear, where $\dfrac{dy}{dx}y+y=0$ is non-linear.
+As an example: $\dfrac{dy}{dx}+y=0$ is linear, where $\dfrac{dy}{dx}+y^2=0$ is non-linear.
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: $N$'th order linear differential equation]
-A linear $N$'th order differential equation are equations which can be written in following way.
+A linear $N$'th order differential equation is an equation, which can be written in the following way:
 \begin{align*}
-\sum_{k=0}^{N}\left(\dfrac{d^ky}{dt^k}a_k(t)\right)+b(t)=0
+\sum_{k=0}^{N}\left(\dfrac{d^ky}{dt^k}a_k(t)\right)+b(t)=0,
 \end{align*}
 where $a_k(t)$ are continuous functions on a given interval.  
 \end{tcolorbox}
-\subsection{Solving linear differential equation of first order}
-Solving differential equations is not always easy. If a differential equation can be written in a general form, sometimes a general solution can found for it.
+\subsection{Solving a linear differential equation of the first order}
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 2.1: General solution to a linear differential equation of the first order]
 A first order linear differential equation in the form of:
 \begin{align} \label{FODE_form}
-\dfrac{dy}{dx}+h(x)y=g(x)
+\dfrac{dy}{dx}+h(x)y=g(x),
 \end{align}
-Has the general solution:
+has the general solution:
 \begin{align} \label{FODE_solution}
-y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
+y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right),
 \end{align}
-Where $H(x)$ is the anti derivative of $h(x)$ and $h$ and $g$ are continuous in a given interval and $C\in \mathbb{R}$.
+where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a given interval, and $C\in \mathbb{R}$.
 \end{tcolorbox}
 \begin{tcolorbox}[colback=gray!5!white,colframe=gray!!black,title=Proof 2.1]
-Starting with \eqref{FODE}, the equation is multiplied by $e^{H(x)}$ on each side.
+The equation \eqref{FODE_form} is multiplied by $e^{H(x)}$ on each side.
 \begin{align*}
-\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=g(x)e^{H(x)}
+\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)}
 \\
-\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=g(x)e^{H(x)}
+\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=&g(x)e^{H(x)}
 \end{align*}
-Due to the product rule when differentiating, the left side of the equation can be rewritten as.
+Due to the product rule when differentiating, the equation can be rewritten as:
 \begin{align*}
 \dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}
 \end{align*}
-Bother side at then integrated with respect to x.
+Both sides are then integrated with respect to $x$:
 \begin{align*}
-\int\dfrac{d}{dx}\left(e^{H(x)}y\right)dx=\int g(x)e^{H(x)}dx
+\int\dfrac{d}{dx}\left(e^{H(x)}y\right)dx=&\int g(x)e^{H(x)}dx
 \\
-e^{H(x)}y=\int g(x)e^{H(x)}dx+C
+e^{H(x)}y=&\int g(x)e^{H(x)}dx+C,
 \end{align*}
-Where $C$ is the constant of integration from the left side of the  equation. By multiplying both sides with $e^{-H(x)}$ the general solution can be found.
+where $C$ is the constant of integration from the left side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
 \begin{align}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
@@ -76,54 +77,56 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \section{Separable differential equations} \label{SDE}
 \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Separable equation] 
     $$\frac{dy}{dx} = f(x,y)$$
-    if the right-hand side of the equation can be expressed as   a function $g(x)$ that depends only on $x$ times a function $p(y)$ that depends only on $y$, then the differential equation is called separable.
+    If the right-hand side of the equation can be expressed as   a function $g(x)$ that depends only on $x$, times a function $p(y)$ that depends only on $y$, then the differential equation is called separable.
    \end{tcolorbox}
-As per this definition, a first order differential equation can be written as
+As per definition, a first order differential equation can be written as:
 \begin{align}
-	\frac{dy}{dx}=g(x)p(y).
+	\frac{dy}{dx}=g(x)p(y)
+	\label{2_4}
 \end{align}
-The equation can then be re-written and solved as follows
+The equation can then be rewritten and solved as follows:
 \begin{align}
 	h(y)dy=g(x)dx,
 \end{align}
-where $h(y) = \frac{1}{p(y)}$. Then both sides are integrated:
+where $h(y) = \frac{1}{p(y)}$. Both sides of the equation are then integrated:
  \begin{align}
- 	\int h(y)dy =\int g(x)dx   \\
- 	H(y)=G(x)+C
+ 	\int h(y)dy =&\int g(x)dx   \\
+ 	H(y)=&G(x)+C
  \end{align}
  
-The two constants are merged into one constant $C$, this is the general solution to a differential equation. \citep{diffandcomplex}
+The two constants are merged into one constant $C$. This is the general solution to a differential equation. \citep{diffandcomplex}
 
 \subsection{Justification} 
-To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving 
+To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving \eqref{2_4}:
  \begin{align}
 	\frac{dy}{dx} &= g(x)p(y)\nonumber\\
-	h(y)\frac{dy}{dx} &= g(x)\label{eq:1},
+	h(y)\frac{dy}{dx} &= g(x)\label{eq:1}
  \end{align}
-then by letting $H(y)$ be the antiderivative of $h(y)$ and $G(x)$ be the antiderivative of $g(x)$, equation \ref{eq:1} can be rewritten as 
+Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antiderivative of $g(x)$, equation \eqref{eq:1} can be rewritten as: 
  \begin{align}
- 	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}\label{eq:2}.
+ 	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}\label{eq:2}
  \end{align}
-With the help of the chain rule for differentiation, $\frac{dH}{dy}\frac{dy}{dx}$ is the derivative of the composite function $H(y(x))$:
+Using the chain rule for differentiation, $\frac{dH}{dy}\frac{dy}{dx}$ can be written as the derivative of the composite function $H(y(x))$:
  \begin{align*}
 	\frac{d}{dx} H(y(x)) &= \frac{dH}{dy}\frac{dy}{dx}.
  \end{align*}
-This term can be substituted in equation \ref{eq:2}:
+In \ref{eq:2} this term can be substituted:
  \begin{align}
  	\frac{d}{dx}H(y(x)) &= \frac{dG}{dx}\label{eq:3}.
  \end{align}
 Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant after integrating both sides:
  \begin{align*}
- 	H(y(x)) &= G(x) + C.
+ 	H(y(x)) &= G(x) + C
  \end{align*}
-This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically or the antiderivatives are used together with the chain rule for differentiation. Therefore it is justified to treat $\frac{dy}{dx}$ algebraically.
+This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\frac{dy}{dx}$ algebraically.
 
-\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example using separable differential equation] 
-What would the solution be to the following differential equation, with the given condition?
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of solving a separable differential equation] 
+What would the solution be to the following differential equation, with the given initial condition?
 \begin{align*}
-	\frac{dy}{dx} = 6y^2x, y(1)=\frac{1}{25}
+	\frac{dy}{dx} =& 6y^2x\\
+	y(1)=&\frac{1}{25}
 \end{align*}
-The first step is to rewrite the equation, such that it follows the form of (2.6):
+The first step is to rewrite the equation, such that it follows the form of \eqref{eq:1}
 \begin{align*}
 	\frac{1}{y^2}\frac{dy}{dx}=6x
 \end{align*}
