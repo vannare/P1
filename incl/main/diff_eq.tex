@@ -121,30 +121,47 @@ Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, an
 This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\frac{dy}{dx}$ algebraically.
 
 \begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of solving a separable differential equation] 
+
 What would the solution be to the following differential equation, with the given initial condition?
 \begin{align*}
-	\frac{dy}{dx} =& 6y^2x\\
-	y(1)=&\frac{1}{25}
+	\dfrac{dy}{dx}-2y=e^x \\
+	y(0) =& 5
 \end{align*}
-The first step is to rewrite the equation, such that it follows the form of \eqref{eq:1}
+This equation can be rearranged to fit the form of \eqref{FODE_form}, and a general solution, to the differential equation, can then be found using \eqref{FODE_solution}:
 \begin{align*}
-	\frac{1}{y^2}\frac{dy}{dx}=6x
+	h(x) =& -2 \\
+	g(x) =& e^x \\
+	H(x) =& \int{-2 dx} \\
+	     =& -2x
 \end{align*}
-Then rewrite the equation to fit the form of (2.7), and then integrate both sides the equations:
+Substituting the the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$, we get: 
 \begin{align*}
-	\frac{1}{y^2}dy=&6x dx				\\
-	\int \frac{1}{y^2}dy=&\int 6x dx		\\
-	-\frac{1}{y}=&3x^2+C		
+	y(x)=&e^{2x}(\int{e^{-2x}e^x dx}+C) \\
+	y(x)=&e^{2x}(\int{e^{-x} dx}+C)
 \end{align*}
-Given the initial condition the integration constant can be found:
+The integral of $e^{-x}$ can the be found. The following result is then reduced:
 \begin{align*}
-	-\frac{1}{\frac{1}{25}}=&3\cdot 1^2+C	\\
-	C=&-28
+	y(x)=&e^{2x}(-e^{-x}+C) \\
+	y(x)=&-e^x+C \cdot e^{2x}
 \end{align*}
-This would mean that $y$ could be isolated, and the equation would be solved in this specific case:
+$C$ is then calculated from the initial condition:
 \begin{align*}
-	-\frac{1}{y}=&3x^2-28\\
-	y=&-\frac{1}{3x^2-28}
+	y(0)=&5 \\
+	5=&-e^0+C \cdot e^{2*0} \\
+	5 =& C-1 \\
+	C =& 6
 \end{align*}
+The particular solution to the differential equation is then:
+\begin{align*}
+	y(x) = -e^x+6e^{2x}
+\end{align*}
+To check this solutions validity it is substituted into the differential equation:
+\begin{align*}
+	\dfrac{dy}{dx} -2y =& e^x \\
+	e^x =& -e^x+12e^{2x} -2(-e^x+6e^{2x})  \\
+	e^x =& -e^x+2e^x  \\
+	e^x =& e^x
+\end{align*}
+This must then be a particular solution to the given differential equation.
 \end{tcolorbox}
 
