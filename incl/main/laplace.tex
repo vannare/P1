@@ -50,13 +50,13 @@ In this case, $u=e^{-st}$ and $v=f(t)$.
 Equation (\ref{eq6.3}) then yields
 $$\mathcal{L}\{f'(t)\}=\left[e^{-st}\cdot f(t)\right]_{0}^{\infty}-\int_{0}^{\infty} -s\cdot e^{-st}\cdot f(t)\ dt$$
 
-To rewrite, use that $\frac{1}{a}=a^{-n}$. Additionally, since $s$ is merely a constant, it can be placed in front of the integral. When applying the limits of integration to the left, let $N$ approach infinity, such that
+To rewrite, use that $\frac{1}{a}=a^{-n}$. Additionally, since $s$ is merely a constant, it can be placed in front of the integral. When applying the limits of integration to the first term, let $N$ approach infinity, such that
 \begin{align}
 \mathcal{L}\{f'(t)\}=\lim_{N \to \infty}\left[\dfrac{1}{e^{st}}\cdot f(t)\right]_{0}^{N}+s\cdot \int_{0}^{\infty}e^{-st}\cdot f(t)\ dt
 \label{eq6.4}
 \end{align}
 
-Note, that the second of (\ref{eq6.4}) now equals the product of $s$ and $\mathcal{L}\{f(t)\}$. 
+Note, that the second term of (\ref{eq6.4}) now equals the product of $s$ and $\mathcal{L}\{f(t)\}$. 
 $$\mathcal{L}\{f'(t)\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L}\{f(t)\}$$
 
 Since $$\lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\right]=0$$ then, naturally, any other number multiplied by 0 will also equal to 0.\\
