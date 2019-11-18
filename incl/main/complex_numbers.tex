@@ -26,7 +26,26 @@ If you put another part on these imaginary numbers, thus $a+bi$ you get the comp
 By using complex numbers you can, therefore, find a solution to any given polynomial equation. \\ 
 When plotting complex numbers you use the complex plane. The axes are different from the normal coordinate system, instead of the normal $x$ and $y$-axes, you instead have the real part and the imaginary part as the axes. An example of this is shown in the picture below.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{fig/img/complex_plan}
+\caption{The complex plane with the point $7+3i$}
+\end{figure}
 
+%ved ikke om der skal være et subsection der hedder begreber????
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: Modulus] 
+The modulus of a complex number $z$:
+$$\mid z\mid=\sqrt{a^2+b^2}$$
+\end{tcolorbox}
+
+If the complex number is seen as a vector on the complex plane, then the length of this vector is called modulus or the absolute value.
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: The Complex Conjugated]
+The complex conjugate of $z$ is given by:
+$$\bar{z}=a-bi$$
+\end{tcolorbox} 
+
+To a complex number there is also a complex conjugated. This is the opposite on the imaginary axis.  
 
 \section{Adding and Subtracting}
 The rules of addition are much like the rules of simply adding two variables of the same type together. For instance, if you have something like $(5+2i)+(9+8i)$ then you can add the complex numbers and the constants and put it together on the general form; $a+bi$. In this case, we get $14+10i$. This rule can be explained in a general form: 
@@ -88,21 +107,28 @@ This can again be described more generally:
 \end{align*}
 \end{center}
 
+\section{Complex Numbers in Polar form}
+Complex numbers in polar form is written on the form $(r,\theta)$, where $r$ is the distance from origin to the point $z$. $\theta$ is the angle from the real axis, when measured counter-clockwise. It will be negative if measured clockwise. \\
+$r$ is also the modulus of $z$ and is therefore never negative $r=\mid z\mid$. $\theta$ is also an argument of z, this is written as $\theta=arg(z)$. %skal jeg have en forklaring på hvorfor det skal skrives på denne måde?
+\\ 
+The rectangular coordinates can be rewritten to polar coordinates. For this $a$ is expressed as $x=r\cdot cos(\theta)$ and $bi$ is expressed as $bi=i\cdot r\cdot cos(\theta)$. \\
+$z$ is the expressed as:
+$$z=r\cdot cos(\theta) + i\cdot r\cdot cos(\theta)$$
+This can be rewritten as:
+\begin{align}
+z=r(cos(\theta)+i sin(\theta))
+\end{align}
+
 \section{The Complex Exponential Equation}
 The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. \\
 %(noget mere tekst)
 
-\definecolor{fersken}{RGB}{236,231,228}
-%få den tvunget til at stå på samme side!!!!!!!!!!
-\begin{mdframed}[backgroundcolor = fersken,
-  frametitle = The Complex Exponential, roundcorner=10pt]
-\
-
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Definition: The Complex Exponential Equation] 
  The complex equation of $z=a+ib$ is:
-\begin{align}
+\begin{align*}
 e^z=e^{a+ib}=e^ae^{ib}=e^a\cos(b)+i\sin(b)
-\end{align}
+\end{align*}
 This function has the property:
 $$\mid e^{a+ib} \mid = \mid e^x \mid$$
-\end{mdframed}
+\end{tcolorbox}
 
