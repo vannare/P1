@@ -33,35 +33,33 @@ The Laplace transform can be used for all functions of $f$, where
 The Laplace transform can also be applied to the derivatives of multiple orders. In particular, the Laplace transform for a first order derivative will be used when talking about high and low-pass filters. 
 %mere tekst/bedre overgang
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 6.1: Laplace transform of a first order derivative]
-If
-$$\mathcal{L}\{f(t)\}=\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt$$
-then
-$$\mathcal{L}\{f'(t)\} = s\cdot F(s)-f(0)$$
+The Laplace-transform of a first order derivative takes the following form:
+$$\mathcal{L}\{\frac{df}{dt}\} = s\cdot F(s)-f(0)$$
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=gray!5!white,colframe=gray!!black,title=Proof 6.1]
 Integration by parts states that 
 \begin{align}
-\int_{a}^{b}{u\cdot v}=\left[u\cdot v\right]_{a}^{b}-\int_{a}^{b}u'\cdot v\
+\int_{a}^{b}{u\cdot v}=\left[u\cdot v\right]_{a}^{b}-\int_{a}^{b} \frac{du}{dt}\cdot v\
 \label{eq6.3}
 \end{align}
 
 In this case, $u=e^{-st}$ and $v=f(t)$.
 Equation (\ref{eq6.3}) then yields
-$$\mathcal{L}\{f'(t)\}=\left[e^{-st}\cdot f(t)\right]_{0}^{\infty}-\int_{0}^{\infty} -s\cdot e^{-st}\cdot f(t)\ dt$$
+$$\mathcal{L}\{\frac{df}{dt}\}=\left[e^{-st}\cdot f(t)\right]_{0}^{\infty}-\int_{0}^{\infty} -s\cdot e^{-st}\cdot f(t)\ dt$$
 
 To rewrite, use that $\frac{1}{a}=a^{-n}$. Additionally, since $s$ is merely a constant, it can be placed in front of the integral. When applying the limits of integration to the first term, let $N$ approach infinity, such that
 \begin{align}
-\mathcal{L}\{f'(t)\}=\lim_{N \to \infty}\left[\dfrac{1}{e^{st}}\cdot f(t)\right]_{0}^{N}+s\cdot \int_{0}^{\infty}e^{-st}\cdot f(t)\ dt
+\mathcal{L}\{\frac{df}{dt}\}=\lim_{N \to \infty}\left[\dfrac{1}{e^{st}}\cdot f(t)\right]_{0}^{N}+s\cdot \int_{0}^{\infty}e^{-st}\cdot f(t)\ dt
 \label{eq6.4}
 \end{align}
 
 Note, that the second term of (\ref{eq6.4}) now equals the product of $s$ and $\mathcal{L}\{f(t)\}$. 
-$$\mathcal{L}\{f'(t)\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L}\{f(t)\}$$
+$$\mathcal{L}\{\frac{df}{dt}\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L}\{f(t)\}$$
 
 Since $$\lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\right]=0$$ then, naturally, any other number multiplied by 0 will also equal to 0.\\
 In conclusion, this results to
 \begin{align*}
-\mathcal{L}\{f'(t)\} = s\cdot \mathcal{L}\{f(t)\}-f(0)
+\mathcal{L}\{\frac{df}{dt}\} = s\cdot \mathcal{L}\{f(t)\}-f(0)
 \end{align*}
 \end{tcolorbox}
