@@ -124,6 +124,7 @@ The resistor and capacitor in the experiment, had the following values:
 The circuit was set up as follows:
 \begin{figure}[H]
 	\input{fig/tikz/excircuit.tex}
+	\caption{A circuit with a resistor(4770$\Omega$) and a capacitor(97.61nF)}
 \end{figure}
 \noindent The time constant $\tau$, is defined as $\tau = RC$. In this case $\tau$ is:
 \begin{align*}
@@ -141,6 +142,7 @@ $\tau$ & $V_{charge}$ & $V_{discharge}$ \\ \hline
 4      & 98.2\%       & 1.8\%          \\ \hline
 5      & 99.3\%       & 0.7\%          \\ \hline
 \end{tabular}
+\caption{$\tau$ charge and discharge percentages}
 \end{table}
 \noindent Generally, the capacitor is considered fully charged, or discharged, at $5\tau$. \\
 The time it takes for the capacitor to be fully charged, or discharged, is in this case:
@@ -162,5 +164,6 @@ The data from the theoretical values and the test results can now be compared us
 \begin{figure}[H]
 \center
 \includegraphics[scale=0.6]{fig/img/eks_1}
+\caption{Capacitor charge and discharge}
 \end{figure}
 \noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
