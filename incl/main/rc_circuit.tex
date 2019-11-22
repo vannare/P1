@@ -7,9 +7,13 @@ An RC circuit is an electrical circuit consisting of resistors and capacitors. I
  \caption{An RC circuit with a capacitor and a resistor}
 \end{figure}
 
-If the voltage in (3.4) is replaced with a change in voltage, with respect to time: $\dfrac{dv}{dt}$, the right side of (3.4) becomes: $C\dfrac{dv}{dt}$. This change in voltage will result in a change in charge, with respect to time. Since current is a change in charge, (3.4) can be rewritten as:
-\begin{align}\label{I_C}
-I_{C}= C \dfrac{dv}{dt}
+\noindent If both sides of \eqref{QCV} are differentiated  with respect to $t$:
+\begin{align}
+	\frac{dq}{dt} &= C \cdot \frac{dv}{dt} 
+\end{align}
+From \eqref{I=dq/dt}, the left-hand side can be rewritten as:
+\begin{align}
+	I_C = C \cdot \frac{dv}{dt}\label{I_C}
 \end{align}
 \subsection{Transient analysis}
 \label{sec371}
@@ -121,7 +125,7 @@ The circuit was set up as follows:
 \begin{figure}[H]
 	\input{fig/tikz/excircuit.tex}
 \end{figure}
-The time constant $\tau$, is defined as $\tau = RC$. In this case $\tau$ is:
+\noindent The time constant $\tau$, is defined as $\tau = RC$. In this case $\tau$ is:
 \begin{align*}
 	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s \\
 \end{align*}
@@ -138,7 +142,7 @@ $\tau$ & $V_{charge}$ & $V_{discharge}$ \\ \hline
 5      & 99.3\%       & 0.7\%          \\ \hline
 \end{tabular}
 \end{table}
-Generally, the capacitor is considered fully charged, or discharged, at $5\tau$. \\
+\noindent Generally, the capacitor is considered fully charged, or discharged, at $5\tau$. \\
 The time it takes for the capacitor to be fully charged, or discharged, is in this case:
 \begin{align*}
 5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s \\
@@ -159,4 +163,4 @@ The data from the theoretical values and the test results can now be compared us
 \center
 \includegraphics[scale=0.6]{fig/img/eks_1}
 \end{figure}
-As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
+\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
