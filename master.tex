@@ -1,18 +1,10 @@
-% master.tex : master file for the project
-% ------------------------------------------------------------------------------
-% This is the main file in the project, which collects the contents from all the
-% input files (text, images, literature databases, etc.).
-
-% The 'book' class is a document class with many flexible options.
-% See https://tex.stackexchange.com/a/36989/118167
 \documentclass[11pt,a4paper,twoside,openright,english]{book}
 
-% Some top level variables that are used to automatically input title, authors,
-% etc. in the title page and front page.
+
 \def \projecttitle       {RC-Circuits}
 \def \projectsubtitle    {Project Subtitle}
 \def \projecttheme       {RC-Circuits}
-\def \projectdegree      {Mathematics-Technology}  % or Mathematics-Economics/Technology
+\def \projectdegree      {Mathematics-Technology}  
 \def \projectperiod      {Fall Semester 2019}
 \def \projectnumber      {P1}
 \def \projectgroup       {C.2-5}
@@ -22,39 +14,29 @@
   Jakob Olsen\\
   Marjan Anwari\\
   Peter Nørgaard\\
-  Sigmundur Beck Jensen
-  % ...
-}
+  Sigmundur Beck Jensen}
 \def \projectsupervisors {
-  John Josef Leth\\
-  Kristian Hessellund
-  % ...
-}
+  John-Josef Leth\\
+  Kristian Hessellund}
 
-% The preamble, i.e. all the settings and commands that go before actual
-% document contents, in this template is handled in the single file aaumath.sty,
-% which defines a package that can be loaded here with \usepackage.
+
 \usepackage{aaumath}
 \usepackage{amsmath}
 \usepackage{lipsum}
 \usepackage[many]{tcolorbox}
 
 
-% All contents of the document go between the \begin and \end commands for the
-% 'document' environment.
+
 \begin{document}
 
-% The front matter is not counted in the numbered pages and are instead numbered
-% with roman numerals. This consists of, for example, the front page, title
-% page, preface, and table of contents.
+
 \frontmatter
 \include{incl/misc/frontpage}
 \include{incl/misc/titlepage}
 \include{incl/misc/preface}
 \include{incl/misc/contents}
 
-% The main matter is were the bulk of your work goes. Pages and headings have
-% arabic numbers.
+
 \mainmatter
 \include{incl/main/prob_ana}
 \include{incl/main/diff_eq}
@@ -63,32 +45,21 @@
 \include{incl/main/high_low}
 \include{incl/main/laplace}
 
-% Input files should be partitioned such that each file corresponds to one
-% chapter. The \include command forces a page break and inserts the contents of
-% the input file.
 
-% \include{incl/main/example1}
-% \include{incl/main/example2}
-% ...
-
-% Appendices are included inside an appendices block, which enumerates chapters
-% with letters, starting from A, instead of numbers.
 \begin{appendices}
   % \include{incl/app/appendix1}
   % \include{incl/app/appendix2}
   % ..
 \end{appendices}
 
-% The backmatter is for extra stuff. Headings are not numbered.
+
 \backmatter
 
-% Automatic list of references, based on which references in the literature
-% database files were referenced throughout the document.
+
 \bibliographystyle{ieeetr}
 \bibliography{
   incl/bib/books.bib,
   incl/bib/articles.bib,
-  incl/bib/software.bib
-}
+  incl/bib/software.bib}
 
 \end{document}
