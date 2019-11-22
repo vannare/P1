@@ -35,8 +35,9 @@ In conclusion, the Laplace transform of $f(t)=e^{at}$ equals
 $$\mathcal{L}\{f(t)\}=\dfrac{1}{s-a} \ \ \ ;\ \ \ s>a$$
 $s$ must be greater than $a$, since the limit of $e^{-(s-a)N}$ converges towards zero. If $a$ is greater than $s$, the exponent of $e$ would be positive, and the limit would diverge. 
 \end{tcolorbox}
-The Laplace transform can be used for all functions of $f$, where 
-The Laplace transform can also be applied to the derivatives of multiple orders. In particular, the Laplace transform for a first order derivative will be used when talking about high and low-pass filters. 
+The Laplace transform can be used for all functions of $f$, where the real part of $s$ is greater than $a$ $Re(s)>=a$. Since $s$ is a complex number ($s=a+ib$), only the first part of $s$ has to be greater than $a$. Therefore, $e^{-st}$ is  the same as $e^{-ta}e^{-tib}$, where the last part is the imaginary part of the complex number. In the complex chapter, this is also defined as $e^{a}\cos(b)+ i \sin(b)$. Since the imaginary parts are defined as functions of cosine and sinus, they can not approach $\infty$. Therefore, only the real part of $s$ from equation \eqref{lpdef} can approach $\infty$, and is only going to converge when $Re(s) >= a$, and diverge when $Re(s)<a$.
+\\ \\
+The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high and low-pass filters. 
 %mere tekst/bedre overgang
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 6.1: Laplace transform of a first order derivative]
 The Laplace-transform of a first order derivative takes the following form:
