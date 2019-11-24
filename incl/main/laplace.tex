@@ -3,9 +3,9 @@ Up until this point, the project has focused on the behaviour of electrical circ
 \\ \\
 The solution to a differential equation will often be difficult to derive, and this is where the Laplace transform comes in handy. The Laplace transform converts functions of time to functions of frequency (i.e. from the time domain to the \textit{s}-domain). This process reduces the differential equation in question to an algebraic equation. Once the expression has been solved in the \textit{s}-domain, the inverse Laplace transform can be applied to find its corresponding solution in the time domain. Generally, this description can be illustrated in the following way:
 \begin{figure}[H]
- \center
- \includegraphics[scale=1]{fig/img/laplace_circ.pdf}
- \caption{Solution using Laplace}
+\center
+\includegraphics[scale=1]{fig/img/laplace_circ.pdf}
+\caption{Solution using Laplace}
 \end{figure}
 
 \section{The Laplace Transform}
@@ -16,7 +16,12 @@ The solution to a differential equation will often be difficult to derive, and t
 \end{align}
 where $f(t)$ is a function of time, $F(s)$ is the Laplace transform of that very function, and $s$ is a complex variable.
 \end{tcolorbox}
-
+Since the definition consists of an improper intergral (intergral consisting of infinity), it can be rewritten as:
+\begin{align}
+\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt = \lim_{N \to \infty} \int_{0}^{N} e^{-st}\cdot f(t)\ dt
+\end{align}
+When solving something like this, it has to be taken into consideration when the integral is converging and diverging. Generally, a function converges when it approaches a specific value. A function is diverging when it is not approaching a specific value, e.g. when approaching infinity.  
+%Me^ct FORKLARING. S320 “Introduction to complex nr. and diif eq”
 \begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of a Laplace transform]
 In (\ref{lpdef}), let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case,
 $$\mathcal{L}\{f(t)\}=\int_{0}^{\infty} e^{-st}\cdot e^{at}\ dt$$
@@ -33,11 +38,18 @@ Applying the limits of integration to (\ref{eq6.2}), and letting N approach $\in
 \end{align*}
 In conclusion, the Laplace transform of $f(t)=e^{at}$ equals
 $$\mathcal{L}\{f(t)\}=\dfrac{1}{s-a} \ \ \ ;\ \ \ s>a$$
-$s$ must be greater than $a$, since the limit of $e^{-(s-a)N}$ converges towards zero. If $a$ is greater than $s$, the exponent of $e$ would be positive, and the limit would diverge. 
+$s$ must be greater than $a$, since the limit of $e^{-(s-a)N}$ converges towards zero. If $a$ is greater than $s$, the exponent of $e$ would be positive, and the limit would diverge.
+\end{tcolorbox}
+When doing the inverse Laplace transformation, the results can often be found by looking at the results from on ordinary Laplace transformation.
+\begin{tcolorbox}[colback=red!5!white,colframe=red!55!black,title=Example of an inverse Laplace transform]
+Let $F(s) = \dfrac{4}{s+10}$. When recognizing this takes the same form as the result above, the solution becomes clear. Now this has to be put on the form $f(t)=e^{at}$, where 10 in this case is the constant. The result is therefore: \cite[p. 323]{diffandcomplex}
+\begin{align}
+\mathcal{L}^{-1}\{F(s)\} = 4e^{-10t}
+\end{align}
 \end{tcolorbox}
 The Laplace transform can be used for all functions of $f$, where the real part of $s$ is greater than $a$ $Re(s)>=a$. Since $s$ is a complex number ($s=a+ib$), only the first part of $s$ has to be greater than $a$. Therefore, $e^{-st}$ is  the same as $e^{-ta}e^{-tib}$, where the last part is the imaginary part of the complex number. In the complex chapter, this is also defined as $e^{a}\cos(b)+ i \sin(b)$. Since the imaginary parts are defined as functions of cosine and sinus, they can not approach $\infty$. Therefore, only the real part of $s$ from equation \eqref{lpdef} can approach $\infty$, and is only going to converge when $Re(s) >= a$, and diverge when $Re(s)<a$.
 \\ \\
-The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high and low-pass filters. 
+The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high and low-pass filters.
 %mere tekst/bedre overgang
 \begin{tcolorbox}[colback=green!5!white,colframe=green!40!black,title=Theorem 6.1: Laplace transform of a first order derivative]
 The Laplace-transform of a first order derivative takes the following form:
@@ -45,7 +57,7 @@ $$\mathcal{L}\{\frac{df}{dt}\} = s\cdot F(s)-f(0)$$
 \end{tcolorbox}
 
 \begin{tcolorbox}[colback=gray!5!white,colframe=gray!!black,title=Proof 6.1]
-Integration by parts states that 
+Integration by parts states that
 \begin{align}
 \int_{a}^{b}{u\cdot v}=\left[u\cdot v\right]_{a}^{b}-\int_{a}^{b} \frac{du}{dt}\cdot v\
 \label{eq6.3}
@@ -61,7 +73,7 @@ To rewrite, use that $\frac{1}{a}=a^{-n}$. Additionally, since $s$ is merely a c
 \label{eq6.4}
 \end{align}
 
-Note, that the second term of (\ref{eq6.4}) now equals the product of $s$ and $\mathcal{L}\{f(t)\}$. 
+Note, that the second term of (\ref{eq6.4}) now equals the product of $s$ and $\mathcal{L}\{f(t)\}$.
 $$\mathcal{L}\{\frac{df}{dt}\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L}\{f(t)\}$$
 
 Since $$\lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\right]=0$$ then, naturally, any other number multiplied by 0 will also equal to 0.\\
