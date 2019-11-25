@@ -25,39 +25,39 @@
 \usepackage{lipsum}
 \usepackage[many]{tcolorbox}
 	\tcbuselibrary{skins,breakable}
-\newtcolorbox[auto counter,number within=chapter]{definition}[3][]{
+\newtcolorbox[auto counter,number within=chapter]{definition}[2][]{
+  enhanced,
   breakable,
   colback=blue!5!white,
   colframe=blue!75!black,
   title={Definition \thetcbcounter :#2},
-  label={#3},
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{theorem}[3][]{
+\newtcolorbox[auto counter,number within=chapter]{theorem}[2][]{
+  enhanced,
   breakable,
   colback=green!5!white,
   colframe=green!40!black,
   title={Theorem \thetcbcounter :#2},
-  label={#3},
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{example}[3][]{
+\newtcolorbox[auto counter,number within=chapter]{example}[2][]{
+  enhanced,
   breakable,
   colback=red!5!white,
   colframe=red!55!black,
   title={Example \thetcbcounter :#2},
-  label={#3},
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{prof}[3][]{
+\newtcolorbox[auto counter,number within=chapter]{prof}[2][]{
+  enhanced,
   breakable,
   colback=gray!5!white,
   colframe=gray!!black,
   title={Proof \thetcbcounter :#2},
-  label={#3},
   #1
 }
 

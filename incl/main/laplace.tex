@@ -6,6 +6,7 @@ The solution to a differential equation will often be difficult to derive, and t
 \center
 \includegraphics[scale=1]{fig/img/laplace_circ.pdf}
 \caption{Solution using Laplace}
+\label{lpsol}
 \end{figure}
 
 \section{The Laplace Transform}
@@ -20,13 +21,16 @@ Since the definition consists of an improper integral (integral consisting of in
 \begin{align}
 \int_{0}^{\infty} e^{-st}\cdot f(t)\ dt = \lim_{N \to \infty} \int_{0}^{N} e^{-st}\cdot f(t)\ dt
 \end{align}
-When solving something like this, it has to be taken into consideration when the integral converges and diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity. 
+When solving something like this, it has to be taken into consideration when the integral converges and diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity.
+
 \begin{theorem}{Existence of the Laplace transform}{}
-The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct} for t \geq T.$$ 
+The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct} for t \geq T.$$
 Thus a function is of exponential order provided that it grows no more rapidly than a constant multiple of some exponential with a linear exponent. \cite[p. 320]{diffandcomplex}
 \end{theorem}
-%Me^ct FORKLARING. S320 “Introduction to complex nr. and diif eq”
-\begin{example}{Laplace transform}{}
+\begin{prof}{}{}
+Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \leq 0$. Note that  $s=a+ib$. It follows that $$\lim_{N \to \infty} \int_{0}^{N} |f(t)|\cdot e^{-st}$$
+\end{prof}
+\begin{example}{Laplace transform for $e^{at}$}{lpe}
 In (\ref{lpdef}), let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case,
 $$\mathcal{L}\{f(t)\}=\int_{0}^{\infty} e^{-st}\cdot e^{at}\ dt$$
 Since they have the base, $e$, in common, their exponents can be combined. Additionally, $t$ can be factorised:
@@ -61,7 +65,7 @@ Let $F(s) = \dfrac{4}{s+10}$. When recognizing this takes the same form as the r
 \end{example}
 The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high and low-pass filters.
 %mere tekst/bedre overgang
-\begin{theorem}{Laplace transform of a first order derivative}{}
+\begin{theorem}{Laplace transform of a first order derivative}
 The Laplace-transform of a first order derivative takes the following form:
 $$\mathcal{L}\{\frac{df}{dt}\} = s\cdot F(s)-f(0)$$
 \end{theorem}
@@ -71,7 +75,7 @@ The Laplace transform of the first derivitive is using the rule of integration b
 \label{eq6.3}
 \end{align}
 
-\begin{prof}{Laplace transform of a first order derivative}{}
+\begin{prof}{Laplace transform of a first order derivative}{lpderiv}
 From the definition of a Laplace transform in equation \ref{lpdef}, the $u$ and $v$ from \ref{eq6.3} are chosen as: $u=e^{-st}$ and $v=f(t)$.
 From the equation \ref{eq6.3} the following values are set: $u=e^{-st}$ and $v=f(t)$.
 In this case, $u=e^{-st}$ and $v=f(t)$. Furthermore, infinity is replaced with the limit of some value N approaching $\infty$. This yields:
@@ -91,3 +95,66 @@ In conclusion, this results to
 \mathcal{L}\{\frac{df}{dt}\} = s\cdot \mathcal{L}\{f(t)\}-f(0)
 \end{align*}
 \end{prof}
+When taking a look back at the figure \ref{lpsol}, an example will show the advantage of the Laplace transform. In the following example with an initial value problem, the result is found with the Laplace transformation. Furthermore, it is going to show the difficulties connected with finding a result without the Laplace transformation.
+\begin{example}{Laplace example}{laplaceexample}
+In this example the following differential equation will be solved using the Laplace transformation:
+\begin{align}
+\dfrac{df}{dt}=e^{5t}, 	
+\end{align} \label{inieq}
+with the starting condition $f(0)=-1$. Sometimes an equation like that can be difficult to solve, and the Laplace transformation can be used. The Laplace transformation is applied on both sides:
+\begin{align*}
+\mathcal{L} \{\dfrac{df}{dt} \}= \mathcal{L} \{e^{5t} \}
+\end{align*}
+The Laplace transform of the derivative is inserted from \ref{lpderiv}, and the Laplace transform of $e^{5t}$ is inserted from \ref{lpe}:
+\begin{align*}
+s \cdot F(s) - f(0) = \dfrac{1}{s-5}
+\end{align*}
+Now $f(0)=-1$ is inserted:
+\begin{align*}
+s \cdot F(s) + 1 = \dfrac{1}{s-5}
+\end{align*}
+This value is now subtracted on both sides and put on a common denominator:
+\begin{align*}
+s \cdot F(s) = \dfrac{1-(s-5)}{s-5}
+\end{align*}
+Both sides are now divided by $s$ and the nomirator on the right side is simplified:
+\begin{align*}
+F(s) = \dfrac{6-s}{s(s-5)}
+\end{align*}
+Now the next step is to find the inverse Laplace transform. This is done using partial decompositition: \cite[p. 537]{calc}
+\begin{align}
+F(s) = \dfrac{6-s}{s(s-5)} = A \dfrac{1}{s} + B \dfrac{1}{s-5}
+\label{par_dec}
+\end{align}
+Both sides of the expression above is now multiplied with the denominator of the left side $(s(s-5))$:
+\begin{align*}
+6 - s = A(s-5) + Bs
+\end{align*}
+Now this is split up in elements that are multiplied by $s$ and elements that are not:
+\begin{align*}
+6 - s = s(A+B) - 5A
+\end{align*}
+Now two equations with two unknown variables are created:
+\begin{align*}
+-5A &= 6 \Leftrightarrow A = - \dfrac{6}{5}\\
+A + B &= -1 \Leftrightarrow - \dfrac{6}{5} + B = -1 \Leftrightarrow B = \dfrac{1}{5}
+\end{align*}
+These values are now put on the equation \ref{par_dec}:
+\begin{align*}
+F(s) =  - \dfrac{6}{5} \cdot \dfrac{1}{s} + \dfrac{1}{5} \cdot \dfrac{1}{s-5}
+\end{align*}
+The inverse Laplace transform is now applied:
+\begin{align*}
+\mathcal{L} \{F(s)\} =  - \dfrac{6}{5} \cdot \mathcal{L} \{\dfrac{1}{s}\} + \dfrac{1}{5} \cdot \mathcal{L} \{\dfrac{1}{s-5}\}
+\end{align*}
+Now the solutions can be identified from the table INSERT TABLE!!!
+\begin{align*}
+f(t) = - \dfrac{6}{5} + \dfrac{1}{5}e^{5t}
+\end{align*}
+This result can be tested by taking the derivative of $f(t)$ and inserting it on \ref{inieq}:
+\begin{align*}
+\dfrac{df}{dt} \left(- \dfrac{6}{5} + \dfrac{1}{5}e^{5t} \right) &= e^{5t} \\
+e^{5t} &= e^{5t}
+\end{align*}
+Hereby the solution to the equation \ref{inieq} is found using the Laplace transformation.
+\end{example}
