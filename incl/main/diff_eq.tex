@@ -1,6 +1,6 @@
 \chapter{Differential equations}
 \section{What is a differential equation?}
-\begin{definition}{Differential equation}
+\begin{definition}{Differential equation}{}
 A differential equation is an equation which contains one or more derivatives of a function.
 \end{definition}
 These equations have a function as a solution, rather than a number. 
@@ -17,7 +17,7 @@ This can be expressed formally as:
 \\ \\
 A differential equation can either have a general solution or a particular solution. When finding the general solution, there is no initial condition, to determine the constant $C$. Finding a particular solution requires an initial condition, from which the constant $C$ can be found.
 \\
-\begin{definition}{Order of a differential equation}
+\begin{definition}{Order of a differential equation}{}
 The order of a differential equation is determined by the highest order of derivative present in the differential equation.
 \end{definition} 
 \begin{example}{Examples of differential equations of different orders}
@@ -30,7 +30,7 @@ $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0$$
 \end{example}
 \section{Linear differential equations}
 Generally there exists two types of differential equations, linear and non-linear. A linear differential equation is a linear polynomial that consists of a function and its derivatives.
-\begin{definition}{$N$'th order linear differential equation}
+\begin{definition}{$N$'th order linear differential equation}{}
 A linear $N$'th order dfferential equation is an equation, which can be written in the following way:
 \begin{align*}
 \sum_{k=0}^{N}\left(\dfrac{d^ky}{dx^k}a_k(x)\right)+b(x)=0,
@@ -38,7 +38,7 @@ A linear $N$'th order dfferential equation is an equation, which can be written 
 where $a_k(x)$ are continuous functions on a given interval.
 \end{definition}
 \subsection{Solving a linear differential equation of the first order}
-\begin{theorem}{General solution to a linear differential equation of the first order}
+\begin{theorem}{General solution to a linear differential equation of the first order}{}
 A first order linear differential equation in the form of:
 \begin{align} \label{FODE_form}
 \dfrac{dy}{dx}+h(x)y=g(x),
@@ -49,7 +49,7 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right),
 \end{align}
 where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a given interval, and $C\in \mathbb{R}$.
 \end{theorem}
-\begin{prof}{}
+\begin{prof}{}{}
 The equation \eqref{FODE_form} is multiplied by $e^{H(x)}$ on each side.
 \begin{align*}
 \left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)}
@@ -72,7 +72,7 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align}
 \end{prof}
 
-\begin{example}{Solving a linear differential equation of first order}
+\begin{example}{Solving a linear differential equation of first order}{}
 Consider the following differential equation with the given initial condition.
 \begin{align}
 	\dfrac{dy}{dx}-2y=e^x  \label{ODE_ex}\\ 
@@ -120,7 +120,7 @@ This must then be a particular solution to the given differential equation.
 \end{example}
 
 \section{Separable differential equations}
-\begin{definition}{Separable differential equations}[label=def:SDE]
+\begin{definition}{Separable differential equations}{def:SDE}
 Given a differential equation in the following form. 
 $$\frac{dy}{dx} = f(x,y)$$
 The equation is said to be separable if the right-hand side of the equation can be expressed as a function $g(x)$ that depends only on $x$, times a function $p(y)$ that depends only on $y$:
@@ -171,8 +171,7 @@ Equation \ref{eq:3} shows that $H(y(x))$ and $G(x)$ have the same derivative, an
 This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\frac{dy}{dx}$ algebraically.
 
 
-\begin{example}{Solving a separable differential equation} 
-
+\begin{example}{Solving a separable differential equation}{}
 Given the differential equation and initial condition:
 \begin{align*}
 	\dfrac{dy}{dx} =& y^2 4x \\

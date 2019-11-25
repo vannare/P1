@@ -33,14 +33,14 @@ When plotting complex numbers you use the complex plane. The axes are different 
 \end{figure}
 
 %ved ikke om der skal være et subsection der hedder begreber????
-\begin{definition}{Modulus of a complex number}
+\begin{definition}{Modulus of a complex number}{}
 The modulus of a complex number $z$:
 $$\mid z\mid=\sqrt{a^2+b^2}$$
 \end{definition}
 
 If the complex number is seen as a vector on the complex plane, then the length of this vector is called modulus or the absolute value.
 
-\begin{definition}{Complex number conjugated}
+\begin{definition}{Complex number conjugated}{}
 The complex conjugate of $z$ is given by:
 $$\bar{z}=a-bi$$
 \end{definition} 
@@ -64,7 +64,7 @@ From the examples above we can see that subtracting and adding with complex numb
 
 \section{Multiplying}
 When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=sqrt(-1)$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. \\
-\begin{example}{Multiplying complex numbers}
+\begin{example}{Multiplying complex numbers}{}
 
 \begin{align*}
 (3+5i)(4-3i) = 12 - 9i + 20i - 15i^2 = 12 + 11i - 15 \cdot (-1) = 27 + 11i
@@ -83,7 +83,7 @@ Since $i^2 = -1$ then $bdi^2$ can be described as $-bd$.
 
 \section{Dividing}
 When dividing with a complex number the aim is to get some values we can put on the general form $a + bi$. 
-\begin{example}{Dividing complex numbers}
+\begin{example}{Dividing complex numbers}{}
 
 \begin{align*}
 \frac{18 + 10i}{3 + 2i} &= \frac{(18 + 10i)(3 - 2i)}{(3+2i)(3-2i)} \\[1em]
@@ -118,7 +118,7 @@ This can be rewritten as:
 \begin{align}
 z=r(\cos(\theta)+i \sin(\theta))
 \end{align}
-\begin{theorem}{Multiplication in polar form}
+\begin{theorem}{Multiplication in polar form}{}
 Given two complex numbers $z_1$ and $z_2$ where.
 \begin{align*}
 z_1=r_1(\cos(\theta_1)+i\sin(\theta_1)) 
@@ -130,7 +130,7 @@ The multiplication of these are given by
 z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
 \end{align}
 \end{theorem}
-\begin{prof}{Multiplication in polar form}
+\begin{prof}{Multiplication in polar form}{}
 \begin{align}
 z_1 z_2&=r_1( \cos(\theta_1)+ i \sin(\theta_1))r_2( \cos(\theta_2)+ i \sin(\theta_2)) \nonumber
 \\
@@ -155,7 +155,7 @@ z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
 The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. \\
 %(noget mere tekst)
 
-\begin{definition}{The complex exponential equation}
+\begin{definition}{The complex exponential equation}{}
 Given a complex number $z=a+ib$, $e^{z}$ is then defined as:
 \begin{align*}
 f(z)=e^z=e^ae^{ib}=e^a\cos(b)+i\sin(b)
@@ -163,7 +163,7 @@ f(z)=e^z=e^ae^{ib}=e^a\cos(b)+i\sin(b)
 This function has the property:
 $$\mid e^{a+ib} \mid = \mid e^a \mid$$
 \end{definition}
-\begin{theorem}{Multiplication of complex numbers in exponential form}
+\begin{theorem}{Multiplication of complex numbers in exponential form}{}
 Given two complex numbers in exponential form $e^{z_1}$ and $e^{z_2}$ where:
 \begin{align*}
 z_1=a_1+ib_1
@@ -175,7 +175,7 @@ The product of the two complex numbers is given by:
 e^{z_1}e^{z_2}=e^{z_1+z_2}
 \end{align}
 \end{theorem}
-\begin{prof}{}
+\begin{prof}{}{}
 From definition 5.4 %skal ændres%
 the product can be written as.
 \begin{align*}
@@ -201,7 +201,7 @@ this can rewritten as:
 &=e^{z_1+z_2}
 \end{align*} 
 \end{prof}
-\begin{theorem}{Differentiating a complex exponential function}
+\begin{theorem}{Differentiating a complex exponential function}{}
 Given the complex function.
 \begin{align}
 f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))
@@ -211,7 +211,7 @@ Where $z=a+ib$. The differentiation of this function is given by:
 \dfrac{d}{dz}e^{z}=e^{z}
 \end{align}
 \end{theorem}
-\begin{prof}{}
+\begin{prof}{}{}
 Given $z=a+ib$, the exponential function of this number is:
 \begin{align}
 f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))=e^{a}\cos(b)+e^{a}i\sin(b)
