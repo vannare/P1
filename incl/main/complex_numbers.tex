@@ -111,24 +111,109 @@ This can again be described more generally:
 Complex numbers in polar form is written on the form $(r,\theta)$, where $r$ is the distance from origin to the point $z$. $\theta$ is the angle from the real axis, when measured counter-clockwise. It will be negative if measured clockwise. \\
 $r$ is also the modulus of $z$ and is therefore never negative $r=\mid z\mid$. $\theta$ is also an argument of z, this is written as $\theta=arg(z)$. %skal jeg have en forklaring på hvorfor det skal skrives på denne måde?
 \\ 
-The rectangular coordinates can be rewritten to polar coordinates. For this $a$ is expressed as $x=r\cdot cos(\theta)$ and $bi$ is expressed as $bi=i\cdot r\cdot cos(\theta)$. \\
+The rectangular coordinates can be rewritten to polar coordinates. For this $a$ is expressed as $x=r\cdot \cos(\theta)$ and $bi$ is expressed as $bi=i\cdot r\cdot \sin(\theta)$. \\
 $z$ is the expressed as:
-$$z=r\cdot cos(\theta) + i\cdot r\cdot cos(\theta)$$
+$$z=r\cdot \cos(\theta) + i\cdot r\cdot \sin(\theta)$$
 This can be rewritten as:
 \begin{align}
-z=r(cos(\theta)+i sin(\theta))
+z=r(\cos(\theta)+i \sin(\theta))
 \end{align}
-
+\begin{theorem}{Multiplication in polar form}
+Given two complex numbers $z_1$ and $z_2$ where.
+\begin{align*}
+z_1=r_1(\cos(\theta_1)+i\sin(\theta_1)) 
+\\
+z_2=r_2(\cos(\theta_2)+i\sin(\theta_2))
+\end{align*}
+The multiplication of these are given by
+\begin{align}
+z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
+\end{align}
+\end{theorem}
+\begin{prof}{Multiplication in polar form}
+\begin{align}
+z_1 z_2&=r_1( \cos(\theta_1)+ i \sin(\theta_1))r_2( \cos(\theta_2)+ i \sin(\theta_2)) \nonumber
+\\
+\label{polar_multiplication}
+z_1z_2&=r_1r_2\left( (\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1) \sin(\theta_2))+i(\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)\right)
+\end{align}
+From trigonometry, sine of a sum and cosine of a sum can be expressed as:
+\\
+\begin{align} \label{sum_cos_sin}
+\sin(\theta_1+\theta_2)=\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)
+\\
+\cos(\theta_1+\theta_2)=\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1)\sin(\theta_1)
+\end{align}
+\\
+These definitions are inserted in \eqref{polar_multiplication}.
+\\
+\begin{align}
+z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
+\end{align}
+\end{prof}
 \section{The Complex Exponential Equation}
 The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. \\
 %(noget mere tekst)
 
 \begin{definition}{The complex exponential equation}
- The complex equation of $z=a+ib$ is:
+Given a complex number $z=a+ib$, $e^{z}$ is then defined as:
 \begin{align*}
-e^z=e^{a+ib}=e^ae^{ib}=e^a\cos(b)+i\sin(b)
+f(z)=e^z=e^ae^{ib}=e^a\cos(b)+i\sin(b)
 \end{align*}
 This function has the property:
-$$\mid e^{a+ib} \mid = \mid e^x \mid$$
+$$\mid e^{a+ib} \mid = \mid e^a \mid$$
 \end{definition}
-
+\begin{theorem}{Multiplication of complex numbers in exponential form}
+Given two complex numbers in exponential form $e^{z_1}$ and $e^{z_2}$ where:
+\begin{align*}
+z_1=a_1+ib_1
+\\
+z_1=a_2+ib_2
+\end{align*}
+The product of the two complex numbers is given by:
+\begin{align}
+e^{z_1}e^{z_2}=e^{z_1+z_2}
+\end{align}
+\end{theorem}
+\begin{prof}{}
+From definition 5.4 %skal ændres%
+the product can be written as.
+\begin{align*}
+e^{z_1}e^{z_2}&=e^{a_1}(\cos(b_1)+i\sin(b_1))e^{a_2}(\cos(b_2)+i\sin(b_2))
+\\
+&=e^{a_1}e^{a_2}\left( (\cos(b_1)\cos(b_2)-\sin(b_1) \sin(b_2))+i(\cos(b_1)\sin(b_2)+\sin(b_1)\cos(b_2)\right)
+\end{align*}
+From \eqref{sum_cos_sin} this can be rewritten as:
+\begin{align*}
+&=e^{a_1}e^{a_2}(\cos(b_1+b_2)+i(\sin(b_1+b_2))
+\end{align*}
+Since both $e^{a_1}$ and $e^{a_2}$ are real numbers, their exponents can be added.
+\begin{align*}
+&=e^{a_1+a_2}(\cos(b_1+b_2)+i(\sin(b_1+b_2))
+\end{align*}
+From definition 5.4 %skal ændres
+this can rewritten as:
+\begin{align*}
+&=e^{a_1+a_2}e^{i(b_1+b_2)}
+\\
+&=e^{a_1+ib_1}e^{a_2+ib_2}
+\\
+&=e^{z_1+z_2}
+\end{align*} 
+\end{prof}
+\begin{theorem}{Differentiating a complex exponential function}
+Given the complex function.
+\begin{align}
+f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))
+\end{align}
+Where $z=a+ib$. The differentiation of this function is given by:
+\begin{align}
+\dfrac{d}{dz}e^{z}=e^{z}
+\end{align}
+\end{theorem}
+\begin{prof}{}
+Given $z=a+ib$, the exponential function of this number is:
+\begin{align}
+f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))=e^{a}\cos(b)+e^{a}i\sin(b)
+\end{align}
+\end{prof}
