@@ -23,9 +23,10 @@
 \usepackage{aaumath}
 \usepackage{amsmath}
 \usepackage{lipsum}
+\providecommand{\definitionname}{Definition}
 \usepackage[many]{tcolorbox}
 	\tcbuselibrary{skins,breakable}
-\newtcolorbox[auto counter,number within=chapter]{definition}[3][]{
+\newtcolorbox[auto counter,number within=chapter,Crefname={Definition}{Definitions}]{definition}[3][]{
   breakable,
   colback=blue!5!white,
   colframe=blue!75!black,
@@ -34,7 +35,7 @@
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{theorem}[3][]{
+\newtcolorbox[auto counter,number within=chapter,Crefname={Theorem}{Theorems}]{theorem}[3][]{
   breakable,
   colback=green!5!white,
   colframe=green!40!black,
@@ -43,7 +44,7 @@
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{example}[3][]{
+\newtcolorbox[auto counter,number within=chapter,Crefname={Example}{Examples}]{example}[3][]{
   breakable,
   colback=red!5!white,
   colframe=red!55!black,
@@ -52,7 +53,7 @@
   #1
 }
 
-\newtcolorbox[auto counter,number within=chapter]{prof}[3][]{
+\newtcolorbox[auto counter,number within=chapter,Crefname={Proof}{Proofs}]{prof}[3][]{
   breakable,
   colback=gray!5!white,
   colframe=gray!!black,

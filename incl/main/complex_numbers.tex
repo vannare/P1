@@ -1,58 +1,61 @@
-
 \chapter{Complex Numbers}
 
 \section{Intro}
 In the following chapter these sources are used as background information \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.
-When simply using real numbers, you cannot always get the right answer to a given equation. An example of this could be the equation $x^2=-1$. Therefore sometimes we have to use a different number system, which uses the number $i$. 
+When simply using real numbers, you cannot always get the right answer to a given equation. An example of this could be the equation $x^2=-1$. Therefore sometimes we have to use complex numbers, which uses the imaginary unit $i$.
 \begin{align*}
-i=\sqrt{-1}
+i=\sqrt{-1}.
 \end{align*}
-When squared the number $i$ becomes:
+When squared, $i$ becomes:
 \begin{align*}
-i^2=-1
+i^2=-1,
 \end{align*}
-With the power to the third:
+when cubed:
 \begin{align*}
-i^3=-i
+i^3=-i,
 \end{align*}
-and with the power to the fourth:
+and raised to the power of four:
 \begin{align*}
-i^4=1
+i^4=1,
 \end{align*}
 These first four of $i$ creates a loop, $i$ to the fifth will, therefore, be the same as $i$ to the first, $i$ to the seventh is the same as $i$ to the third \\
-By using these complex numbers, you can create infinitely more numbers.  
-An example of this is the numbers: $2i$ and $-7i$, these are called pure imaginary numbers. When writing pure imaginary numbers you use the form $bi$, where $b$ is a real number that is not $0$. \\
-If you put another part on these imaginary numbers, thus $a+bi$ you get the complex numbers. Example $3+4i$ and $-12i+6$. In this case, $a$ is the real part and $b$, where $i$ is, is the imaginary part. $a$ and $b$ are real numbers. By using this method you can make all pure imaginary numbers into a complex number by writing it like this: $0+3i$. $3i$ does not stand alone anymore and is, therefore, a complex number now. You can also rewrite every real number into a complex by doing this $2+0i$. \\
-By using complex numbers you can, therefore, find a solution to any given polynomial equation. \\ 
-When plotting complex numbers you use the complex plane. The axes are different from the normal coordinate system, instead of the normal $x$ and $y$-axes, you instead have the real part and the imaginary part as the axes. An example of this is shown in the picture below.
-
+Complex numbers have the form $z=a+ib$, where $z$ is the complex number that consists of an imaginary part and a real part. 
+\begin{align*}
+\text{Re}\{z\}=a
+\\
+\text{Im}\{z\}=b
+\end{align*}
+\\
+An example of a complex numbers could be: $7+3i$, where 7 is the real part and 3 is the imaginary part. If $\text{Re}\{z\}=0$ the number is said to be pure imaginary. 
+By using these complex numbers, infinitely more numbers can be created. 
+%An example of this is the numbers: $2i$ and $-7i$, these are called pure imaginary numbers. When writing pure imaginary numbers you use the form $bi$, where $b$ is a real number that is not $0$. \\
+%If you put another part on these imaginary numbers, thus $a+bi$ you get the complex numbers. Example $3+4i$ and $-12i+6$. In this case, $a$ is the real part and $b$, where $i$ is, is the imaginary part. $a$ and $b$ are real numbers. By using this method you can make all pure imaginary numbers into a complex number by writing it like this: $0+3i$. $3i$ does not stand alone anymore and is, therefore, a complex number now. You can also rewrite every real number into a complex by doing this $2+0i$. \\
+%By using complex numbers you can, therefore, find a solution to any given polynomial equation. \\ 
+Complex numbers are plotted on the complex plane. The complex plane consist of two axis, the real part and the imaginary part. An example of this is shown in the picture below.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{fig/img/complex_plan}
-\caption{The complex plane with the point $7+3i$}
+\includegraphics[scale=0.25]{fig/img/complex_plan}
+\caption{The complex plane with the point $z=7+3i$}
 \end{figure}
-
-%ved ikke om der skal være et subsection der hedder begreber????
+\noindent
+The length from origin to the complex number is called modulus or absolute value of the number.
 \begin{definition}{Modulus of a complex number}{}
-The modulus of a complex number $z$:
+The modulus of a complex number $z=a+ib$:
 $$\mid z\mid=\sqrt{a^2+b^2}$$
 \end{definition}
-
-If the complex number is seen as a vector on the complex plane, then the length of this vector is called modulus or the absolute value.
-
+\noindent
+To every complex number there also exists a complex conjugate. The conjugate of a complex number, has the same real part and opposite sign for the imaginary part.
 \begin{definition}{Complex number conjugated}{}
-The complex conjugate of $z$ is given by:
-$$\bar{z}=a-bi$$
+The complex conjugate of $z=a+ib$ is given by:
+$$\bar{z}=a-ib$$
 \end{definition} 
 
-To a complex number there is also a complex conjugated. This is the opposite on the imaginary axis.  
-
 \section{Adding and Subtracting}
-The rules of addition are much like the rules of simply adding two variables of the same type together. For instance, if you have something like $(5+2i)+(9+8i)$ then you can add the complex numbers and the constants and put it together on the general form; $a+bi$. In this case, we get $14+10i$. This rule can be explained in a general form: 
+When adding complex numbers the imaginary unit $i$, can be treated as a variable like in classic algebra. For instance, if you have something like $(5+2i)+(9+8i)$ then you can add the imaginary parts and the real parts and put it together on the general form; $a+bi$. In this case, we get $14+10i$. This rule can be explained in a general form: 
 \begin{align*}
 (a + bi) + (c + di) = (a + c) + i(b + d)
 \end{align*}
-Subtracting is similar because you can only subtract a complex number from another complex number, and the same goes for the constants. Here is an example:
+Subtracting is similar because you can only subtract a imaginary part from another imaginary part, and the same goes for the constants. Here is an example:
 \begin{align*}
 (21 + 3i) - (2 - 2i) = 21 + 3i - 2 + 2i = 19 + 5i
 \end{align*}
@@ -60,43 +63,32 @@ Similarly this can be put in a general form:
 \begin{align*}
 (a + bi) - (c + di) = (a - c) + i(b - d)
 \end{align*}
-From the examples above we can see that subtracting and adding with complex numbers is identical to subtracting and adding other and more familiar variables such as ($x$, $y$ so on).
+From the examples above we can see that subtracting and adding with complex numbers is identical to subtracting and adding other and more familiar variables such as $x$, $y$ etc.
 
 \section{Multiplying}
-When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=sqrt(-1)$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. \\
-\begin{example}{Multiplying complex numbers}{}
-
+When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=\sqrt{-1}$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. \\
+\begin{definition}{Multiplying complex numbers}{def:MCN}
+The product of two complex numbers $z_1=a+ib$ and $z_2=c+id$ has the general form:
 \begin{align*}
-(3+5i)(4-3i) = 12 - 9i + 20i - 15i^2 = 12 + 11i - 15 \cdot (-1) = 27 + 11i
+(a+ib)(c+id)&=a(c+di)+ib(c+di)
+\\
+&=ac+adi+bci+bdi^2
+\\
+&=(ac-bd)+i(ad+bc)
+\end{align*}
+\end{definition}
+\begin{example}{Multiplying complex numbers}{}
+Given two complex numbers $z_1=3+5i$ and $z_2=4-3i$ the product can found using \Cref{def:MCN}
+\begin{align*}
+(3+5i)(4-3i) = (3\cdot4-5\cdot(-3))+i(3\cdot(-3)+5\cdot4)=27+11i
 \end{align*}
 \end{example}
-The difference is when $x$ is multiplied by $x$ the result is $x^2$, but since there is a definition for $i^2=-1$ the procedure is slightly different. 
-This can be described on a general form:
-\begin{align}
-(a + bi)(c + di) &= a(c + di) + bi(c + di)
-&= ac + adi + bci + bdi^2
-&= (ac - bd) + i(ad + bc)
-\end{align}
-Since $i^2 = -1$ then $bdi^2$ can be described as $-bd$.
-
 
 
 \section{Dividing}
 When dividing with a complex number the aim is to get some values we can put on the general form $a + bi$. 
-\begin{example}{Dividing complex numbers}{}
-
-\begin{align*}
-\frac{18 + 10i}{3 + 2i} &= \frac{(18 + 10i)(3 - 2i)}{(3+2i)(3-2i)} \\[1em]
-&= \frac{54 - 36i + 30i - 20i^2}{9 - 9i^2} \\[1em]
-&= \frac{54 - 6i - 20 \cdot (-1)}{9 - 9 \cdot (-1)} \\[1em]
-&= \frac{74 - 6i}{9 + 9} \\[1em]
-&= \frac{74}{18} - \frac{6}{18}i \\[1em]
-&= \frac{37}{9} - \frac{1}{3}i
-\end{align*}
-\end{example}
-From the example $\frac{37}{9} - \frac{1}{3}i$ is now on the form $a+bi$ with a and b being fractions. In the example the denominator is being conjugated and as a result of that the imaginary part of the denominator $bi$ disappears and is only left in the numerator. 
-This can again be described more generally:
-\begin{center}
+\begin{definition}{Dividing complex numbers}{def:DCM}
+Division of two complex numbers where $z_1=a+ib$ and $z_2=c+id$ has the general form
 \begin{align*}
 \frac{a + bi}{c + di} 										
 &= \frac{(a+bi)(c-di)}{(c+di)(c-di)} 						\\[1em]
@@ -105,8 +97,16 @@ This can again be described more generally:
 &= \frac{(ac+bd)+i(bc-ad)}{a^2+b^2}							\\[1em]
 &= \frac{ac+bd}{a^2+b^2}+i \frac{bc-ad}{a^2+b^2}				
 \end{align*}
-\end{center}
-
+\end{definition}
+\begin{example}{Dividing complex numbers}{}
+Given two complex numbers $z_1=18+10i$ and $z_2=3+2i$ can be found using \Cref{def:DCM}:
+\begin{align*}
+\frac{18 + 10i}{3 + 2i} &= \dfrac{18\cdot3+10\cdot2}{18^2+10^2}+i\dfrac{10\cdot3-18\cdot2}{18^2+10^2}
+\\
+&=\dfrac{37}{9}-\dfrac{1}{3}i
+\end{align*}
+\end{example}
+From the example $\frac{37}{9} - \frac{1}{3}i$ is now on the form $a+ib$ with a and b being fractions. In the example the denominator is being conjugated and as a result of that the imaginary part of the denominator $ib$ disappears and is only left in the numerator. 
 \section{Complex Numbers in Polar form}
 Complex numbers in polar form is written on the form $(r,\theta)$, where $r$ is the distance from origin to the point $z$. $\theta$ is the angle from the real axis, when measured counter-clockwise. It will be negative if measured clockwise. \\
 $r$ is also the modulus of $z$ and is therefore never negative $r=\mid z\mid$. $\theta$ is also an argument of z, this is written as $\theta=arg(z)$. %skal jeg have en forklaring på hvorfor det skal skrives på denne måde?
