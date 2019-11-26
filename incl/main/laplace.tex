@@ -13,8 +13,7 @@ The solution to a differential equation will often be difficult to derive, and t
 \begin{definition}{Laplace transform}{}
 \begin{align}
 \mathcal{L}\{f(t)\}=F(s)=\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt
-\label{lpdef}
-\end{align}
+\end{align} \label{lpdef}
 where $f(t)$ is a function of time, $F(s)$ is the Laplace transform of that very function, and $s$ is a complex variable.
 \end{definition}
 Since the definition consists of an improper integral (integral consisting of infinity), it can be rewritten as:
@@ -32,6 +31,30 @@ Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \leq 0$
 By definition LABEL s also takes the form $$e^{a}e^{ib}= e^{a}\cos(b)+i\sin(b)$$
 Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $|e^{ibt}|=1$ for all $b \in \mathbb{R}$. This now yields $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-at}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-at}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-a)t}\ dt $$ The integral is only going to converge when $(a-c)>0$ or Re$(s)>c$.
 \end{prof}
+
+\begin{example}{Laplace transform for $1$}{lpone}
+In (\ref{lpdef}), let $f(t)=1$. In that case,
+\begin{align*}
+\mathcal{L}\{f(t)\}=\int_{0}^{\infty} e^{-st} \cdot 1\ dt
+\end{align*}
+Now $\infty$ is replaced with some value $N$ that is set to approach $\infty$:
+\begin{align*}
+\mathcal{L}\{f(t)\}= \lim_{N \to \infty}  \int_{0}^{N} e^{-st}\ dt
+\end{align*}
+$e^{-st}$ is now integrated with respect to $t$:
+\begin{align*}
+\mathcal{L}\{f(t)\}= \lim_{N \to \infty} \left[ -\dfrac{1}{s} e^{-st} \right]_{0}^{N} \ 
+\end{align*}
+Zero and $N$ is now inserted on $t$’s place:
+\begin{align*}
+\mathcal{L}\{f(t)\}= \lim_{N \to \infty} \left( -\dfrac{1}{s} e^{-sN} - \left(-\dfrac{1}{s}\right) \right) \ 
+\end{align*}
+Now observe what happens when $N$ approaches $\infty$:
+\begin{align*}
+\mathcal{L}\{f(t)\}=\dfrac{1}{s} , Re(s) > 0
+\end{align*}
+Here the real part of $s$ has to be greater than zero, hence it makes $-\dfrac{1}{se^{sN}}$ converge towards zero. If it is less than zero the expression would start to diverge, and would therefore not make sense to look at.
+\end{example}
 
 \begin{example}{Laplace transform for $e^{at}$}{lpe}
 In (\ref{lpdef}), let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case,
@@ -94,7 +117,21 @@ In conclusion, this results to
 \mathcal{L}\{\frac{df}{dt}\} = s\cdot \mathcal{L}\{f(t)\}-f(0)
 \end{align*}
 \end{prof}
-When taking a look back at the figure \ref{lpsol}, an example will show the advantage of the Laplace transform. In the following example with an initial value problem, the result is found with the Laplace transformation. Furthermore, it is going to show the difficulties connected with finding a result without the Laplace transformation.
+When taking a look back at the figure \ref{lpsol}, an example will show the advantage of the Laplace transform. In the following example with an initial value problem, the result is found with the Laplace transformation. Furthermore, it is going to show the difficulties connected with finding a result without the Laplace transformation. First, a table with the results from the previous examples and proofs are inserted:
+
+\begin{table}[H]
+\center
+\begin{tabular}{lll}
+\hline
+\multicolumn{1}{|l|}{$f(t)$}           & \multicolumn{1}{l|}{$F(s)$}                & \multicolumn{1}{l|}{Limits}    \\ \hline
+\multicolumn{1}{|l|}{$1$}              & \multicolumn{1}{l|}{$\dfrac{1}{s}$}        & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline
+\multicolumn{1}{|l|}{$e^{at}$}         & \multicolumn{1}{l|}{$\dfrac{1}{s-a}$}      & \multicolumn{1}{l|}{$Re(s)>a$} \\ \hline
+\multicolumn{1}{|l|}{$\dfrac{df}{dt}$} & \multicolumn{1}{l|}{$s \cdot F(s) - f(0)$} & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline                          
+\end{tabular}
+\caption{Laplace table}
+\label{lptable}
+\end{table}
+
 \begin{example}{Laplace example}{laplaceexample}
 In this example the following differential equation will be solved using the Laplace transformation:
 \begin{align}
@@ -146,7 +183,7 @@ The inverse Laplace transform is now applied:
 \begin{align*}
 \mathcal{L} \{F(s)\} =  - \dfrac{6}{5} \cdot \mathcal{L} \{\dfrac{1}{s}\} + \dfrac{1}{5} \cdot \mathcal{L} \{\dfrac{1}{s-5}\}
 \end{align*}
-Now the solutions can be identified from the table INSERT TABLE!!!
+Now the solutions can be identified from the table \ref{lptable}.
 \begin{align*}
 f(t) = - \dfrac{6}{5} + \dfrac{1}{5}e^{5t}
 \end{align*}
