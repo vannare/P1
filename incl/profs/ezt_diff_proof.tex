@@ -1,0 +1,31 @@
+\begin{prof}{}{}
+Prove that the function $f(t)=e^{z\cdot t}$, where $z$ is a complex number, is differentiable.
+\\ \\
+To show that the function is differentiable, $z$ will be rewritten as $a+ ib$:
+\begin{align*}
+	f(t) =& e^{zt} \\
+		 =& e^{(a+ib)t} \\
+		 =& e^{at} \cdot e^{ib\cdot t}
+\end{align*}
+$e^{ib\cdot t}$ can be rewritten to fit Euler's formula:
+\begin{align*}
+	f(t) =& e^{at}\left(\cos(bt)+i \cdot \sin(bt)\right) \\
+		 =& e^{at}\cos(bt) + e^{at} i \cdot \sin(bt)
+\end{align*}
+The rewritten function can be differentiated using the chain rule:
+\begin{align*}
+	\dfrac{d}{dt}f(t) =& ae^{at}\cos(tb) -bi \cdot \sin(bt)e^{at} + ia \cdot e^{at}\sin(bt) + ib \cdot e^{at}\cos(bt) \\
+	=& e^{at} \left( a(\cos(bt) + i \cdot \sin(bt)) + b(i \cdot \cos(bt) - \sin(bt)) \right) \\
+	=& e^{at}(a \cdot e^{ib \cdot t}+b(i \cdot \cos(bt) - \sin(bt))) \\
+	=& a e^{t(a+ib)} \cdot b e^{at}(i \cdot \cos(bt) - \sin(bt))
+\end{align*}
+Since $i^2 = -1$, the above equation can be rewritten:
+\begin{align*}
+	\dfrac{d}{dt}f(t) =& a e^{zt} + b e^{at}(i \cdot \cos(bt) + i^2 \cdot \sin(bt)) \\
+	=&  a e^{zt} + ib e^{at}(\cos(bt) + i \cdot \sin(bt)) \\
+	=&  a e^{zt} + ib e^{at}e^{ib \cdot t} \\
+	=&  a e^{zt} + ib e^{t(a+ib)} \\
+	=&  e^{zt}(a+ib) \\
+	=&  ze^{zt}
+\end{align*}
+\end{prof}
