@@ -59,22 +59,30 @@ The function in \eqref{V_down} describes how the voltage decreases over time, wh
 KVL states that the sum of the voltages over a loop must be equal to zero. 
 \\
 In an RC circuit with a battery this can be written algebraic as:
-\begin{align*}
-V_B-V_R-V_C =& 0 \\
-V_B=&V_R+V_C
-\end{align*}
+\begin{align}
+V_B-V_R-V_C =& 0 \nonumber \\
+V_B=&V_R+V_C \label{V_B}
+\end{align}
 $V_R$ and $V_C$ have negative signs, since their elements create a negative potential difference when charge passes through them.
 \\
-By Ohm's law, the voltage of the resistor can be expressed as $V_R=IR$. By definition \eqref{QCV} the voltage of the capacitor can be expressed as $V_C=\dfrac{Q}{C}$. This is inserted in the equation above:
+From \eqref{Ohm}, the voltage drop across the resistor can be expressed as $V_R=IR$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $V_C=\dfrac{Q}{C}$. This is inserted into \eqref{V_B}:
+\begin{align}
+V_B =& IR+\dfrac{Q}{C} \label{Vb=IR}
+\end{align}
+As stated in \eqref{I=dq/dt}, current is defined as $I =\dfrac{dq}{dt}$, and this is inserted into \eqref{Vb=IR}.
+ \begin{align*}
+ 	V_B &= \frac{dq}{dt} R + \frac{Q}{C}
+ \end{align*}
+Both sides are divided by $R$:
+\begin{align}
+\dfrac{V_B}{R} &= \dfrac{dq}{dt} + Q\dfrac{1}{RC}\label{Vb/R} 
+\end{align}
+This is now a linear differential equation of the first order in the form of \eqref{FODE_form}:
 \begin{align*}
-V_B=&V_R+V_C \\
-V_B =& IR+\dfrac{Q}{C}
+\dfrac{dy}{dx}+h(x)y=g(x)
 \end{align*}
-As stated earlier, current is defined as $I =\dfrac{dq}{dt}$, this is inserted in place of $I$. Both sides are also divided by $R$:
-\begin{align*}
-\dfrac{V_B}{R} &= \dfrac{dq}{dt} + Q\dfrac{1}{RC} \\
-\end{align*}
-This is a linear differential equation of the first order in the form of \eqref{FODE_form}:
+If the conditions for the general solution for a linear differential equation of the first order are fulfilled, \eqref{Vb/R} can be solved like in (REF til linear eq)
+
 \begin{align*}
 \dfrac{dy}{dx}&=\dfrac{dq}{dt}
 \\
