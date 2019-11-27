@@ -119,7 +119,7 @@ To check the validity of this solution, it is substituted into the differential 
 This must then be a particular solution to the given differential equation.
 \end{example}
 
-\section{Separable differential equations}
+\section{Separable differential equations}\label{SepDiff}
 \begin{definition}{Separable differential equations}{def:SDE}
 Given a differential equation in the following form. 
 $$\frac{dy}{dx} = f(x,y)$$
@@ -141,7 +141,7 @@ The equation can then be rewritten and solved as follows:
 where $h(y) = \frac{1}{p(y)}$. Both sides of the equation are then integrated:
  \begin{align}
  	\int h(y)dy =&\int g(x)dx   \\
- 	H(y)=&G(x)+C
+ 	H(y)=&G(x)+C \label{SDEG}
  \end{align}
  
 The two constants are merged into one constant $C$. This is the general solution to a differential equation. \citep{diffandcomplex}

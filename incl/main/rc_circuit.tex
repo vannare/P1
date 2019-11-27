@@ -4,7 +4,7 @@ An RC circuit is an electrical circuit consisting of resistors and capacitors. I
 
 \begin{figure}[H]
  \input{fig/tikz/rc}
- \caption{An RC circuit with a capacitor and a resistor}
+ \caption{An RC circuit with a battery, a capacitor and a resistor}
 \end{figure}
 
 \noindent If both sides of \eqref{QCV} are differentiated  with respect to $t$:
@@ -19,17 +19,19 @@ From \eqref{I=dq/dt}, the left-hand side can be rewritten as:
 \label{sec371}
 To find out how the voltage of a capacitor changes over time when it is charged and discharged, transient analysis is used.
 \\
-Kirchhoff's Current Law states that the sum of the currents in a node is equal to zero. In the case of an RC-circuit, the law can be written as the following equation:
+\\
+\textbf{Charging of a Capacitor}\\
+KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
 \begin{align*}
 I_{C}+I_{R}=0 \Leftrightarrow 
 I_{C}= -I_{R}
 \end{align*}
-Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as stated in subsection \ref{SDE}:
+Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as stated in section \ref{SepDiff}:
 \begin{align*}
 C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
 \dfrac{dv}{dt} &= -V\dfrac{1}{RC} \\
 \end{align*}
-The equation is now in the same form as \eqref{SDE}, in which it can be solved as following:
+The equation is now in the same form as \eqref{SDEG}, in which it can be solved as following:
 \begin{align}
 \int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt\nonumber \\
 \ln(V) =& \dfrac{-t}{RC} + A \nonumber\\
@@ -52,7 +54,8 @@ The constant $B$ is then equal to the starting voltage $V_0$. By inserting this 
 The function in \eqref{V_down} describes how the voltage decreases over time, when the capacitor is discharged.
 \\
 \\
-Now the function for when the capacitor charges is derived. KVL states that the sum of the voltages over a loop must be equal to zero. 
+\textbf{Discharging of a Capacitor}\\
+KVL states that the sum of the voltages over a loop must be equal to zero. 
 \\
 In an RC circuit with a battery this can be written algebraic as:
 \begin{align*}
