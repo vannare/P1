@@ -1,8 +1,12 @@
-\chapter{Differential equations}
-\section{What is a differential equation?}
+\chapter{Differential equations} 
+The theory in this chapter is based on \cite{diffandcomplex}. In this chapter linear differential equations of the first order and separable differential equations, and their solutions will be described with corresponding examples. In this report the Leibniz notation is used for derivatives. 
+\\
+\\
+Before describing an RC circuit mathematically, the concept of differential equations has to be described. Differential equations is an important tool to describe dynamic physical system. An example of this could be an equation to describe an increasing population. The growth of a population is usually not constant, but a function that increases when the population does. Phenomena like this can be described using differential equations.
 \begin{definition}{Differential equation}{}
 A differential equation is an equation which contains one or more derivatives of a function.
 \end{definition}
+\noindent
 These equations have a function as a solution, rather than a number. 
 \\
 A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is of course $y=e^x+C$.
@@ -38,6 +42,7 @@ A linear $N$'th order dfferential equation is an equation, which can be written 
 where $a_k(x)$ are continuous functions on a given interval.
 \end{definition}
 \subsection{Solving a linear differential equation of the first order}
+Solving differential  is not always easy or possible. For differential equations in certain forms a general solution can in some cases be derived.
 \begin{theorem}{General solution to a linear differential equation of the first order}{}
 A first order linear differential equation in the form of:
 \begin{align} \label{FODE_form}
@@ -50,7 +55,7 @@ y=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right),
 where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a given interval, and $C\in \mathbb{R}$.
 \end{theorem}
 \begin{prof}{}{}
-The equation \eqref{FODE_form} is multiplied by $e^{H(x)}$ on each side.
+\Cref{FODE_form} is multiplied by $e^{H(x)}$ on each side.
 \begin{align*}
 \left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)}
 \\
@@ -144,7 +149,7 @@ where $h(y) = \frac{1}{p(y)}$. Both sides of the equation are then integrated:
  	H(y)=&G(x)+C \label{SDEG}
  \end{align}
  
-The two constants are merged into one constant $C$. This is the general solution to a differential equation. \citep{diffandcomplex}
+The two constants are merged into one constant $C$. This is the general solution to a differential equation. \cite{diffandcomplex}
 
 \subsection{Justification} 
 To show that the differentials $dy$ and $dx$ in $\frac{dy}{dx}$ can be treated algebraically when solving \eqref{2_4}:
