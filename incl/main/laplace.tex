@@ -125,7 +125,7 @@ This can be rearranged to the following:
 \end{align*}
 
 \end{prof}
-To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. First, a table with the results from the previous examples and proofs are inserted:
+To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. This differential equation would be difficult solving without the Laplace transform, but can easily be solved using the Laplace transform. First, a table with the results from the previous examples and proofs are inserted:
 
 \begin{table}[H]
 \center
@@ -143,62 +143,76 @@ To fully understand the concept behind figure \ref{lpsol}, an example of finding
 \begin{example}{Laplace example}{laplaceexample}
 In this example the following differential equation will be solved using the Laplace transformation:
 \begin{align}
-\dfrac{df}{dt}=e^{5t}, 	
+\dfrac{df}{dt}-4f(t)=e^{6t}, 	
 \end{align} \label{lpexinieq}
-with the starting condition $f(0)=-1$. Sometimes an equation like that can be difficult to solve, and the Laplace transformation can be used. The Laplace transformation is applied on both sides:
+with the starting condition $f(0)=-2$. Sometimes an equation like that can be difficult to solve, and the Laplace transformation can be used. The Laplace transformation is applied on both sides (constants can be moved outside as stated in definition \ref{constant}):
 \begin{align*}
-\mathcal{L} \left\{\dfrac{df}{dt} \right\}= \mathcal{L} \left\{e^{5t} \right\}
+\mathcal{L} \left\{\dfrac{df}{dt} \right\}-4 
+\mathcal{L} \left\{f(t) \right\} = 
+\mathcal{L} \left\{e^{6t} \right\}
 \end{align*}
-The Laplace transform of the derivative is inserted from theorem \ref{lpderiv}, and the Laplace transform of $e^{5t}$ is inserted from equation \eqref{lpe}:
+The Laplace transforms are inserted from the table above \ref{lptable}:
 \begin{align*}
-s \cdot F(s) - f(0) = \dfrac{1}{s-5}
+s \cdot F(s) - f(0) - 4F(s)= \dfrac{1}{s-6}
 \end{align*}
-Now $f(0)=-1$ is inserted:
+Now $f(0)=-2$ is inserted:
 \begin{align*}
-s \cdot F(s) + 1 = \dfrac{1}{s-5}
+s \cdot F(s) + 2 - 4F(s)= \dfrac{1}{s-6}
 \end{align*}
-This value is now subtracted on both sides and put on a common denominator:
+The $f(0)$ value is now subtracted on both sides and put on a common denominator:
 \begin{align*}
-s \cdot F(s) = \dfrac{1-(s-5)}{s-5}
+s \cdot F(s) - 4F(s)= \dfrac{1-2(s-6)}{s-6}
 \end{align*}
-Both sides are now divided by $s$ and the numerator on the right side is simplified:
+$F(s)$ is factored out on the left side:
 \begin{align*}
-F(s) = \dfrac{6-s}{s(s-5)}
+F(s) \cdot (s-4) = \dfrac{1-2(s-6)}{s-6}
+\end{align*}
+Both sides are now divided by $s-4$ and the numerator on the right side is simplified:
+\begin{align*}
+F(s) = \dfrac{13-2s}{(s-6)(s-4)}
 \end{align*}
 Now the next step is to find the inverse Laplace transform. This is done using partial decomposition: \cite[p. 537]{calc}
 \begin{align}
-F(s) = \dfrac{6-s}{s(s-5)} = A \dfrac{1}{s} + B \dfrac{1}{s-5}
+F(s) = \dfrac{13-2s}{(s-6)(s-4)} = A \dfrac{1}{s-6} + B \dfrac{1}{s-4}
 \label{par_dec}
 \end{align}
-Both sides of the expression above is now multiplied with the denominator of the left side $(s(s-5))$:
+Both sides of the expression above is now multiplied with the denominator of the left side $((s-6)(s-4))$:
 \begin{align*}
-6 - s = A(s-5) + Bs
+13-2s = A(s-4) + B(s-6)
 \end{align*}
 Now this is split up in elements that are multiplied by $s$ and elements that are not:
 \begin{align*}
-6 - s = s(A+B) - 5A
+13-2s = s(A+B)+(-4A-6B)
 \end{align*}
 Now two equations with two unknown variables are created:
 \begin{align*}
--5A &= 6 \Leftrightarrow A = - \dfrac{6}{5}\\
-A + B &= -1 \Leftrightarrow - \dfrac{6}{5} + B = -1 \Leftrightarrow B = \dfrac{1}{5}
+A+B &=-2 \Leftrightarrow A=-2-B \\
+-4A-6B &=13 \Leftrightarrow -4(-2-B)-6B = 13 \Leftrightarrow 8 + 4B - 6B = 13 \Leftrightarrow -2B = 5 \Leftrightarrow B = -\dfrac{5}{2}
+\end{align*}
+The $B$ value is inserted to find $A$:
+\begin{align*}
+A=-2- \left(-\dfrac{5}{2} \right) \\
+A=\dfrac{1}{2}
 \end{align*}
 These values are now put on the equation \eqref{par_dec}:
 \begin{align*}
-F(s) =  - \dfrac{6}{5} \cdot \dfrac{1}{s} + \dfrac{1}{5} \cdot \dfrac{1}{s-5}
+F(s) = \dfrac{1}{2} \cdot \dfrac{1}{s-6} - \dfrac{5}{2} \cdot \dfrac{1}{s-4}
 \end{align*}
 The inverse Laplace transform is now applied. Since it is possible to treat the Laplace transform as an integral, constants are moved outside then transform, as stated in definition \ref{constant}:
 \begin{align*}
-\mathcal{L} \left\{F(s) \right\} =  - \dfrac{6}{5} \cdot \mathcal{L} \left\{\dfrac{1}{s} \right\} + \dfrac{1}{5} \cdot \mathcal{L} \left\{\dfrac{1}{s-5} \right\}
+\mathcal{L} \left\{F(s) \right\} = \dfrac{1}{2} \cdot \mathcal{L} \left\{\dfrac{1}{s-6} \right\} - \dfrac{5}{2} \cdot \mathcal{L} \left\{\dfrac{1}{s-4} \right\}
 \end{align*}
 Now the solutions can be identified from the table \ref{lptable}.
 \begin{align*}
-f(t) = - \dfrac{6}{5} + \dfrac{1}{5}e^{5t}
+f(t) = \dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t}
 \end{align*}
-This result can be tested by taking the derivative of $f(t)$ and inserting it on equation \eqref{lpexinieq}:
+This result can be tested by inserting the values on the first equation in the example \eqref{lpexinieq}:
 \begin{align*}
-\dfrac{df}{dt} \left(- \dfrac{6}{5} + \dfrac{1}{5}e^{5t} \right) &= e^{5t} \\
-e^{5t} &= e^{5t}
+\dfrac{df}{dt} \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) &= e^{6t} \\
+\left(\dfrac{1}{2} \cdot \left(\dfrac{df}{dt} \left(e^{6t} \right) \right) - \dfrac{5}{2} \cdot \left(\dfrac{df}{dt} \left(e^{4t} \right) \right) \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2} e^{4t} \right) &= e^{6t} \\
+\left(\dfrac{1}{2} \left(6e^{6t} \right) - \dfrac{5}{2} \left(4e^{4t} \right) \right) - \dfrac{4}{2}e^{6t}+\dfrac{20}{2}e^{4t}&= e^{6t}\\
+3e^{6t}-10e^{4t}-2e^{6t}+10e^{4t} &= e^{6t} \\
+e^{6t} &= e^{6t}
 \end{align*}
 Hereby the solution to the equation \eqref{lpexinieq} is found using the Laplace transformation.
 \end{example}
