@@ -22,29 +22,30 @@ To find out how the voltage of a capacitor changes over time when it is charged 
 \\
 \textbf{Charging of a Capacitor}\\
 KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
-\begin{align*}
-I_{C}+I_{R}=0 \Leftrightarrow 
-I_{C}= -I_{R}
-\end{align*}
-Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} yields a differential equation, which can then be separated as stated in section \ref{SepDiff}:
+\begin{align}
+I_{C}+I_{R}&=0 \nonumber \\
+I_{C}&= -I_{R} \label{Ic-Ir}
+\end{align}
+Inserting the definition of the current through the capacitor \eqref{I_C} and the resistor \eqref{Ohm} into \eqref{Ic-Ir}, yields a differential equation, which can then be separated as stated in section \ref{SepDiff}:
 \begin{align*}
 C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
 \dfrac{dv}{dt} &= -V\dfrac{1}{RC} \\
+\frac{1}{V}dv &= \frac{-1}{RC}dt
 \end{align*}
-The equation is now in the same form as \eqref{SDEG}, in which it can be solved as following:
+The equation is now in the same form as \eqref{SDEG}, and can be solved as following:
 \begin{align}
 \int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt\nonumber \\
 \ln(V) =& \dfrac{-t}{RC} + A \nonumber\\
 V =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
 \end{align}
-Since $A$ is the constant of integration, the constant $e^A$ can be defined as a new constant $e^A=B$.
+Since $A$ is the constant of integration, $e^A$ is a constant aswell.
 \\
-By definition, the starting voltage of the capacitor is given by $V_C(t=0)=V_0$; inserting this and $B$ into \eqref{V_eA} yields the following equation: 
-\begin{align}
-V(t)= e^{\frac{-t}{RC}}B \label{V_eB}\\
-V(0)= B = V_0\nonumber
-\end{align}
-The constant $B$ is then equal to the starting voltage $V_0$. By inserting this into \eqref{V_eB}, the final function is found:
+By definition, the starting voltage of the capacitor is given by $V_C(t=0)=V_0$:
+ \begin{align*}
+	V_C(0) &= e^{\frac{0}{RC}}e^A\\
+	V_C(0) &= e^A
+ \end{align*}
+Therefore $e^A = V_0$, and this can be inserted into \eqref{V_eA}:
 \begin{align}
 \label{V_down}
 \Aboxed{
