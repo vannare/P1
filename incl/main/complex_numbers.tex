@@ -18,13 +18,15 @@ and raised to the power of four:
 \begin{align*}
 i^4=1,
 \end{align*}
-These first four of $i$ creates a loop, $i$ to the fifth will, therefore, be the same as $i$ to the first, $i$ to the seventh is the same as $i$ to the third \\
-Complex numbers have the form $z=a+ib$, where $z$ is the complex number that consists of an imaginary part and a real part. 
+If $i$ is raised to a greater power, it will loop through the same values again. This can be expressed algebraically. In this case $n$ is a whole positive number:
 \begin{align*}
-\text{Re}\{z\}=a
-\\
-\text{Im}\{z\}=b
+	i^{4n+1} =& i^{4n}i^1 = i \\
+	i^{4n+2} =& i^{4n}i^2 = -1 \\
+	i^{4n+3} =& i^{4n}i^3 = -i \\
+	i^{4n+4} =& i^{4n}i^4 = 1
 \end{align*}
+Complex numbers are often notated as $z = a+ib$. A complex number consists of a real part, and an imaginary part. The real, and imaginary, part of a complex number, is written as $\text{Re}\{z\}=a$ and $\text{Im}\{z\}=b$ respectively.
+\\
 \\
 An example of a complex numbers could be: $7+3i$, where 7 is the real part and 3 is the imaginary part. If $\text{Re}\{z\}=0$ the number is said to be pure imaginary. 
 By using these complex numbers, infinitely more numbers can be created. 
@@ -44,7 +46,7 @@ The modulus of a complex number $z=a+ib$:
 $$\mid z\mid=\sqrt{a^2+b^2}$$
 \end{definition}
 \noindent
-To every complex number there also exists a complex conjugate. The conjugate of a complex number, has the same real part and opposite sign for the imaginary part.
+Every complex number has a complex conjugate. The conjugate of a complex number, has equal real part, the imaginary part has switched sign.
 \begin{definition}{Complex number conjugated}{}
 The complex conjugate of $z=a+ib$ is given by:
 $$\bar{z}=a-ib$$
@@ -66,7 +68,7 @@ Similarly this can be put in a general form:
 From the examples above we can see that subtracting and adding with complex numbers is identical to subtracting and adding other and more familiar variables such as $x$, $y$ etc.
 
 \section{Multiplying}
-When multiplying with complex numbers it can get a little different than multiplying with other variables, as $i=\sqrt{-1}$ , $i^2=-1$ , $i^3=-i$ , $i^4=1$. \\
+When multiplying complex numbers, the fact that $i^2 =-1$ must be taken into account. However the multiplication of complex numbers can still be generalized. 
 \begin{definition}{Multiplying complex numbers}{def:MCN}
 The product of two complex numbers $z_1=a+ib$ and $z_2=c+id$ has the general form:
 \begin{align*}
@@ -152,17 +154,32 @@ z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
 \end{align}
 \end{prof}
 \section{The Complex Exponential Equation}
-The complex exponential equation derives from Euler’s formula, and is necessary to explain the Laplace transformation. \\
-%(noget mere tekst)
+The concept of the complex exponential function is useful in circuit analysis. However it must be defined, as it is not entirely obvious what $e$ raised to a complex number means.
+\\
+\\
+For the complex exponential function to be useful for this context, it needs to fulfill two conditions:
+\begin{itemize}
+	\item $e^{z_1}e^{z_2} = e^{z_1 + z_2}$
+	\item $\dfrac{d}{dt}e^{zt} = ze^{zt}$
+\end{itemize}
+The complex exponential function can be defined as follows, and it can be show that this definition, will satisfy the given conditions.
 
 \begin{definition}{The complex exponential equation}{}
-Given a complex number $z=a+ib$, $e^{z}$ is then defined as:
+Any complex number can be expressed in the form:
 \begin{align*}
-f(z)=e^z=e^ae^{ib}=e^a\cos(b)+i\sin(b)
+	z \cdot t = (a + ib)t,
 \end{align*}
-This function has the property:
-$$\mid e^{a+ib} \mid = \mid e^a \mid$$
+where $a, b, \textbf{and} t$ are real numbers, and $i$ is the imaginary unit.
+\\
+\\
+The complex exponential function is then defined as:
+\begin{align*}
+	f(t)=e^{zt}=e^{at}e^{ibt}=e^{at}\left(\cos(bt)+i\sin(bt)\right)
+\end{align*}
 \end{definition}
+
+Given this definition of the complex exponential function, it can then be shown that the conditions set earlier will hold.
+
 \begin{theorem}{Multiplication of complex numbers in exponential form}{}
 Given two complex numbers in exponential form $e^{z_1}$ and $e^{z_2}$ where:
 \begin{align*}
@@ -202,19 +219,20 @@ this can rewritten as:
 \end{align*} 
 \end{prof}
 \begin{theorem}{Differentiating a complex exponential function}{}
-Given the complex function.
+Given the complex function:
 \begin{align}
-f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))
+f(t)=e^{zt}=e^{at}(\cos(bt)+i\sin(bt))
 \end{align}
 Where $z=a+ib$. The differentiation of this function is given by:
 \begin{align}
-\dfrac{d}{dz}e^{z}=e^{z}
+\dfrac{d}{dt}e^{zt}=ze^{zt}
 \end{align}
 \end{theorem}
-\begin{prof}{}{}
-Given $z=a+ib$, the exponential function of this number is:
-\begin{align}
-f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))=e^{a}\cos(b)+e^{a}i\sin(b)
-\end{align}
-\end{prof}
+%\begin{prof}{}{}
+%Given $z=a+ib$, the exponential function of this number is:
+%\begin{align}
+%f(z)=e^{z}=e^{a}(\cos(b)+i\sin(b))=e^{a}\cos(b)+e^{a}i\sin(b)
+%\end{align}
+%\end{prof}
 \input{incl/profs/ezt_diff_proof.tex}
+It is then shown that the given definition for the complex exponential function, the conditions we set will hold.
