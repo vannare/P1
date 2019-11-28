@@ -75,29 +75,34 @@ As stated in \eqref{I=dq/dt}, current is defined as $I =\dfrac{dq}{dt}$, and thi
  \end{align*}
 Both sides are divided by $R$:
 \begin{align}
-\dfrac{V_B}{R} &= \dfrac{dq}{dt} + Q\dfrac{1}{RC}\label{Vb/R} 
+\dfrac{V_B}{R} &= \dfrac{dq}{dt} + \dfrac{1}{RC}Q\label{Vb/R} 
 \end{align}
 This is now a linear differential equation of the first order in the form of \eqref{FODE_form}:
 \begin{align*}
 \dfrac{dy}{dx}+h(x)y=g(x)
 \end{align*}
-If the conditions for the general solution for a linear differential equation of the first order are fulfilled, \eqref{Vb/R} can be solved like in (REF til linear eq)
-
+If the conditions for the general solution for a linear differential equation of the first order are fulfilled, \eqref{Vb/R} can be solved like in \Cref{linethe}:
 \begin{align*}
-\dfrac{dy}{dx}&=\dfrac{dq}{dt}
+y&=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
+\end{align*}
+The terms in \eqref{Vb/R} represent these terms in the general solution:
+\begin{align*}
+y &= Q
 \\
 h(x)&=\dfrac{1}{RC}
 \\
-H(x)&=\int \dfrac{1}{RC}=\dfrac{t}{RC}
-\\
-y &= Q
+H(x)&=\int \dfrac{1}{RC}dt=\dfrac{t}{RC}
 \\
 g(x)&= \dfrac{V_B}{R}
-\end{align*}
-This is inserted in the general solution \eqref{FODE_solution}:
-\begin{align}
-Q&= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{V_B}{R}dt
 \\
+\dfrac{dy}{dx}&=\dfrac{dq}{dt}
+\end{align*}
+Then the general solution for \eqref{Vb/R} is:
+\begin{align*}
+Q&= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{V_B}{R}dt
+\end{align*}
+The constant is put outside the integral:
+\begin{align}
 Q&= e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
 \end{align}
 The integral is now solved by substitution. First $u$ and $\dfrac{du}{dt}$ are defined:
