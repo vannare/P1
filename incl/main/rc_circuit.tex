@@ -21,7 +21,7 @@ To find out how the voltage of a capacitor changes over time when it is charged 
 \\
 \\
 \textbf{Charging of a Capacitor}\\
-KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
+In subsection \ref{Klaws}, KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
 \begin{align}
 I_{C}+I_{R}&=0 \nonumber \\
 I_{C}&= -I_{R} \label{Ic-Ir}
@@ -56,9 +56,9 @@ The function in \eqref{V_down} describes how the voltage decreases over time, wh
 \\
 \\
 \textbf{Discharging of a Capacitor}\\
-KVL states that the sum of the voltages over a loop must be equal to zero. 
+In subsection \ref{Klaws}, KVL states that the sum of the voltages over a loop must be equal to zero. 
 \\
-In an RC circuit with a battery this can be written algebraic as:
+In an RC circuit with a battery, the algebraic sum can be written as:
 \begin{align}
 V_B-V_R-V_C =& 0 \nonumber \\
 V_B=&V_R+V_C \label{V_B}
@@ -89,13 +89,13 @@ The terms in \eqref{Vb/R} represent these terms in the general solution:
 \begin{align*}
 y &= Q
 \\
-h(x)&=\dfrac{1}{RC}
+h(x) &= \dfrac{1}{RC}
 \\
-H(x)&=\int \dfrac{1}{RC}dt=\dfrac{t}{RC}
+H(x) &= \int \dfrac{1}{RC}dt=\dfrac{t}{RC}
 \\
-g(x)&= \dfrac{V_B}{R}
+g(x) &= \dfrac{V_B}{R}
 \\
-\dfrac{dy}{dx}&=\dfrac{dq}{dt}
+\dfrac{dy}{dx} &= \dfrac{dq}{dt}
 \end{align*}
 Then the general solution for \eqref{Vb/R} is:
 \begin{align*}
@@ -117,21 +117,38 @@ By inserting these definitions into \eqref{Q_1} the equation looks like this:
 \begin{align*}
 Q&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}RCe^u du
 \\
-Q&=e^{\frac{-t}{RC}} V_B C [e^u]_{0}^{\frac{t}{RC}}
+Q&=e^{\frac{-t}{RC}} V_B C \left[e^u\right]_{0}^{\frac{t}{RC}}
 \\
-Q&=V_B C e^{\frac{-t}{RC}}(e^{\frac{t}{RC}}-1)
+Q&=V_B C e^{\frac{-t}{RC}}\left(e^{\frac{t}{RC}}-1\right)
 \\
-Q&=V_B C (1-e^{\frac{-t}{RC}})
+Q&=V_B C \left(1-e^{\frac{-t}{RC}}\right)
 \end{align*} 
 The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
 \begin{align}
 \label{V_up}
 \Aboxed{
-V_C(t)=V_B(1-e^{\frac{-t}{RC}})
+V_C(t)=V_B\left(1-e^{\frac{-t}{RC}}\right)
 }
 \end{align}
 \section{RC circuit experiment}
 In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model.
+\subsection{Test Values Comparison}
+\begin{figure}[H]
+	\center
+		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
+	\caption{RC circuit}
+	\label{rc_flow}
+\end{figure}
+% Vær OBS på farvebeskrivelser af ledninger
+This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Hypothetically, if the two scopes were switched, it would be measuring the inverse charging and discharging. Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
+To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
+The data from the theoretical values and the test results can now be compared using python:
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.6]{fig/img/eks_1}
+\caption{Capacitor charge and discharge}
+\end{figure}
+\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
 \subsection{Theoretical Values}
 The resistor and capacitor in the experiment, had the following values:
 \begin{align*}
@@ -167,20 +184,3 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s \\
 &= 2.33 ms
 \end{align*}
-\subsection{Test Values Comparison}
-\begin{figure}[H]
-	\center
-		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.5]{fig/img/test_circuit_1}
-	\caption{RC circuit}
-	\label{rc_flow}
-\end{figure}
-% Vær OBS på farvebeskrivelser af ledninger
-This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Hypothetically, if the two scopes were switched, it would be measuring the inverse charging and discharging. Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
-To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
-The data from the theoretical values and the test results can now be compared using python:
-\begin{figure}[H]
-\center
-\includegraphics[scale=0.6]{fig/img/eks_1}
-\caption{Capacitor charge and discharge}
-\end{figure}
-\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
