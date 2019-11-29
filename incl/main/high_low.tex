@@ -35,6 +35,28 @@ The output wave before the cut-off point will stay almost unchanged, and after t
 High-pass: \\
 When plotting the graph for the high-pass filter, the bode plot is going to be the opposite of the low-pass filters'. The graph starts in minus decibel and is approaching zero. Until it reaches the cut-off point, the graph is increasing with 20 decibel per decade. When reaching the cut-off point, the graph is 3 decibel short from reaching zero. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$.
 \section{Derivations}
+In section REF the following equation is is derived
+\begin{align} \label{eq:dV_C}
+\dfrac{dv_C(t)}{dt}=-v_R(t)\dfrac{1}{RC}
+\end{align}
+In this case the sum of all voltages is $v_{input}+v_R(t)-v_C(t)=0$ which can be rewritten as $v_{input}(t)=v_C(t)-v_{input}(t)$. $v_{input}(t)$ is a function of time in the case of a circuit with AC. This is inserted into \eqref{eq:dV_C}.
+\begin{align}
+\Rightarrow \dfrac{dv_C(t)}{dt}=-\Big(v_C(t)-v_{input}(t)\Big)\dfrac{1}{RC}
+\end{align}
+$\omega$ is defined as $\omega=\dfrac{1}{RC}$
+\begin{align}
+\Rightarrow \dfrac{dv_C(t)}{dt}=-\Big(v_C(t)-v_{input}\Big)\omega
+\\
+\Leftrightarrow v_{input}(t)\omega=v_C(t)\omega+\dfrac{dv_C(t)}{dt}
+\end{align}
+The differential equation can now be solved using Laplace transform.
+\begin{align}\label{eq:laplace_low}
+\mathcal{L}\Big\{v_{input}(t)\Big\}\omega=\mathcal{L}\Big\{v_C(t)\Big\}\omega+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
+\end{align}
+According to \Cref{theorem:laplace_diff} the Laplace transform of \eqref{eq:laplace_low} yields the following equation:
+\begin{align}
+V_{input}(s)\omega=V_C(s)\omega-v_c(0)+V_C(s)s
+\end{align} 
 - Evt cutoff frequency ???
 \section{Experiment}
 - Describe experiment (purpose - what does it mean?
