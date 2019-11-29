@@ -6,54 +6,53 @@ An RC circuit is an electrical circuit consisting of resistors and capacitors. I
  \input{fig/tikz/rc}
  \caption{An RC circuit with a battery, a capacitor and a resistor}
 \end{figure}
-
-\noindent 
 \subsection{Transient Analysis}
 \label{sec371}
 To find out how the voltage of a capacitor changes over time when it is charged and discharged, transient analysis is used.
 \\
 \\
-\textbf{Discharge of a Capacitor}\\
-In subsection \ref{Klaws}, KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit with, the law can be written as the following equation:
+\textbf{Discharging of a Capacitor}\\
+In subsection \ref{Klaws}, KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
 \begin{align}
-I_{C}+I_{R}&=0 \nonumber \\
-I_{C}&= -I_{R} \label{Ic-Ir}
+I_{c}+I_{R}&=0 \nonumber \\
+I_{c}&= -I_{R}, \label{Ic-Ir}
 \end{align}
-Inserting \eqref{I_C} for the capacitor and \eqref{Ohm} for the resistor into \eqref{Ic-Ir}, yields a differential equation, which can then be separated as stated in section \ref{SepDiff}:
+where $I_C$ is the current across the capacitor, and $I_R$ is the current across the resistor. From \eqref{iC} the current across the capacitor is:
+\begin{align}
+	i_c = C\frac{dv_c}{dt}\label{iC=Cdv}
+\end{align}
+The equation for the current across the resistor \eqref{Ohm}, can be rewritten as:
+\begin{align}
+	i_R = \frac{v_R}{R}\label{iR=vR}
+\end{align}
+Inserting the definitions in \eqref{iC=Cdv} and \eqref{iR=vR}, into \eqref{Ic-Ir} gives:
+\begin{align}
+	C\frac{dv_c}{dt} = \frac{-v_R}{R}\label{C dv dt}
+\end{align}
+The equation \eqref{C dv dt} is now in the form of a differential equation, which can be separated as stated in section \ref{SepDiff}:
 \begin{align*}
-C \dfrac{dv_C(t)}{dt}&=\dfrac{-v_R(t)}{R} \\
-\dfrac{dv_C(t)}{dt} &= -v_R(t)\dfrac{1}{RC} \\
-\end{align*}
-When discharging the capacitor the algebraic sum of voltages can be written as:
-\begin{align*}
-v_C(t)-v_R(t)=0 \Leftrightarrow v_C(t)=-v_R(t)
-\end{align*}
-\begin{align*}
-\Rightarrow
-\dfrac{dv_C(t)}{dt} &= v_C(t)\dfrac{1}{RC} \\
-\dfrac{1}{v_C(t)}dv_C(t)&=\dfrac{1}{RC}dt
+C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
+\dfrac{dv}{dt} &= -V\dfrac{1}{RC} \\
+\frac{1}{V}dv &= \frac{-1}{RC}dt
 \end{align*}
 The equation is now in the same form as \eqref{SDEG}, and can be solved as following:
-\begin{align*}
-\int \dfrac{1}{v_C(t)}dv_C(t) =& \dfrac{-1}{RC} \int dt\nonumber \\
-\ln(v_C(t)) =& \dfrac{-t}{RC} + A \nonumber\\
-\end{align*}
-Where $A$ is the constant of integration from the left and right side of the equation.
 \begin{align}
-v_C(t) =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
+\int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt\nonumber \\
+\ln(V) =& \dfrac{-t}{RC} + A \nonumber\\
+V =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
 \end{align}
-Since $A$ is the constant of integration, $e^A$ is a constant aswell. To find the constant, the initial condition is needed. 
+Since $A$ is the constant of integration, $e^A$ is a constant aswell.
 \\
-By definition, the initial voltage of the capacitor is given as $v_C(t=0)=V_0$:
+By definition, the starting voltage of the capacitor is given by $V_C(t=0)=V_0$:
  \begin{align*}
-	v_C(0) &= e^{\frac{0}{RC}}e^A\\
-	v_C(0) &= e^A
+	V_C(0) &= e^{\frac{0}{RC}}e^A\\
+	V_C(0) &= e^A
  \end{align*}
-Therefore $e^A = V_0$, where $V_0$ is the starting voltage when the capacitor discharges. This can be inserted into \eqref{V_eA}:
+Therefore $e^A = V_0$, and this can be inserted into \eqref{V_eA}:
 \begin{align}
 \label{V_down}
 \Aboxed{
- v_C(t) = V_0e^{\frac{-t}{RC}}
+ V(t) = V_0e^{\frac{-t}{RC}}
  }
 \end{align}
 The function in \eqref{V_down} describes how the voltage decreases over time, when the capacitor is discharged.
@@ -64,28 +63,28 @@ In subsection \ref{Klaws}, KVL states that the sum of the voltages over a loop m
 \\
 In an RC circuit with a battery, the algebraic sum can be written as:
 \begin{align}
-V_B-v_R(t)-v_C(t) =& 0 \nonumber \\
-V_B=&V_R+V_C \label{V_B}
+V_B-V_R-V_C =& 0 \nonumber \\
+V_B=&V_R+V_C, \label{V_B}
 \end{align}
-$V_R$ and $V_C$ have negative signs, since their elements create a negative potential difference when charge passes through them.
+where $V_B$ is the voltage of the battery, $V_R$ is the voltage of the resistor, and $V_C$ is the voltage across the capacitor. $V_R$ and $V_C$ have negative signs, since their elements create a negative potential difference when charge passes through them.
 \\
-From \eqref{Ohm}, the voltage drop across the resistor can be expressed as $V_R=I_RR$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $V_C=\dfrac{Q}{C}$. This is inserted into \eqref{V_B}:
+From \eqref{Ohm}, the voltage drop across the resistor can be expressed as $V_R=IR$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $V_C=\dfrac{Q}{C}$. This is inserted into \eqref{V_B}:
 \begin{align}
-V_B =& I_RR+\dfrac{Q}{C} \label{Vb=IR}
+V_B =& IR+\dfrac{Q}{C} \label{Vb=IR}
 \end{align}
-From \eqref{I=dq/dt}, the current through a resistor can be defined as $I_R =\dfrac{dQ}{dt}$, and this is inserted into \eqref{Vb=IR}.
+As stated in \eqref{I=dq/dt}, current is defined as $I =\dfrac{dq}{dt}$, and this is inserted into \eqref{Vb=IR}.
  \begin{align*}
- 	V_B &= \frac{dQ}{dt} R + \frac{Q}{C}
+ 	V_B &= \frac{dq}{dt} R + \frac{Q}{C}
  \end{align*}
 Both sides are divided by $R$:
 \begin{align}
-\dfrac{V_B}{R} &= \dfrac{dQ}{dt} + \dfrac{1}{RC}Q\label{Vb/R} 
+\dfrac{V_B}{R} &= \dfrac{dq}{dt} + \dfrac{1}{RC}Q\label{Vb/R} 
 \end{align}
 This is now a linear differential equation of the first order in the form of \eqref{FODE_form}:
 \begin{align*}
 \dfrac{dy}{dx}+h(x)y=g(x)
 \end{align*}
-If the conditions for the general solution for a linear differential equation of the first order are fulfilled, \eqref{Vb/R} can be solved as in \Cref{theorem:panzer}:
+If the conditions for the general solution for a linear differential equation of the first order are fulfilled, \eqref{Vb/R} can be solved like in \Cref{linethe}:
 \begin{align*}
 y&=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align*}
@@ -99,7 +98,7 @@ H(x) &= \int \dfrac{1}{RC}dt=\dfrac{t}{RC}
 \\
 g(x) &= \dfrac{V_B}{R}
 \\
-\dfrac{dy}{dx} &= \dfrac{dQ}{dt}
+\dfrac{dy}{dx} &= \dfrac{dq}{dt}
 \end{align*}
 Then the general solution for \eqref{Vb/R} is:
 \begin{align*}
@@ -119,13 +118,13 @@ dt &=RC du
 \end{align*} 
 By inserting these definitions into \eqref{Q_1} the equation looks like this:
 \begin{align*}
-Q&=e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}RCe^u du
+Q &= e^{\frac{-t}{RC}}\dfrac{V_B}{R}\int_{0}^{\frac{t}{RC}}RCe^u du
 \\
-Q&=e^{\frac{-t}{RC}} V_B C \left[e^u\right]_{0}^{\frac{t}{RC}}
+Q &= e^{\frac{-t}{RC}}\cdot V_B\cdot C\cdot \left[e^u\right]_{0}^{\frac{t}{RC}}
 \\
-Q&=V_B C e^{\frac{-t}{RC}}\left(e^{\frac{t}{RC}}-1\right)
+Q &= V_B \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}-1\right)
 \\
-Q&=V_B C \left(1-e^{\frac{-t}{RC}}\right)
+Q &= V_B \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right)
 \end{align*} 
 The voltage of a capacitor is given as $V_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
 \begin{align}

@@ -50,8 +50,21 @@ where $C$ is the capacitance (in farad, $F$), $\epsilon_{0}$ is the permittivity
 The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
 \begin{align}
 \label{QCV}
-Q=CV	
+q = CV	
 \end{align}
+From \eqref{I=dq/dt}, current is defined as:
+\begin{align*}
+	i = \frac{dq}{dt}
+\end{align*}
+The current across a capacitor is then:
+\begin{align*}
+	i_C = \frac{d}{dt}(CV)
+\end{align*}
+For a capacitor with a constant capacitance, the current can be written as:
+\begin{align}
+	i_C = C\frac{dv}{dt}\label{iC}
+\end{align}
+
 \section{Circuit diagrams}
 Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches} i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below.
 
