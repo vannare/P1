@@ -1,6 +1,7 @@
 \chapter{Basic circuit theory}
-Electrical circuits are fundamental building blocks in, more or less, every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical 	source (a battery, for instance).
+Electrical circuits are fundamental building blocks in every electronic device you can think of. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical 	source (a battery, for instance).
 \\ 
+\\
 In this chapter, if a function is assumed constant, it is denoted with capitalization of its original notation. 
 \\ 
 \\
@@ -10,13 +11,13 @@ The different elements of the circuit can be divided into two categories: active
 \caption{A circuit with a battery and a light bulb}
 \label{fig:bulb}
 \end{figure} 
-\noindent In figure \ref{fig:bulb} the active element is a battery, and the passive element is a light bulb. Charge is transported by the current from the positive terminal of the battery, through to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
+\noindent In figure \ref{fig:bulb}, the active element is a battery, and the passive element is a light bulb. Charge is transported by the current from the positive terminal of the battery, through to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
 \\
 
 \input{incl/misc/circuit_explain.tex}
 
 \section{Circuit diagrams}
-Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches} i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below.
+Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below.
 
 \begin{figure}[H]
  \input{fig/tikz/bcircuit}
@@ -35,9 +36,9 @@ Observe a circuit up until a node, past which the path of the circuit splits in 
 where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, with $N$ branches connected to the node. \cite[page~32]{bcircuit}
 \\
 \\
-\textbf{Kirchoff's Voltage Law (KVL)}
+\textbf{Kirchhoff's Voltage Law (KVL)}
 \\
-KVL states: In a circuit, the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically  as,
+Kirchhoff's voltage law states that the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically as:
 \begin{align}
 \sum_{j=1}^{N} v_{j}(t) = 0,
 \end{align}
