@@ -46,20 +46,20 @@ The equation is now in the same form as \eqref{SDEG}, and can be solved as follo
 \begin{align}
 \int \dfrac{1}{v_C(t)}dv_C(t) =& \dfrac{-1}{RC} \int dt\nonumber \\
 \ln(v_C(t)) =& \dfrac{-t}{RC} + A \nonumber\\
-V =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
+v_C(t) =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
 \end{align}
 Since $A$ is the constant of integration, $e^A$ is a constant aswell.
 \\
-By definition, the starting voltage of the capacitor is given by $V_C(t=0)=V_0$:
+By definition, the starting voltage of the capacitor is given by $v_C(t=0)=v_0$:
  \begin{align*}
-	V_C(0) &= e^{\frac{0}{RC}}e^A\\
-	V_C(0) &= e^A
+	v_C(0) &= e^{\frac{0}{RC}}e^A\\
+	v_C(0) &= e^A
  \end{align*}
-Therefore $e^A = V_0$, and this can be inserted into \eqref{V_eA}:
+Therefore $e^A = v_0$, and this can be inserted into \eqref{V_eA}:
 \begin{align}
 \label{V_down}
 \Aboxed{
- V(t) = V_0e^{\frac{-t}{RC}}
+ v_C(t) = v_0e^{\frac{-t}{RC}}
  }
 \end{align}
 The function in \eqref{V_down} describes how the voltage decreases over time, when the capacitor is discharged.
