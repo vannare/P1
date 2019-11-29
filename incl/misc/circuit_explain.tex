@@ -1,12 +1,12 @@
 \section{Current}
 Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation:
 \begin{align}
-i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{0}^{t}i(x)dx,
+i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int i(t)\ dt,
 \label{I=dq/dt}
 \end{align}
-where $i(t)$ is the current (in ampere, $A$), to a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb$(C)$.
+where $i(t)$ is the current (in ampere, $A$), to a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb $(C)$.
 \\
-There exists two types of current, alternating current (AC) and direct current (DC). DC current is constant, while AC alternates, see figure \ref{fig:ACDC}. 
+There exists two types of current: alternating current (AC) and direct current (DC). Per definition, DC current is a constant flow of current, while AC alternates (see figure \ref{fig:ACDC}). 
 \begin{figure}[H] 
 \input{fig/tikz/ADDC_fig}
 \caption{Current for AC and DC versus time}
@@ -17,13 +17,13 @@ A sinusoidal AC current can be described with the function:
 	i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \\
 	=& \cdot A \cdot \sin{(\omega t + \theta)}
 \end{align*}
-where $t$ is time (in seconds $s$), $f$ is frequency, which is cycles per second, (in Hertz $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds $s$).
-Sometimes $\omega$ is used for notation, instead of $2\pi f$, for ease of understanding. $\omega$ is also called the angular frequency of the signal.
+where $t$ is time (in seconds, $s$), $f$ is frequency, which is cycles per second, (in Hertz, $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds, $s$).
+For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
-	\caption{An AC current, shown in green, phase-shifted by $\theta$, with amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current, with $\text{phase-shift} =0$}
+	\caption{An AC current, shown in green. The current has been phase-shifted by $\theta$. The current has amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current with $\text{phase-shift} =0$}
 \end{figure}
 
 
@@ -39,17 +39,19 @@ where $U(q)$ (in joules, $J$) is the function for potential energy, given a char
 When a resistor, which is a passive element, is added to the circuit, it creates a resistance ($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
 \begin{align} 
 \label{Ohm}
-v(t)=R\cdot i(t),  R\geq0,
+v(t)=R\cdot i(t),\ R\geq0,
 \end{align}
 where $R$ is resistance (in Ohm, $\Omega$).
 
 
 \section{Capacitor}
-A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged when positive a charge is transferred from one plate, through the circuit, to the other plate. The capacitance is given by the following equation:
+A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
+\\
+The capacitance is given by the following equation:
 \begin{align*}
 C=\dfrac{\epsilon_{0}A}{d},
 \end{align*}
-where $C$ is the capacitance (in farad, $F$), $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
+where $C$ is the capacitance (in farad, $F$ and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
 \\
 The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
 \begin{align}
@@ -70,5 +72,5 @@ For a capacitor with a constant capacitance, the current can be written as:
 \end{align}
 
 
-\section{Time constant $\tau$}
-A useful constant which shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the capacitor in the circuit, and $C$ is the capacitance of the capacitor in the circuit.
+\section{Time constant ($\tau$)}
+A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$).
