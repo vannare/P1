@@ -14,31 +14,38 @@ To find out how the voltage of a capacitor changes over time when it is charged 
 \textbf{Discharging of a Capacitor}\\
 In subsection \ref{Klaws}, KCL states that the sum of the currents in a node is equal to zero. In the case of an RC circuit, the law can be written as the following equation:
 \begin{align}
-I_{c}+I_{R}&=0 \nonumber \\
-I_{c}&= -I_{R}, \label{Ic-Ir}
+i_{C}+i_{R}&=0 \nonumber \\
+i_{C}&= -i_{R}, \label{Ic-Ir}
 \end{align}
-where $I_C$ is the current through the capacitor, and $I_R$ is the current across the resistor. From \eqref{iC} the current through the capacitor is:
+where $i_C$ is the current through the capacitor, and $i_R$ is the current across the resistor. From \eqref{iC} the current through the capacitor is:
 \begin{align}
-	i_c = C\frac{dv_c}{dt}\label{iC=Cdv}
+	i_c = C\frac{dv_C(t)}{dt}\label{iC=Cdv}
 \end{align}
 The equation for the current across the resistor \eqref{Ohm}, can be rewritten as:
 \begin{align}
-	i_R = \frac{v_R}{R}\label{iR=vR}
+	i_R = \frac{v_R(t)}{R}\label{iR=vR}
 \end{align}
 Inserting the definitions in \eqref{iC=Cdv} and \eqref{iR=vR}, into \eqref{Ic-Ir} gives:
-\begin{align}
-	C\frac{dv_c}{dt} = \frac{-v_R}{R}\label{C dv dt}
-\end{align}
-The equation \eqref{C dv dt} is now in the form of a differential equation, which can be separated as stated in section \ref{SepDiff}:
 \begin{align*}
-C \dfrac{dv}{dt}&=\dfrac{-V}{R} \\
-\dfrac{dv}{dt} &= -V\dfrac{1}{RC} \\
-\frac{1}{V}dv &= \frac{-1}{RC}dt
+	C\frac{dv_C(t)}{dt} = \frac{-v_R(t)}{R}
+\end{align*}
+Both sides are divided by $C$:
+\begin{align}
+	\frac{dv_C(t)}{dt} = \frac{-v_R(t)}{RC}\label{dvC(t)}
+\end{align}
+From KVL, it can be derived that:
+\begin{align}
+	v_R(t) - v_C(t) = 0\nonumber\\
+	v_R(t) = v_C(t) \label{vR(t)}
+\end{align}
+\eqref{vR(t)} is inserted into \eqref{dvC(t)}:
+\begin{align*}
+	\dfrac{dv_C(t)}{dt} &= \dfrac{-1}{RC}v_C(t)
 \end{align*}
 The equation is now in the same form as \eqref{SDEG}, and can be solved as following:
 \begin{align}
-\int \dfrac{1}{V}dv =& \dfrac{-1}{RC} \int dt\nonumber \\
-\ln(V) =& \dfrac{-t}{RC} + A \nonumber\\
+\int \dfrac{1}{v_C(t)}dv_C(t) =& \dfrac{-1}{RC} \int dt\nonumber \\
+\ln(v_C(t)) =& \dfrac{-t}{RC} + A \nonumber\\
 V =& e^{\frac{-t}{RC}}e^{A}\label{V_eA}
 \end{align}
 Since $A$ is the constant of integration, $e^A$ is a constant aswell.
