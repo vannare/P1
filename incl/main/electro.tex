@@ -12,58 +12,8 @@ The different elements of the circuit can be divided into two categories: active
 \end{figure} 
 \noindent In figure \ref{fig:bulb} the active element is a battery, and the passive element is a light bulb. Charge is transported by the current from the positive terminal of the battery, through to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
 \\
-\section{Current}
-Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation:
-\begin{align}
-i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int_{0}^{t}i(x)dx,
-\label{I=dq/dt}
-\end{align}
-where $i(t)$ is the current (in ampere, $A$), to a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb$(C)$.
-\\
-There exists two types of current, alternating current (AC) and direct current (DC). DC current is constant, while AC alternates, see figure \ref{fig:ACDC}. 
-\begin{figure}[H] 
-\input{fig/tikz/ADDC_fig}
-\caption{Current for AC and DC versus time}
-\label{fig:ACDC}
-\end{figure}
-\section{Voltage}
-Voltage ($V$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
-\begin{align}
-	V=\dfrac{dU(q)}{dq},
-\end{align}
-\\
-where $U(q)$ (in joules, $J$) is the function for potential energy, given a charge $q$.
-\section{Resistor}
-When a resistor, which is a passive element, is added to the circuit, it creates a resistance ($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
-\begin{align} 
-\label{Ohm}
-v(t)=R\cdot i(t),  R\geq0,
-\end{align}
-where $R$ is resistance (in Ohm, $\Omega$).
-\section{Capacitor}
-A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged when positive a charge is transferred from one plate, through the circuit, to the other plate. The capacitance is given by the following equation:
-\begin{align*}
-C=\dfrac{\epsilon_{0}A}{d},
-\end{align*}
-where $C$ is the capacitance (in farad, $F$), $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
-\\
-The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
-\begin{align}
-\label{QCV}
-q = CV	
-\end{align}
-From \eqref{I=dq/dt}, current is defined as:
-\begin{align*}
-	i = \frac{dq}{dt}
-\end{align*}
-The current across a capacitor is then:
-\begin{align*}
-	i_C = \frac{d}{dt}(CV)
-\end{align*}
-For a capacitor with a constant capacitance, the current can be written as:
-\begin{align}
-	i_C = C\frac{dv}{dt}\label{iC}
-\end{align}
+
+\input{incl/misc/circuit_explain.tex}
 
 \section{Circuit diagrams}
 Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches} i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below.
