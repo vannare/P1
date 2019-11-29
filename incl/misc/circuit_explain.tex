@@ -12,16 +12,20 @@ There exists two types of current, alternating current (AC) and direct current (
 \caption{Current for AC and DC versus time}
 \label{fig:ACDC}
 \end{figure}
-DC current is, by definition, a constant stream of current.
-\\
 A sinusoidal AC current can be described with the function: 
 \begin{align*}
 	i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \\
 	=& \cdot A \cdot \sin{(\omega t + \theta)}
 \end{align*}
-where $t$ is time (in seconds $s$), $f$ is frequency (in Hertz $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds $s$).
-Sometimes $\omega$ is used for notation, instead of $2\pi f$, for ease of understanding.
+where $t$ is time (in seconds $s$), $f$ is frequency, which is cycles per second, (in Hertz $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds $s$).
+Sometimes $\omega$ is used for notation, instead of $2\pi f$, for ease of understanding. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{fig/img/AC.png}
+	\caption{An AC current, shown in green, phase-shifted by $\theta$, with amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current, with $\text{phase-shift} =0$}
+\end{figure}
+
 
 \section{Voltage}
 Voltage ($V$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
@@ -66,3 +70,5 @@ For a capacitor with a constant capacitance, the current can be written as:
 \end{align}
 
 
+\section{Time constant $\tau$}
+A useful constant which shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the capacitor in the circuit, and $C$ is the capacitance of the capacitor in the circuit.
