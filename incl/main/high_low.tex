@@ -38,7 +38,7 @@ When plotting the graph for the high-pass filter, the bode plot is going to be t
 \subsection{The imaginary Angular Frequency}
 - Describe
 \section{Derivations} \label{Derivations}
-In section REF the following equation is is derived \\
+In section the most essential terms used in the experiment \ref{experiment} is derived. 
 \subsection{Transfer Function for Low-Pass Filters}
 From the transient analysis in EQBLAH this equation is derived:
 \begin{align} \label{eq:dV_C}
@@ -141,8 +141,59 @@ The length of both sides can be calculated:
 \left|H_{H}(i \omega_f)\right| = \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right|
 \end{align*}
 \subsection{Cut-Off Frequency}
-- Udledning
-\section{Experiment}
+Per definition then the amount of decibel can be calculated the following way: REF [596-597]
+\begin{align} \label{number:db}
+Number \ of \ dB = 10 \log \left(\dfrac{P_{output}}{P_{input}} \right)
+\end{align}
+From section REF, it the values of $P$ can be replaced with $P=\dfrac{v^2}{R}$:
+\begin{align*}
+Number \ of \ dB = 10 \log \left(\dfrac{\dfrac{v_{output}^2}{R}}{\dfrac{v_{input}^2}{R}} \right)
+\end{align*}
+This can be simplified:
+\begin{align} \label{number:db:volt}
+Number \ of \ dB = 10 \log \left(\left(\dfrac{v_{output}}{v_{input}} \right)^2\right)
+\end{align}
+The squared expression can be moved outside the $\log$ function:
+\begin{align*}
+Number \ of \ dB = 20 \log \left(\dfrac{v_{output}}{v_{input}}\right)
+\end{align*}
+From equation \ref{number:db} and \ref{number:db:volt} this expression can be found: $$\dfrac{P_{output}}{P_{input}}= \left(\dfrac{v_{output}}{v_{input}} \right)^2$$ To find the halved power, the right side of the above equation can be set equal to $\dfrac{1}{2}$:
+\begin{align*}
+\dfrac{1}{2}= \left(\dfrac{v_{output}}{v_{input}} \right)^2
+\end{align*}
+This can be simplified:
+\begin{align*}
+\dfrac{1}{\sqrt{2}}= \dfrac{v_{output}}{v_{input}}
+\end{align*}
+When the power is halved then the transfer function can be set equal to $\dfrac{1}{\sqrt{2}}$. This is since the transfer function is equal to the voltage $\dfrac{v_{output}}{v_{input}}$ REFFFF. From this point the cut-off point can be derived using either the transfer function for high-pass filters, or the transfer function for low-pass filters. Here the transfer function for low-pass filters is used REFFF:
+\begin{align*}
+\dfrac{1}{\sqrt{1+ \left(RC \cdot \omega_f \right)^2}} = \dfrac{1}{\sqrt{2}}
+\end{align*}
+To get rid off the square root both sides are squared:
+\begin{align*}
+\dfrac{1}{1+ \left(RC \cdot \omega_f \right)^2} = \dfrac{1}{2}
+\end{align*}
+Both sides are multiplied by the denominator on each side:
+\begin{align*}
+2 = 1+ \left(RC \cdot \omega_f \right)^2
+\end{align*}
+The plus one is moved on the left side and the square root is inserted on both sides:
+\begin{align*}
+1 = RC \cdot \omega_f 
+\end{align*}
+Note that from equation REF $\omega_f$ is defined as $\omega_f=2 \pi f$:
+\begin{align*}
+1 = RC 2\pi f 
+\end{align*}
+Now $f$ is isolated:
+\begin{align*}
+f=\dfrac{1}{2\pi RC}
+\end{align*}
+Hereby the cut-off frequency is derived. It can now easily be shown that the cut-off frequency is after 3 decibel, by inserting the initial values on equation \ref{number:db}:
+\begin{align*}
+10 \log \left(\dfrac{1}{2} \right) = -3 dB
+\end{align*}
+\section{Experiment} \label{experiment}
 - Describe experiment (purpose - what does it mean?
 \subsection{Theoretical}
 - How did we do in the code theoretically?
