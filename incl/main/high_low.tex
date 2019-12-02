@@ -90,7 +90,7 @@ The ratio of the voltages is isolated:
 \dfrac{\omega}{\omega+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
 \end{align} 
 As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
-\begin{align}
+\begin{align} \label{eq:trans_low}
 H_{L}(s) = \dfrac{\omega}{\omega+i \omega_f} 
 \end{align}
 $\omega = \dfrac{1}{RC}$ is inserted and the whole expression is multiplied by $\dfrac{RC}{RC}$:
@@ -131,11 +131,11 @@ The values can be found from the table \ref{lptable} in the previous chapter:
 \begin{align*}
 -RCsV_{R}(s)-v_{R}(0) + RCsV_{input}(s)-v_{input}(0) = V_{R}(s)
 \end{align*}
-It is assumed that there is no phase shift and $v_{R}(0)$ and $v_{input}(0)$ are both equal zero:
+It is assumed that the phase shift is zero and $v_{R}(0)$ and $v_{input}(0)$ are both equal to zero:
 \begin{align*}
 -RCsV_{R}(s) + RCsV_{input}(s) = V_{R}(s)
 \end{align*}
-Now $V_{input}(s)$ is isolated:
+Now $RCs V_{input}(s)$ is isolated:
 \begin{align*}
 RCsV_{input}(s) = V_{R}(s) + RCsV_{R}(s)
 \end{align*}
@@ -143,7 +143,7 @@ $V_{R}(s)$ is factorised:
 \begin{align*}
 RCsV_{input}(s) = V_{R}(s) \cdot (1 + RCs)
 \end{align*}
-The voltage functions are isolated:
+The ratio of the voltages is isolated:
 \begin{align} \label{hp:visolated}
 \dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
 \end{align}
@@ -156,11 +156,11 @@ The length of both sides can be calculated:
 \left|H_{H}(i \omega_f)\right| = \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right|
 \end{align*}
 \subsection{Cut-Off Frequency}
-Per definition then the amount of decibel can be calculated the following way: REF [596-597]
+Per definition the amount of decibel can be calculated the following way: \cite[p. 596-597]{bcircuit}
 \begin{align} \label{number:db}
 Number \ of \ dB = 10 \log \left(\dfrac{P_{output}}{P_{input}} \right)
 \end{align}
-From section REF, it the values of $P$ can be replaced with $P=\dfrac{v^2}{R}$:
+From section \ref{}, the effect, $P$, is defined as $P=\dfrac{v^2}{R}$:
 \begin{align*}
 Number \ of \ dB = 10 \log \left(\dfrac{\dfrac{v_{output}^2}{R}}{\dfrac{v_{input}^2}{R}} \right)
 \end{align*}
@@ -168,11 +168,9 @@ This can be simplified:
 \begin{align} \label{number:db:volt}
 Number \ of \ dB = 10 \log \left(\left(\dfrac{v_{output}}{v_{input}} \right)^2\right)
 \end{align}
-The squared expression can be moved outside the $\log$ function:
-\begin{align*}
-Number \ of \ dB = 20 \log \left(\dfrac{v_{output}}{v_{input}}\right)
-\end{align*}
-From equation \ref{number:db} and \ref{number:db:volt} this expression can be found: $$\dfrac{P_{output}}{P_{input}}= \left(\dfrac{v_{output}}{v_{input}} \right)^2$$ To find the halved power, the right side of the above equation can be set equal to $\dfrac{1}{2}$:
+From equation \eqref{number:db} and \eqref{number:db:volt} the following relation can be derived:
+$$\dfrac{P_{output}}{P_{input}}= \left(\dfrac{v_{output}}{v_{input}} \right)^2$$ 
+The point at which the power of the output is half of the input is defined as the cut-off frequency. To find this point the right side of the equation above can be set equal to $\dfrac{1}{2}$:
 \begin{align*}
 \dfrac{1}{2}= \left(\dfrac{v_{output}}{v_{input}} \right)^2
 \end{align*}
@@ -180,23 +178,24 @@ This can be simplified:
 \begin{align*}
 \dfrac{1}{\sqrt{2}}= \dfrac{v_{output}}{v_{input}}
 \end{align*}
-When the power is halved then the transfer function can be set equal to $\dfrac{1}{\sqrt{2}}$. This is since the transfer function is equal to the voltage $\dfrac{v_{output}}{v_{input}}$ REFFFF. From this point the cut-off point can be derived using either the transfer function for high-pass filters, or the transfer function for low-pass filters. Here the transfer function for low-pass filters is used REFFF:
+The right side of the equation above can be set equal to the transfer function \ref{eq:trans_low}. The cut-off frequency can be found from the transfer function for either high-pass or low-pass filters. In this case the function for low-pass filter is used.
+\\
 \begin{align*}
 \dfrac{1}{\sqrt{1+ \left(RC \cdot \omega_f \right)^2}} = \dfrac{1}{\sqrt{2}}
 \end{align*}
-To get rid off the square root both sides are squared:
+To get rid off the square root, both sides are squared:
 \begin{align*}
 \dfrac{1}{1+ \left(RC \cdot \omega_f \right)^2} = \dfrac{1}{2}
 \end{align*}
-Both sides are multiplied by the denominator on each side:
+	Both sides are multiplied by $2(1+(RC\omega_f)^2)$:
 \begin{align*}
 2 = 1+ \left(RC \cdot \omega_f \right)^2
 \end{align*}
-The plus one is moved on the left side and the square root is inserted on both sides:
+Both sides are subtracted by 1, and then raised to the power of $\dfrac{1}{2}$
 \begin{align*}
 1 = RC \cdot \omega_f 
 \end{align*}
-Note that from equation REF $\omega_f$ is defined as $\omega_f=2 \pi f$:
+Note that from equation \eqref{eq:omega}, $\omega_f$ is defined as $\omega_f=2 \pi f$:
 \begin{align*}
 1 = RC 2\pi f 
 \end{align*}
@@ -204,7 +203,7 @@ Now $f$ is isolated:
 \begin{align*}
 f=\dfrac{1}{2\pi RC}
 \end{align*}
-Hereby the cut-off frequency is derived. It can now easily be shown that the cut-off frequency is after 3 decibel, by inserting the initial values on equation \ref{number:db}:
+Hereby the cut-off frequency is derived. It can now be shown that the cut-off frequency is after 3 decibel, by inserting the initial values on equation \eqref{number:db}:
 \begin{align*}
 10 \log \left(\dfrac{1}{2} \right) = -3 dB
 \end{align*}
@@ -232,4 +231,4 @@ Here is the bode plot:
 \end{figure}
 \subsection{Comparison}
 - Compare the bode plots --> first low then high \\
-- Describe source errors (fejlkilder) 
+- Describe source errors (fejlkilder)
