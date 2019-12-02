@@ -142,23 +142,7 @@ V_C(t)=V_B\left(1-e^{\frac{-t}{RC}}\right)
 \end{align}
 \section{RC circuit experiment}
 In the following section an RC circuit experiment has been made. Data from an RC circuit will be compared to values from a mathematical model.
-\subsection{Test Values Comparison}
-\begin{figure}[H]
-	\center
-		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
-	\caption{RC circuit}
-	\label{rc_flow}
-\end{figure}
-% Vær OBS på farvebeskrivelser af ledninger
-This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Hypothetically, if the two scopes were switched, it would be measuring the inverse charging and discharging. Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
-To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
-The data from the theoretical values and the test results can now be compared using python:
-\begin{figure}[H]
-\center
-\includegraphics[scale=0.6]{fig/img/eks_1}
-\caption{Capacitor charge and discharge}
-\end{figure}
-\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
+
 \subsection{Theoretical Values}
 The resistor and capacitor in the experiment, had the following values:
 \begin{align*}
@@ -194,3 +178,21 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s \\
 &= 2.33 ms
 \end{align*}
+
+\subsection{Test Values Comparison}
+\begin{figure}[H]
+	\center
+		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
+	\caption{RC circuit}
+	\label{rc_flow}
+\end{figure}
+% Vær OBS på farvebeskrivelser af ledninger
+This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Hypothetically, if the two scopes were switched, it would be measuring the inverse charging and discharging. Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
+To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
+The data from the theoretical values and the test results can now be compared using python:
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.6]{fig/img/eks_1}
+\caption{Capacitor charge and discharge}
+\end{figure}
+\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
