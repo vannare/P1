@@ -57,43 +57,40 @@ From the transient analysis, equation \eqref{eq:dvC(t)} is derived:
 \end{align}
 From KVL the algebraic sum of voltages can be written as: 
 \begin{align}
--v_{input}(t)+v_{R}(t)-v_{C}(t)=0
+v_{input}(t)-v_{R}(t)+v_{C}(t)=0
 \\
-\Leftrightarrow -v_{R}(t) = -v_{c}(t) - v_{input}(t) \label{eq:KVL_low}
+\Leftrightarrow -v_{R}(t) = v_{input}(t) - v_{C}(t) \label{eq:KVL_low}
 \end{align}
 \eqref{eq:KVL_low} is inserted in \eqref{eq:dV_C}:
 \begin{align} 
-\dfrac{dv_C(t)}{dt}=\Big(-v_C(t) - v_{input}(t)\Big)\dfrac{1}{RC}
+\dfrac{dv_C(t)}{dt}&=\Big(v_{input}(t) - v_{C}(t)\Big)\dfrac{1}{RC}
+\\
+&=\dfrac{1}{RC}v_{input}(t) - \dfrac{1}{RC}v_{C}(t)
 \end{align}
-$\omega$ is defined as $\omega=\dfrac{1}{RC}$:
+Both sides are added with $\dfrac{1}{RC}v_C(t)$:
 \begin{align}
-\dfrac{dv_C(t)}{dt}=\Big(- v_C(t) - v_{input}(t)\Big)\omega
-\end{align}
- $v_{input}(t) \omega$ is isolated:
-\begin{align}
-v_{input}(t)\omega= - v_C(t)\omega - \dfrac{dv_C(t)}{dt}
+\dfrac{dv_C(t)}{dt}+\dfrac{1}{RC}v_C(t)=\dfrac{1}{RC}v_{input}(t)
 \end{align}
 The differential equation can now be solved using the Laplace transform:
-\begin{align}\label{eq:laplace:low}
-\mathcal{L}\Big\{v_{input}(t)\Big\}\omega=\mathcal{L}\Big\{v_C(t)\Big\}\omega+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
+\begin{align}\label{eq:laplace:low}\mathcal{L}\bigg\{\dfrac{dv_C(t)}{dt}\bigg\}+\dfrac{1}{RC}\mathcal{L}\Big\{v_C(t)\Big\}=\dfrac{1}{RC}\mathcal{L}\Big\{v_{input}(t)\Big\}
 \end{align}
 According to \Cref{theorem:laplace_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
 \begin{align}
-V_{input}(s)\omega=V_{C}(s)\omega-v_{C}(0)+V_{C}(s)s
+V_C(s)s+v_C(0)+\dfrac{1}{RC}V_C(s)=\dfrac{1}{RC}V_{input}(t)
 \end{align} 
 $v_{C}$ is now factorised, and the initial voltage across the capacitor is zero, which can be derived from equation \eqref{V_up}:
 \begin{align}
-V_{input}(s)\omega=V_{C}(s)(\omega+s)
+\dfrac{1}{RC}V_{input}(s)=V_{C}(s)\Big(\dfrac{1}{RC}+s\Big)
 \end{align} 
 The ratio of the voltages is isolated:
 \begin{align}
-\dfrac{\omega}{\omega+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
+\dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
 \end{align} 
 As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
 \begin{align} \label{eq:trans_low}
-H_{L}(s) = \dfrac{\omega}{\omega+i \omega_f} 
+H_{L}(s) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
-$\omega = \dfrac{1}{RC}$ is inserted and the whole expression is multiplied by $\dfrac{RC}{RC}$:
+Both sides of the equation is multiplied by $\dfrac{RC}{RC}$:
 \begin{align}
 H_{L}(s) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
