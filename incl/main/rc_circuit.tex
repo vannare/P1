@@ -1,4 +1,4 @@
-\chapter{RC Circuits}
+\chapter{RC Circuits} \label{chap:RC}
 \section{RC Circuits}
 An RC circuit is an electrical circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case, a charged capacitor placed in series with a resistor will discharge back through the resistor \cite[p~21]{artof}. 
 
@@ -31,7 +31,8 @@ Inserting the definitions in \eqref{iC=Cdv} and \eqref{iR=vR}, into \eqref{Ic-Ir
 \end{align*}
 Both sides are divided by $C$:
 \begin{align}
-	\frac{dv_C(t)}{dt} = \frac{-v_R(t)}{RC}\label{dvC(t)}
+	\frac{dv_C(t)}{dt} =-v_R(t) \frac{1}{RC}
+	\label{eq:dvC(t)}
 \end{align}
 From KVL, it can be derived that:
 \begin{align}

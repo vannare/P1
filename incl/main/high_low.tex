@@ -1,35 +1,35 @@
 \chapter{High-pass and low-pass filters}
-The main purpose of filters is to sort out unwanted frequencies from different wave-types. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can sort out unwanted frequencies. In this section the focus is on high and low-pass filters.
+The main purpose of filters is to remove unwanted frequencies from different signals. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high and low-pass filters.
 \section{Definitions}
 In this section the most central terms concerning high-pass and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in the next section \ref{Derivations}.
 \subsection{bla bla}
-In the experiment earlier described a DC input was used. In the case of high and low pass filters an AC input will be applied. The voltage in this case can be written as a wave function:
+The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters an AC input will be applied. The voltage in this case can be written as a wave function:
 \begin{align}
- v(t)=A\sin(\omega t+\theta)
+ v(t)=A\sin(\omega_f t+\theta)
  \end{align} 
-Where $A$ is the amplitude, $\omega=2\pi f$ and $\theta$ the phase shift. 
+Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. 
 \\
 This sinus function can be rewritten as a complex exponential function.
 \begin{align*}
-v(t)=Ae^{i\omega t}
+v(t)=Ae^{i(\omega_f t+\theta}
 \end{align*}
 \subsection{Low-pass filters}
-The purpose of a low-pass filter is to filter out unwanted high frequencies. Listening to a such tone brings out the bass and sorts out higher pitches. The low-pass filter is in other words allowing frequencies from $0Hz$ to a chosen cut-off value. \\
-The difference between a high-pass filter and a low-pass can be illustrated using a circuit diagram:
+A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
+\\
+In the illustration below the voltage output is measured across the capacitor, which decreases the high frequencies and leaves the low frequencies unchanged.
+\\
 \begin{figure}[H]
 	\input{fig/tikz/low_pass_circ.tex}
 	\caption{Circuit diagram of a low-pass filter.} \label{lp:diagram}
 \end{figure} 
-In the illustration above the voltage output is measured across the capacitor, which decreases the high frequencies and leaves the low frequencies unchanged.  
 \subsection{High-pass filters}
-High-pass filters are in many ways similar to the low-pass filters. High-pass filters can be used with the purpose of decreasing low frequencies and leave the high frequencies unchanged. Listening to a such tone would cut off some of the base and leave the lower tones unchanged. \\
-The circuit diagram for the high-pass filter is the same as the low-pass filter, but the voltage output is measured around the resistor ($R$) instead of the capacitor ($C$). This is commonly shown by switching around the two, from the previous figure \ref{lp:diagram}:
+High-pass filters are in many ways similar to the low-pass filters. High-pass filters cuts off frequencies below a certain cut-off frequency. \\
+The voltage output is measured across the resistor ($R$) instead of the capacitor ($C$). 
 \begin{figure}[H]
 	\input{fig/tikz/high_pass_circ.tex}
 	\caption{Circuit diagram of a high-pass filter.}
 	\label{hp:diagram}
 \end{figure} 
-Measuring across the resistor decreases the low frequencies and leaves the high frequencies unchanged. 
 \subsection{Cut-off Frequencies}
 For low-pass \\
 This cut-off value can be calculated using the following equation:
@@ -49,45 +49,47 @@ When plotting the graph for the high-pass filter, the bode plot is going to be t
 \subsection{The imaginary Angular Frequency}
 - Describe
 \section{Derivations} \label{Derivations}
-In section the most essential terms used in the experiment \ref{experiment} is derived. 
+Intro 
 \subsection{Transfer Function for Low-Pass Filters}
-From the transient analysis in EQBLAH this equation is derived:
+From the transient analysis, equation \eqref{eq:dvC(t)} is derived:
 \begin{align} \label{eq:dV_C}
 \dfrac{dv_C(t)}{dt}=-v_R(t)\dfrac{1}{RC}
 \end{align}
-Here $-v_{R}(t)$ can be rewritten as 
-\begin{align} \label{eq:vr}
--v_{R}(t) = v_{c}(t) + v_{input}, 
+From KVL the algebraic sum of voltages can be written as: 
+\begin{align}
+-v_{input}(t)+v_{R}(t)-v_{C}(t)=0
+\\
+\Leftrightarrow -v_{R}(t) = -v_{c}(t) - v_{input}(t) \label{eq:KVL_low}
 \end{align}
-since $-v_{input}(t)+v_{R}(t)-V_{C}(t)=0$. These are all functions of time. It is all inserted on \eqref{eq:dV_C}:
+\eqref{eq:KVL_low} is inserted in \eqref{eq:dV_C}:
 \begin{align} 
-\dfrac{dv_C(t)}{dt}=\Big(v_C(t) + v_{input}(t)\Big)\dfrac{1}{RC}
+\dfrac{dv_C(t)}{dt}=\Big(-v_C(t) - v_{input}(t)\Big)\dfrac{1}{RC}
 \end{align}
 $\omega$ is defined as $\omega=\dfrac{1}{RC}$:
 \begin{align}
-\dfrac{dv_C(t)}{dt}=\Big(v_C(t)+v_{input}(t)\Big)\omega
+\dfrac{dv_C(t)}{dt}=\Big(- v_C(t) - v_{input}(t)\Big)\omega
 \end{align}
-Now $\omega$ is multiplied in the parenthesis and $v_{input}(t)$ is isolated:
+ $v_{input}(t) \omega$ is isolated:
 \begin{align}
-v_{input}(t)\omega=v_C(t)\omega+\dfrac{dv_C(t)}{dt}
+v_{input}(t)\omega= - v_C(t)\omega - \dfrac{dv_C(t)}{dt}
 \end{align}
-The differential equation can now be solved using Laplace transform:
+The differential equation can now be solved using the Laplace transform:
 \begin{align}\label{eq:laplace:low}
 \mathcal{L}\Big\{v_{input}(t)\Big\}\omega=\mathcal{L}\Big\{v_C(t)\Big\}\omega+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
 \end{align}
-According to \Cref{theorem:laplace_diff} the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
+According to \Cref{theorem:laplace_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
 \begin{align}
 V_{input}(s)\omega=V_{C}(s)\omega-v_{C}(0)+V_{C}(s)s
 \end{align} 
-$v_{C}$ is now factorised, and the voltage across the capacitor at time zero is zero, which can be derived from equation \eqref{V_up}:
+$v_{C}$ is now factorised, and the initial voltage across the capacitor is zero, which can be derived from equation \eqref{V_up}:
 \begin{align}
 V_{input}(s)\omega=V_{C}(s)(\omega+s)
 \end{align} 
-The functions of voltage are isolated:
+The ratio of the voltages is isolated:
 \begin{align}
 \dfrac{\omega}{\omega+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
 \end{align} 
-As stated in REF then $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
+As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
 \begin{align}
 H_{L}(s) = \dfrac{\omega}{\omega+i \omega_f} 
 \end{align}
@@ -99,15 +101,17 @@ This can be simplified:
 \begin{align}
 H_{L}(s) =  \dfrac{1}{1+RC \cdot i \omega_f} 
 \end{align}
-Now the length of the both sides is calculated:
+Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
 \begin{align}
-\left|H_{L}(s) \right| =  \left|\dfrac{1}{1+RC \cdot i \omega_f} \right| 
+\left|H_{L}(s) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
+\\
+&=\dfrac{|1|}{|1+RC\omega_f |}
+\\
+&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}}
 \end{align}
-This can be rewritten as:
-\begin{align}
-\left|H_{L}(s) \right| =  \dfrac{1}{\sqrt{1+(RC \cdot i \omega_f)^2}}
-\end{align}
+The numerical relationship between the input and the output signal 
 \subsection{Transfer Function for High-Pass Filters}
+Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
 \begin{align}
 \dfrac{dv_{c}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
 \end{align}
@@ -115,11 +119,11 @@ First both sides are multiplied by $-RC$:
 \begin{align}
 -RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
 \end{align}
-Since it is now a high-pass filter (and a different circuit), kirchhoff's voltage law has to be rewritten from equation \eqref{eq:vr}, and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression is now differentiated, and can be inserted on the left side as follows:
+Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten from equation \eqref{eq:vr}, and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
 \begin{align*}
 -RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
 \end{align*}
-Now the Laplace transform of both sides can be made. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
+The Laplace transform is now applied to both sides of the equation. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
 \begin{align*}
 -RC \mathcal{L} \left\{\dfrac{dv_{R}(t)}{dt} \right\} + RC \mathcal{L} \left\{ \dfrac{dv_{input}(t)}{dt} \right\} = \mathcal{L} \left\{v_{R}(t) \right\}
 \end{align*}
@@ -127,7 +131,7 @@ The values can be found from the table \ref{lptable} in the previous chapter:
 \begin{align*}
 -RCsV_{R}(s)-v_{R}(0) + RCsV_{input}(s)-v_{input}(0) = V_{R}(s)
 \end{align*}
-There is here an assumption that there are no phase shift and $v_{R}(0)$ and $v_{input}(0)$ are both equal zero:
+It is assumed that there is no phase shift and $v_{R}(0)$ and $v_{input}(0)$ are both equal zero:
 \begin{align*}
 -RCsV_{R}(s) + RCsV_{input}(s) = V_{R}(s)
 \end{align*}
