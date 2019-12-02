@@ -148,12 +148,12 @@ The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer
 H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
 \end{align*}
 The length of both sides can be calculated. When taking the modulus of a complex numbers then the following rule from definition \ref{modulus} is used: $|z|= \sqrt{a^2+b^2}$. The expression is calculated as follows:
-\begin{align*}
+\begin{align}
 \left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
  &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
  &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
  &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tf:mod:hp}
-\end{align*}
+\end{align}
 Equation \eqref{tf:mod:hp} describes the numerical relationship between the input and output signal.
 \subsection{Cut-Off Frequency}
 Per definition then the amount of decibel can be calculated the following way: REF [596-597]
