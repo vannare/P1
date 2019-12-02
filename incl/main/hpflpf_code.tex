@@ -1,1 +1,27 @@
-Wallah
+The expected values of the bode plot, were computed using the following formulas:
+\begin{align}
+	V_{out} =& V_{in} \cdot \dfrac{X_C}{\sqrt{R^2+X_{C}^2}},
+\end{align}
+in the case of low-pass filters and:
+\begin{align}
+	V_{out} =& V_{in} \cdot \dfrac{R}{\sqrt{R^2+X_{C}^2}},
+\end{align}
+in the case of high-pass filters.
+Where $R$ is the resistance of the resistor (in ohms, $\Omega$), $V_{in}$ is the input voltage (in volts, $V$), and $V_{out}$ is the output voltage (in volts, $V$).
+\\
+In the formulas $X_C$ is the capacitive reactence for the capacitor. This value is calculated as follows:
+\begin{align*}
+	X_C =& \dfrac{1}{2\pi fC}
+\end{align*}
+In this case $f$ is the frequency of the input signal (in hertz, $Hz$), and $C$ is the capacitance of the capacitor (in farad, $F$). $X_C$ is then the resistance across the capacitor, as a function of frequency and capacitance.
+\\
+\\
+The gain of the signal going through the circuit, which is plotted on the y-axis, is defined as:
+\begin{align*}
+	gain = 20 \cdot \log{\left( \dfrac{V_{out}}{V_{in}} \right)}
+\end{align*}
+\\
+\\
+To find the expected gain of the signal, the resistance and capacitance of the circuit were defined in Python. A function which calculates the gain, as a function of frequency, was defined. This function took an array of frequencies as its argument.
+\\
+The input and output of the Python function was then plotted.
