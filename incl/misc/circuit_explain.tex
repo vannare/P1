@@ -13,10 +13,13 @@ There exists two types of current: alternating current (AC) and direct current (
 \label{fig:ACDC}
 \end{figure}
 A sinusoidal AC current can be described with the function: 
-\begin{align*}
-	i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \\
-	=& \cdot A \cdot \sin{(\omega t + \theta)}
-\end{align*}
+\begin{align}
+i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \nonumber
+\\
+=& \cdot A \cdot \sin{(\omega t + \theta)} \nonumber
+\\
+\text{Where:}~~\omega=2\pi f \label{eq:omega}
+\end{align}
 where $t$ is time (in seconds, $s$), $f$ is frequency, which is cycles per second, (in Hertz, $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds, $s$).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
