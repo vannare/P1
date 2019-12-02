@@ -1,218 +1,234 @@
-\chapter{Laplace transform}
-Up until this point, the project has focused on the behaviour of electrical circuits in the time domain. Observing how different signals change with time yielded a differential equation, as seen in section (\ref{sec371}).
-\\ \\
-The solution to a differential equation will often be difficult to derive, and this is where the Laplace transform comes in handy. The Laplace transform converts functions of time to functions of frequency (i.e. from the time domain to the \textit{s}-domain). Since the Laplace transform is an integral transform, the rules of integration can also be applied to the Laplace transform.
-\begin{definition}{Multiplication by constant}{constant}
-If $$ \int c \cdot f(t) \ dt = c \cdot \int f(t) \ dt,$$
-then $$\mathcal{L} \left\{c \cdot f(t) \right\} = c \cdot \mathcal{L} \left\{f(t) \right\}$$
-\end{definition}
-This process reduces the differential equation in question to an algebraic equation. Once the expression has been solved in the \textit{s}-domain, the inverse Laplace transform can be applied to find its corresponding solution in the time domain. Generally, this description can be illustrated in the following way:
+\chapter{High-pass and low-pass filters}
+The main purpose of filters is to remove unwanted frequencies from different signals. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high and low-pass filters.
+\section{Definitions}
+In this section the most central terms concerning high-pass and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in the next section \ref{Derivations}.
+\subsection{bla bla}
+The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters an AC input will be applied. The voltage in this case can be written as a wave function:
+\begin{align}
+ v(t)=A\sin(\omega_f t+\theta)
+ \end{align} 
+Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. 
+\\
+This sinus function can be rewritten as a complex exponential function.
+\begin{align*}
+v(t)=Ae^{i(\omega_f t+\theta}
+\end{align*}
+\subsection{Low-pass filters}
+A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
+\\
+In the illustration below the voltage output is measured across the capacitor, which decreases the high frequencies and leaves the low frequencies unchanged.
+\\
+\begin{figure}[H]
+	\input{fig/tikz/low_pass_circ.tex}
+	\caption{Circuit diagram of a low-pass filter.} \label{lp:diagram}
+\end{figure} 
+\subsection{High-pass filters}
+High-pass filters are in many ways similar to the low-pass filters. High-pass filters cuts off frequencies below a certain cut-off frequency. \\
+The voltage output is measured across the resistor ($R$) instead of the capacitor ($C$). 
+\begin{figure}[H]
+	\input{fig/tikz/high_pass_circ.tex}
+	\caption{Circuit diagram of a high-pass filter.}
+	\label{hp:diagram}
+\end{figure} 
+\subsection{Cut-off Frequencies}
+For low-pass \\
+This cut-off value can be calculated using the following equation:
+\begin{align*}
+f_{cutoff}=\dfrac{1}{2 \pi RC}
+\end{align*}
+This cut-off value describes a point on the bode plot graph, where the amplitude is decreased by $29.3\%$ and the output is decreased by $3dB$. The cut-off point is also the point, where the filtering starts getting efficient. This can be expressed using a bode plot, with the frequency on the $x-axis$ and the decibel on the $y-axis$.\\
+For high-pass: \\
+The high-pass filters uses the same $f_{cutoff}$ formula as the low-pass filter.
+
+\subsection{Bode Plots}
+Low-pass: \\
+The $x-axis$ is a logarithmic axis, where the output is decreased by 20 decibel per decade after the cut-off point. \\
+The output wave before the cut-off point will stay almost unchanged, and after the cut-off point, the amplitude is decreasing and approaching a graph that looks like a DC current. \\
+High-pass: \\
+When plotting the graph for the high-pass filter, the bode plot is going to be the opposite of the low-pass filters'. The graph starts in minus decibel and is approaching zero. Until it reaches the cut-off point, the graph is increasing with 20 decibel per decade. When reaching the cut-off point, the graph is 3 decibel short from reaching zero. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$.
+\subsection{The imaginary Angular Frequency}
+- Describe
+\section{Derivations} \label{Derivations}
+Intro 
+\subsection{Transfer Function for Low-Pass Filters}
+From the transient analysis, equation \eqref{eq:dvC(t)} is derived:
+\begin{align} \label{eq:dV_C}
+\dfrac{dv_C(t)}{dt}=-v_R(t)\dfrac{1}{RC}
+\end{align}
+From KVL the algebraic sum of voltages can be written as: 
+\begin{align}
+-v_{input}(t)+v_{R}(t)-v_{C}(t)=0
+\\
+\Leftrightarrow -v_{R}(t) = -v_{c}(t) - v_{input}(t) \label{eq:KVL_low}
+\end{align}
+\eqref{eq:KVL_low} is inserted in \eqref{eq:dV_C}:
+\begin{align} 
+\dfrac{dv_C(t)}{dt}=\Big(-v_C(t) - v_{input}(t)\Big)\dfrac{1}{RC}
+\end{align}
+$\omega$ is defined as $\omega=\dfrac{1}{RC}$:
+\begin{align}
+\dfrac{dv_C(t)}{dt}=\Big(- v_C(t) - v_{input}(t)\Big)\omega
+\end{align}
+ $v_{input}(t) \omega$ is isolated:
+\begin{align}
+v_{input}(t)\omega= - v_C(t)\omega - \dfrac{dv_C(t)}{dt}
+\end{align}
+The differential equation can now be solved using the Laplace transform:
+\begin{align}\label{eq:laplace:low}
+\mathcal{L}\Big\{v_{input}(t)\Big\}\omega=\mathcal{L}\Big\{v_C(t)\Big\}\omega+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
+\end{align}
+According to \Cref{theorem:laplace_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
+\begin{align}
+V_{input}(s)\omega=V_{C}(s)\omega-v_{C}(0)+V_{C}(s)s
+\end{align} 
+$v_{C}$ is now factorised, and the initial voltage across the capacitor is zero, which can be derived from equation \eqref{V_up}:
+\begin{align}
+V_{input}(s)\omega=V_{C}(s)(\omega+s)
+\end{align} 
+The ratio of the voltages is isolated:
+\begin{align}
+\dfrac{\omega}{\omega+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
+\end{align} 
+As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
+\begin{align} \label{eq:trans_low}
+H_{L}(s) = \dfrac{\omega}{\omega+i \omega_f} 
+\end{align}
+$\omega = \dfrac{1}{RC}$ is inserted and the whole expression is multiplied by $\dfrac{RC}{RC}$:
+\begin{align}
+H_{L}(s) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
+\end{align}
+This can be simplified:
+\begin{align}
+H_{L}(s) =  \dfrac{1}{1+RC \cdot i \omega_f} 
+\end{align}
+Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
+\begin{align}
+\left|H_{L}(s) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
+\\
+&=\dfrac{|1|}{|1+RC\omega_f |}
+\\
+&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}}
+\end{align}
+The numerical relationship between the input and the output signal 
+\subsection{Transfer Function for High-Pass Filters}
+Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
+\begin{align}
+\dfrac{dv_{c}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
+\end{align}
+First both sides are multiplied by $-RC$:
+\begin{align}
+-RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
+\end{align}
+Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten from equation \eqref{eq:vr}, and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
+\begin{align*}
+-RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
+\end{align*}
+The Laplace transform is now applied to both sides of the equation. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
+\begin{align*}
+-RC \mathcal{L} \left\{\dfrac{dv_{R}(t)}{dt} \right\} + RC \mathcal{L} \left\{ \dfrac{dv_{input}(t)}{dt} \right\} = \mathcal{L} \left\{v_{R}(t) \right\}
+\end{align*}
+The values can be found from the table \ref{lptable} in the previous chapter:
+\begin{align*}
+-RCsV_{R}(s)-v_{R}(0) + RCsV_{input}(s)-v_{input}(0) = V_{R}(s)
+\end{align*}
+It is assumed that the phase shift is zero and $v_{R}(0)$ and $v_{input}(0)$ are both equal to zero:
+\begin{align*}
+-RCsV_{R}(s) + RCsV_{input}(s) = V_{R}(s)
+\end{align*}
+Now $RCs V_{input}(s)$ is isolated:
+\begin{align*}
+RCsV_{input}(s) = V_{R}(s) + RCsV_{R}(s)
+\end{align*}
+$V_{R}(s)$ is factorised:
+\begin{align*}
+RCsV_{input}(s) = V_{R}(s) \cdot (1 + RCs)
+\end{align*}
+The ratio of the voltages is isolated:
+\begin{align} \label{hp:visolated}
+\dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
+\end{align}
+The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer function of high-pass filters, $H_{H}(s)$. As stated in REF then $s=i \omega_f$. Therefore $H_{H}(s)=H_{H}(i \omega_f)$. The equation \eqref{hp:visolated} can be rewritten:
+\begin{align*}
+H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
+\end{align*}
+The length of both sides can be calculated:
+\begin{align*}
+\left|H_{H}(i \omega_f)\right| = \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right|
+\end{align*}
+\subsection{Cut-Off Frequency}
+Per definition the amount of decibel can be calculated the following way: \cite[p. 596-597]{bcircuit}
+\begin{align} \label{number:db}
+Number \ of \ dB = 10 \log \left(\dfrac{P_{output}}{P_{input}} \right)
+\end{align}
+From section \ref{}, the effect, $P$, is defined as $P=\dfrac{v^2}{R}$:
+\begin{align*}
+Number \ of \ dB = 10 \log \left(\dfrac{\dfrac{v_{output}^2}{R}}{\dfrac{v_{input}^2}{R}} \right)
+\end{align*}
+This can be simplified:
+\begin{align} \label{number:db:volt}
+Number \ of \ dB = 10 \log \left(\left(\dfrac{v_{output}}{v_{input}} \right)^2\right)
+\end{align}
+From equation \eqref{number:db} and \eqref{number:db:volt} the following relation can be derived:
+$$\dfrac{P_{output}}{P_{input}}= \left(\dfrac{v_{output}}{v_{input}} \right)^2$$ 
+The point at which the power of the output is half of the input is defined as the cut-off frequency. To find this point the right side of the equation above can be set equal to $\dfrac{1}{2}$:
+\begin{align*}
+\dfrac{1}{2}= \left(\dfrac{v_{output}}{v_{input}} \right)^2
+\end{align*}
+This can be simplified:
+\begin{align*}
+\dfrac{1}{\sqrt{2}}= \dfrac{v_{output}}{v_{input}}
+\end{align*}
+The right side of the equation above can be set equal to the transfer function \ref{eq:trans_low}. The cut-off frequency can be found from the transfer function for either high-pass or low-pass filters. In this case the function for low-pass filter is used.
+\\
+\begin{align*}
+\dfrac{1}{\sqrt{1+ \left(RC \cdot \omega_f \right)^2}} = \dfrac{1}{\sqrt{2}}
+\end{align*}
+To get rid off the square root, both sides are squared:
+\begin{align*}
+\dfrac{1}{1+ \left(RC \cdot \omega_f \right)^2} = \dfrac{1}{2}
+\end{align*}
+	Both sides are multiplied by $2(1+(RC\omega_f)^2)$:
+\begin{align*}
+2 = 1+ \left(RC \cdot \omega_f \right)^2
+\end{align*}
+Both sides are subtracted by 1, and then raised to the power of $\dfrac{1}{2}$
+\begin{align*}
+1 = RC \cdot \omega_f 
+\end{align*}
+Note that from equation \eqref{eq:omega}, $\omega_f$ is defined as $\omega_f=2 \pi f$:
+\begin{align*}
+1 = RC 2\pi f 
+\end{align*}
+Now $f$ is isolated:
+\begin{align*}
+f=\dfrac{1}{2\pi RC}
+\end{align*}
+Hereby the cut-off frequency is derived. It can now be shown that the cut-off frequency is after 3 decibel, by inserting the initial values on equation \eqref{number:db}:
+\begin{align*}
+10 \log \left(\dfrac{1}{2} \right) = -3 dB
+\end{align*}
+\section{Experiment} \label{experiment}
+- Describe experiment (purpose - what does it mean?
+\subsection{Theoretical}
+- How did we do in the code theoretically?
+\subsection{Test Values}
+- How did we get the results we did? What circuit --> refer to description after intro \\
+Low-pass: \\
+The bode plot looks like this:
 \begin{figure}[H]
 \center
-\includegraphics[scale=1]{fig/img/laplace_circ.pdf}
-\caption{Solution using Laplace}
-\label{lpsol}
+	\includegraphics[scale=0.5]{fig/img/bode_LPF_plot.pdf}
+	\caption{Low-pass bode plot}
+	\label{lp:bode}
 \end{figure}
-
-\section{The Laplace Transform}
-\begin{definition}{Laplace transform}{lpdef}
-\begin{align}
-\mathcal{L} \left\{f(t) \right\}=F(s)=\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt
-\end{align}
-where $f(t)$ is a function of time, $F(s)$ is the Laplace transform of that very function, and $s=\sigma+i\omega$ which is the complex frequency.
-\end{definition}
-Since the definition consists of an improper integral (integral consisting of infinity), it can be rewritten as:
-\begin{align}
-\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt = \lim_{N \to \infty} \int_{0}^{N} e^{-st}\cdot f(t)\ dt
-\end{align}
-When solving something like this, it has to be taken into consideration when the integral converges and diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity.
-
-\begin{theorem}{Existence of the Laplace transform}{geqleq}
-
-The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct},$$
-which is true for all $t \geq 0$. Thus a function is of exponential order provided that it grows no more rapidly than a constant multiple of some exponential with a linear exponent. \cite[p. 320]{diffandcomplex}
-\end{theorem}
-\begin{prof}{}{}
-Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq 0$. Note that since $s$ is a complex number  $s=a+ib$, it can be divided into its real and imaginary parts. It then follows that $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-st}|\ dt = \lim_{N \to \infty} \int_{0}^{N} |f(t)| |e^{-ibt}|e^{-at}\ dt$$
-By definition \ref{compexpeq}, the complex number $s$ can also take the form: 
-$$e^{a}e^{ib}= e^{a}\cos(b)+i\sin(b)$$
-Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $|e^{ibt}|=1$ for all $b \in \mathbb{R}$. This now yields $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-at}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-at}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-a)t}\ dt $$ The integral is only going to converge when $(a-c)>0$ or Re$(s)>c$.
-\end{prof}
-
-\begin{example}{Laplace transform for $1$}{lpone}
-From definition \ref{lpdef}, let $f(t)=1$. In that case,
-\begin{align*}
-\mathcal{L}\{1\}=\int_{0}^{\infty} e^{-st} \cdot 1\ dt
-\end{align*}
-Now $\infty$ is replaced with some value $N$ that is set to approach $\infty$:
-\begin{align*}
-\mathcal{L} \left\{1 \right\}= \lim_{N \to \infty}  \int_{0}^{N} e^{-st}\ dt
-\end{align*}
-$e^{-st}$ is now integrated with respect to $t$:
-\begin{align*}
-\mathcal{L} \left\{1 \right\}= \lim_{N \to \infty} \left[ -\dfrac{1}{s} e^{-st} \right]_{0}^{N} \ 
-\end{align*}
-Zero and $N$ is now inserted on $t$’s place:
-\begin{align*}
-\mathcal{L} \left\{1 \right\}= \lim_{N \to \infty} \left( -\dfrac{1}{s} e^{-sN} - \left(-\dfrac{1}{s}\right) \right) \ 
-\end{align*}
-Now observe what happens when $N$ approaches $\infty$:
-\begin{align*}
-\mathcal{L} \left\{1 \right\}=\dfrac{1}{s} \ \ \ ; \ \ \ Re(s) > 0
-\end{align*}
-Here the real part of $s$ has to be greater than zero, hence it makes $-\dfrac{1}{se^{sN}}$ converge towards zero. If it is less than zero the expression would start to diverge, and would therefore not make sense to look at.
-\end{example}
-
-\begin{example}{Laplace transform for $e^{at}$}{lpe}
-From definition \ref{lpdef}, let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case,
-$$\mathcal{L} \left\{e^{at} \right\}=\int_{0}^{\infty} e^{-st}\cdot e^{at}\ dt$$
-Since they have the base, $e$, in common, their exponents can be combined. Additionally, $t$ can be factorised:
-$$\mathcal{L} \left\{e^{at} \right\}=\int_{0}^{\infty} e^{-(s-a)t}\ dt$$
-Since it is an improper integral, the limits are applied. This means that some number is set to approach infinity. Here N is set to approach $\infty$:
-$$\mathcal{L} \left\{e^{at} \right\}=\lim_{N \to \infty} \int_{0}^{N} e^{-(s-a)t}\ dt$$
-Integration by substitution is now applied. Let $\dfrac{du}{dt}=-(s-a)$. This yields $dt=-\dfrac{1}{s-a}du$. The integral is now no longer from 0 to $\infty$, since new limits are applied. It is now an integral from $u=-(s-a)0=0$ to $u=-(s-a)N$. Since $-\dfrac{1}{s-a}$ is a constant it can be moved outside the integral. It is going to look like this:
-\begin{align}
-\mathcal{L}\{e^{at}\}=\lim_{N \to \infty} \int_{0}^{-(s-a)N} e^{u}\cdot -\dfrac{1}{s-a}\ du = \lim_{N \to \infty} -\dfrac{1}{s-a} \cdot \left[e^{u} \right]_{0}^{-(s-a)N}
-\label{eq6.2}
-\end{align}
-Now applying $u=0$ and $u=-(s-a)N$ to $e^{u}$:
-\begin{align*}
-\mathcal{L} \left\{e^{at} \right\} =\lim_{N \to \infty} -\dfrac{1}{s-a}\cdot (e^{-(s-a)N}-e^{0})
-\end{align*}
-Since $e^{-(s-a)N}$ will approach $0$, when $N$ is approaching $\infty$ (if $Re(s) \geq a$). Therefore the equation is going to look as follows:
-\begin{align}
-\mathcal{L} \left\{e^{at} \right\} = \dfrac{1}{s-a}
-\end{align}
-In conclusion, the Laplace transform of $f(t)=e^{at}$ equals
-$$\mathcal{L} \left\{e^{at} \right\} =\dfrac{1}{s-a} \ \ \ ;\ \ \ Re(s)>a$$
-$s$ must be greater than $a$, since the limit of $e^{-(s-a)N}$ converges towards zero. If $a$ is greater than $s$, the exponent of $e$ would be positive, and the limit would diverge.
-\end{example}
-%The Laplace transform can be used for all functions of $f$, where the real part of $s$ is greater than $a$ $Re(s) \geq a$. Since $s$ is a complex number ($s=a+ib$), only the first part of $s$ has to be greater than $a$. Therefore, $e^{-st}$ is  the same as $e^{-ta}e^{-tib}$, where the last part is the imaginary part of the complex number. In the complex chapter, this is also defined as $e^{a}\cos(b)+ i \sin(b)$.% 
-When doing the inverse Laplace transformation, the results can often be found by looking at the results from on ordinary Laplace transformation.
-\begin{example}{Inverse Laplace transform}{}
-Let $F(s) = \dfrac{4}{s+10}$. When recognizing this takes the same form as the result above, the solution becomes clear. Now this has to be put on the form $f(t)=e^{at}$, where 10 in this case is the constant. The result is therefore: \cite[p. 323]{diffandcomplex}
-\begin{align*}
-\mathcal{L}^{-1} \left\{F(s) \right\} = 4e^{-10t}
-\end{align*}
-\end{example}
-The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high and low-pass filters.
-%mere tekst/bedre overgang
-\begin{theorem}{Laplace transform of a first order derivative}{theorem:lap_diff}
-The Laplace-transform of a first order derivative takes the following form:
-$$\mathcal{L} \left\{\frac{df}{dt} \right\} = s \cdot F(s)-f(0)$$
-\end{theorem}
-The Laplace transform of the first derivative is using the rule of integration by parts. The rule states the following:
-\begin{align}
-\int_{a}^{b}{u(t) \cdot v(t)}=\left[u(t) \cdot v(t) \right]_{a}^{b}-\int_{a}^{b} \frac{du}{dt}\cdot v dt\
-\label{eq6.3}
-\end{align}
-\begin{prof}{Laplace transform of a first order derivative}{lpderiv}
-From the definition of a Laplace transform \ref{lpdef}, the $u$ and $v$ from \ref{eq6.3} are chosen as: $u=e^{-st}$ and $v=f(t)$.
-From the equation \ref{eq6.3} the following values are set: $u=e^{-st}$ and $v=f(t)$.
-In this case, $u=e^{-st}$ and $v=f(t)$. Furthermore, infinity is replaced with the limit of some value N approaching $\infty$. This yields:
-$$\mathcal{L} \left\{\frac{df}{dt} \right\}=\lim_{N \to \infty} \left(\left[e^{-st}\cdot f(t)\right]_{0}^{N}-\int_{0}^{N} -s\cdot e^{-st}\cdot f(t)\ dt \right)$$
-To rewrite this rule is being used: $\frac{1}{a^n}=a^{-n}$. Additionally, since $s$ is merely a constant, it can be placed in front of the integral, such that:
-\begin{align}
-\mathcal{L} \left\{\frac{df}{dt} \right\}=\lim_{N \to \infty} \left[\dfrac{1}{e^{st}}\cdot f(t)\right]_{0}^{N}+ s \cdot \lim_{N \to \infty} \left( \int_{0}^{N}e^{-st}\cdot f(t)\ dt \right)
-\end{align} \label{eq6.4}
-Note that the second term of \eqref{eq6.4} now equals the product of $s$ and $\mathcal{L}\{f(t)\}$.
-$$\mathcal{L} \left\{\frac{df}{dt} \right\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L} \left\{f(t) \right\}$$
-The first term approaches 0 when $f(N)$ grows less rapidly than the denominator, as stated in theorem \ref{geqleq}. If $s$ is less than 0, the expression will start to diverge and therefore this Laplace transformation is only valid, when $Re(s)>0$.
-$$\mathcal{L} \left\{\frac{df}{dt} \right\} = \left[0-\dfrac{f(0)}{1}\right]+s\cdot \mathcal{L} \left\{f(t) \right\}$$
-This can be rearranged to the following:
-\begin{align*}
-\mathcal{L} \left\{\frac{df}{dt} \right\} = s\cdot \mathcal{L}\{f(t)\}-f(0)
-\end{align*}
-
-\end{prof}
-To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. This differential equation would be difficult solving without the Laplace transform, but can easily be solved using the Laplace transform. First, a table with the results from the previous examples and proofs are inserted:
-
-\begin{table}[H]
+High-pass: \\
+Here is the bode plot:
+\begin{figure}[H]
 \center
-\begin{tabular}{lll}
-\hline
-\multicolumn{1}{|l|}{$f(t)$}           & \multicolumn{1}{l|}{$F(s)$}                & \multicolumn{1}{l|}{Limits}    \\ \hline
-\multicolumn{1}{|l|}{$1$}              & \multicolumn{1}{l|}{$\dfrac{1}{s}$}        & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline
-\multicolumn{1}{|l|}{$e^{at}$}         & \multicolumn{1}{l|}{$\dfrac{1}{s-a}$}      & \multicolumn{1}{l|}{$Re(s)>a$} \\ \hline
-\multicolumn{1}{|l|}{$\dfrac{df}{dt}$} & \multicolumn{1}{l|}{$s \cdot F(s) - f(0)$} & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline                          
-\end{tabular}
-\caption{Table of Laplace transforms.}
-\label{lptable}
-\end{table}
-
-\begin{example}{Laplace example}{laplaceexample}
-In this example the following differential equation will be solved using the Laplace transformation:
-\begin{align}
-\dfrac{df}{dt}-4f(t)=e^{6t}, 	
-\end{align} \label{lpexinieq}
-with the starting condition $f(0)=-2$. Sometimes an equation like that can be difficult to solve, and the Laplace transformation can be used. The Laplace transformation is applied on both sides (constants can be moved outside as stated in definition \ref{constant}):
-\begin{align*}
-\mathcal{L} \left\{\dfrac{df}{dt} \right\}-4 
-\mathcal{L} \left\{f(t) \right\} = 
-\mathcal{L} \left\{e^{6t} \right\}
-\end{align*}
-The Laplace transforms are inserted from the table above \ref{lptable}:
-\begin{align*}
-s \cdot F(s) - f(0) - 4F(s)= \dfrac{1}{s-6}
-\end{align*}
-Now $f(0)=-2$ is inserted:
-\begin{align*}
-s \cdot F(s) + 2 - 4F(s)= \dfrac{1}{s-6}
-\end{align*}
-The $f(0)$ value is now subtracted on both sides and put on a common denominator:
-\begin{align*}
-s \cdot F(s) - 4F(s)= \dfrac{1-2(s-6)}{s-6}
-\end{align*}
-$F(s)$ is factored out on the left side:
-\begin{align*}
-F(s) \cdot (s-4) = \dfrac{1-2(s-6)}{s-6}
-\end{align*}
-Both sides are now divided by $s-4$ and the numerator on the right side is simplified:
-\begin{align*}
-F(s) = \dfrac{13-2s}{(s-6)(s-4)}
-\end{align*}
-Now the next step is to find the inverse Laplace transform. This is done using partial decomposition: \cite[p. 537]{calc}
-\begin{align}
-F(s) = \dfrac{13-2s}{(s-6)(s-4)} = A \dfrac{1}{s-6} + B \dfrac{1}{s-4}
-\label{par_dec}
-\end{align}
-Both sides of the expression above is now multiplied with the denominator of the left side $((s-6)(s-4))$:
-\begin{align*}
-13-2s = A(s-4) + B(s-6)
-\end{align*}
-Now this is split up in elements that are multiplied by $s$ and elements that are not:
-\begin{align*}
-13-2s = s(A+B)+(-4A-6B)
-\end{align*}
-Now two equations with two unknown variables are created:
-\begin{align*}
-A+B &=-2 \Leftrightarrow A=-2-B \\
--4A-6B &=13 \Leftrightarrow -4(-2-B)-6B = 13 \Leftrightarrow 8 + 4B - 6B = 13 \Leftrightarrow -2B = 5 \Leftrightarrow B = -\dfrac{5}{2}
-\end{align*}
-The $B$ value is inserted to find $A$:
-\begin{align*}
-A=-2- \left(-\dfrac{5}{2} \right) \\
-A=\dfrac{1}{2}
-\end{align*}
-These values are now put on the equation \eqref{par_dec}:
-\begin{align*}
-F(s) = \dfrac{1}{2} \cdot \dfrac{1}{s-6} - \dfrac{5}{2} \cdot \dfrac{1}{s-4}
-\end{align*}
-The inverse Laplace transform is now applied. Since it is possible to treat the Laplace transform as an integral, constants are moved outside then transform, as stated in definition \ref{constant}:
-\begin{align*}
-\mathcal{L} \left\{F(s) \right\} = \dfrac{1}{2} \cdot \mathcal{L} \left\{\dfrac{1}{s-6} \right\} - \dfrac{5}{2} \cdot \mathcal{L} \left\{\dfrac{1}{s-4} \right\}
-\end{align*}
-Now the solutions can be identified from the table \ref{lptable}.
-\begin{align*}
-f(t) = \dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t}
-\end{align*}
-This result can be tested by inserting the values on the first equation in the example \eqref{lpexinieq}:
-\begin{align*}
-\dfrac{df}{dt} \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) &= e^{6t} \\
-\left(\dfrac{1}{2} \cdot \left(\dfrac{df}{dt} \left(e^{6t} \right) \right) - \dfrac{5}{2} \cdot \left(\dfrac{df}{dt} \left(e^{4t} \right) \right) \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2} e^{4t} \right) &= e^{6t} \\
-\left(\dfrac{1}{2} \left(6e^{6t} \right) - \dfrac{5}{2} \left(4e^{4t} \right) \right) - \dfrac{4}{2}e^{6t}+\dfrac{20}{2}e^{4t}&= e^{6t}\\
-3e^{6t}-10e^{4t}-2e^{6t}+10e^{4t} &= e^{6t} \\
-e^{6t} &= e^{6t}
-\end{align*}
-Hereby the solution to the equation \eqref{lpexinieq} is found using the Laplace transformation.
-\end{example}
+	\includegraphics[scale=0.5]{fig/img/bode_HPF_plot.pdf}
+	\caption{High-pass bode plot}
+	\label{hp:bode}
+\end{figure}
+\subsection{Comparison}
+- Compare the bode plots --> first low then high \\
+- Describe source errors (fejlkilder)
