@@ -65,47 +65,51 @@ From KVL the algebraic sum of voltages can be written as:
 \begin{align} 
 \dfrac{dv_C(t)}{dt}=\Big(-v_C(t) - v_{input}(t)\Big)\dfrac{1}{RC}
 \end{align}
- $v_{input}(t) \cdot \dfrac{1}{RC}$ is isolated:
+$\omega$ is defined as $\omega=\dfrac{1}{RC}$:
 \begin{align}
-v_{input}(t) \cdot \dfrac{1}{RC}= - v_C(t) \cdot \dfrac{1}{RC} - \dfrac{dv_C(t)}{dt}
+\dfrac{dv_C(t)}{dt}=\Big(- v_C(t) - v_{input}(t)\Big)\omega
+\end{align}
+ $v_{input}(t) \omega$ is isolated:
+\begin{align}
+v_{input}(t)\omega= - v_C(t)\omega - \dfrac{dv_C(t)}{dt}
 \end{align}
 The differential equation can now be solved using the Laplace transform:
 \begin{align}\label{eq:laplace:low}
-\mathcal{L}\Big\{v_{input}(t)\Big\} \cdot \dfrac{1}{RC}=\mathcal{L}\Big\{v_C(t)\Big\} \cdot \dfrac{1}{RC}+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
+\mathcal{L}\Big\{v_{input}(t)\Big\}\omega=\mathcal{L}\Big\{v_C(t)\Big\}\omega+\mathcal{L}\bigg\{\dfrac{dv_C}{dt}\bigg\}
 \end{align}
 According to \Cref{theorem:laplace_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
 \begin{align}
-V_{input}(s) \cdot \dfrac{1}{RC}=V_{C}(s) \cdot \dfrac{1}{RC} -v_{C}(0)+V_{C}(s)s
+V_{input}(s)\omega=V_{C}(s)\omega-v_{C}(0)+V_{C}(s)s
 \end{align} 
 $v_{C}$ is now factorised, and the initial voltage across the capacitor is zero, which can be derived from equation \eqref{V_up}:
 \begin{align}
-V_{input}(s) \cdot \dfrac{1}{RC}=V_{C}(s) \left( \dfrac{1}{RC} +s \right)
+V_{input}(s)\omega=V_{C}(s)(\omega+s)
 \end{align} 
 The ratio of the voltages is isolated:
 \begin{align}
-\dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
+\dfrac{\omega}{\omega+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
 \end{align} 
 As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
 \begin{align} \label{eq:trans_low}
 H_{L}(s) = \dfrac{\omega}{\omega+i \omega_f} 
 \end{align}
-The whole expression is multiplied by $\dfrac{RC}{RC}$:
+$\omega = \dfrac{1}{RC}$ is inserted and the whole expression is multiplied by $\dfrac{RC}{RC}$:
 \begin{align}
-H_{L}(i \omega_f) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
+H_{L}(s) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
 This can be simplified:
 \begin{align}
-H_{L}(i \omega_f) =  \dfrac{1}{1+RC \cdot i \omega_f} 
+H_{L}(s) =  \dfrac{1}{1+RC \cdot i \omega_f} 
 \end{align}
 Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
 \begin{align}
-\left|H_{L}(i \omega_f) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
+\left|H_{L}(s) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
 \\
 &=\dfrac{|1|}{|1+RC\omega_f |}
 \\
-&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}} \label{tf:mod}
+&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}}
 \end{align}
-Equation \eqref{tf:mod} describes the numerical relationship between the input and the output signal.
+The numerical relationship between the input and the output signal 
 \subsection{Transfer Function for High-Pass Filters}
 Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
 \begin{align}
@@ -147,14 +151,10 @@ The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer
 \begin{align*}
 H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
 \end{align*}
-The length of both sides can be calculated. When taking the modulus of a complex numbers then the following rule from definition \ref{modulus} is used: $|z|= \sqrt{a^2+b^2}$. The expression is calculated as follows:
-\begin{align}
-\left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
- &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
- &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
- &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tf:mod:hp}
-\end{align}
-Equation \eqref{tf:mod:hp} describes the numerical relationship between the input and output signal.
+The length of both sides can be calculated:
+\begin{align*}
+\left|H_{H}(i \omega_f)\right| = \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right|
+\end{align*}
 \subsection{Cut-Off Frequency}
 Per definition the amount of decibel can be calculated the following way: \cite[p. 596-597]{bcircuit}
 \begin{align} \label{number:db}
