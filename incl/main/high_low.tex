@@ -39,11 +39,7 @@ High-pass: \\
 When plotting the graph for the high-pass filter, the bode plot is going to be the opposite of the low-pass filters'. The graph starts in minus decibel and is approaching zero. Until it reaches the cut-off point, the graph is increasing with 20 decibel per decade. When reaching the cut-off point, the graph is 3 decibel short from reaching zero. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$.
 
 \subsection{Cut-off Frequencies}
-The cut-off value can be calculated using the following equation:
-\begin{align*}
-f_{cutoff}=\dfrac{1}{2 \pi RC}
-\end{align*}
-The cut-off value for a low-pass filter is when the bode plot is decreased by $3dB$, and for a high-pass filter it is when the bode plot is $3dB$ away from reaching zero. The cut-off point is also the point, where the filtering (both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect in watts is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
+The cut-off frequency for a low-pass filter is the frequency at which the bode plot is decreased by $3dB$, and for a high-pass filter it is when the bode plot is $3dB$ away from reaching zero. The cut-off frequency is also the frequency, where the filtering (both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect in watts is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
 \begin{align} \label{number:db}
 Number \ of \ dB = 10 \log \left(\dfrac{P_{output}}{P_{input}} \right)
 \end{align}
@@ -51,7 +47,6 @@ If the halved effect is inserted the $3dB$ can be found:
 \begin{align*} 
 10 \log \left(\dfrac{1}{2} \right) = -3 dB
 \end{align*}
-From the KVL in section REF something called a transfer function can be derived. This is defined as the ratio between voltage output and input. The expression from equation \eqref{number:db} can be rewritten and set on the same form as the transfer function. \\
 From section \ref{}, the effect, $P$, is defined as $P=\dfrac{v^2}{R}$:
 \begin{align*}
 Number \ of \ dB = 10 \log \left(\dfrac{\dfrac{v_{output}^2}{R}}{\dfrac{v_{input}^2}{R}} \right)
