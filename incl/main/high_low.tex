@@ -2,12 +2,6 @@
 The main purpose of filters is to remove unwanted frequencies from different signals. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high and low-pass filters.
 \section{Definitions}
 In this section the most central terms concerning high-pass and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in the next section \ref{Derivations}.
-\subsection{Voltage as a wave function}
-The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters an AC input will be applied. The voltage in this case can be written as a wave function:
-\begin{align}
- v(t)=A\sin(\omega_f t+\theta)
- \end{align} 
-Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. 
 \subsection{Low-pass filters}
 A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
 \\
@@ -57,8 +51,12 @@ This can be simplified:
 From equation \eqref{vratio:equal} it can be found that the amplitude is decreased by $1-\left(\dfrac{1}{\sqrt{2}} \right) = 29.3\%$.
 
 \subsection{The imaginary Angular Frequency}
-- Vi har brug for en lidt hjælp her. \\
-- $s=i \omega_f$
+The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters, an AC input will be applied. The voltage, in this case, can be written as a wave function:
+\begin{align}
+v(t)=A\sin(\omega_f t+\theta)
+\end{align}
+Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. In this section, it is considered that there is no phase shift on the input sinus wave. According to definition \ref{lpdef}, $s=\sigma + i \omega$. Here $i \omega$ can be considered the imaginary angular frequency, if the real part is set to zero $\sigma = 0$. Hereby $s$ can be rewritten as $s = i \omega_f$ \cite[p. 733 - 735]{bcircuit9}.
+
 \section{Derivations} \label{Derivations}
 Intro bliver skrevet.
 \subsection{Transfer Function for Low-Pass Filters}
@@ -181,7 +179,7 @@ To get rid off the square root, both sides are squared:
 \begin{align*}
 2 = 1+ \left(RC \cdot \omega_f \right)^2
 \end{align*}
-Both sides are subtracted by 1, and then raised to the power of $\dfrac{1}{2}$
+Both sides are subtracted by 1, and then raised to the power of $\dfrac{1}{2}$:
 \begin{align*}
 1 = RC \cdot \omega_f 
 \end{align*}
