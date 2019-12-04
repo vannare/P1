@@ -2,17 +2,12 @@
 The main purpose of filters is to remove unwanted frequencies from different signals. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high and low-pass filters.
 \section{Definitions}
 In this section the most central terms concerning high-pass and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in the next section \ref{Derivations}.
-\subsection{bla bla}
+\subsection{Voltage as a wave function}
 The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters an AC input will be applied. The voltage in this case can be written as a wave function:
 \begin{align}
  v(t)=A\sin(\omega_f t+\theta)
  \end{align} 
 Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. 
-\\
-This sinus function can be rewritten as a complex exponential function.
-\begin{align*}
-v(t)=Ae^{i(\omega_f t+\theta}
-\end{align*}
 \subsection{Low-pass filters}
 A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
 \\
@@ -32,11 +27,7 @@ The voltage output is measured across the resistor ($R$) instead of the capacito
 \end{figure} 
 
 \subsection{Bode Plots}
-Low-pass: \\
-The $x-axis$ is a logarithmic axis, where the output is decreased by 20 decibel per decade after the cut-off point. \\
-The output wave before the cut-off point will stay almost unchanged, and after the cut-off point, the amplitude is decreasing and approaching a graph that looks like a DC current. \\
-High-pass: \\
-When plotting the graph for the high-pass filter, the bode plot is going to be the opposite of the low-pass filters'. The graph starts in minus decibel and is approaching zero. Until it reaches the cut-off point, the graph is increasing with 20 decibel per decade. When reaching the cut-off point, the graph is 3 decibel short from reaching zero. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$.
+Her bliver der skrevet lidt om bodeplots der kan refereres til i eksemplet 7.3
 
 \subsection{Cut-off Frequencies}
 The cut-off frequency for a low-pass filter is the frequency at which the bode plot is decreased by $3dB$, and for a high-pass filter it is when the bode plot is $3dB$ away from reaching zero. The cut-off frequency is also the frequency, where the filtering (both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect in watts is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
@@ -66,9 +57,10 @@ This can be simplified:
 From equation \eqref{vratio:equal} it can be found that the amplitude is decreased by $1-\left(\dfrac{1}{\sqrt{2}} \right) = 29.3\%$.
 
 \subsection{The imaginary Angular Frequency}
-- Describe
+- Vi har brug for en lidt hjælp her. \\
+- $s=i \omega_f$
 \section{Derivations} \label{Derivations}
-Intro 
+Intro bliver skrevet.
 \subsection{Transfer Function for Low-Pass Filters}
 From the transient analysis, equation \eqref{eq:dvC(t)} is derived:
 \begin{align} \label{eq:dV_C}
@@ -93,7 +85,7 @@ Both sides are added with $\dfrac{1}{RC}v_C(t)$:
 The differential equation can now be solved using the Laplace transform:
 \begin{align}\label{eq:laplace:low}\mathcal{L}\bigg\{\dfrac{dv_C(t)}{dt}\bigg\}+\dfrac{1}{RC}\mathcal{L}\Big\{v_C(t)\Big\}=\dfrac{1}{RC}\mathcal{L}\Big\{v_{input}(t)\Big\}
 \end{align}
-According to \Cref{theorem:laplace_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
+According to \Cref{theorem:lap_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
 \begin{align}
 V_C(s)s+v_C(0)+\dfrac{1}{RC}V_C(s)=\dfrac{1}{RC}V_{input}(t)
 \end{align} 
@@ -105,27 +97,27 @@ The ratio of the voltages is isolated:
 \begin{align}
 \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
 \end{align} 
-As stated in REF, $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
+As stated in REF(hjælp afsnit 7.1.6), $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
 \begin{align} \label{eq:trans_low}
-H_{L}(s) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
+H_{L}(i \omega_f) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
 Both sides of the equation is multiplied by $\dfrac{RC}{RC}$:
 \begin{align}
-H_{L}(s) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
+H_{L}(i \omega_f) = \dfrac{RC}{RC} \cdot \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
 This can be simplified:
 \begin{align}
-H_{L}(s) =  \dfrac{1}{1+RC \cdot i \omega_f} 
+H_{L}(i \omega_f) =  \dfrac{1}{1+RC \cdot i \omega_f} 
 \end{align}
 Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
 \begin{align}
-\left|H_{L}(s) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
+\left|H_{L}(i \omega_f) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
 \\
 &=\dfrac{|1|}{|1+RC\omega_f |}
 \\
-&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}}
+&=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}} \label{tf:mod}
 \end{align}
-The numerical relationship between the input and the output signal 
+Equation \eqref{tf:mod} describes the numerical relationship between the input and the output signal.
 \subsection{Transfer Function for High-Pass Filters}
 Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
 \begin{align}
@@ -135,7 +127,7 @@ First both sides are multiplied by $-RC$:
 \begin{align}
 -RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
 \end{align}
-Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten from equation \eqref{eq:vr}, and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
+Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
 \begin{align*}
 -RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
 \end{align*}
@@ -163,14 +155,18 @@ The ratio of the voltages is isolated:
 \begin{align} \label{hp:visolated}
 \dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
 \end{align}
-The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer function of high-pass filters, $H_{H}(s)$. As stated in REF then $s=i \omega_f$. Therefore $H_{H}(s)=H_{H}(i \omega_f)$. The equation \eqref{hp:visolated} can be rewritten:
+The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer function of high-pass filters, $H_{H}(s)$. As stated in REF(hjælp afsnit 7.1.6) then $s=i \omega_f$. Therefore $H_{H}(s)=H_{H}(i \omega_f)$. The equation \eqref{hp:visolated} can be rewritten:
 \begin{align*}
 H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
 \end{align*}
-The length of both sides can be calculated:
-\begin{align*}
-\left|H_{H}(i \omega_f)\right| = \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right|
-\end{align*}
+The length of both sides can be calculated. When taking the modulus of a complex number, the following rule from definition \ref{modulus} is used: $|z|= \sqrt{a^2+b^2}$. The expression is calculated as follows:
+\begin{align}
+\left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
+ &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
+ &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
+ &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tfmodhp}
+\end{align} 
+Equation \eqref{tfmodhp} describes the numerical relationship between the input and output signal.
 \subsection{Cut-Off Frequency}
 The right side of the equation \eqref{vratio:equal} can be set equal to the transfer function \ref{eq:trans_low}. The cut-off frequency can be found from the transfer function for either high-pass or low-pass filters. In this case the function for low-pass filter is used.
 \\
@@ -202,7 +198,7 @@ Hereby the cut-off frequency is derived. It can now be shown that the cut-off fr
 10 \log \left(\dfrac{1}{2} \right) = -3 dB
 \end{align*}
 \section{Experiment} \label{experiment}
-- Describe experiment (purpose - what does it mean?
+- Her kommer der en beskrivelse af eksperimentet
 \subsection{Theoretical}
 \input{incl/main/hpflpf_code.tex}
 \subsection{Test Values}
