@@ -12,6 +12,7 @@ There exists two types of current: alternating current (AC) and direct current (
 \caption{Current for AC and DC versus time}
 \label{fig:ACDC}
 \end{figure}
+\noindent
 A sinusoidal AC current can be described with the function: 
 \begin{align}
 i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \nonumber
@@ -33,13 +34,12 @@ This function can be plotted as such:
 \section{Voltage}
 Voltage ($V$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
 \begin{align}
-	V=\dfrac{dU(q)}{dq},
+	v=\dfrac{dU(q)}{dq},
 \end{align}
 \\
 where $U(q)$ (in joules, $J$) is the function for potential energy, given a charge $q$.
-
 \section{Resistor}
-When a resistor, which is a passive element, is added to the circuit, it creates a resistance ($\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
+When a resistor, which is a passive element, is added to the circuit, it creates a resistance. Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
 \begin{align} 
 \label{Ohm}
 v(t)=R\cdot i(t),\ R\geq0,
@@ -56,7 +56,7 @@ p(t)=R \cdot i^2(t) \\
 p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2 \\
 p(t)=\dfrac{v^2(t)}{R} \label{resistor:power}
 \end{align}
-The power is measuring the effect and is measured in $watts$. This is defined as the amount of work done per time. 
+The power is measuring the effect ( in watts, $w$) This is defined as the amount of work done per time. 
 \section{Capacitor}
 A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\
@@ -64,7 +64,7 @@ The capacitance is given by the following equation:
 \begin{align*}
 C=\dfrac{\epsilon_{0}A}{d},
 \end{align*}
-where $C$ is the capacitance (in farad, $F$ and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
+where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
 \\
 The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
 \begin{align}
