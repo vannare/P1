@@ -21,7 +21,10 @@ The voltage output is measured across the resistor ($R$) instead of the capacito
 \end{figure} 
 
 \subsection{Bode Plots}
-Her bliver der skrevet lidt om bodeplots der kan refereres til i eksemplet 7.3
+Bode plots are two separate graphical representations of the magnitude response (also called the gain) and phase response of a system (versus/) with respect to frequency. They are especially useful in analysing frequency-dependent systems and networks such as filters, tuners, and amplifiers. \cite [p. 626]{bcircuit5}  \\
+\\
+The magnitude response is plotted in a coordinate system with a logarithmic $x$-axis. For a low-pass filter, the output wave before the cut-off point will remain almost unchanged. After the cut-off point, the output decreases by $20 dB$ per decade, the amplitude decreases and approaches a graph similar to that of DC current. \\
+The Bode magnitude plot for a high-pass filter starts in minus decibel and approaches zero. Until it reaches the cut-off point, the graph increases with $20 dB$ per decade. When reaching the cut-off point, the graph is $3 dB$ less than the input signal. Furthermore, $70.7\% (100\%-29.3\%)$ of the amplitude is cut off at the point $f_{cutoff}$.
 
 \subsection{Cut-off Frequencies}
 The cut-off frequency for a low-pass filter is the frequency at which the bode plot is decreased by $3dB$, and for a high-pass filter it is when the bode plot is $3dB$ away from reaching zero. The cut-off frequency is also the frequency, where the filtering (both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect in watts is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
