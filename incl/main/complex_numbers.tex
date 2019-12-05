@@ -169,16 +169,17 @@ z_1 z_2&=r_1( \cos(\theta_1)+ i \sin(\theta_1))r_2( \cos(\theta_2)+ i \sin(\thet
 \label{polar_multiplication}
 z_1z_2&=r_1r_2\left( (\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1) \sin(\theta_2))+i(\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)\right)
 \end{align}
-From trigonometry, sine of a sum and cosine of a sum can be expressed as:
+%From trigonometry, sine or cosine of a sum of two angels can be redefined as:
+It is a trigonometric definition that the sine, and the cosine, of the sum of two angles, can be written as follows \cite[p. A-14 Appendicies]{calc}:
 \\
-\begin{align} \label{sum_cos_sin}
-\sin(\theta_1+\theta_2)=\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)
+\begin{align} 
+\sin(\theta_1+\theta_2)=\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2) \label{sum_cos_sin}
 \end{align}
 \begin{align*}
 \cos(\theta_1+\theta_2)=\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1)\sin(\theta_1)
 \end{align*}
 \\
-These definitions are inserted in \eqref{polar_multiplication}.
+These definitions are inserted on equation \eqref{polar_multiplication}:
 \\
 \begin{align*}
 z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
@@ -195,7 +196,7 @@ The division of these are given by:
 \begin{align*}
 \dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big)
 \end{align*}
-From this the following relations can be concluded:
+Hereby the following relations can be derived:
 \begin{align}
 \arg\Big(\dfrac{z_1}{z_2}\Big)&=\arg(z_1)-\arg(z_2)
 \\
@@ -206,7 +207,7 @@ From this the following relations can be concluded:
 \begin{align}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\bigg(\cos(\theta_1)+i\sin(\theta_1)\bigg)}{r_2\bigg(\cos(\theta_2)+i\sin(\theta_2)\bigg)}
 \end{align}
-Multiply both sides by $r_2\bigg(\cos(\theta_2)-i\sin(\theta_2)\bigg)$
+Multiply both the numerator and the denominator on the right side is multiplied by $r_2\bigg(\cos(\theta_2)-i\sin(\theta_2)\bigg)$
 \begin{align}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\bigg(\cos(\theta_1)+i\sin(\theta_1)\bigg)r_2\bigg(\cos(\theta_2)-i\sin(\theta_2)\bigg)}{r_2\bigg(\cos(\theta_2)+i\sin(\theta_2)\bigg)r_2\bigg(\cos(\theta_2)-i\sin(\theta_2)\bigg)}
 \end{align}
@@ -218,15 +219,15 @@ From \Cref{complex:multi} this can we rewritten as:
 \end{align}
 \end{prof}
 \section{The Complex Exponential Equation}
-The concept of the complex exponential function is useful in circuit analysis. However it must be defined, as it is not entirely obvious what $e$ raised to a complex number means.
+The concept of the complex exponential function is useful in a circuit analysis. However, it must be defined, as it is not entirely obvious what $e$ raised to a complex number means.
 \\
 \\
-For the complex exponential function to be useful for this context, it needs to fulfill two conditions:
+For the complex exponential function to be useful for this context, it needs to fulfil two conditions:
 \begin{itemize}
 	\item $e^{z_1}e^{z_2} = e^{z_1 + z_2}$
 	\item $\dfrac{d}{dt}e^{zt} = ze^{zt}$
 \end{itemize}
-The complex exponential function can be defined as follows, and it can be show that this definition, will satisfy the given conditions.
+The complex exponential function can be defined as follows, and it can be shown that this definition will satisfy the given conditions.
 
 \begin{definition}{The complex exponential equation}{complex:exp:eq}
 Any complex number can be expressed in the form:
@@ -255,23 +256,22 @@ The product of the two complex numbers is given by:
 e^{z_1}e^{z_2}=e^{z_1+z_2}
 \end{align*}
 \end{theorem}
-\begin{prof}{}{}
-From definition 5.4 %skal ændres%
-the product can be written as.
+\begin{prof}{Multiplication of complex numbers in exponential form}{proof:complex:exp:multi}
+From \Cref{complex:exp:eq} the product can be written as:
 \begin{align*}
 e^{z_1}e^{z_2}&=e^{a_1}(\cos(b_1)+i\sin(b_1))e^{a_2}(\cos(b_2)+i\sin(b_2))
 \\
-&=e^{a_1}e^{a_2}\left( (\cos(b_1)\cos(b_2)-\sin(b_1) \sin(b_2))+i(\cos(b_1)\sin(b_2)+\sin(b_1)\cos(b_2)\right)
+&=e^{a_1}e^{a_2} \bigg( \big(\cos(b_1)\cos(b_2)-\sin(b_1) \sin(b_2) \big)+i \big(\cos(b_1)\sin(b_2)+\sin(b_1)\cos(b_2) \big) \bigg)
 \end{align*}
-From \eqref{sum_cos_sin} this can be rewritten as:
+From equation \eqref{sum_cos_sin} this can be rewritten as:
 \begin{align*}
 &=e^{a_1}e^{a_2}(\cos(b_1+b_2)+i(\sin(b_1+b_2))
 \end{align*}
-Since both $e^{a_1}$ and $e^{a_2}$ are real numbers, their exponents can be added.
+Since both $e^{a_1}$ and $e^{a_2}$ are real numbers, their exponents can be added:
 \begin{align*}
 &=e^{a_1+a_2}(\cos(b_1+b_2)+i(\sin(b_1+b_2))
 \end{align*}
-From definition 5.4 %skal ændres
+From definition \Cref{complex:exp:eq}
 this can rewritten as:
 \begin{align*}
 &=e^{a_1+a_2}e^{i(b_1+b_2)}
@@ -281,16 +281,16 @@ this can rewritten as:
 &=e^{z_1+z_2}
 \end{align*} 
 \end{prof}
-\begin{theorem}{Differentiating a complex exponential function}{}
+\begin{theorem}{Differentiating a complex exponential function}{theorem:complex:exp}
 Given the complex function:
 \begin{align*}
-f(t)=e^{zt}=e^{at}(\cos(bt)+i\sin(bt))
+f(t)=e^{zt}=e^{at}(\cos(bt)+i\sin(bt)),
 \end{align*}
-Where $z=a+ib$. The differentiation of this function is given by:
+where $z=a+ib$. The differentiation of this function is given by:
 \begin{align*}
 \dfrac{d}{dt}e^{zt}=ze^{zt}
 \end{align*}
 \end{theorem}
 \input{incl/profs/ezt_diff_proof.tex}
 \noindent
-It is then shown that the given definition for the complex exponential function, the conditions we set will hold.
+It can now be concluded that both of the conditions stated in the beginning of this section are satisfied. The first condition is proved to hold in \Cref{proof:complex:exp:multi}. The second condition is proved to hold in \Cref{proof:complex:diff:exp}.
