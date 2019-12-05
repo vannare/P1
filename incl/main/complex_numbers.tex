@@ -30,7 +30,7 @@ the greater exponents of $i$ become:
 	i^{4n+3} =& i^{4n}i^3 = -i \\
 	i^{4n+4} =& i^{4n}i^4 = 1
 \end{align*}
-Complex numbers are noted as $z = a+ib$. A complex number consists of a real part, and an imaginary part. The real and imaginary part of a complex number, is written as $\text{Re}\{z\}=a$ and $\text{Im}\{z\}=b$, respectively.
+Complex numbers are noted as $z = a+ib$. A complex number consists of a real part, and an imaginary part. The real and imaginary part of a complex number is written as $\text{Re}\{z\}=a$ and $\text{Im}\{z\}=b$, respectively.
 \\
 \\
 An example of a complex number could be: $z=7+3i$, where 7 is the real part, and 3 is the imaginary part. 
@@ -62,11 +62,11 @@ $$\bar{z}=a-ib$$
 %RETTET HERTIL
 
 \section{Adding and Subtracting}
-When adding complex numbers the imaginary unit $i$, can be treated as a variable like in classic algebra. For instance, given a complex number $(5+2i)+(9+8i)$ you can add the imaginary parts and the real parts and put it together on the general form; $a+bi$. In this case, we get $14+10i$. This rule can be explained in a general form: 
+When adding complex numbers the imaginary unit $i$, can be treated as a variable like in classic algebra. For instance, with a given complex number; $(5+2i)+(9+8i)$, it can be rearranged and put on the general form; $a+bi$. In this case, the solution is $14+10i$. This rule can be explained in a general form: 
 \begin{align*}
 (a + bi) + (c + di) = (a + c) + i(b + d)
 \end{align*}
-Subtracting is similar because you can only subtract a imaginary part from another imaginary part, and the real parts from the real parts e.g:
+Subtracting is similar because the imaginary part can be subtracted with another imaginary part, and the real parts from the other real parts e.g:
 \begin{align*}
 (21 + 3i) - (2 - 2i) = 21 + 3i - 2 + 2i = 19 + 5i
 \end{align*}
@@ -118,10 +118,9 @@ Given two complex numbers $z_1=18+10i$ and $z_2=3+2i$ can be found using \Cref{d
 \end{example}
 
 
-From the example $\frac{37}{9} - \frac{1}{3}i$ is now on the form $a+ib$ with a and b being fractions. In the example the denominator is being conjugated and as a result of that the imaginary part of the denominator $ib$ disappears and is only left in the numerator. 
+From the example $\frac{37}{9} - \frac{1}{3}i$ is now on the form $a+ib$ with $a$ and $b$ being fractions. In the example the denominator is conjugated. As a result the imaginary part of the denominator $ib$ disappears and is only left in the numerator. 
 \section{Complex Numbers in Polar form}
-A complex number $z=a+ib$ in polar form is written on the form $(r,\theta)$, where $r$ is the distance from origin to the point $z$. $\theta$ is the angle from the real axis, when measured counter-clockwise. The angle of a complex number is denoted as $\arg(z)=\theta$.
-of this is shown in the figure \ref{fig:complex_plane_polar} below.
+A complex number $z=a+ib$ can be written is polar form as $(r,\theta)$, where $r$ is the distance from the origin to the point $z$. $\theta$ is the angle from the real axis, when measured counter-clockwise. The angle of a complex number is denoted as $\arg(z)=\theta$. This is shown in the figure \ref{fig:complex_plane_polar} below.
 \begin{figure}[H] 
 \centering
 \includegraphics[scale=0.15]{fig/img/complex_plan_polar}
@@ -129,7 +128,7 @@ of this is shown in the figure \ref{fig:complex_plane_polar} below.
 \label{fig:complex_plane_polar}
 \end{figure}
 \noindent
-It can be derived from \ref{fig:complex_plane_polar} that the coordinates of $z=a+ib$ can be expressed as follows:
+It can be derived from figure \ref{fig:complex_plane_polar} that the coordinates of $z=a+ib$ can be expressed as follows:
 \begin{align}
 \text{Re}\{z\}=r\cos(\theta)
 \\
@@ -141,22 +140,22 @@ A complex number $z=a+ib$ can be written in polar form as follows:
 \begin{align}
 z&=r\cos(\theta)+ir\sin(\theta)
 \\
-&=r\left(\cos(\theta)+i\sin(\theta)\right).
+&=r\left(\cos(\theta)+i\sin(\theta)\right),
 \end{align}
-Where $r=\mid z \mid$ and $\theta=\tan^{-1}\left(\dfrac{b}{a} \right)$
+where $r=\mid z \mid$ and $\theta=\tan^{-1}\left(\dfrac{b}{a} \right)$
 \end{definition}
 \begin{theorem}{Multiplication in polar form}{complex:multi}
-Given two complex numbers $z_1$ and $z_2$ where.
+Given two complex numbers $z_1$ and $z_2$ where:
 \begin{align*}
 z_1=r_1(\cos(\theta_1)+i\sin(\theta_1)) 
 \\
 z_2=r_2(\cos(\theta_2)+i\sin(\theta_2))
 \end{align*}
-The multiplication of these are given by
-\begin{align*}
-z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right)
-\end{align*}
-From this the following relations can be concluded:
+The multiplication of these are given by:
+\begin{align}
+z_1 z_2=r_1r_2\left( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\right) \label{pol:trig}
+\end{align}
+From equation \ref{pol:trig} the following relation can be found:
 \begin{align}
 \arg(z_1z_2)&=\arg(z_1)+\arg(z_2)
 \\
@@ -229,7 +228,7 @@ For the complex exponential function to be useful for this context, it needs to 
 \end{itemize}
 The complex exponential function can be defined as follows, and it can be show that this definition, will satisfy the given conditions.
 
-\begin{definition}{The complex exponential equation}{}
+\begin{definition}{The complex exponential equation}{complex:exp:eq}
 Any complex number can be expressed in the form:
 \begin{align*}
 	z \cdot t = (a + ib)t,
