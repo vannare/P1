@@ -48,7 +48,7 @@ From equation \eqref{number:db} and \eqref{number:db:volt} the following relatio
 \dfrac{1}{2}= \left(\dfrac{v_{output}}{v_{input}} \right)^2
 \end{align*}
 This can be simplified:
-\begin{align} \label{vratio:equal}
+\begin{align} \label{eq:v_ratio}
 \dfrac{1}{\sqrt{2}}= \dfrac{v_{output}}{v_{input}}
 \end{align}
 From equation \eqref{vratio:equal} it can be found that the amplitude is decreased by $1-\left(\dfrac{1}{\sqrt{2}} \right) = 29.3\%$.
@@ -58,8 +58,22 @@ The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC volt
 \begin{align}
 v(t)=A\sin(\omega_f t+\theta)
 \end{align}
-Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. In this section, it is considered that there is no phase shift on the input sinus wave. According to definition \ref{lpdef}, $s=\sigma + i \omega$. Here $i \omega$ can be considered the imaginary angular frequency, if the real part is set to zero $\sigma = 0$. Hereby $s$ can be rewritten as $s = i \omega_f$ \cite[p. 733 - 735]{bcircuit9}.
-
+Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. In this section, it is considered that there is no phase shift on the input sinus wave. According to definition \ref{lpdef}, $s=\sigma + i \omega$. Here $i \omega$ can be considered the imaginary angular frequency, if the real part is set to zero $\sigma = 0$. Hereby $s$ can be rewritten as $s = i \omega_f$ \cite[p. 733 - 735]{bcircuit9}
+\subsection{The Transfer Function}
+The transfer function is what describes what happens with an input signal when it is send through a system. The transfer function is denoted as $H(s)$.
+\\
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.6]{fig/img/transfer_function.PNG}
+\caption{A voltage input is sent through a system and the output is a response to the transfer function}
+\label{fig:transfer}
+\end{figure}
+\noindent
+This relation can be written as the following mathematical relation.
+\begin{align}
+V_{output}(s)=V_{input}(s)H(s)
+\end{align}
+Where $V_{output}(s)=\mathcal{L}\{v_{output}(t)\}$ and $V_{input}(s)=\mathcal{L}\{v_{input}(t)\}$
 \section{Derivations} \label{Derivations}
 Intro bliver skrevet.
 \subsection{Transfer Function for Low-Pass Filters}
@@ -96,9 +110,9 @@ $v_{C}$ is now factorised, and the initial voltage across the capacitor is zero,
 \end{align} 
 The ratio of the voltages is isolated:
 \begin{align}
-\dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}
-\end{align} 
-As stated in REF(hjælp afsnit 7.1.6), $s=i \omega_f$. Furthermore, the expression $\dfrac{V_{C}(s)}{V_{input}(s)}$ is defined as the transfer function for low-pass filters, $H_{L}(s)$. Since $s$ is redefined the $H_{L}(s)=H_{L}(i \omega_f)$:
+\dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}=H_L(s)
+\end{align}
+It would now be interesting to see how the ratio between input and output responds to different frequencies, so do this $s$ is defined as $s=i\omega_f$.
 \begin{align} \label{eq:trans_low}
 H_{L}(i \omega_f) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
@@ -110,7 +124,8 @@ This can be simplified:
 \begin{align}
 H_{L}(i \omega_f) =  \dfrac{1}{1+RC \cdot i \omega_f} 
 \end{align}
-Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
+From \eqref{eq:v_ratio} it can be concluded that the cut-off frequency occurs when the amplitude of the output is $\dfrac{1}{\sqrt{2}}$ of the input. To do this firstly modulus of the transfer function is found.
+\eqref{eq:mod_div}:
 \begin{align}
 \left|H_{L}(i \omega_f) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
 \\
@@ -118,58 +133,7 @@ Now the length of the both sides is calculated as in \eqref{eq:mod_div}:
 \\
 &=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}} \label{tf:mod}
 \end{align}
-Equation \eqref{tf:mod} describes the numerical relationship between the input and the output signal.
-\subsection{Transfer Function for High-Pass Filters}
-Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
-\begin{align}
-\dfrac{dv_{c}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
-\end{align}
-First both sides are multiplied by $-RC$:
-\begin{align}
--RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
-\end{align}
-Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
-\begin{align*}
--RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
-\end{align*}
-The Laplace transform is now applied to both sides of the equation. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
-\begin{align*}
--RC \mathcal{L} \left\{\dfrac{dv_{R}(t)}{dt} \right\} + RC \mathcal{L} \left\{ \dfrac{dv_{input}(t)}{dt} \right\} = \mathcal{L} \left\{v_{R}(t) \right\}
-\end{align*}
-The values can be found from the table \ref{lptable} in the previous chapter:
-\begin{align*}
--RCsV_{R}(s)-v_{R}(0) + RCsV_{input}(s)-v_{input}(0) = V_{R}(s)
-\end{align*}
-It is assumed that the phase shift is zero and $v_{R}(0)$ and $v_{input}(0)$ are both equal to zero:
-\begin{align*}
--RCsV_{R}(s) + RCsV_{input}(s) = V_{R}(s)
-\end{align*}
-Now $RCs V_{input}(s)$ is isolated:
-\begin{align*}
-RCsV_{input}(s) = V_{R}(s) + RCsV_{R}(s)
-\end{align*}
-$V_{R}(s)$ is factorised:
-\begin{align*}
-RCsV_{input}(s) = V_{R}(s) \cdot (1 + RCs)
-\end{align*}
-The ratio of the voltages is isolated:
-\begin{align} \label{hp:visolated}
-\dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
-\end{align}
-The expression $\dfrac{V_{R}(s)}{V_{input}(s)}$ can be described as the transfer function of high-pass filters, $H_{H}(s)$. As stated in REF(hjælp afsnit 7.1.6) then $s=i \omega_f$. Therefore $H_{H}(s)=H_{H}(i \omega_f)$. The equation \eqref{hp:visolated} can be rewritten:
-\begin{align*}
-H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
-\end{align*}
-The length of both sides can be calculated. When taking the modulus of a complex number, the following rule from definition \ref{modulus} is used: $|z|= \sqrt{a^2+b^2}$. The expression is calculated as follows:
-\begin{align}
-\left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
- &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
- &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
- &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tfmodhp}
-\end{align} 
-Equation \eqref{tfmodhp} describes the numerical relationship between the input and output signal.
-\subsection{Cut-Off Frequency}
-The right side of the equation \eqref{vratio:equal} can be set equal to the transfer function \ref{eq:trans_low}. The cut-off frequency can be found from the transfer function for either high-pass or low-pass filters. In this case the function for low-pass filter is used.
+Equation \eqref{tf:mod} describes the relationship between the amplitude of the input and the output signal. This expression is equal to $\dfrac{1}{\sqrt{2}}$ of the frequency is found.
 \\
 \begin{align*}
 \dfrac{1}{\sqrt{1+ \left(RC \cdot \omega_f \right)^2}} = \dfrac{1}{\sqrt{2}}
@@ -194,14 +158,89 @@ Now $f$ is isolated:
 \begin{align*}
 f=\dfrac{1}{2\pi RC}
 \end{align*}
-Hereby the cut-off frequency is derived. It can now be shown that the cut-off frequency is after 3 decibel, by inserting the initial values on equation \eqref{number:db}:
+Hereby the cut-off frequency is derived.
+\subsection{Transfer Function for High-Pass Filters}
+Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
+\begin{align}
+\dfrac{dv_{c}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
+\end{align}
+First both sides are multiplied by $-RC$:
+\begin{align}
+-RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
+\end{align}
+Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
 \begin{align*}
-10 \log \left(\dfrac{1}{2} \right) = -3 dB
+-RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
 \end{align*}
+The Laplace transform is now applied to both sides of the equation. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
+\begin{align*}
+-RC \mathcal{L} \left\{\dfrac{dv_{R}(t)}{dt} \right\} + RC \mathcal{L} \left\{ \dfrac{dv_{input}(t)}{dt} \right\} = \mathcal{L} \left\{v_{R}(t) \right\}
+\end{align*}
+The values can be found from the table \ref{lptable} in the previous chapter:
+\begin{align*}
+-RCsV_{R}(s)-v_{R}(0) + RCsV_{input}(s)-v_{input}(0) = V_{R}(s)
+\end{align*}
+It is assumed that $v_{R}(0)$ and $v_{input}(0)$ are both equal to zero:
+\begin{align*}
+-RCsV_{R}(s) + RCsV_{input}(s) = V_{R}(s)
+\end{align*}
+Now $RCs V_{input}(s)$ is isolated:
+\begin{align*}
+RCsV_{input}(s) = V_{R}(s) + RCsV_{R}(s)
+\end{align*}
+$V_{R}(s)$ is factorised:
+\begin{align*}
+RCsV_{input}(s) = V_{R}(s) \cdot (1 + RCs)
+\end{align*}
+The ratio of the voltages is isolated:
+\begin{align} \label{hp:visolated}
+\dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
+\end{align}
+Once again $s$ is defined as $s=i\omega_f$. The equation can be rewritten:
+\begin{align*}
+H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
+\end{align*}
+To find the cut-off frequency, modulus of the transfer function is found.
+\begin{align}
+\left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
+ &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
+ &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
+ &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tfmodhp}
+\end{align} 
+This is set equal to $\dfrac{1}{\sqrt{2}}$.
+\begin{align}
+\dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }}=\dfrac{1}{\sqrt{2}}
+\end{align}
+Both sides of the equation is squared.
+\begin{align}
+\dfrac{(RC \omega_f)^2}{1 + (RC \omega_f)^2 }=\dfrac{1}{2}
+\end{align}
+Both sides are multiplied with $1+(RC\omega_f)^2$.
+\begin{align}
+(RC \omega_f)^2 =\dfrac{1}{2}+\dfrac{1}{2}(RC\omega_f)^2
+\end{align}
+Both sides are subtracted  by $\dfrac{1}{2}(RC\omega_f)^2$.
+\begin{align}
+\dfrac{1}{2}(RC \omega_f)^2 =\dfrac{1}{2}
+\end{align}
+Both sides are multiplied with $\dfrac{2}{(RC)^2}$.
+\begin{align}
+\omega_f^2 =\dfrac{1}{(RC)^2}
+\end{align}
+The square is taken on both sides of the equation.
+\begin{align}
+\omega_f =\dfrac{1}{RC}
+\end{align}
+From equation \eqref{eq:omega}, $\omega_f$ is defined as $\omega_f=2 \pi f$:
+\begin{align}
+2\pi f=\dfrac{1}{RC}
+\\
+f=\dfrac{1}{2\pi RC}
+\end{align}
+Equation \eqref{tfmodhp} describes the numerical relationship between the input and output signal.
 \section{Experiment} \label{experiment}
 - Her kommer der en beskrivelse af eksperimentet
 \subsection{Theoretical}
-\input{incl/main/hpflpf_code.tex}
 \subsection{Test Values}
 - How did we get the results we did? What circuit --> refer to description after intro \\
 Low-pass: \\
@@ -223,3 +262,4 @@ Here is the bode plot:
 \subsection{Comparison}
 - Compare the bode plots --> first low then high \\
 - Describe source errors (fejlkilder)
+
