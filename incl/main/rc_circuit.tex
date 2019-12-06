@@ -19,11 +19,11 @@ i_{C}&= -i_{R}, \label{Ic-Ir}
 \end{align}
 where $i_C$ is the current through the capacitor, and $i_R$ is the current across the resistor. From \eqref{iC} the current through the capacitor is:
 \begin{align}
-	i_c = C\frac{dv_C(t)}{dt}\label{iC=Cdv}
+	i_c(t) = C\frac{dv_C(t)}{dt}\label{iC=Cdv}
 \end{align}
 The equation for the current across the resistor \eqref{Ohm}, can be rewritten as:
 \begin{align}
-	i_R = \frac{v_R(t)}{R}\label{iR=vR}
+	i_R(t) = \frac{v_R(t)}{R}\label{iR=vR}
 \end{align}
 Inserting the definitions in \eqref{iC=Cdv} and \eqref{iR=vR}, into \eqref{Ic-Ir} gives:
 \begin{align*}
@@ -193,7 +193,7 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 \begin{figure}[H]
 	\center
 		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
-	\caption{RC circuit}
+	\caption{Setup of the RC circuit used in the experiment}
 	\label{rc_flow}
 \end{figure}
 % Vær OBS på farvebeskrivelser af ledninger
@@ -203,10 +203,10 @@ The data from the theoretical values and the test results can now be compared us
 \begin{figure}[H]
 \center
 \includegraphics[scale=0.6]{fig/img/eks_1}
-\caption{Capacitor charge and discharge}
+\caption{The measured and simulated data for the charge and discharge of a capacitor}
 \label{fig:Cap}
 \end{figure}
-\noindent As shown on the graph, the test results are very close to the calculated theoretical values. $R^2$ is almost equal to 1, which means that the two plots are almost identical.
+\noindent As shown on the graph, the test results are very close to the calculated theoretical values. the coefficient of determination, $R^2$, is almost equal to 1, which means that the two plots are almost identical.
 
 \subsection{Uncertainty}
 Values from experiments rarely agree completely with the theoretical values. The coefficient of determination, $R^2$, is an expression for the uncertainty between two plots. As seen in figure \ref{fig:Cap}, $R^2$ is very close to $1$, which means there is some uncertainty. If the measured data was exactly the same as the simulated data, $R^2$ would be $1$. This uncertainty can be caused by a few different reasons. The components in the circuit might have a bit of resistance, and the capacitors integrity might not be perfect, because of usage or time, and there might be a small energy loss when running the experiment. 
