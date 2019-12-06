@@ -19,7 +19,7 @@ i_{C}&= -i_{R}, \label{Ic-Ir}
 \end{align}
 where $i_C$ is the current through the capacitor, and $i_R$ is the current across the resistor. From \eqref{iC} the current through the capacitor is:
 \begin{align}
-	i_c(t) = C\frac{dv_C(t)}{dt}\label{iC=Cdv}
+	i_C(t) = C\frac{dv_C(t)}{dt}\label{iC=Cdv}
 \end{align}
 The equation for the current across the resistor \eqref{Ohm}, can be rewritten as:
 \begin{align}
@@ -134,7 +134,7 @@ q_C(t) &= v_{input}(t) \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}
 \\
 q_C(t) &= v_{input}(t) \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right)
 \end{align*} 
-The voltage of a capacitor is given as $v_C=\dfrac{q_C(t)}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
+The voltage of a capacitor is given as $v_C(t)=\dfrac{q_C(t)}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
 \begin{align}
 \label{V_up}
 \Aboxed{
@@ -159,7 +159,7 @@ The circuit was set up as follows:
 \begin{align*}
 	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s \\
 \end{align*}
-Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $v_{charge}(t)=v_B(1-e^{\frac{-t}{RC}})$ contains $e^{\frac{-t}{RC}}$, the table values can be calculated for different $\tau$ values. $v_{charge}(t)$ can be calculated as follows for $\tau = 2$: 
+Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $v_{charge}(t)=v_{input}(t)(1-e^{\frac{-t}{RC}})$ contains $e^{\frac{-t}{RC}}$, the table values can be calculated for different $\tau$ values. $v_{charge}(t)$ can be calculated as follows for $\tau = 2$: 
 \begin{align*}
 v_{charge}(t)=v_{input}(t) \cdot \left(1-e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{input}(t)(0.865)
 \end{align*}
