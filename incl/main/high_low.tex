@@ -233,18 +233,48 @@ The square is taken on both sides of the equation.
 \end{align}
 From equation \eqref{eq:omega}, $\omega_f$ is defined as $\omega_f=2 \pi f$:
 \begin{align}
-2\pi f=\dfrac{1}{RC}
+2\pi f=&\dfrac{1}{RC}
 \\
-f=\dfrac{1}{2\pi RC}
+f=&\dfrac{1}{2\pi RC}
 \end{align}
+
 Equation \eqref{tfmodhp} describes the numerical relationship between the input and output signal.
+
+
 \section{Experiment} \label{experiment}
 - Her kommer der en beskrivelse af eksperimentet
-\subsection{Theoretical}
+
+\subsection{Simulating the circuit}
+The transfer functions derived from \cref{Derivations}, were tested by using them to simulate a physical circuit. The circuits were set up as follows:
+\\
+\\
+Anders indsætter nogle lækrer graphics
+\\
+\\
+The resistance in both circuits had a resistance of $4770 \omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. The frequencies of the input-signal ranged from $1 Hz$ to $100,000 Hz$ in the case of the test for the high-pass filter. In the case of the low-pass filter, the frequencies ranged from $1 Hz$ to $1622165.753 Hz$.
+\\
+\\
+Both of the simulations were created using the input-data also used in the experiment. The input data were in units of hertz, which was converted to angular frequencies, for the plot.
+\\
+The voltage-gain of the input-signal is defined as:
+\begin{align*}
+	gain_H(\omega _f) =&20 \cdot \log{\left( \left|H_{H}(i \omega_f)\right| \right)}
+	\\
+	gain_L(\omega _f) =&20 \cdot \log{\left( \left|H_{L}(i \omega_f)\right| \right)}
+\end{align*}
+The input-data was then fed into the these functions. The output was then plotted on a graph, with a linear y-axis, and logarithmic x-axis:
+\\
+\\
+Graphics once again
+\\
+\\
+
+
 \subsection{Test Values}
 - How did we get the results we did? What circuit --> refer to description after intro \\
 Low-pass: \\
 The bode plot looks like this:
+
 \begin{figure}[H]
 \center
 	\includegraphics[scale=0.5]{fig/img/bode_LPF_exp.pdf}
@@ -253,12 +283,15 @@ The bode plot looks like this:
 \end{figure}
 High-pass: \\
 Here is the bode plot:
+
 \begin{figure}[H]
 \center
 	\includegraphics[scale=0.5]{fig/img/bode_HPF_exp.pdf}
 	\caption{High-pass bode plot}
 	\label{hp:bode}
 \end{figure}
+
+
 \subsection{Comparison}
 - Compare the bode plots --> first low then high \\
 - Describe source errors (fejlkilder)
