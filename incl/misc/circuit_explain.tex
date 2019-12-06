@@ -17,11 +17,9 @@ A sinusoidal AC current can be described with the function:
 \begin{align}
 i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \nonumber
 \\
-=& \cdot A \cdot \sin{(\omega t + \theta)} \nonumber
-\\
-\text{Where:}~~\omega=2\pi f \label{eq:omega}
+=& A \cdot \sin{(\omega t + \theta)} \label{eq:omega}
 \end{align}
-where $t$ is time (in seconds, $s$), $f$ is frequency, which is cycles per second, (in Hertz, $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds, $s$).
+where $\omega = 2\pi f$, $t$ is time (in seconds, $s$), $f$ is frequency, which is cycles per second, (in Hertz, $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds, $s$).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
 \begin{figure}[H]
@@ -32,7 +30,7 @@ This function can be plotted as such:
 
 
 \section{Voltage}
-Voltage ($V$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
+Voltage ($v$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
 \begin{align}
 	v=\dfrac{dU(q)}{dq},
 \end{align}
@@ -56,7 +54,7 @@ p(t)=R \cdot i^2(t) \\
 p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2 \\
 p(t)=\dfrac{v^2(t)}{R} \label{resistor:power}
 \end{align}
-The power is measuring the effect ( in watts, $w$) This is defined as the amount of work done per time. 
+The power is measuring the effect (in watts, $w$) This is defined as the amount of work done per time. 
 \section{Capacitor}
 A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\
@@ -69,19 +67,19 @@ where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittiv
 The charge of a capacitor across a voltage ($V$) and capacitance of ($C$) is equal to:
 \begin{align}
 \label{QCV}
-q = CV	
+q_C(t) = Cv_C(t)	
 \end{align}
 From \eqref{I=dq/dt}, current is defined as:
 \begin{align*}
-	i = \frac{dq}{dt}
+	i(t) = \frac{dq(t)}{dt}
 \end{align*}
 The current across a capacitor is then:
 \begin{align*}
-	i_C = \frac{d}{dt}(CV)
+	i_C(t) = \frac{d}{dt}(Cv_C(t))
 \end{align*}
 For a capacitor with a constant capacitance, the current can be written as:
 \begin{align}
-	i_C = C\frac{dv}{dt}\label{iC}
+	i_C(t) = C\frac{dv_C(t)}{dt}\label{iC}
 \end{align}
 
 
