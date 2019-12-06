@@ -263,34 +263,35 @@ The voltage-gain of the input-signal is defined as:
 	\\
 	gain_L(\omega _f) =&20 \cdot \log{\left( \left|H_{L}(i \omega_f)\right| \right)}
 \end{align*}
+
 The input-data was then fed into the these functions. The output was then plotted on a graph, with a linear y-axis, and logarithmic x-axis:
-\\
-\\
-Graphics once again
-\\
-\\
+
+\begin{figure}[htbp]
+\centering
+\caption{The circuit simulated as a low- and high-pass filter}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{fig/img/LPF_sim.pdf}
+    		\label{fig:lpf_sim}
+    		\caption{Simulation of the low-pass filter}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{fig/img/HPF_sim.pdf}
+    		\label{fig:hpf_sim}
+    		\caption{Simulation of the high-pass filter}
+	\end{subfigure}
+\end{figure}
+
+Since the the data and the simulation is plotted using angular frequency, the cut-off frequency needs to be, converted to angular frequency as well:
+
+\begin{align*}
+	\omega _c =& \dfrac{1}{RC2\pi} \cdot 2\pi = \dfrac{1}{RC} \\
+			  =& \dfrac{1}{4770 \Omega \cdot 97.61 \cdot 10^{-9} F} \\
+			  =& 2148 \dfrac{rad}{s}
+\end{align*}
 
 
 \subsection{Test Values}
-- How did we get the results we did? What circuit --> refer to description after intro \\
-Low-pass: \\
-The bode plot looks like this:
 
-\begin{figure}[H]
-\center
-	\includegraphics[scale=0.5]{fig/img/bode_LPF_exp.pdf}
-	\caption{Low-pass bode plot}
-	\label{lp:bode}
-\end{figure}
-High-pass: \\
-Here is the bode plot:
-
-\begin{figure}[H]
-\center
-	\includegraphics[scale=0.5]{fig/img/bode_HPF_exp.pdf}
-	\caption{High-pass bode plot}
-	\label{hp:bode}
-\end{figure}
 
 
 \subsection{Comparison}
