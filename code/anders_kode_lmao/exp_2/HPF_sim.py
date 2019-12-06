@@ -29,7 +29,7 @@ plt.grid(True)
 plt.legend(handles = [red_patch, dot_patch])
 
 plt.title('Gain of a signal as a function of frequency')    
-plt.xlabel('The angular frequency of the input signal [Hz]')
+plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
 plt.ylabel('The gain of the input signal [dB]')
 
 

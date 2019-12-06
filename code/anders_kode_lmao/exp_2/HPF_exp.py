@@ -29,7 +29,7 @@ plt.grid(True)
 plt.legend(handles = [blue_patch, red_patch, dot_patch])
 
 plt.title('Gain of a signal as a function of frequency')    
-plt.xlabel('The angular frequency of the input signal [Hz]')
+plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
 plt.ylabel('The gain of the input signal [dB]')
 
 
@@ -56,6 +56,10 @@ plt.plot(sim_in, sim_out, color = 'red', zorder = 2)
 plt.xlim(dat_in[0], dat_in[-1])
 plt.ylim(dat_out[0], dat_out[-1]+5)
 
+for i in range(len(dat_out)):
+    if dat_out[i] > -3:
+        print("Gain is ",dat_out[i], " at ", dat_in[i]/(2*np.pi), "rad/s")
+        break
 
 plt.tight_layout()
 plt.savefig("HPF_exp.pdf")
