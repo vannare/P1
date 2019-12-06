@@ -102,7 +102,7 @@ The differential equation can now be solved using the Laplace transform:
 \end{align}
 According to \Cref{theorem:lap_diff}, the Laplace transform of \eqref{eq:laplace:low} yields the following equation:
 \begin{align}
-V_C(s)s+v_C(0)+\dfrac{1}{RC}V_C(s)=\dfrac{1}{RC}V_{input}(t)
+V_C(s)s+v_C(0)+\dfrac{1}{RC}V_C(s)=\dfrac{1}{RC}v_{input}(t)
 \end{align} 
 $v_{C}$ is now factorised, and the initial voltage across the capacitor is zero, which can be derived from equation \eqref{V_up}:
 \begin{align}
@@ -162,11 +162,11 @@ Hereby the cut-off frequency is derived.
 \subsection{Transfer Function for High-Pass Filters}
 Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
 \begin{align}
-\dfrac{dv_{c}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
+\dfrac{dv_{C}(t)}{dt} = -v_{R}(t) \cdot \dfrac{1}{RC}
 \end{align}
 First both sides are multiplied by $-RC$:
 \begin{align}
--RC \cdot \dfrac{dv_{c}(t)}{dt} = v_{R}(t)
+-RC \cdot \dfrac{dv_{C}(t)}{dt} = v_{R}(t)
 \end{align}
 Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
 \begin{align*}
@@ -200,34 +200,34 @@ Once again $s$ is defined as $s=i\omega_f$. The equation can be rewritten:
 \begin{align*}
 H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
 \end{align*}
-To find the cut-off frequency, modulus of the transfer function is found.
+To find the cut-off frequency, modulus of the transfer function is found:
 \begin{align}
 \left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
  &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
  &= \dfrac{\sqrt{(RC \omega_f)^2}}{\sqrt{1 + (RC \omega_f)^2 }} \\
  &= \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }} \label{tfmodhp}
 \end{align} 
-This is set equal to $\dfrac{1}{\sqrt{2}}$.
+This is set equal to $\dfrac{1}{\sqrt{2}}$:
 \begin{align}
 \dfrac{RC \omega_f}{\sqrt{1 + (RC \omega_f)^2 }}=\dfrac{1}{\sqrt{2}}
 \end{align}
-Both sides of the equation is squared.
+Both sides of the equation are squared:
 \begin{align}
 \dfrac{(RC \omega_f)^2}{1 + (RC \omega_f)^2 }=\dfrac{1}{2}
 \end{align}
-Both sides are multiplied with $1+(RC\omega_f)^2$.
+Both sides are multiplied with $1+(RC\omega_f)^2$:
 \begin{align}
 (RC \omega_f)^2 =\dfrac{1}{2}+\dfrac{1}{2}(RC\omega_f)^2
 \end{align}
-Both sides are subtracted  by $\dfrac{1}{2}(RC\omega_f)^2$.
+Both sides are subtracted  by $\dfrac{1}{2}(RC\omega_f)^2$:
 \begin{align}
 \dfrac{1}{2}(RC \omega_f)^2 =\dfrac{1}{2}
 \end{align}
-Both sides are multiplied with $\dfrac{2}{(RC)^2}$.
+Both sides are multiplied with $\dfrac{2}{(RC)^2}$:
 \begin{align}
 \omega_f^2 =\dfrac{1}{(RC)^2}
 \end{align}
-The square is taken on both sides of the equation.
+The square is taken on both sides of the equation:
 \begin{align}
 \omega_f =\dfrac{1}{RC}
 \end{align}
