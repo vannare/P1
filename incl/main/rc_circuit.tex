@@ -39,7 +39,7 @@ From KVL, it can be derived that:
 	v_R(t) - v_C(t) = 0\nonumber\\
 	v_R(t) = v_C(t) \label{vR(t)}
 \end{align}
-\eqref{vR(t)} is inserted into \eqref{dvC(t)}:
+\eqref{vR(t)} is inserted into \eqref{eq:dvC(t)}:
 \begin{align*}
 	\dfrac{dv_C(t)}{dt} &= \dfrac{-1}{RC}v_C(t)
 \end{align*}
@@ -71,22 +71,22 @@ In subsection \ref{Klaws}, KVL states that the sum of the voltages over a loop m
 \\
 In an RC circuit with a battery, the algebraic sum can be written as:
 \begin{align}
-v_B-v_R-v_C =& 0 \nonumber \\
-v_B=&v_R+v_C, \label{V_B}
+v_{input}(t)-v_R(t)-v_C(t) =& 0 \nonumber \\
+v_{input}(t) =& v_R(t)+v_C(t), \label{V_B}
 \end{align}
-where $v_B$ is the voltage of the battery, $v_R$ is the voltage of the resistor, and $v_C$ is the voltage across the capacitor. $v_R$ and $v_C$ have negative signs, since their elements create a negative potential difference when charge passes through them.
+where $v_{input}(t)$ is the voltage of the battery, $v_R(t)$ is the voltage of the resistor, and $v_C(t)$ is the voltage across the capacitor. $v_R(t)$ and $v_C(t)$ have negative signs, since their elements create a negative potential difference when charge passes through them.
 \\
-From \eqref{Ohm}, the voltage drop across the resistor can be expressed as $v_R=IR$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $v_C=\dfrac{Q}{C}$. This is inserted into \eqref{V_B}:
+From \eqref{Ohm}, the voltage drop across the resistor can be expressed as $v_R(t)=I_R R$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $v_C(t)=\dfrac{q_C (t)}{C}$. This is inserted into \eqref{V_B}:
 \begin{align}
-v_B =& IR+\dfrac{Q}{C} \label{Vb=IR}
+v_{input}(t) =& I_R R + \dfrac{q_C (t)}{C} \label{Vb=IR}
 \end{align}
 As stated in \eqref{I=dq/dt}, current is defined as $I =\dfrac{dq}{dt}$, and this is inserted into \eqref{Vb=IR}.
  \begin{align*}
- 	v_B &= \frac{dq}{dt} R + \frac{Q}{C}
+ 	v_{input}(t) &= \frac{dq_R(t)}{dt} R + \frac{q_C (t)}{C}
  \end{align*}
 Both sides are divided by $R$:
 \begin{align}
-\dfrac{v_B}{R} &= \dfrac{dq}{dt} + \dfrac{1}{RC}Q\label{Vb/R} 
+\dfrac{v_{input}(t)}{R} &= \dfrac{dq_R(t)}{dt} + \dfrac{1}{RC}q_C(t)\label{Vb/R} 
 \end{align}
 This is now a linear differential equation of the first order in the form of \eqref{FODE_form}:
 \begin{align*}
@@ -98,23 +98,23 @@ y&=e^{-H(x)}\left(\int e^{H(x)}g(x)dx+C\right)
 \end{align*}
 The terms in \eqref{Vb/R} represent these terms in the general solution:
 \begin{align*}
-y &= Q
+y &= q_C(t)
 \\
 h(x) &= \dfrac{1}{RC}
 \\
 H(x) &= \int \dfrac{1}{RC}dt=\dfrac{t}{RC}
 \\
-g(x) &= \dfrac{v_B}{R}
+g(x) &= \dfrac{v_{input}(t)}{R}
 \\
-\dfrac{dy}{dx} &= \dfrac{dq}{dt}
+\dfrac{dy}{dx} &= \dfrac{dq_R(t)}{dt}
 \end{align*}
 Then the general solution for \eqref{Vb/R} is:
 \begin{align*}
-Q&= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{v_B}{R}dt
+q_C(t) &= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{v_{input}(t)}{R}dt
 \end{align*}
 The constant is put outside the integral:
 \begin{align}
-Q&= e^{\frac{-t}{RC}}\dfrac{v_B}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
+q_C(t) &= e^{\frac{-t}{RC}}\dfrac{v_{input}(t)}{R}\int_{0}^{t}e^{\frac{t}{RC}}dt \label{Q_1}
 \end{align}
 The integral is now solved by substitution. First $u$ and $\dfrac{du}{dt}$ are defined:
 \begin{align*}
@@ -126,19 +126,19 @@ dt &=RC du
 \end{align*} 
 By inserting these definitions into \eqref{Q_1} the equation looks like this:
 \begin{align*}
-Q &= e^{\frac{-t}{RC}}\dfrac{v_B}{R}\int_{0}^{\frac{t}{RC}}RCe^u du
+q_C(t) &= e^{\frac{-t}{RC}}\dfrac{v_{input}(t)}{R}\int_{0}^{\frac{t}{RC}}RCe^u du
 \\
-Q &= e^{\frac{-t}{RC}}\cdot v_B\cdot C\cdot \left[e^u\right]_{0}^{\frac{t}{RC}}
+q_C(t) &= e^{\frac{-t}{RC}}\cdot v_{input}(t)\cdot C\cdot \left[e^u\right]_{0}^{\frac{t}{RC}}
 \\
-Q &= v_B \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}-1\right)
+q_C(t) &= v_{input}(t) \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}-1\right)
 \\
-Q &= v_B \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right)
+q_C(t) &= v_{input}(t) \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right)
 \end{align*} 
-The voltage of a capacitor is given as $v_C=\dfrac{Q}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
+The voltage of a capacitor is given as $v_C=\dfrac{q_C(t)}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found.
 \begin{align}
 \label{V_up}
 \Aboxed{
-v_C(t)=v_B\left(1-e^{\frac{-t}{RC}}\right)
+v_C(t)=v_{input}(t)\left(1-e^{\frac{-t}{RC}}\right)
 }
 \end{align}
 \section{RC circuit experiment} \label{c: RC_exp}
@@ -161,7 +161,7 @@ The circuit was set up as follows:
 \end{align*}
 Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $v_{charge}(t)=v_B(1-e^{\frac{-t}{RC}})$ contains $e^{\frac{-t}{RC}}$, the table values can be calculated for different $\tau$ values. $v_{charge}(t)$ can be calculated as follows for $\tau = 2$: 
 \begin{align*}
-v_{charge}(t)=v_{B} \cdot \left(1-e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{B}(0.865)
+v_{charge}(t)=v_{input}(t) \cdot \left(1-e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{input}(t)(0.865)
 \end{align*}
 Here $86.5\%$ is the table value for two $\tau$. The formula for $v_{discharge}(t)$ was derived in section \ref{sec371} as: $v_{C}(t)=v_{0} \left(e^{\frac{-t}{\tau}} \right)$. $v_{discharge}$ for $\tau = 2$ can be calculated as:
 \begin{align*}
