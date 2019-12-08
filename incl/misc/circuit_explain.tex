@@ -19,23 +19,23 @@ i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \nonumber
 \\
 =& A \cdot \sin{(\omega t + \theta)} \label{eq:omega}
 \end{align}
-where $\omega = 2\pi f$, $t$ is time (in seconds, $s$), $f$ is frequency, which is cycles per second, (in Hertz, $Hz$), $A$ is amplitude (a scalar, unit-less), and $\theta$ is the phase-shift (in seconds, $s$).
+where $\omega = 2\pi f$, $t$ is time (in seconds, $s$), $f$ is frequency (in Hertz, $Hz$), which is cycles per second, $A$ is amplitude (a scalar, unitless), and $\theta$ is the phase shift (in seconds, $s$).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
-	\caption{An AC current, shown in green. The current has been phase-shifted by $\theta$. The current has amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current with $\text{phase-shift} =0$}
+	\caption{An AC current, shown in green. The current has been phase shifted by $\theta$. The current has amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current with $\text{phase shift} =0$}
 \end{figure}
 
 
 \section{Voltage}
-Voltage ($v$), also called electric potential difference, is the change in potential energy a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
+Voltage ($v$), also called electric potential difference, is the change in potential energy that a charge undergoes, when it passes through two given points in a circuit. This is expressed in the following equation:
 \begin{align}
 	v=\dfrac{dU(q)}{dq},
 \end{align}
 \\
-where $U(q)$ (in joules, $J$) is the function for potential energy, given a charge $q$.
+where $U(q)$ is the function for potential energy (in joules, $J$), given a charge $q$.
 \section{Resistor}
 When a resistor, which is a passive element, is added to the circuit, it creates a resistance. Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
 \begin{align} 
@@ -47,16 +47,16 @@ where $R$ is resistance (in Ohm, $\Omega$). Furthermore, the power can be expres
 \label{power}
 p(t)=v(t)\cdot i(t)
 \end{align}
-By inserting this on equation \eqref{Ohm} the following expression is found:
+By inserting this in equation \eqref{Ohm}, the following expression is found:
 \begin{align}
 p(t)=Ri(t)\cdot i(t) \\
 p(t)=R \cdot i^2(t) \\
 p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2 \\
 p(t)=\dfrac{v^2(t)}{R} \label{resistor:power}
 \end{align}
-The power is measuring the effect (in watts, $w$) This is defined as the amount of work done per time. 
+The power measures the effect (in watts, $w$). This is defined as the amount of work done per time. 
 \section{Capacitor}
-A capacitor is a passive element of a circuit. A capacitor consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
+A capacitor, which is a passive element, consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\
 The capacitance is given by the following equation:
 \begin{align*}
@@ -85,3 +85,6 @@ For a capacitor with a constant capacitance, the current can be written as:
 
 \section{Time constant ($\tau$)}
 A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$).
+
+% Forslag til første sætning:
+% The product of the resistance and capacitance is a useful time constant when looking at RC circuits.

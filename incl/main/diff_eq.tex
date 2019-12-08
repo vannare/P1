@@ -1,10 +1,15 @@
 \chapter{Differential Equations} 
 The theory in this chapter is based on \cite{diffandcomplex}. In this chapter linear differential equations of the first order, separable differential equations, and their solutions will be described with corresponding examples. In this report, the Leibniz notation is used for derivatives. 
-\\
-\\
+
+%Forslag: 
+% The following chapter introduces and describes linear differential questions of the first order, separable differential equations, and their respective solutions, as well as corresponding examples. The chapter is based on (cite), and uses the Leibniz notation for derivatives.
 Before describing an RC circuit mathematically, the concept of differential equations has to be described. Differential equations are important tools to describe dynamic physical systems. An example of this could be an equation to describe an increasing population. The growth of a population is usually a function of that same population.
+
+% Forslag:
+%The concept of differential equations arises when describing RC circuits mathematically. Differential equations are important tools in describing dynamic, physical systems. An example of such an equation could describe an increasing population. The growth of a function is usually a function of that very population.
+
 \begin{definition}{Differential equation}{}
-A differential equation is an equation, which contains a function, and one or more of its derivatives.
+A differential equation is an equation that contains a function, and one or more of its derivatives.
 \end{definition}
 \noindent%Phenomena
 These equations have a function as a solution, rather than a number. 
@@ -14,16 +19,16 @@ A differential equation would look something like this: $\frac{dy}{dx} = y$. Thi
 \setlength\intextsep{0pt}
 \begin{wrapfigure}{r}{7cm}[H]
 	\includegraphics[scale=0.5]{fig/img/dydx.png}
-	\caption{A function $f$, shown with a secant from $x$ to $x+x_0$}\label{wrap-fig:1}
+	\caption{A function $f$, shown with a secant through $(x, f(x))$ and $(x_0, f(x_0)$}\label{wrap-fig:1}
 \end{wrapfigure}
-In this context $dy$ and $dx$ can be perceived as small changes in $y$, and small changes in $x$. The slight change in $y$, with respect to $x$, can then be described as $\dfrac{dy}{dx}$.
+In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and small changes in $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
 \\
 This can be expressed formally as:
 \\
 \begin{align*}
 	\dfrac{dy}{dx} =& \lim_{x_0\to 0} \dfrac{y(x+x_0)-y(x)}{x_0}
 \end{align*}
-A differential equation can either have a general solution or a particular solution. When finding the general solution, there is no initial condition to determine the constant $C$. Finding a particular solution requires an initial condition, from which the constant $C$ can be found.
+A differential equation can  have either a general solution or a particular solution. When finding the general solution, there is no initial condition to determine the constant $C$. Finding a particular solution requires an initial condition, from which the constant $C$ can be found.
 
 \clearpage
 
@@ -42,9 +47,9 @@ And a third order differential equation:
 $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0$$
 
 \section{Linear Differential Equations}
-There are two types of differential equations, linear and non-linear. A linear differential equation is a linear polynomial that consists of a function and its derivatives.
+There are two types of differential equations: linear and non-linear. A linear differential equation is a linear polynomial that consists of a function and its derivatives.
 \begin{definition}{$N$'th order linear differential equation}{}
-A linear $N$'th order differential equation is an equation, which can be written in the following way:
+A linear $N$'th order differential equation is an equation that takes the form:
 \begin{align*}
 \sum_{k=0}^{N}\left(\dfrac{d^ky}{dx^k}a_k(x)\right)+b(x)=0,
 \end{align*}
@@ -72,7 +77,7 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a gi
 \\
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=&g(x)e^{H(x)}
 \end{align*}
-Considering the chain rule, and product rule, the left-hand side of the equation can be rewritten as:
+Considering the chain and product rules, the left-hand side of the equation can be rewritten as:
 \begin{align*}
 \dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}
 \end{align*}
@@ -87,7 +92,7 @@ Both sides are then integrated with respect to $x$:
 \\
 e^{H(x)}y=&\int g(x)e^{H(x)}\ dx+C,
 \end{align*}
-where $C$ is the constant of integration from the left side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
+where $C$ is the constant of integration from the left-hand side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
 \begin{align}
 y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right)
 \end{align}
@@ -99,7 +104,7 @@ Consider the following differential equation with the given initial condition.
 	\dfrac{dy}{dx}-2y=e^x  \label{ODE_ex}\\ 
 	y(0) =& 5 \nonumber
 \end{align}
-Considering \eqref{ODE_ex}, the equation can be rewritten in the form of \eqref{FODE_form}, where:
+Equation \eqref{ODE_ex} can then be rewritten in the form of \eqref{FODE_form}, where:
 %This equation can be rearranged to fit the form of \eqref{FODE_form}, and a general solution, to the differential equation, can then be found using \eqref{FODE_solution}:
 \begin{align*}
 	h(x) =& -2 \\
@@ -108,18 +113,21 @@ Considering \eqref{ODE_ex}, the equation can be rewritten in the form of \eqref{
 	     =& -2x + C
 \end{align*}
 Substituting the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$, we get: 
+
+% "we" ????
+
 \begin{align*}
 	y(x)=&e^{2x+C}(\int{e^{-2x-C}e^x\ dx}+C) \\
 	y(x)=&e^{2x}e^{C}(e^{-C}\int{e^{-2x}e^{x}\ dx}+C) \\
-	y(x)=&e^{2x}(\int{e^{-x}\ dx}+C_{1})
+	y(x)=&e^{2x}(\int{e^{-x}\ dx}+C_{1}),
 \end{align*}
-Where $C_{1}$ is the new constant of integration, $C_1=e^{C}C$. \\
+where $C_{1}$ is the new constant of integration, $C_1=e^{C}C$. \\
 The integral of $e^{-x}$ can then be found. The following result is then reduced:
 \begin{align*}
 	y(x)=&e^{2x}(-e^{-x}+C_{2}+C_{1}) \\
-	y(x)=&-e^x+C_{3} \cdot e^{2x}
+	y(x)=&-e^x+C_{3} \cdot e^{2x},
 \end{align*}
-Where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. $C_{3}$ is then calculated from the initial condition:
+where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. $C_{3}$ is then calculated from the initial condition:
 \begin{align*}
 	y(0)=&5 \\
 	5=&-e^0+C_{3} \cdot e^{2 \cdot 0} \\
@@ -224,6 +232,9 @@ The particular solution to this equation is then:
 \end{align*}
 
 The validity of the solution can be checked by substituting the solution in the equation:
+
+% "equation" mangler reference til et udtryk
+
 \begin{align*}
 	\dfrac{dy}{dx} =& y^24x \\
 	y(1) =& \dfrac{1}{3}  \\
