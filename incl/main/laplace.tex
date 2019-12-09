@@ -102,7 +102,7 @@ $$\mathcal{L} \left\{\frac{df}{dt} \right\} = s \cdot F(s)-f(0)$$
 \label{eq:intbyparts}
 \end{align}
 \begin{prof}{Laplace transform of a first order derivative}{lpderiv}
-From \Cref{lpdef}, $u(t)$ and $v(t)$ from \eqref{eq:intbyparts} are: $u(t) = e^{-st}$ and $v(t) = f(t)$. Furthermore, infinity is replaced with the limit of some value N approaching $\infty$. This yields:
+From \Cref{lpdef}, $u(t)$ and $v(t)$ from \eqref{eq:intbyparts} are given by: $u(t) = e^{-st}$ and $v(t) = f(t)$. Furthermore, infinity is replaced with the limit of some value N approaching $\infty$. This yields:
 $$\mathcal{L} \left\{\frac{df}{dt} \right\}=\lim_{N \to \infty} \left(\left[e^{-st}\cdot f(t)\right]_{0}^{N}-\int_{0}^{N} -s\cdot e^{-st}\cdot f(t)\ dt \right)$$
 Because $s$ is merely a constant, it can be placed outside of the integral, such that:
 \begin{align}
