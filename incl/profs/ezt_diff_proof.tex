@@ -1,13 +1,11 @@
 \begin{prof}{Differentiating a complex exponential function}{proof:complex:diff:exp}
-Prove that the function $f(t)=e^{z\cdot t}$, where $z$ is a complex number, is differentiable.
+Proof that the function $f(t)=e^{z\cdot t}$is differentiable, where $z$ is a complex number.
 \\ \\
-To show that the function is differentiable, $z$ will be rewritten as $a+ ib$:
+To show that the function is differentiable, $z=a+ ib$:
 \begin{align*}
-	f(t) =& e^{zt} \\
-		 =& e^{(a+ib)t} \\
-		 =& e^{at} \cdot e^{ib\cdot t}
+	f(t) = e^{zt}= e^{(a+ib)t}= e^{at} \cdot e^{ib\cdot t}.
 \end{align*}
-The imaginary part of the complex number $e^{ib\cdot t}$ can be rewritten as in \Cref{complex:exp:eq}:
+The imaginary part of the complex number $e^{ib\cdot t}$ can be rewritten using \Cref{eulers_form}:
 \begin{align*}
 	f(t) =& e^{at}\left(\cos(bt)+i \cdot \sin(bt)\right) \\
 		 =& e^{at}\cos(bt) + e^{at} i \cdot \sin(bt)
@@ -23,7 +21,7 @@ Since $i^2 = -1$ equation \eqref{proof:chain} can be rewritten. Furthermore, $a+
 \begin{align*}
 	\dfrac{d}{dt}f(t) =& a e^{zt} + b e^{at}(i \cdot \cos(bt) + i^2 \cdot \sin(bt))
 \end{align*}
-$i$ is now moved outside the parentheses. Moreover, the $ib e^{at}$ is multiplied into the parentheses:
+$i$ is now moved outside the parentheses, and \Cref{eulers_form} is used to reduce the equation:
 \begin{align*}
 	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{at}(\cos(bt) + i \cdot \sin(bt)) \\
 	=&  a e^{zt} + ib e^{at}e^{ib \cdot t} \\
@@ -33,8 +31,5 @@ Now $a+ib$ is replaced with $z$, and $e^{zt}$ can be moved outside the parenthes
 	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{t(a+ib)} \\
 	=&  e^{zt}(a+ib)
 \end{align*}
-$a+ib$ is again replaced with $z$, and \Cref{theorem:complex:exp} is proved:
-\begin{align*}
-	\dfrac{d}{dt}f(t) =&  ze^{zt}
-\end{align*}
+$a+ib$ is again replaced with $z$, and \Cref{theorem:complex:exp} is proved.
 \end{prof}
