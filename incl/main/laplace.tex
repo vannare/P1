@@ -63,7 +63,7 @@ $$e^{\sigma}e^{i\omega}= e^{\sigma}(\cos(\omega)+i\sin(\omega))$$
 Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $|e^{i\omega t}|=1$ for all $\omega \in \mathbb{R}$. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt $$ The integral is only going to converge when $(c-\sigma)>0$ or Re$(s)>c$.
 \end{prof}
 
-\begin{example}{Laplace transform for $1$}{lpone}
+\begin{example}{Laplace transform for $k$}{lpone}
 From \Cref{lpdef}, let $f(t)=k$ where $k$ is a constant. In that case:
 \begin{align*}
 \mathcal{L}\{k\}=\int_{0}^{\infty} e^{-st} \cdot k\ dt
@@ -157,7 +157,7 @@ This can be rearranged to the following:
 \begin{tabular}{lll}
 \hline
 \multicolumn{1}{|l|}{$f(t)$}           & \multicolumn{1}{l|}{$F(s)$}                & \multicolumn{1}{l|}{Limits}    \\ \hline
-\multicolumn{1}{|l|}{$1$}              & \multicolumn{1}{l|}{$\dfrac{1}{s}$}        & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline
+\multicolumn{1}{|l|}{$k$}              & \multicolumn{1}{l|}{$\dfrac{k}{s}$}        & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline
 \multicolumn{1}{|l|}{$e^{at}$}         & \multicolumn{1}{l|}{$\dfrac{1}{s-a}$}      & \multicolumn{1}{l|}{$Re(s)>a$} \\ \hline
 \multicolumn{1}{|l|}{$\dfrac{df}{dt}$} & \multicolumn{1}{l|}{$s \cdot F(s) - f(0)$} & \multicolumn{1}{l|}{$Re(s)>0$} \\ \hline                          
 \end{tabular}
