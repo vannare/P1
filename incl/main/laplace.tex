@@ -24,6 +24,33 @@ For a function of time, $f(t)$, the Laplace transform is $\mathcal{L}\left\{ f(t
 \end{align}
 When solving equations like \eqref{eq:e(-st)}, it has to be taken into consideration whether the integral converges and diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity.
 
+\begin{theorem}{Linearity of the laplace transform}{the:lin_laplace}
+The Laplace transform is said to meet the requirements for linearity if:
+\begin{align}
+\mathcal{L}\{a\cdot f(t)+b\cdot g(t)\}=a\cdot \mathcal{L}\{f(t)\}+b\cdot \mathcal{L}\{g(t)\}
+\end{align}
+Where $f$ and $g$ are continuous on a given interval and $a, b \in \mathbb{R}$
+\end{theorem}
+\begin{prof}{}{}
+The Laplace transform of the function $h(t)=a\cdot f(t)+ b \cdot g(t)$ can be written as follows:
+\begin{align}
+\mathcal{L}\{h(t)\}&=\mathcal{L}\{a\cdot f(t)+b\cdot g(t)\}
+\\
+&=\int_{0}^\infty e^{-st}\left(a\cdot f(t)+b\cdot g(t)\right)dt
+\\
+&=\int_{0}^\infty e^{-st}a\cdot f(t)+e^{-st}b\cdot g(t)dt
+\end{align}
+Since integration meets the requirements of linearity, the equation above can be written as the sum of two integral and the constants, $a$ and $b$ can be moved out of the integral.
+\begin{align}
+\int_{0}^\infty e^{-st}a\cdot f(t)+e^{-st}b\cdot g(t)dt &=\int_{0}^\infty e^{-st}a\cdot f(t)dt+\int_{0}^\infty e^{-st}b\cdot g(t)dt
+\\
+&= a\cdot \int_{0}^\infty e^{-st} f(t)dt+\cdot b \int_{0}^\infty e^{-st} g(t)dt
+\end{align}
+From \ref{} this can written as the sum of two Laplace transforms.
+\begin{align}
+a\cdot \int_{0}^\infty e^{-st} f(t)dt+\cdot b \int_{0}^\infty e^{-st} g(t)dt =a\cdot \mathcal{L}\{f(t)\}+b\cdot \mathcal{L}\{g(t)\}
+\end{align}
+\end{prof}
 \begin{theorem}{Existence of the Laplace transform}{geqleq}
 
 The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
@@ -32,8 +59,8 @@ Thus a function is of exponential order provided that it grows no more rapidly t
 \begin{prof}{}{}
 Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq 0$. Note that since $s$ is a complex number  $s=\sigma+i\omega$, it can be divided into its real and imaginary parts. It then follows that: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-st}|\ dt = \lim_{N \to \infty} \int_{0}^{N} |f(t)| |e^{-i\omega t}|e^{-\sigma t}\ dt$$
 By \Cref{complex:exp:eq}, the complex number $s$ can also take the form: 
-$$e^{\sigma}e^{i\omega}= e^{\sigma}\cos(\omega)+i\sin(\omega)$$
-Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $|e^{i\omega t}|=1$ for all $\omega \in \mathbb{R}$. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt $$ The integral is only going to converge when $(\sigma -c)>0$ or Re$(s)>c$.
+$$e^{\sigma}e^{i\omega}= e^{\sigma}(\cos(\omega)+i\sin(\omega))$$
+Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $|e^{i\omega t}|=1$ for all $\omega \in \mathbb{R}$. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt $$ The integral is only going to converge when $(c-\sigma)>0$ or Re$(s)>c$.
 \end{prof}
 
 \begin{example}{Laplace transform for $1$}{lpone}
