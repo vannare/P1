@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
+from scipy import stats
 
 
 # constants of the circuit
@@ -16,21 +17,6 @@ def gain_val(w):
 
 # import data
 data = np.loadtxt("bode_low_pass.dat")
-
-
-# make the plot prettier
-blue_patch = mpatches.Patch(color = 'blue', label = 'Data')
-red_patch = mpatches.Patch(color = 'red', label = 'Simulation')
-dot_patch = mlines.Line2D([], [], color='black', marker='o',
-                          label='Cutoff Frequency')
-
-plt.xscale('log')
-plt.grid(True)
-plt.legend(handles = [blue_patch, red_patch, dot_patch])
-
-plt.title('Gain of a signal as a function of frequency')    
-plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
-plt.ylabel('The gain of the input signal [dB]')
 
 
 # store the data in variables
@@ -48,6 +34,27 @@ fc_x = 1/(R*C) # since (1*2pi)/(RC2pi) = 1/RC
 fc_y = gain_val(fc_x)
 
 
+# linear regression
+results = stats.linregress(sim_out, dat_out)
+r_squared = results[2]**2
+r_val_str = '$R^2$ ={0:.6f} '.format(r_squared)
+
+
+# make the plot prettier
+blue_patch = mpatches.Patch(color = 'blue', label = 'Data')
+red_patch = mpatches.Patch(color = 'red', label = 'Simulation')
+dot_patch = mlines.Line2D([], [], color='black', marker='o',
+                          label='Cutoff Frequency')
+
+plt.xscale('log')
+plt.grid(True)
+plt.legend(handles = [blue_patch, red_patch, dot_patch, mpatches.Patch(fc = 'None', ec = 'None', label = r_val_str)])
+
+plt.title('Gain of a signal as a function of frequency')    
+plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
+plt.ylabel('The gain of the input signal [dB]')
+
+
 # plotting the data
 plt.scatter(fc_x, fc_y, c = 'black', marker = 'o', s = 60, zorder = 3)
 plt.plot(dat_in, dat_out, color = "blue", alpha = 0.3, lw = 5, zorder = 1)
@@ -55,6 +62,7 @@ plt.plot(sim_in, sim_out, color = 'red', zorder = 2)
 
 plt.xlim(dat_in[0], dat_in[-1])
 plt.ylim(dat_out[-1], dat_out[0]+5)
+
 
 for i in range(len(dat_out)):
     if dat_out[i] < -3:

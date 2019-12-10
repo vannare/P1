@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
+from scipy import stats
 
 
 # constants of the circuit
@@ -46,6 +47,27 @@ sim_out = gain_val(sim_in)
 # Calculating the cutoff frequency
 fc_x = 1/(R*C) # since (1*2pi)/(RC2pi) = 1/RC
 fc_y = gain_val(fc_x)
+
+
+# linear regression
+results = stats.linregress(sim_out, dat_out)
+r_squared = results[2]**2
+r_val_str = '$R^2$ ={0:.6f} '.format(r_squared)
+
+
+# make the plot prettier
+blue_patch = mpatches.Patch(color = 'blue', label = 'Data')
+red_patch = mpatches.Patch(color = 'red', label = 'Simulation')
+dot_patch = mlines.Line2D([], [], color='black', marker='o',
+                          label='Cutoff Frequency')
+
+plt.xscale('log')
+plt.grid(True)
+plt.legend(handles = [blue_patch, red_patch, dot_patch, mpatches.Patch(fc = 'None', ec = 'None', label = r_val_str)])
+
+plt.title('Gain of a signal as a function of frequency')    
+plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
+plt.ylabel('The gain of the input signal [dB]')
 
 
 # plotting the data
