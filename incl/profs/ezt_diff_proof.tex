@@ -7,29 +7,29 @@ To show that the function is differentiable, $z=a+ ib$:
 \end{align*}
 The imaginary part of the complex number $e^{ib\cdot t}$ can be rewritten using \Cref{eulers_form}:
 \begin{align*}
-	f(t) =& e^{at}\left(\cos(bt)+i \cdot \sin(bt)\right) \\
-		 =& e^{at}\cos(bt) + e^{at} i \cdot \sin(bt)
+	f(t) =& e^{at}\big(\cos(bt)+i \cdot \sin(bt)\big), \\
+		 =& e^{at}\cos(bt) + e^{at} i \cdot \sin(bt).
 \end{align*}
 The rewritten function can be differentiated using the chain rule:
 \begin{align}
-	\dfrac{d}{dt}f(t) =& ae^{at}\cos(bt) -ib \cdot \sin(bt)e^{at} + ia \cdot e^{at}\sin(bt) + ib \cdot e^{at}\cos(bt) \nonumber \\
-	=& e^{at} \left( a(\cos(bt) + i \cdot \sin(bt)) + b(i \cdot \cos(bt) - \sin(bt)) \right) \nonumber \\
-	=& e^{at}(a \cdot e^{ib \cdot t}+b(i \cdot \cos(bt) - \sin(bt))) \nonumber \\
-	=& a e^{t(a+ib)} + b e^{at}(i \cdot \cos(bt) - \sin(bt)) \label{proof:chain}
+	\dfrac{d}{dt}f(t) =& ae^{at}\cos(bt) -ib \cdot \sin(bt)e^{at} + ia \cdot e^{at}\sin(bt) + ib \cdot e^{at}\cos(bt), \nonumber \\
+	=& e^{at} \bigg( a\big(\cos(bt) + i \cdot \sin(bt)\big) + b\big(i \cdot \cos(bt) - \sin(bt)\big) \bigg), \nonumber \\
+	=& e^{at}\bigg(a \cdot e^{ib \cdot t}+b\big(i \cdot \cos(bt) - \sin(bt)\big)\bigg), \nonumber \\
+	=& a e^{t(a+ib)} + b e^{at}\big(i \cdot \cos(bt) - \sin(bt)\big). \label{proof:chain}
 \end{align}
 Since $i^2 = -1$ equation \eqref{proof:chain} can be rewritten. Furthermore, $a+ib$ is replaced with $z$:
 \begin{align*}
-	\dfrac{d}{dt}f(t) =& a e^{zt} + b e^{at}(i \cdot \cos(bt) + i^2 \cdot \sin(bt))
+	\dfrac{d}{dt}f(t) =& a e^{zt} + b e^{at}\big(i \cdot \cos(bt) + i^2 \cdot \sin(bt)\big).
 \end{align*}
 $i$ is now moved outside the parentheses, and \Cref{eulers_form} is used to reduce the equation:
 \begin{align*}
-	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{at}(\cos(bt) + i \cdot \sin(bt)) \\
-	=&  a e^{zt} + ib e^{at}e^{ib \cdot t} \\
+	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{at}\big(\cos(bt) + i \cdot \sin(bt)\big), \\
+	=&  a e^{zt} + ib e^{at}e^{ib \cdot t}. \\
 \end{align*}
 Now $a+ib$ is replaced with $z$, and $e^{zt}$ can be moved outside the parentheses:
 \begin{align*}
-	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{t(a+ib)} \\
-	=&  e^{zt}(a+ib)
+	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{t(a+ib)}, \\
+	=&  e^{zt}(a+ib).
 \end{align*}
 $a+ib$ is again replaced with $z$, and \Cref{theorem:complex:exp} is proved.
 \end{prof}
