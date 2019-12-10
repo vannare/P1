@@ -110,7 +110,7 @@ $$\mathcal{L} \left\{e^{at} \right\} =\dfrac{1}{s-a} \ \ \ ;\ \ \ Re(s)>a$$
 $s$ must be greater than $a$, since the limit of $e^{-(s-a)N}$ converges towards zero. If $a$ is greater than $s$, the exponent of $e$ would be positive, and the limit would diverge.
 \end{example}
 %The Laplace transform can be used for all functions of $f$, where the real part of $s$ is greater than $a$ $Re(s) \geq a$. Since $s$ is a complex number ($s=a+ib$), only the first part of $s$ has to be greater than $a$. Therefore, $e^{-st}$ is  the same as $e^{-ta}e^{-tib}$, where the last part is the imaginary part of the complex number. In the complex chapter, this is also defined as $e^{a}\cos(b)+ i \sin(b)$.% 
-\noindent When doing the inverse Laplace transform, the results can often be found by looking at the results from on ordinary Laplace transform, because $F(s) = \mathcal{L}\left\{f(t)\right\}$ and $\mathcal{L}^{-1}\big\{ F(s)\big\} = f(t)$.
+\noindent When doing the inverse Laplace transform, the results can often be found by looking at the results from on ordinary Laplace transform, because $F(s) = \mathcal{L}\left\{f(t)\right\} \Rightarrow\mathcal{L}^{-1}\big\{ F(s)\big\} = f(t)$.
 \begin{example}{Inverse Laplace transform}{}
 Let $F(s) = \dfrac{4}{s+10}$. When recognizing this takes the same form as the result above, the solution becomes clear. Now this has to be put on the form $f(t)=e^{at}$, where, in this case, the constant is 10. The result is therefore:
 \begin{align*}
@@ -164,14 +164,14 @@ This can be rearranged to the following:
 \caption{Table of Laplace transforms.}
 \label{lptable}
 \end{table}
-\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. Differential equations can be difficult to solve without the Laplace transform, but can easily be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed above.
+\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. Differential equations can be difficult to solve without the Laplace transform, but can be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed above.
 
 \begin{example}{Laplace example}{laplaceexample}
 In this example the following differential equation will be solved using the Laplace transform:
 \begin{align}
-\dfrac{df}{dt}-4f(t)=e^{6t}, \label{lpexinieq}
+\dfrac{df}{dt}-4f(t)=e^{6t}, \label{eq:lap_ex}
 \end{align} 
-with the initial condition $f(0)=-2$. The Laplace transform is applied on both sides (constants can be moved outside as stated in definition \ref{constant}):
+with the initial condition $f(0)=-2$. The Laplace transform is applied on both sides (constants can be moved outside as stated in \cref{the:lin_laplace}:
 \begin{align*}
 \mathcal{L} \left\{\dfrac{df}{dt} \right\}-4 
 \mathcal{L} \left\{f(t) \right\} = 
@@ -224,7 +224,7 @@ These values are now inserted into \eqref{par_dec}:
 \begin{align*}
 F(s) = \dfrac{1}{2} \cdot \dfrac{1}{s-6} - \dfrac{5}{2} \cdot \dfrac{1}{s-4}
 \end{align*}
-The inverse Laplace transform is now applied. Since it is possible to treat the Laplace transform as an integral, constants are moved outside the transform, as stated in \Cref{constant}:
+The inverse Laplace transform is now applied. Since it is possible to treat the Laplace transform as an integral, constants are moved outside the transform, as stated in \Cref{the:lin_laplace}:
 \begin{align*}
 \mathcal{L}^{-1} \left\{F(s) \right\} = \dfrac{1}{2} \cdot \mathcal{L}^{-1} \left\{\dfrac{1}{s-6} \right\} - \dfrac{5}{2} \cdot \mathcal{L}^{-1} \left\{\dfrac{1}{s-4} \right\}
 \end{align*}
@@ -232,7 +232,7 @@ Now the solutions can be identified from table \ref{lptable}:
 \begin{align*}
 f(t) = \dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t}
 \end{align*}
-This result can be tested by inserting the values into \eqref{lpexinieq}:
+This result can be tested by inserting the values into \eqref{eq:lap_ex}:
 \begin{align*}
 \dfrac{df}{dt} \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2}e^{4t} \right) &= e^{6t} \\
 \left(\dfrac{1}{2} \cdot \left(\dfrac{df}{dt} \left(e^{6t} \right) \right) - \dfrac{5}{2} \cdot \left(\dfrac{df}{dt} \left(e^{4t} \right) \right) \right) - 4 \cdot \left(\dfrac{1}{2} \cdot e^{6t} - \dfrac{5}{2} e^{4t} \right) &= e^{6t} \\
@@ -240,5 +240,5 @@ This result can be tested by inserting the values into \eqref{lpexinieq}:
 3e^{6t}-10e^{4t}-2e^{6t}+10e^{4t} &= e^{6t} \\
 e^{6t} &= e^{6t}
 \end{align*}
-Hereby the solution to the equation \eqref{lpexinieq} is found using the Laplace transform.
+Hereby the solution to the \eqref{eq:lap_ex} is found using the Laplace transform.
 \end{example}
