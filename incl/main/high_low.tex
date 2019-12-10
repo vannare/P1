@@ -1,7 +1,9 @@
-\chapter{High-pass and low-pass filters}
+\chapter{High-pass and low-pass filters} \label{chap:high_low}
 The main purpose of filters is to remove unwanted frequencies from different signals. Filters are often used on sound files, to control the bass or the high pitch noises. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high and low-pass filters.
+
 \section{Definitions}
 In this section the most central terms concerning high-pass and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in the next section \ref{Derivations}.
+
 \subsection{Low-pass filters}
 A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
 \\
@@ -51,16 +53,17 @@ This can be simplified:
 \begin{align} \label{eq:v_ratio}
 \dfrac{1}{\sqrt{2}}= \dfrac{v_{output}}{v_{input}}
 \end{align}
-From equation \eqref{vratio:equal} it can be found that the amplitude is decreased by $1-\left(\dfrac{1}{\sqrt{2}} \right) = 29.3\%$.
+From equation \eqref{eq:v_ratio} it can be found that the amplitude is decreased by $1-\left(\dfrac{1}{\sqrt{2}} \right) = 29.3\%$.
 
 \subsection{The imaginary Angular Frequency}
 The experiment in chapter \ref{chap:RC} for testing the capacitor used a DC voltage. In the case of high and low pass filters, an AC input will be applied. The voltage, in this case, can be written as a wave function:
 \begin{align}
 v(t)=A\sin(\omega_f t+\theta)
 \end{align}
-Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ the phase shift. In this section, it is considered that there is no phase shift on the input sinus wave. According to definition \ref{lpdef}, $s=\sigma + i \omega$. Here $i \omega$ can be considered the imaginary angular frequency, if the real part is set to zero $\sigma = 0$. Hereby $s$ can be rewritten as $s = i \omega_f$ \cite[p. 733 - 735]{bcircuit9}
+Where $A$ is the amplitude, $\omega_f=2\pi f$ and $\theta$ is the phase shift. In this section, it is considered that there is no phase shift on the input sinus wave. According to definition \ref{lpdef}, $s=\sigma + i \omega$. Here $i \omega$ can be considered the imaginary angular frequency, if the real part is set to zero $\sigma = 0$. Hereby $s$ can be rewritten as $s = i \omega_f$ \cite[p. 733 - 735]{bcircuit9}
+
 \subsection{The Transfer Function}
-The transfer function is what describes what happens with an input signal when it is send through a system. The transfer function is denoted as $H(s)$.
+The transfer function describes what happens with an input signal when it is send through a system. The transfer function is denoted as $H(s)$.
 \\
 \begin{figure}[H]
 \center
@@ -69,13 +72,15 @@ The transfer function is what describes what happens with an input signal when i
 \label{fig:transfer}
 \end{figure}
 \noindent
-This relation can be written as the following mathematical relation.
+This can be written as the following mathematical relation.
 \begin{align}
 V_{output}(s)=V_{input}(s)H(s)
 \end{align}
 Where $V_{output}(s)=\mathcal{L}\{v_{output}(t)\}$ and $V_{input}(s)=\mathcal{L}\{v_{input}(t)\}$
+
 \section{Derivations} \label{Derivations}
-Intro bliver skrevet.
+In the following section the transfer function for low-pass and high-pass filters are derived, as well as the cut-off frequencies for both filters.
+
 \subsection{Transfer Function for Low-Pass Filters}
 From the transient analysis, equation \eqref{eq:dvC(t)} is derived:
 \begin{align} \label{eq:dV_C}
@@ -112,7 +117,7 @@ The ratio of the voltages is isolated:
 \begin{align}
 \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}=H_L(s)
 \end{align}
-It would now be interesting to see how the ratio between input and output responds to different frequencies, so do this $s$ is defined as $s=i\omega_f$.
+It would now be interesting to see how the ratio between input and output responds to different frequencies, to do this the previously defined $s$ as $s=i\omega_f$ is used.
 \begin{align} \label{eq:trans_low}
 H_{L}(i \omega_f) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f} 
 \end{align}
@@ -124,7 +129,7 @@ This can be simplified:
 \begin{align}
 H_{L}(i \omega_f) =  \dfrac{1}{1+RC \cdot i \omega_f} 
 \end{align}
-From \eqref{eq:v_ratio} it can be concluded that the cut-off frequency occurs when the amplitude of the output is $\dfrac{1}{\sqrt{2}}$ of the input. To do this firstly modulus of the transfer function is found.
+From \eqref{eq:v_ratio} it can be concluded that the cut-off frequency occurs when the amplitude of the output is $\dfrac{1}{\sqrt{2}}$ of the input. Firstly, the modulus of the transfer function is found.
 \eqref{eq:mod_div}:
 \begin{align}
 \left|H_{L}(i \omega_f) \right| &=  \left|\dfrac{1}{1+RC \omega_f} \right| 
@@ -133,7 +138,7 @@ From \eqref{eq:v_ratio} it can be concluded that the cut-off frequency occurs wh
 \\
 &=  \dfrac{1}{\sqrt{1+(RC \omega_f)^2}} \label{tf:mod}
 \end{align}
-Equation \eqref{tf:mod} describes the relationship between the amplitude of the input and the output signal. This expression is equal to $\dfrac{1}{\sqrt{2}}$ of the frequency is found.
+Equation \eqref{tf:mod} describes the relation between the amplitude of the input and the output signal. This expression is set equal to $\dfrac{1}{\sqrt{2}}$ and the frequency is found.
 \\
 \begin{align*}
 \dfrac{1}{\sqrt{1+ \left(RC \cdot \omega_f \right)^2}} = \dfrac{1}{\sqrt{2}}
@@ -159,6 +164,7 @@ Now $f$ is isolated:
 f=\dfrac{1}{2\pi RC}
 \end{align*}
 Hereby the cut-off frequency is derived.
+
 \subsection{Transfer Function for High-Pass Filters}
 Similarly, to the low pass filter, the transfer function is derived from equation \eqref{eq:dvC(t)} 
 \begin{align}
@@ -169,10 +175,11 @@ First both sides are multiplied by $-RC$:
 -RC \cdot \dfrac{dv_{C}(t)}{dt} = v_{R}(t)
 \end{align}
 Since it is now a high-pass filter (and a different circuit), KVL has to be rewritten and is now $v_{C}(t)=v_{R}(t)-v_{input}(t)$. Both sides of this expression are now differentiated, and can be inserted on the left side as follows:
+%den ovensående sætning lyder mærkelig, er de begge differetieret eller er de differentiable?
 \begin{align*}
 -RC \cdot \left(\dfrac{dv_{R}(t)}{dt} - \dfrac{dv_{input}(t)}{dt} \right) = v_{R}(t)
 \end{align*}
-The Laplace transform is now applied to both sides of the equation. 
+The Laplace transform is now applied to both sides of the equation. Note that $RC$ is a constant and can be moved outside the transform per definition \ref{constant}:
 \begin{align*}
 -RC \mathcal{L} \left\{\dfrac{dv_{R}(t)}{dt} \right\} + RC \mathcal{L} \left\{ \dfrac{dv_{input}(t)}{dt} \right\} = \mathcal{L} \left\{v_{R}(t) \right\}
 \end{align*}
@@ -196,11 +203,11 @@ The ratio of the voltages is isolated:
 \begin{align} \label{hp:visolated}
 \dfrac{RCs}{1 + RCs} = \dfrac{V_{R}(s)}{V_{input}(s)}
 \end{align}
-Once again $s$ is defined as $s=i\omega_f$. The equation can be rewritten:
+$s$ is again used as $s=i\omega_f$. The equation can be rewritten:
 \begin{align*}
 H_{H}(i \omega_f) = \dfrac{RCi \omega_f}{1 + RCi \omega_f}
 \end{align*}
-To find the cut-off frequency, modulus of the transfer function is found:
+To find the cut-off frequency, the modulus of the transfer function is found:
 \begin{align}
 \left|H_{H}(i \omega_f)\right| &= \left|\dfrac{RCi \omega_f}{1 + RCi \omega_f} \right| \\
  &= \dfrac{|RCi \omega_f|}{|1 + RCi \omega_f |} \\
@@ -238,26 +245,26 @@ From equation \eqref{eq:omega}, $\omega_f$ is defined as $\omega_f=2 \pi f$:
 f=&\dfrac{1}{2\pi RC}
 \end{align}
 
-Equation \eqref{tfmodhp} describes the numerical relationship between the input and output signal.
+\noindent Equation \eqref{tfmodhp} describes the numerical relation between the input and output signal.
 
 
 \section{Experiment} \label{experiment}
 The following section conducts experiments with high- and low-pass filters, and examines the data. Similar to the transient analysis of the capacitor, the circuit is set-up using the Analog Discovery 2, and consists of a resistor and a capacitor. Additionally, the input voltage  is a  sinusoidal wave. \\
 The low-pass filter measures the voltage across the capacitor, while the high-pass filter measures the voltage across the resistor.
 
-\subsection{Simulating the circuit}
+\subsection{Simulation of the Circuit}
 Simulated values are generated, to test the data from the experiment. This is helpful when considering the validity of the test values. There are a couple of essential things to compare when testing the validity of a high- and low-pass filter, which could be the cut-off frequency and coefficient of determination. 
 \\ \\
 The transfer functions derived from \cref{Derivations}, were tested by using them to simulate a physical circuit. The circuits were set up as follows:
 \\
 \\
-Anders indsætter nogle lækrer graphics
+\textbf{Anders indsætter nogle lækrer graphics} 
 \\
 \\
-The resistance in both circuits had a resistance of $4770 \omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. The frequencies of the input-signal ranged from $1 Hz$ to $100,000 Hz$ in the case of the test for the high-pass filter. In the case of the low-pass filter, the frequencies ranged from $1 Hz$ to $1622165.753 Hz$.
+The resistor in both circuits had a resistance of $4770 \omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. The frequencies of the input-signal ranged from $1 Hz$ to $100,000 Hz$ in the case of the test for the high-pass filter. In the case of the low-pass filter, the frequencies ranged from $1 Hz$ to $1622165.753 Hz$.
 \\
 \\
-Both of the simulations were created using the input-data also used in the experiment. The input data were in units of hertz, which was converted to angular frequencies, for the plot.
+Both of the simulations were created using the input-data that also were used in the experiment. The input data were in units of hertz, which was converted to angular frequencies, for the plot.
 \\
 The voltage-gain of the input-signal is defined as:
 \begin{align*}
@@ -266,7 +273,7 @@ The voltage-gain of the input-signal is defined as:
 	gain_L(\omega _f) =&20 \cdot \log{\left( \left|H_{L}(i \omega_f)\right| \right)}
 \end{align*}
 
-The input-data was then fed into the these functions. The relation between the input and output was then plotted on a graph, with a linear y-axis, and logarithmic x-axis:
+\noindent The input-data was then fed into the these functions. The relation between the input and output was then plotted on a graph, with a linear y-axis, and logarithmic x-axis:
 
 \begin{figure}[htbp]
 \centering
@@ -282,7 +289,8 @@ The input-data was then fed into the these functions. The relation between the i
 	\end{subfigure}
 \caption{The circuit simulated as a low- and high-pass filter}
 \end{figure}
-Since the the data and the simulation is plotted using angular frequency, the cut-off frequency needs to be converted to angular frequency as well:
+
+\noindent Since the the data and the simulation is plotted using angular frequency, the cut-off frequency needs to be converted to angular frequency as well:
 \begin{align}
 	\omega _c =& \dfrac{1}{RC2\pi} \cdot 2\pi = \dfrac{1}{RC} \nonumber \\
 			  =& \dfrac{1}{4770 \Omega \cdot 97.61 \cdot 10^{-9} F} \nonumber \\
@@ -308,7 +316,7 @@ When plotting the data on the same bode plot as the simulated values, it is goin
 	\caption{Test values for a low- and high-pass filter}
 \end{figure}
 \\ \\
-Here the data is based on 1001 measuring points generated by Analog Discovery 2. From these 1001 measuring points on the bode plot, the one closest to the cut-off frequency is found, to compare with the simulated cut-off value. The cut-off value for low-pass filters is found in the code as $336.17 Hz$ for a the  and can be converted to $\dfrac{rad}{s}$:
+Here the data is based on 1001 measuring points generated by Analog Discovery 2. From these 1001 measuring points on the bode plot, the one closest to the cut-off frequency is found, to compare with the simulated cut-off value. The cut-off value for low-pass filters is found in the code as $336.17 Hz$ for a low-pass filter and can be converted to $\dfrac{rad}{s}$:
 \begin{align}
 336.17 \cdot 2 \pi = 2112.22 \dfrac{rad}{s}.
  \label{lpf:cut}
@@ -319,12 +327,12 @@ Similaly this can be found for the high-pass filter:
  \label{hpf:cut}
 \end{align}
 \subsection{Comparison}
-First the low-pass filter of the test values and the simulated data is compared, and then the data for the high-pass filters is compared. The bode plot for low-pass 
+In the following section the test values for the low-pass filter and its simulated data is compared, followed by a comparison of the high-pass filters test values and its simulated data.
 \\ \\
-When observing figure \ref{fig:lpf:exp}, it becomes clear that the data from the experiment is almost identical with the simulated data. The coefficient of determination is almost one, which that underlines the fact that the two functions are almost the same. As the angular frequency increases, the measuring points of the data becomes more imprecise as the lower gain in decibel is more difficult to measure. As stated in section \ref{sub:bode}, the graph is decreasing with 20 decibel per decade after the cut-off point. Furthermore, the simulated cut-off versus the found   can be found to the following percentage difference using equation \eqref{lpf:cut} and \eqref{sim:cut}: $$1-\dfrac{2112.22}{2148}= 0.0167 = 1.67 \%.$$
+When observing figure \ref{fig:lpf:exp}, it becomes clear that the data from the experiment is almost identical with the simulated data. The coefficient of determination is almost one, which underlines the fact that the two functions are almost the same. Because the lower gain in decibel is more difficult to measure, the measuring points of the data become more inaccurate, as the angular frequency increases. As stated in section \ref{sub:bode}, the graph is decreasing with 20 decibel per decade after the cut-off point. Furthermore, the simulated cut-off frequency versus the measured can be found using the following percentage difference equation \eqref{lpf:cut} and \eqref{sim:cut}: $$1-\dfrac{2112.22}{2148}= 0.0167 = 1.67 \%.$$
 \\ \\
-The data from the high-pass filter from figure \ref{fig:hpf:exp}, is similarly to the low-pass filter, almost identical. The main difference is now that the bode plot is more imprecise, when the angular frequency is low, since it the gain in decibel is low here and it is difficult to measure the lower decibels. Moreover, when the frequency is on $10^{1} \left[\frac{rad}{s} \right]$, the decibel is approximately $-45 dB$. When observing the next decade $10^{2} \left[\frac{rad}{s} \right]$, the decibel is approximately $-25 dB$. Therefore the bode plot corresponds with the increasing 20 decibel per decade, as stated in \ref{sub:bode}. Now the percentile difference between the simulated cut-off value and the cut-off value found from the data can be found: 
+The data from the high-pass filter from figure \ref{fig:hpf:exp}, is similarly to the low-pass filter, almost identical. The main difference is now that the bode plot is more imprecise, when the angular frequency is low, since it is the gain in decibel that is low here and it is difficult to measure the lower decibels. Moreover, when the frequency is on $10^{1} \left[\frac{rad}{s} \right]$, the decibel is approximately $-45 dB$. When observing the next decade $10^{2} \left[\frac{rad}{s} \right]$, the decibel is approximately $-25 dB$. Therefore the bode plot corresponds with the increasing 20 decibel per decade, as stated in \ref{sub:bode}. Now the percentile difference between the simulated cut-off frequency  and the cut-off frequency measured from the data can be found: 
 $$\dfrac{2153.69}{2148}-1= 0.0026 = 0.26 \%.$$
-It can now be seen that the two cut-off values are almost identical.
+It can now be seen that the two cut-off frequencies are almost identical.
 \\ \\
-From the comparisons on high- and low-pass filters it is now clear what the biggest source of error is. Both of the experimental graphs are aligned on top of the simulated graphs, at all outputs close to 0 decibel. The further the output in decibel comes from 0, the more imprecise the graphs are. Therefore the most relevant uncertainty in the experiment is the accuracy of the measuring instrument at a really low decibel output.
+From the comparisons on high- and low-pass filters it is now clear what the biggest source of error is. Both of the experimental graphs are aligned on top of the simulated graphs, at all outputs close to 0 decibel. The further the output in decibel comes from 0, the more inaccurate the graphs are. Therefore the most relevant uncertainty in the experiment is the accuracy of the measuring instrument at a really low decibel output.
