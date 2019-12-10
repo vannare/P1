@@ -15,9 +15,9 @@ There exists two types of current: alternating current (AC) and direct current (
 \noindent
 A sinusoidal AC current can be described with the function: 
 \begin{align}
-i(t, f, A, \theta) =& A\cdot \sin{(2\pi ft + \theta)} \nonumber
+i\left(t, f, A, \theta\right) =& A\cdot \sin{\left(2\pi ft + \theta\right)}, \nonumber
 \\
-=& A \cdot \sin{(\omega t + \theta)} \label{eq:omega}
+=& A \cdot \sin{\left(\omega t + \theta\right)}, \label{eq:omega}
 \end{align}
 where $\omega = 2\pi f$, $t$ is time (in seconds, $s$), $f$ is frequency (in Hertz, $Hz$), which is cycles per second, $A$ is amplitude (a scalar, unitless), and $\theta$ is the phase shift (in seconds, $s$).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
@@ -45,14 +45,14 @@ v(t)=R\cdot i(t),\ R\geq0,
 where $R$ is resistance (in Ohm, $\Omega$). Furthermore, the power can be expressed as: \cite[p. 25]{bcircuit} 
 \begin{align} 
 \label{power}
-p(t)=v(t)\cdot i(t)
+p(t)=v(t)\cdot i(t).
 \end{align}
 By inserting this in equation \eqref{Ohm}, the following expression is found:
 \begin{align}
-p(t)=Ri(t)\cdot i(t) \\
-p(t)=R \cdot i^2(t) \\
-p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2 \\
-p(t)=\dfrac{v^2(t)}{R} \label{resistor:power}
+p(t)=Ri(t)\cdot i(t), \\
+p(t)=R \cdot i^2(t), \\
+p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2, \\
+p(t)=\dfrac{v^2(t)}{R}. \label{resistor:power}
 \end{align}
 The power measures the effect (in watts, $w$). This is defined as the amount of work done per time. 
 \section{Capacitor}
@@ -67,19 +67,19 @@ where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittiv
 The charge of a capacitor across a voltage ($v$) and capacitance of ($C$) is equal to:
 \begin{align}
 \label{QCV}
-q_C(t) = Cv_C(t)	
+q_C(t) = Cv_C(t).	
 \end{align}
 From \eqref{I=dq/dt}, current is defined as:
 \begin{align*}
-	i(t) = \frac{dq(t)}{dt}
+	i(t) = \frac{dq(t)}{dt}.
 \end{align*}
 The current across a capacitor is then:
 \begin{align*}
-	i_C(t) = \frac{d}{dt}(Cv_C(t))
+	i_C(t) = \frac{d}{dt}\big(Cv_C(t)\big).
 \end{align*}
 For a capacitor with a constant capacitance, the current can be written as:
 \begin{align}
-	i_C(t) = C\frac{dv_C(t)}{dt}\label{iC}
+	i_C(t) = C\frac{dv_C(t)}{dt}.\label{iC}
 \end{align}
 
 
