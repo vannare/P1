@@ -157,9 +157,9 @@ The circuit was set up as follows:
 	\caption{A circuit with a resistor (4770$\Omega$) and a capacitor (97.61nF)}
 \end{figure}
 \noindent The time constant $\tau$ is defined as $\tau = RC$. In this case $\tau$ is:
-\begin{align*}
-	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s.
-\end{align*}
+\begin{align}
+	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s. \label{eq:tau}
+\end{align}
 Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $v_{charge}(t)=v_{input}(t)\left(1-e^{\frac{-t}{RC}}\right)$ contains $e^{\frac{-t}{RC}}$, the table values can be calculated for different $\tau$ values. $v_{charge}(t)$ can be calculated as follows for $\tau = 2$: 
 \begin{align*}
 v_{charge}(t)=v_{input}(t) \cdot \left(1-e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{input}(t)(0.865).
@@ -199,7 +199,7 @@ The time it takes for the capacitor to be fully charged, or discharged, is in th
 \end{figure}
 % Vær OBS på farvebeskrivelser af ledninger
 This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Hypothetically, if the two scopes were switched, it would be measuring the inverse charging and discharging. Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
-To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $214.6 Hz$  ($(2 \cdot 2.33 ms)^{-1} = 214.6 Hz$). \\
+To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $107.3 Hz$  ($(4 \cdot 2.33 ms)^{-1} = 107.3 Hz$). \\
 The data from the theoretical values and the test results can now be compared using python:
 \begin{figure}[H]
 \center
