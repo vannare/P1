@@ -1,10 +1,11 @@
 \chapter{Complex Numbers}
-This chapter is based on the following sources: \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.\\
-
-\noindent The following chapter will first describe the concept of complex numbers and how to operate them mathematically. Additionally, it will introduce complex numbers in polar coordinates and the complex exponential function. Complex numbers is needed when explaining the laplace transform.
+This chapter is based on the following sources: \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.
 \\
-
-\noindent When using real numbers, you cannot always solve a given equation. An example of this could be the equation $x^2=-1$. To solve this equation, the imaginary unit is introduced. The imaginary unit is defined as:
+\noindent 
+The following chapter will first describe the concept of complex numbers and how to operate them mathematically. Additionally, it will introduce complex numbers in polar coordinates and the complex exponential function. Complex numbers is needed when explaining the laplace transform.
+\\
+\noindent 
+When using real numbers, you cannot always solve a given equation. An example of this could be the equation $x^2=-1$. To solve this equation, the imaginary unit is introduced. The imaginary unit is defined as:
 \begin{align*}
 i=\sqrt{-1}.
 \end{align*}
@@ -170,7 +171,7 @@ z_1 z_2=r_1r_2\big( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\big) \lab
 \end{theorem}
 
 
-\begin{prof}{Multiplication in polar form}{}
+\begin{prof}{Multiplication in polar form}{the:multi_polar}
 %Kristian vil have noget tekst i stedet for vi går direkte igang med en ligning
 \begin{align}
 z_1 z_2&=r_1 \big( \cos(\theta_1)+ i \sin(\theta_1)\big)r_2 \big( \cos(\theta_2)+ i \sin(\theta_2)\big) \nonumber
@@ -193,15 +194,15 @@ These definitions are inserted on equation \eqref{polar_multiplication}:
 z_1 z_2=r_1r_2\big( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\big).
 \end{align*}
 \end{prof}
-
-\noindent From equation \ref{pol:trig} the following relation can be found:
+\noindent
+From equation \ref{the:multi_polar} the following relation can be found:
 \begin{align}
 \arg(z_1z_2)&=\arg(z_1)+\arg(z_2)
 \\
 |z_1z_2|&=|z_1||z_2|
 \end{align}
 
-\begin{theorem}{Division in polar form}{}
+\begin{theorem}{Division in polar form}{the:div_polar}
 Given two complex numbers
 \begin{align*}
 z_1=r_1\big(\cos(\theta_1)+i\sin(\theta_1)\big), 
@@ -219,19 +220,33 @@ The division of these are given by:
 \begin{align}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\Big(\cos(\theta_1)+i\sin(\theta_1)\Big)}{r_2\Big(\cos(\theta_2)+i\sin(\theta_2)\Big)}
 \end{align}
-Multiply both the numerator and the denominator on the right side is multiplied by $r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)$
+The numerator and the denominator on the right side is multiplied by $r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)$
 \begin{align}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\Big(\cos(\theta_1)+i\sin(\theta_1)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)}{r_2\Big(\cos(\theta_2)+i\sin(\theta_2)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)}
-\end{align}
-From \Cref{complex:multi} this can we rewritten as:
-\begin{align}
-\dfrac{z_1}{z_2}&=\dfrac{r_1r_2\Big(\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)\Big)}{{r_2}^2\Big(\cos(\theta_2-\theta_2)+i\sin(\theta_2-\theta_2)\Big)}
 \\
+&=\dfrac{r_1 r_2}{r_2^2}\dfrac{\cos(\theta_1)\cos(\theta_2)-i\cos(\theta_1)\sin(\theta_2)+i\sin(\theta_1)\cos(\theta_2)+sin(\theta_1)\sin(\theta_2)}{\cos^2(\theta_2)-i\sin(\theta_2)\cos\theta_2)+i\sin(\theta_2)\cos\theta_2)+\sin^2(\theta_2)}
+\end{align}
+The difference of cosine and sine is defined as:
+\begin{align}
+\cos(\theta_1-\theta_2)=\cos(\theta_1)\cos(\theta_2)+\sin(\theta_1)\sin(\theta_2)
+\\
+\sin(\theta_1-\theta_2)=\sin(\theta_1)\cos(\theta_2)-\cos(\theta_1)\sin(\theta_2)
+\end{align}
+The equation can now be rewritten as:
+\begin{align}
+\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\dfrac{\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)}{\cos^2(\theta_2)+\sin^2(\theta_2)}
+\end{align}
+From Somewhere:
+\begin{align}
+\cos^2(\theta)+\sin^2(\theta)=1
+\end{align}
+The equation now can written as:
+\begin{align}
 &=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big)
 \end{align}
+From
 \end{prof}
-
-The following relations can be derived:
+From \cref{the:div_polar} The following relations can be derived:
 \begin{align}
 \arg\Big(\dfrac{z_1}{z_2}\Big)&=\arg(z_1)-\arg(z_2)
 \\
@@ -247,11 +262,34 @@ Euler's formula is defined as:
 e^{i\theta}=\cos(\theta)+\sin(\theta).
 \end{align} 
 \end{definition}
-
+\begin{theorem}{Modulus of Euler's formula}{}
+Modulus of $e^{i\theta}$ is said to be equal to one, for all $\theta \in \mathbb{R}$
+\begin{align*}
+|e^{i\theta}|=1
+\end{align*}
+\end{theorem}
+\begin{prof}{}{}
+Given the exponential number
+\begin{align*}
+z=e^{i\theta}=\cos(\theta)+i\sin(\theta)
+\end{align*}
+Modulus of $z$ is defined as
+\begin{align}
+|z|=\sqrt{\text{Re}\{z\}^2+\text{Im}\{z\}^2} \label{eq:mod_euler}
+\end{align}
+Where $\text{Re}\{z\}=\cos(\theta)$ and $\text{Im}\{z\}=\sin(\theta)$. This is inserted in \eqref{eq:mod_euler}.
+\begin{align*}
+|z|=\sqrt{\cos^2(\theta)+\sin^2(\theta)}
+\end{align*}
+From somewhere $\cos^2(\theta)+\sin^2(\theta)=1$, this can now be inserted in the equation above.
+\begin{align*}
+|z|=\sqrt{1}=1
+\end{align*}
+\end{prof}
 \noindent For the complex exponential function to be useful for this context, it needs to fulfil two conditions:
 \begin{itemize}
 	\item $e^{z_1}e^{z_2} = e^{z_1 + z_2}$
-	\item $\dfrac{d}{dt}e^{zt} = ze^{zt}$
+	\item $\dfrac{d}{dt}e^{z} = e^{z}$
 \end{itemize}
 The complex exponential function can be defined as follows, and it can be shown that this definition will satisfy the given conditions.
 
@@ -261,11 +299,8 @@ The complex exponential function is defined as:
 	e^{z}=e^{a}e^{ib}=e^{a+ib}
 \end{align*}
 \end{definition}
-
 \noindent
 Given this definition of the complex exponential function, it will then be shown that the conditions set earlier will hold.
-
-
 \begin{theorem}{Multiplication of Complex Numbers in Exponential form}{}
 Given two complex numbers in exponential form $e^{z_1}$ and $e^{z_2}$ where:
 \begin{align*}
