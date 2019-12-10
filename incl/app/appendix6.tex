@@ -13,26 +13,11 @@ C = 97.61*10**-9
 
 # function for calculating the gain of the function
 def gain_val(w):
-    return 20* np.log10(np.abs(w*R*C)/np.sqrt(1+(w*R*C)**2))
+    return 20* np.log10(1/np.sqrt(1+(w*R*C)**2))
 
 
 # import data
-data = np.loadtxt("bode_high_pass.dat")
-
-
-# make the plot prettier
-blue_patch = mpatches.Patch(color = 'blue', label = 'Data')
-red_patch = mpatches.Patch(color = 'red', label = 'Simulation')
-dot_patch = mlines.Line2D([], [], color='black', marker='o',
-                          label='Cutoff Frequency')
-
-plt.xscale('log')
-plt.grid(True)
-plt.legend(handles = [blue_patch, red_patch, dot_patch])
-
-plt.title('Gain of a signal as a function of frequency')    
-plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
-plt.ylabel('The gain of the input signal [dB]')
+data = np.loadtxt("bode_low_pass.dat")
 
 
 # store the data in variables
@@ -77,14 +62,14 @@ plt.plot(dat_in, dat_out, color = "blue", alpha = 0.3, lw = 5, zorder = 1)
 plt.plot(sim_in, sim_out, color = 'red', zorder = 2)
 
 plt.xlim(dat_in[0], dat_in[-1])
-plt.ylim(dat_out[0], dat_out[-1]+5)
+plt.ylim(dat_out[-1], dat_out[0]+5)
+
 
 for i in range(len(dat_out)):
-    if dat_out[i] > -3:
+    if dat_out[i] < -3:
         print("Gain is ",dat_out[i], " at ", dat_in[i]/(2*np.pi), "rad/s")
         break
 
 plt.tight_layout()
-plt.savefig("HPF_exp.pdf")
-
+plt.savefig("LPF_exp.pdf")
 \end{verbatim}

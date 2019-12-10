@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 import matplotlib.patches as mpatches
 
-def data_to_array(data_dir): # konverter forsøgs data til noget vi kan bruge
+
+# convert data
+def data_to_array(data_dir): 
     data_import = np.loadtxt(data_dir)
     time_arr = np.zeros(len(data_import))
     cap_arr = np.zeros(len(data_import))
@@ -16,17 +18,21 @@ def data_to_array(data_dir): # konverter forsøgs data til noget vi kan bruge
         step_arr[i] = data_import[i][2]
     return time_arr, cap_arr, step_arr
 
-def sqr_wave(V, t, f): # simuler input spænding
+
+# simulate input voltage
+def sqr_wave(V, t, f): 
     period = f**-1
     if t%period < period/2:
         return V
     else:
         return 0
 
-def cap_charging(t, R, C, V): # opladning af cap
+
+# Charging and discharging of capacitor
+def cap_charging(t, R, C, V): 
     return V*(1-np.e**(-t/(R*C)))
 
-def cap_discharging(t, R, C, V): # afladning af cap
+def cap_discharging(t, R, C, V):
     return V*(np.e**(-t/(R*C))) 
 
 
@@ -41,25 +47,25 @@ cap_sim = np.zeros(len(cap_data))
 step_sim = np.zeros(len(step_data))
 
 
-"""Simuler dataen"""
+"""Simulate the data"""
 
-# input_spændingen
+# simulate the input voltage
 for i in range(len(step_sim)):
     step_sim[i] = sqr_wave(1, time[i], 107.3)
 
-# cap opladning
+# simulate chraging
 for i in range(int(len(cap_sim)/2)):
     cap_sim[i] = cap_charging(time[i], 4770, 97.61e-9, step_data[i])
 
-# cap afladning start tid
+# get the time where discharging starts
 time_point = int(len(cap_sim)/2)-1
 
-# cap afladning
+# simulate the discharge of the caoacitor
 for i in range(int(len(cap_sim)/2)):
     cap_sim[i+time_point] = cap_discharging(time[i], 4770, 97.61e-9, max(cap_sim))
     
 
-""" Gør plottet pænere """
+""" make the plot prettier """
 
 tau = 97.61e-9 * 4770
 plt.grid(True)                     
@@ -84,14 +90,14 @@ plt.legend(handles=[black_patch, blue_patch, red_patch, mpatches.Patch(fc = 'Non
 
 
 
-""" plot dataen """
+""" plot the data """
 
 plt.plot(time, cap_sim, "red")
 plt.plot(time, cap_data, "blue")
 plt.plot(time, step_data, "black")
 
 
-"""eksporter figuren """
+""" export the plot """
 
 fig = plt.gcf()
 fig.set_size_inches(10, 6)
