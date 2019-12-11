@@ -73,9 +73,9 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a gi
 \begin{prof}{}{}
 \Cref{FODE_form} is multiplied by $e^{H(x)}$ on each side:
 \begin{align*}
-\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)},
+\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=& g(x)e^{H(x)},
 \\
-\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=&g(x)e^{H(x)}.
+\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
 Considering the chain and product rules, the left-hand side of the equation can be rewritten as:
 \begin{align*}
@@ -101,8 +101,7 @@ y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right).
 \begin{example}{Solving a linear differential equation of first order}{}
 Consider the following differential equation with the given initial condition.
 \begin{align}
-	\dfrac{dy}{dx}-2y=e^x, \label{ODE_ex}\\ 
-	y(0) =& 5. \nonumber
+	\dfrac{dy}{dx}-2y = e^x, \label{ODE_ex} ~~~~y(0) = 5.
 \end{align}
 Equation \eqref{ODE_ex} can then be rewritten in the form of \eqref{FODE_form}, where:
 %This equation can be rearranged to fit the form of \eqref{FODE_form}, and a general solution, to the differential equation, can then be found using \eqref{FODE_solution}:
@@ -127,10 +126,10 @@ The integral of $e^{-x}$ can then be found. The following result is then reduced
 \end{align*}
 where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. $C_{3}$ is then calculated from the initial condition:
 \begin{align*}
-	y(0)=&5, \\
+	y(0)=& ~ 5, \\
 	5=&-e^0+C_{3} \cdot e^{2 \cdot 0}, \\
-	5 =& C_{3}-1, \\
-	C_{3} =& 6.
+	5 =& ~ C_{3}-1, \\
+	C_{3} =& ~ 6.
 \end{align*}
 The particular solution to the differential equation is then:
 \begin{align*}
@@ -149,8 +148,8 @@ This must then be a particular solution to the given differential equation.
 \section{Separable differential equations}\label{SepDiff}
 \begin{definition}{Separable differential equations}{def:SDE}
 Given a differential equation in the following form: 
-$$\frac{dy}{dx} = f(x,y),$$
-the equation is said to be separable, if the right-hand side of the equation can be expressed as the product of two functions, $g(x)$ and $p(y)$, depending only on one variable each, such that:
+$$\frac{dy}{dx} = f(x,y).$$
+The equation is said to be separable, if the right-hand side of the equation can be expressed as the product of two functions, $g(x)$ and $p(y)$, depending only on one variable each, such that:
 \begin{align*}
 f(x,y)=g(x)p(y),
 \end{align*}
