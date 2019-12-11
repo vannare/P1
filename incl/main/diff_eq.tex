@@ -1,9 +1,9 @@
 \chapter{Differential Equations} 
-The theory in this chapter is based on \cite{diffandcomplex}. In this chapter linear differential equations of the first order, separable differential equations, and their solutions will be described with corresponding examples. In this report, the Leibniz notation is used for derivatives. 
+The theory in this chapter is based on \cite{diffandcomplex}.\\ In this chapter linear differential equations of the first order, separable differential equations, and their solutions will be described with corresponding examples. \\
 
 %Forslag: 
 % The following chapter introduces and describes linear differential questions of the first order, separable differential equations, and their respective solutions, as well as corresponding examples. The chapter is based on (cite), and uses the Leibniz notation for derivatives.
-\noindent Before describing an RC circuit mathematically, the concept of differential equations has to be described. Differential equations are important tools to describe dynamic physical systems. An example of this could be an equation to describe an increasing population. The growth of a population is usually a function of that same population.
+\noindent Before describing an RC circuit mathematically, the concept of differential equations has to be described. Differential equations are important tools to describe dynamic systems. An example of this could be an equation describing an increasing population. The growth of a population is usually a function of that same population. This means that it is easier to describe changes in the system, rather than the system as a whole. \\
 
 % Forslag:
 %The concept of differential equations arises when describing RC circuits mathematically. Differential equations are important tools in describing dynamic, physical systems. An example of such an equation could describe an increasing population. The growth of a function is usually a function of that very population.
@@ -14,16 +14,11 @@ A differential equation is an equation that contains a function, and one or more
 \noindent%Phenomena
 These equations have a function as a solution, rather than a number. 
 \\
-A differential equation would look something like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is of course $y=e^x+C$.
+A differential equation could look like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is in this case: $y=e^x+C$.
+\\\\
+In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and in $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
 \\
-\setlength\intextsep{0pt}
-\begin{wrapfigure}{r}{7cm}[H]
-	\includegraphics[scale=0.5]{fig/img/dydx.png}
-	\caption{A function $f$, shown with a secant through $(x, f(x))$ and $(x_0, f(x_0)$}\label{wrap-fig:1}
-\end{wrapfigure}
-In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and small changes in $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
-\\
-This can be expressed formally as:
+This is formally expressed as:
 \\
 \begin{align*}
 	\dfrac{dy}{dx} =& \lim_{x_0\to 0} \dfrac{y(x+x_0)-y(x)}{x_0}.
@@ -40,9 +35,9 @@ The order of a differential equation is determined by the highest order of deriv
 \textbf{Examples of differential equations of different orders:}
 \\
 A first order differential equation:
-$$y=4\frac{dy}{dx}. $$
+$$\frac{dy}{dx}-4y=0. $$
 A second order differential equation:
-$$\frac{d^2y}{dx^2}+\frac{dy}{dx}+y = 5\frac{dy}{dx}.$$
+$$\frac{d^2y}{dx^2}+\frac{dy}{dx}+y = 0.$$
 And a third order differential equation:
 $$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0.$$
 
@@ -56,14 +51,14 @@ A linear $N$'th order differential equation is an equation that takes the form:
 where $a_k(x)$ are continuous functions on a given interval.
 \end{definition}
 \subsection{Solving a linear differential equation of the first order}
-Solving  a differential equation is not always easy or possible. For differential equations in certain forms, a general solution can be found.
+Solving  a differential equation is not always easy or possible however, for differential equations in certain forms, a general solution can be found.
 
 \begin{theorem}{General solution to a linear differential equation of the first order}{linethe}
-A first order linear differential equation in the form of
+A first order linear differential equation in the form of:
 \begin{align} \label{FODE_form}
 \dfrac{dy}{dx}+h(x)y=g(x),
 \end{align}
-has the general solution
+has the general solution:
 \begin{align} \label{FODE_solution}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)\ dx+C\right),
 \end{align}
@@ -73,8 +68,10 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a gi
 \begin{prof}{}{}
 \Cref{FODE_form} is multiplied by $e^{H(x)}$ on each side:
 \begin{align*}
-\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=& g(x)e^{H(x)},
-\\
+\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=& g(x)e^{H(x)}.
+\end{align*}
+%TEKST DER SKAL SKRIVES IND
+\begin{align*}
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
 Considering the chain and product rules, the left-hand side of the equation can be rewritten as:
@@ -92,18 +89,18 @@ Both sides are then integrated with respect to $x$:
 \\
 e^{H(x)}y=&\int g(x)e^{H(x)}\ dx+C,
 \end{align*}
-where $C$ is the constant of integration from the left-hand side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
+where $C$ is the constant of integration from the left-hand side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found:
 \begin{align*}
 y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right).
 \end{align*}
 \end{prof}
 
 \begin{example}{Solving a linear differential equation of first order}{}
-Consider the following differential equation with the given initial condition.
+Consider the following differential equation with the given initial condition:
 \begin{align}
 	\dfrac{dy}{dx}-2y = e^x, \label{ODE_ex} ~~~~y(0) = 5.
 \end{align}
-Equation \eqref{ODE_ex} can then be rewritten in the form of \eqref{FODE_form}, where:
+Equation \eqref{ODE_ex} is in the form of \eqref{FODE_form}, where:
 %This equation can be rearranged to fit the form of \eqref{FODE_form}, and a general solution, to the differential equation, can then be found using \eqref{FODE_solution}:
 \begin{align*}
 	h(x) =& -2, \\
@@ -114,11 +111,11 @@ Equation \eqref{ODE_ex} can then be rewritten in the form of \eqref{FODE_form}, 
 Substituting the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$: 
 
 \begin{align*}
-	y(x)=&e^{2x+C}\left(\int{e^{-2x-C}e^x\ dx}+C\right), \\
-	y(x)=&e^{2x}e^{C}\left(e^{-C}\int{e^{-2x}e^{x}\ dx}+C\right), \\
+	y(x)=&e^{2x-C}\left(\int{e^{-2x+C}e^x\ dx}+C\right), \\
+	y(x)=&e^{2x}e^{-C}\left(e^{C}\int{e^{-2x}e^{x}\ dx}+C\right), \\
 	y(x)=&e^{2x}\left(\int{e^{-x}\ dx}+C_{1}\right),
 \end{align*}
-where $C_{1}$ is the new constant of integration, $C_1=e^{C}C$. \\
+where $C_{1}$ is the new constant of integration, $C_1=e^{-C}C$. \\
 The integral of $e^{-x}$ can then be found. The following result is then reduced:
 \begin{align*}
 	y(x)=&e^{2x}\left(-e^{-x}+C_{2}+C_{1}\right), \\
@@ -153,40 +150,45 @@ The equation is said to be separable, if the right-hand side of the equation can
 \begin{align*}
 f(x,y)=g(x)p(y),
 \end{align*}
-where $g(x)$ and $p(y)$ are continuous in a given interval.
+where $g(x)$ and $p(y)$ are continuous on a given interval.
 \end{definition}
 \noindent
-By \Cref{def:SDE}, a first order separable differential equation can be written as:
+By \cref{def:SDE}, a first order separable differential equation can be written as:
 \begin{align*}
 	\frac{dy}{dx}=g(x)p(y).
 \end{align*}
-In order to solve this equation, rewrite it and note that $h(y) = \dfrac{1}{p(y)}$.
+In order to solve this equation, it can be rewritten as:
 \begin{align*}
-	h(y)dy=g(x)dx.
+	h(y)dy=g(x)dx,
 \end{align*}
+where $h(y) = \dfrac{1}{p(y)}$.\\
 Both sides of the equation are then integrated:
 \begin{align}
 \int h(y)\ dy =&\int g(x)\ dx, \nonumber  \\
 H(y)=&G(x)+C. \label{SDEG}
 \end{align}
-The two constants are merged into one constant $C$. This is the general solution to a differential equation. \cite{diffandcomplex}
-\subsection{Justification} 
-To show that the differentials, $dy$ and $dx$, in $\dfrac{dy}{dx}$ can be treated algebraically when solving a separable differential equation:
+The two constants are merged into one constant $C$. This is the general solution of a separable differential equation. 
+
+
+\subsection{Justification of method} 
+The differentials, $dy$ and $dx$, in $\dfrac{dy}{dx}$ can be treated algebraically when solving a separable differential equation. 
+\\
+Let $h(x) = \dfrac{1}{g(x)}$:
  \begin{align}
 	\frac{dy}{dx} &= g(x)p(y), \nonumber\\
 	h(y)\frac{dy}{dx} &= g(x). \label{eq:1}
  \end{align}
-Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antiderivative of $g(x)$, equation \eqref{eq:1} can be rewritten as: 
+Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antiderivative of $g(x)$, \eqref{eq:1} can be rewritten as: 
  \begin{align}
  	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}. \label{eq:2}
  \end{align}
 Using the chain rule for differentiation, %$\frac{dH}{dy}\frac{dy}{dx}$ 
 the left-hand side of the equation can be written as the derivative of the composite function $H\left(y(x)\right)$:
  \begin{align}
-	\frac{d}{dx} H\left(y(x)\right) &= \frac{dH}{dy}\frac{dy}{dx}.
+	\frac{dH}{dy}\frac{dy}{dx} &=\frac{d}{dx} H\left(y(x)\right).
 	\label{eq:3}
  \end{align}
-The term in \eqref{eq:3} can be substituted in \eqref{eq:2}, such that
+The term in \eqref{eq:3} can be substituted in \eqref{eq:2}, such that:
  \begin{align}
  	\frac{d}{dx}H\left(y(x)\right) &= \frac{dG}{dx}\label{eq:4}.
  \end{align}
@@ -205,7 +207,7 @@ Given the differential equation and initial condition:
 \end{align*}
 what would the particular solution be?
 \\ \\
-The terms, in this case, are simple to separate: 
+The terms, in this differential equation is separable: 
 \begin{align*}
 	\dfrac{dy}{dx} y^{-2} =& 4x, \\
 	y^{-2} dy =& 4x dx. 

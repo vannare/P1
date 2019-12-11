@@ -3,7 +3,7 @@ This chapter is based on the following sources: \cite{complexpaul}, \cite{comple
 \\
 \noindent 
 The following chapter will first describe the concept of complex numbers and how to operate them mathematically. Additionally, it will introduce complex numbers in polar coordinates and the complex exponential function. Complex numbers is needed when explaining the laplace transform.
-\\
+\\\\
 \noindent 
 When using real numbers, you cannot always solve a given equation. An example of this could be the equation $x^2=-1$. To solve this equation, the imaginary unit is introduced. The imaginary unit is defined as:
 \begin{align*}
@@ -11,12 +11,12 @@ i=\sqrt{-1}.
 \end{align*}
 When $i$ is raised to a power greater than one, it becomes:
 \begin{align*}
-i^2=-1, i^3=-i, i^4=1.
+i^2=-1,\  i^3=-i,\  i^4=1.
 \end{align*}
 
-\noindent If $i$ is raised to a power greater than four, it will loop through the same values: $i, \ -1, \ -i, \ 1$. This can be expressed algebraically. In this case, $n$ is a  positive whole number. 
+\noindent If $i$ is raised to a power greater than four, it will loop through the same values: $i, \ -1, \ -i$ and $1$. This can be expressed algebraically. In this case, $n$ is a  positive whole number. 
 \\
-Since $$i^{4n} = i^4i^4\cdots i^4 = 1,$$
+Since: $$i^{4n} = i^4i^4\cdots i^4 = 1,$$
 the greater exponents of $i$ become:
 \begin{align*}
 	i^{4n+1} =& i^{4n}i^1 = i, \\
@@ -25,22 +25,18 @@ the greater exponents of $i$ become:
 	i^{4n+4} =& i^{4n}i^4 = 1.
 \end{align*}
 Complex numbers are denoted as $z = a+ib$, where $a,b\in \R$. A complex number consists of a real part and an imaginary part. The real and imaginary part of a complex number is written as $\text{Re}\{z\}=a$ and $\text{Im}\{z\}=b$, respectively.
-\\
-\\
 An example of a complex number could be: $z=7+3i$, where 7 is the real part, and 3 is the imaginary part. 
-\\
-\\
 If $\text{Re}\{z\}=0$, the number is said to be purely imaginary.  
-\\
-Complex numbers are plotted in the complex plane. The complex plane consist of two axes: one real along the horizontal and a imaginary along the vertical.\\
+\\\\
+Complex numbers are plotted in the complex plane. The complex plane consist of two axes: one real along the horizontal axis and a imaginary along the vertical axis.\\
 The length from the origin to the complex number is called the modulus or the absolute value of the number.
 
 \begin{definition}{Modulus of a complex number}{modulus}
-The modulus of a complex number $z=a+ib$:
+The modulus of a complex number $z=a+ib$ is:
 $$\mid z\mid=\sqrt{a^2+b^2}.$$
 \end{definition}
 \noindent
-Every complex number has a complex conjugate. The conjugate of a complex number has equal real part, but the imaginary part has opposite sign.
+Every complex number has a complex conjugate. The conjugate of a complex number has the same real part, but the imaginary part has opposite sign.
 
 \begin{definition}{Complex number conjugated}{}
 The complex conjugate of $z=a+ib$ is given by:
@@ -71,10 +67,11 @@ Addition of two complex numbers:
 
 
 \noindent 
-Subtraction has the general from, where the imaginary part can be subtracted with another imaginary part, and the real parts from the other real parts:
+Subtraction has the general form:
 \begin{align*}
-(a + bi) - (c + di) = (a - c) + i(b - d).
+(a + bi) - (c + di) = (a - c) + i(b - d),
 \end{align*}
+where the imaginary part can be subtracted with another imaginary part, and the real parts from the other real parts.
 
 \begin{example}{Subtraction}{}
 Subtraction of two complex numbers:
@@ -84,19 +81,19 @@ Subtraction of two complex numbers:
 \end{example}
 
 \section{Multiplication}
-When multiplying complex numbers, the fact that $i^2 =-1$ must be taken into account. However, the multiplication of complex numbers can still be generalized. 
+When multiplying complex numbers, the fact that $i^2 =-1$ must be taken into account. However, multiplication of complex numbers can still be generalized. 
 \begin{definition}{Multiplying complex numbers}{def:MCN}
 The product of two complex numbers $z_1=a+ib$ and $z_2=c+id$ has the general form:
 \begin{align*}
-(a+ib)(c+id)&=a(c+di)+ib(c+di),
+(a+ib)(c+id)&=a(c+id)+ib(c+id),
 \\
-&=ac+adi+bci+bdi^2,
+&=ac+iad+ibc+i^2bd,
 \\
 &=(ac-bd)+i(ad+bc).
 \end{align*}
 \end{definition}
 \begin{example}{Multiplying complex numbers}{}
-Given two complex numbers $z_1=3+5i$ and $z_2=4-3i$ the product can found using \Cref{def:MCN}:
+Given two complex numbers $z_1=3+5i$ and $z_2=4-3i$, the product can be found using \cref{def:MCN}:
 \begin{align*}
 (3+5i)(4-3i) = (3\cdot4-5\cdot(-3))+i(3\cdot(-3)+5\cdot4)=27+11i.
 \end{align*}
@@ -104,20 +101,20 @@ Given two complex numbers $z_1=3+5i$ and $z_2=4-3i$ the product can found using 
 
 
 \section{Division}
-The division between complex numbers can be difficult to visualize, without them being in the form: $a + bi$. 
+The division between complex numbers can be difficult to visualize, without them being in the form: $a + ib$. 
 \begin{definition}{Dividing complex numbers}{def:DCM}
-Division of two complex numbers where $z_1=a+ib$ and $z_2=c+id$ has the general form:
+Division of two complex numbers, where $z_1=a+ib$ and $z_2=c+id$, has the general form:
 \begin{align*}
-\frac{a + bi}{c + di} = \frac{(a+bi)(c-di)}{(c+di)(c-di)},
+\frac{a + ib}{c + id} = \frac{(a+ib)(c-id)}{(c+id)(c-id)}.
 \end{align*}
-by using \Cref{def:MCN} it becomes:  
+By using \cref{def:MCN}, it becomes:  
 \begin{align*}
 &= \frac{(ac+bd)+i(bc-ad)}{c^2+d^2},							\\[1em]
 &= \frac{ac+bd}{c^2+d^2}+i \frac{bc-ad}{c^2+d^2}.				
 \end{align*}
 \end{definition}
 \begin{example}{Dividing complex numbers}{}
-Given two complex numbers $z_1=18+10i$ and $z_2=3+2i$, the solution can be found using \Cref{def:DCM}:
+Given two complex numbers $z_1=18+10i$ and $z_2=3+2i$, the division can be found using \cref{def:DCM}:
 \begin{align*}
 \frac{18 + 10i}{3 + 2i} &= \dfrac{18\cdot3+10\cdot2}{3^2+2^2}+i\dfrac{10\cdot3-18\cdot2}{3^2+2^2},
 \\
@@ -126,7 +123,7 @@ Given two complex numbers $z_1=18+10i$ and $z_2=3+2i$, the solution can be found
 \end{example}
 
 
-\noindent From the example $\dfrac{74}{13} - \dfrac{6}{13}i$ is now on the form $a+ib$ with $a$ and $b$ being fractions. In the example the denominator is conjugated. As a result the imaginary part of the denominator $ib$ disappears and is only left in the numerator. 
+\noindent From the example, $\dfrac{74}{13} - \dfrac{6}{13}i$ is now on the form $a+ib$ with $a$ and $b$ being fractions. In the example, the denominator is conjugated. As a result, the imaginary part of the denominator $ib$ disappears, and is only left in the numerator. 
 
 
 \section{Complex numbers in polar form}
@@ -141,7 +138,7 @@ z&=r\cos(\theta)+ir\sin(\theta),
 where $r=\mid z \mid$ and $\theta=\tan^{-1}\left(\dfrac{b}{a} \right).$
 \end{definition}
 
-\noindent A complex number $z=a+ib$ can be written is polar form as $\big(r,\theta\big)$, where $r$ is the distance from the origin to the point $z$, $\theta$ is the angle from the real axis to $r$, when measured counter-clockwise. The angle of a complex number is denoted as $\arg(z)=\theta$. This is shown in the figure \ref{fig:complex_plane_polar} below.
+\noindent A complex number $z=a+ib$ can be written is polar form as $\big(r,\theta\big)$, where $r$ is the distance from the origin to the point $z$ and $\theta$ is the angle from the real axis to $r$, when measured counter-clockwise. The angle of a complex number is denoted as $\arg(z)=\theta$. This is shown in the figure below.
 \begin{figure}[H] 
 \centering
 \includegraphics[scale=0.15]{fig/img/complex_plan_polar}
@@ -149,7 +146,7 @@ where $r=\mid z \mid$ and $\theta=\tan^{-1}\left(\dfrac{b}{a} \right).$
 \label{fig:complex_plane_polar}
 \end{figure}
 \noindent
-It can be derived from Figure \ref{fig:complex_plane_polar} that the coordinates of $z=a+ib$ can be expressed as follows:
+From figure \ref{fig:complex_plane_polar}, the coordinates of $z=a+ib$ can be expressed as follows:
 \begin{align}
 a=\text{Re}\{z\}=r\cos(\theta),
 \\
@@ -158,20 +155,20 @@ b=\text{Im}\{z\}=r\sin(\theta).
 \\
 
 \begin{theorem}{Multiplication in polar form}{complex:multi}
-Given two complex numbers $z_1$ and $z_2$ where:
+Given two complex numbers $z_1$ and $z_2$, where:
 \begin{align*}
 z_1=r_1\big( \cos(\theta_1)+i\sin(\theta_1) \big), 
 \\
-z_2=r_2\big( \cos(\theta_2)+i\sin(\theta_2) \big).
+z_2=r_2\big( \cos(\theta_2)+i\sin(\theta_2) \big),
 \end{align*}
-The multiplication of these are given by:
+the multiplication of these are given by:
 \begin{align}
 z_1 z_2=r_1r_2\big( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\big). \label{pol:trig}
 \end{align}
 \end{theorem}
 
 
-\begin{prof}{Multiplication in polar form}{the:multi_polar}
+\begin{prof}{}{the:multi_polar}
 %Kristian vil have noget tekst i stedet for vi går direkte igang med en ligning
 \begin{align}
 z_1 z_2&=r_1 \big( \cos(\theta_1)+ i \sin(\theta_1)\big)r_2 \big( \cos(\theta_2)+ i \sin(\theta_2)\big), \nonumber
@@ -179,7 +176,7 @@ z_1 z_2&=r_1 \big( \cos(\theta_1)+ i \sin(\theta_1)\big)r_2 \big( \cos(\theta_2)
 \label{polar_multiplication}
 z_1z_2&=r_1r_2\Big( \big(\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1) \sin(\theta_2)\big)+i\big(\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)\big)\Big).
 \end{align}
-It is a trigonometric definition that the sine, and the cosine, of the sum of two angles, can be written as follows \cite[p. A-14 Appendicies]{calc}:
+By definition, the sine and cosine of the sum of two angles, can be written as follows \cite[p. A-14 Appendicies]{calc}:
 \\
 \begin{align} 
 \sin(\theta_1+\theta_2)=\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2), \label{sum_cos_sin}
@@ -188,14 +185,14 @@ It is a trigonometric definition that the sine, and the cosine, of the sum of tw
 \cos(\theta_1+\theta_2)=\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1)\sin(\theta_2).
 \end{align*}
 \\
-These definitions are inserted on equation \eqref{polar_multiplication}:
+These definitions are inserted in \eqref{polar_multiplication}:
 \\
 \begin{align*}
 z_1 z_2=r_1r_2\big( \cos(\theta_1+\theta_2)+ i \sin(\theta_1+\theta_2)\big).
 \end{align*}
 \end{prof}
 \noindent
-From equation \ref{the:multi_polar} the following relation can be found:
+From  \eqref{the:multi_polar}, the following relation can be found:
 \begin{align}
 \arg(z_1z_2)&=\arg(z_1)+\arg(z_2),
 \\
@@ -203,44 +200,44 @@ From equation \ref{the:multi_polar} the following relation can be found:
 \end{align}
 
 \begin{theorem}{Division in polar form}{the:div_polar}
-Given two complex numbers
+Given two complex numbers:
 \begin{align*}
 z_1=r_1\big(\cos(\theta_1)+i\sin(\theta_1)\big), 
 \\
-z_2=r_2\big(\cos(\theta_2)+i\sin(\theta_2)\big).
+z_2=r_2\big(\cos(\theta_2)+i\sin(\theta_2)\big),
 \end{align*}
-The division of these are given by:
+the division of these are given by:
 \begin{align*}
 \dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big).
 \end{align*}
 \end{theorem}
 
 
-\begin{prof}{Division in polar form}{}
+\begin{prof}{}{}
 \begin{align*}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\Big(\cos(\theta_1)+i\sin(\theta_1)\Big)}{r_2\Big(\cos(\theta_2)+i\sin(\theta_2)\Big)}.
 \end{align*}
-The numerator and the denominator on the right side is multiplied by $r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)$:
+The numerator and the denominator on the right side are multiplied by $r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)$:
 \begin{align*}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\Big(\cos(\theta_1)+i\sin(\theta_1)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)}{r_2\Big(\cos(\theta_2)+i\sin(\theta_2)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)},
 \\
 &=\dfrac{r_1 r_2}{r_2^2}\dfrac{\cos(\theta_1)\cos(\theta_2)-i\cos(\theta_1)\sin(\theta_2)+i\sin(\theta_1)\cos(\theta_2)+sin(\theta_1)\sin(\theta_2)}{\cos^2(\theta_2)-i\sin(\theta_2)\cos\theta_2)+i\sin(\theta_2)\cos\theta_2)+\sin^2(\theta_2)}.
 \end{align*}
-The difference of cosine and sine is defined as:
+Since the sine and cosine of the difference between two angles are defined as:
 \begin{align*}
 \cos(\theta_1-\theta_2)=\cos(\theta_1)\cos(\theta_2)+\sin(\theta_1)\sin(\theta_2),
 \\
-\sin(\theta_1-\theta_2)=\sin(\theta_1)\cos(\theta_2)-\cos(\theta_1)\sin(\theta_2).
+\sin(\theta_1-\theta_2)=\sin(\theta_1)\cos(\theta_2)-\cos(\theta_1)\sin(\theta_2),
 \end{align*}
-The equation can now be rewritten as:
+the equation can now be rewritten as:
 \begin{align*}
 \dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\dfrac{\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)}{\cos^2(\theta_2)+\sin^2(\theta_2)}.
 \end{align*}
-From Somewhere:
+From the fundamental trigonometric identity: 
 \begin{align*}
 \cos^2(\theta)+\sin^2(\theta)=1.
 \end{align*}
-The equation now can written as:
+The equation can now be written as:
 \begin{align*}
 &=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big).
 \end{align*}
@@ -253,39 +250,35 @@ The equation now can written as:
 \end{align}
 
 \section{The complex exponential function}
-The concept of the complex exponential function is useful in a circuit analysis. However, it must be defined, as it is not entirely obvious what $e$ raised to a complex number means.
+The concept of the complex exponential function is useful in circuit analysis. However, it must be defined, as it is not entirely obvious what $e$ raised to a complex number means.
 
-\begin{definition}{Euler's formula}{eulers_form}
-Euler's formula is defined as:
+\begin{definition}{Euler's identity}{eulers_form}
+Euler's identity is defined as:
 \begin{align}
 e^{i\theta}=\cos(\theta)+\sin(\theta).
 \end{align} 
 \end{definition}
-\begin{theorem}{Modulus of Euler's formula}{the:euler_form}
+\begin{theorem}{Modulus of Euler's identity}{the:euler_form}
 Modulus of $e^{i\theta}$ is said to be equal to one, for all $\theta \in \mathbb{R}$:
 \begin{align*}
 |e^{i\theta}|=1.
 \end{align*}
 \end{theorem}
 \begin{prof}{}{}
-Given the exponential number:
+Given the exponential:
 \begin{align*}
-z=e^{i\theta}=\cos(\theta)+i\sin(\theta).
+z=e^{i\theta}=\cos(\theta)+i\sin(\theta),
 \end{align*}
-Modulus of $z$ is defined as:
+modulus of $z$ is defined as:
 \begin{align}
-|z|=\sqrt{\text{Re}\{z\}^2+\text{Im}\{z\}^2}. \label{eq:mod_euler}
+|z|=\sqrt{\text{Re}\{z\}^2+\text{Im}\{z\}^2}, \label{eq:mod_euler}
 \end{align}
-Where $\text{Re}\{z\}=|e^{i\theta}|=\cos(\theta)$ and $\text{Im}\{z\}=\sin(\theta)$. This is inserted in \eqref{eq:mod_euler}:
+where $\text{Re}\{z\}=|e^{i\theta}|=\cos(\theta)$, and $\text{Im}\{z\}=\sin(\theta)$. This is inserted in \eqref{eq:mod_euler}:
 \begin{align*}
-|z|=|e^{i\theta}|=\sqrt{\cos^2(\theta)+\sin^2(\theta)}.
-\end{align*}
-From somewhere $\cos^2(\theta)+\sin^2(\theta)=1$, this can now be inserted in the equation above:
-\begin{align*}
-|z|=\sqrt{1}=1.
+|z|=|e^{i\theta}|=\sqrt{\cos^2(\theta)+\sin^2(\theta)}=\sqrt{1}=1.
 \end{align*}
 \end{prof}
-\noindent For the complex exponential function to be useful for this context, it needs to fulfil two conditions:
+\noindent In order for the complex exponential function to be useful in this context, it needs to fulfil two conditions:
 \begin{itemize}
 	\item $e^{z_1}e^{z_2} = e^{z_1 + z_2}$
 	\item $\dfrac{d}{dt}e^{z} = e^{z}$
@@ -295,11 +288,13 @@ The complex exponential function can be defined as follows, and it can be shown 
 \begin{definition}{The complex exponential function}{complex:exp:eq}
 The complex exponential function is defined as:
 \begin{align*}
-	e^{z}=e^{a}e^{ib}=e^{a+ib}.
+	e^{z}=e^{a+ib}=e^{a}e^{ib}.
 \end{align*}
 \end{definition}
+
 \noindent
-Given this definition of the complex exponential function, it will then be shown that the conditions set earlier will hold.
+Given this definition of the complex exponential function, it will then be shown that the conditions set earlier will hold.\\
+
 \begin{theorem}{Multiplication of complex numbers in exponential form}{}
 Given two complex numbers in exponential form $e^{z_1}$ and $e^{z_2}$ where:
 \begin{align*}
@@ -314,14 +309,14 @@ e^{z_1}e^{z_2}=e^{z_1+z_2}.
 \end{theorem}
 
 
-\begin{prof}{Multiplication of complex numbers in exponential form}{proof:complex:exp:multi}
-From \Cref{complex:exp:eq} the product can be written as:
+\begin{prof}{}{proof:complex:exp:multi}
+From \cref{complex:exp:eq}, the product can be written as:
 \begin{align*}
 e^{z_1}e^{z_2}&=e^{a_1}\big(\cos(b_1)+i\sin(b_1)\big)e^{a_2}\big(\cos(b_2)+i\sin(b_2)\big),
 \\
 &=e^{a_1}e^{a_2} \Big( \big(\cos(b_1)\cos(b_2)-\sin(b_1) \sin(b_2) \big)+i \big(\cos(b_1)\sin(b_2)+\sin(b_1)\cos(b_2) \big) \Big).
 \end{align*}
-From equation \eqref{sum_cos_sin} this can be rewritten as:
+From \eqref{sum_cos_sin}, this can be rewritten as:
 \begin{align*}
 e^{z_1}e^{z_2}=e^{a_1}e^{a_2}\big(\cos(b_1+b_2)+i(\sin(b_1+b_2)\big).
 \end{align*}
@@ -329,8 +324,8 @@ Since both $e^{a_1}$ and $e^{a_2}$ are real numbers, their exponents can be adde
 \begin{align*}
 e^{z_1}e^{z_2}=e^{a_1+a_2}\big(\cos(b_1+b_2)+i(\sin(b_1+b_2)\big).
 \end{align*}
-From definition \Cref{complex:exp:eq}
-this can rewritten as:
+From definition \cref{complex:exp:eq},
+this can be rewritten as:
 \begin{align*}
 e^{z_1}e^{z_2}&=e^{a_1+a_2}e^{i(b_1+b_2)},
 \\
