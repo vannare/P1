@@ -1,4 +1,8 @@
-\begin{verbatim}
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{label={lst:code_direct}}
+\lstset{numbers = left}
+\begin{lstlisting}[breaklines]
 from scipy import stats
 import numpy as np
 import matplotlib.pyplot as plt
@@ -103,4 +107,4 @@ plt.plot(time, step_data, "black")
 fig = plt.gcf()
 fig.set_size_inches(10, 6)
 fig.savefig('/home/anders/Desktop/test.pdf', dpi=100)
-\end{verbatim}
+\end{lstlisting}
