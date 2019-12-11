@@ -1,11 +1,9 @@
-\begin{prof}{Differentiating a complex exponential function}{proof:complex:diff:exp}
-Proof that the function $f(t)=e^{z\cdot t}$is differentiable, where $z$ is a complex number.
-\\ \\
-To show that the function is differentiable, $z=a+ ib$:
+\begin{prof}{}{proof:complex:diff:exp}
+To show that the function $f(t)=e^{z\cdot t}$ is differentiable, where $z=a+ ib$:
 \begin{align*}
 	f(t) = e^{zt}= e^{(a+ib)t}= e^{at} \cdot e^{ib\cdot t}.
 \end{align*}
-The imaginary part of the complex number $e^{ib\cdot t}$ can be rewritten using \Cref{eulers_form}:
+The imaginary part of the complex number $e^{ib\cdot t}$ can be rewritten using \cref{eulers_form}:
 \begin{align*}
 	f(t) =& e^{at}\big(\cos(bt)+i \cdot \sin(bt)\big), \\
 		 =& e^{at}\cos(bt) + e^{at} i \cdot \sin(bt).
@@ -17,19 +15,19 @@ The rewritten function can be differentiated using the chain rule:
 	=& e^{at}\bigg(a \cdot e^{ib \cdot t}+b\big(i \cdot \cos(bt) - \sin(bt)\big)\bigg), \nonumber \\
 	=& a e^{t(a+ib)} + b e^{at}\big(i \cdot \cos(bt) - \sin(bt)\big). \label{proof:chain}
 \end{align}
-Since $i^2 = -1$ equation \eqref{proof:chain} can be rewritten. Furthermore, $a+ib$ is replaced with $z$:
+Since $i^2 = -1$, \eqref{proof:chain} can be rewritten. Furthermore, $a+ib$ is replaced with $z$:
 \begin{align*}
 	\dfrac{d}{dt}f(t) =& a e^{zt} + b e^{at}\big(i \cdot \cos(bt) + i^2 \cdot \sin(bt)\big).
 \end{align*}
-$i$ is now moved outside the parentheses, and \Cref{eulers_form} is used to reduce the equation:
+$i$ is now moved outside the parentheses, and \cref{eulers_form} is used to reduce the equation:
 \begin{align*}
 	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{at}\big(\cos(bt) + i \cdot \sin(bt)\big), \\
 	=&  a e^{zt} + ib e^{at}e^{ib \cdot t}. \\
 \end{align*}
-Now $a+ib$ is replaced with $z$, and $e^{zt}$ can be moved outside the parentheses:
+Now $a+ib$ is replaced with $z$, and $e^{zt}$ can be placed outside of the parentheses:
 \begin{align*}
 	\dfrac{d}{dt}f(t) =&  a e^{zt} + ib e^{t(a+ib)}, \\
 	=&  e^{zt}(a+ib).
 \end{align*}
-$a+ib$ is again replaced with $z$, and \Cref{theorem:complex:exp} is proved.
+$a+ib$ is again replaced with $z$, and \cref{theorem:complex:exp} is proved.
 \end{prof}
