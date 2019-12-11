@@ -93,9 +93,9 @@ Both sides are then integrated with respect to $x$:
 e^{H(x)}y=&\int g(x)e^{H(x)}\ dx+C,
 \end{align*}
 where $C$ is the constant of integration from the left-hand side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
-\begin{align}
+\begin{align*}
 y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right).
-\end{align}
+\end{align*}
 \end{prof}
 
 \begin{example}{Solving a linear differential equation of first order}{}
@@ -151,23 +151,23 @@ This must then be a particular solution to the given differential equation.
 Given a differential equation in the following form: 
 $$\frac{dy}{dx} = f(x,y),$$
 the equation is said to be separable, if the right-hand side of the equation can be expressed as the product of two functions, $g(x)$ and $p(y)$, depending only on one variable each, such that:
-\begin{align}
+\begin{align*}
 f(x,y)=g(x)p(y),
-\end{align}
+\end{align*}
 where $g(x)$ and $p(y)$ are continuous in a given interval.
 \end{definition}
 \noindent
 By \Cref{def:SDE}, a first order separable differential equation can be written as:
-\begin{align}
+\begin{align*}
 	\frac{dy}{dx}=g(x)p(y).
-\end{align}
+\end{align*}
 In order to solve this equation, rewrite it and note that $h(y) = \dfrac{1}{p(y)}$.
-\begin{align}
+\begin{align*}
 	h(y)dy=g(x)dx.
-\end{align}
+\end{align*}
 Both sides of the equation are then integrated:
 \begin{align}
-\int h(y)\ dy =&\int g(x)\ dx,   \\
+\int h(y)\ dy =&\int g(x)\ dx, \nonumber  \\
 H(y)=&G(x)+C. \label{SDEG}
 \end{align}
 The two constants are merged into one constant $C$. This is the general solution to a differential equation. \cite{diffandcomplex}
