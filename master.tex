@@ -20,6 +20,7 @@
   Kristian Hessellund}
 
 \usepackage{aaumath}
+\usepackage{pdftexcmds}
 \usepackage{amsmath}
 \renewcommand{\arraystretch}{2.1}
 \providecommand{\definitionname}{Definition}
@@ -82,12 +83,12 @@
 \include{incl/main/laplace}
 \include{incl/main/high_low}
 \include{incl/main/discussion}
+\include{incl/main/conclusion}
 
 
 
 \begin{appendices}
-   \include{incl/app/appendix1.tex}
-   \include{incl/app/appendix2.tex}
+   \input{incl/app/appendix_master.tex}
 \end{appendices}
 
 

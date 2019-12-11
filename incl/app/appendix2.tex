@@ -1,0 +1,54 @@
+\begin{verbatim}
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# constants of circuit, w is angular frequency inputs
+w = np.linspace(0, 10**7, 10**5)
+R = 1000
+C = 97.61*10**-9
+
+
+# function for calculating the gain of an LPF
+def trans_func(wf):
+    return 20*np.log10(1/np.sqrt(1+(R*C*wf)**2))
+
+
+# the out gain
+out = trans_func(w)
+
+# cutoff frequency values
+fc_x = 1/(R*C)
+fc_y = trans_func(fc_x)
+
+# plotting and prettyfying
+plt.xscale('log')
+plt.plot(w, out, 'black')
+plt.grid('true')
+plt.xlabel(r'The angular frequency of the input signal $\left[\dfrac{rad}{s}\right]$')
+plt.ylabel('Gain in decibels [dB]')
+plt.title('Example of a bode plot')
+plt.scatter(fc_x, fc_y, edgecolor = 'blue')
+plt.annotate(r'$f_c$', (fc_x+4000, fc_y), size = 14)
+plt.tight_layout()
+plt.ylim(-59, 2)
+
+# cutting up the intervals for coloring
+blue_reg_x = w[w <= fc_x]
+red_reg_x = w[w >= fc_x]
+blue_reg_y = trans_func(blue_reg_x)
+red_reg_y = trans_func(red_reg_x)
+
+# changing the first and last points to color in all of the plot
+blue_reg_y[0] = out[-1]
+blue_reg_y[-1] = out[-1]
+red_reg_y[0] = out[-1]
+red_reg_y[-1] = out[-1]
+
+# coloring the plot
+plt.fill(blue_reg_x, blue_reg_y, 'blue', alpha = 0.3)
+plt.fill(red_reg_x, red_reg_y, 'red', alpha = 0.3)
+
+plt.savefig('bode_example.pdf')
+
+\end{verbatim}

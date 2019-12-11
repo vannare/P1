@@ -14,7 +14,7 @@ A differential equation is an equation that contains a function, and one or more
 \noindent%Phenomena
 These equations have a function as a solution, rather than a number. 
 \\
-A differential equation would look something like this: $\frac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is of course $y=e^x+C$.
+A differential equation would look something like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is of course $y=e^x+C$.
 \\
 \setlength\intextsep{0pt}
 \begin{wrapfigure}{r}{7cm}[H]
@@ -26,7 +26,7 @@ In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and sma
 This can be expressed formally as:
 \\
 \begin{align*}
-	\dfrac{dy}{dx} =& \lim_{x_0\to 0} \dfrac{y(x+x_0)-y(x)}{x_0}
+	\dfrac{dy}{dx} =& \lim_{x_0\to 0} \dfrac{y(x+x_0)-y(x)}{x_0}.
 \end{align*}
 A differential equation can  have either a general solution or a particular solution. When finding the general solution, there is no initial condition to determine the constant $C$. Finding a particular solution requires an initial condition, from which the constant $C$ can be found.
 
@@ -40,13 +40,13 @@ The order of a differential equation is determined by the highest order of deriv
 \textbf{Examples of differential equations of different orders:}
 \\
 A first order differential equation:
-$$y=4\frac{dy}{dx} $$
+$$y=4\frac{dy}{dx}. $$
 A second order differential equation:
-$$\frac{d^2y}{dx^2}+\frac{dy}{dx}+y = 5\frac{dy}{dx}$$
+$$\frac{d^2y}{dx^2}+\frac{dy}{dx}+y = 5\frac{dy}{dx}.$$
 And a third order differential equation:
-$$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0$$
+$$\frac{d^3y}{dx^3} - 9\frac{d^2y}{dx^2} + 15\frac{dy}{dx} + 25y = 0.$$
 
-\section{Linear Differential Equations}
+\section{Linear differential equations}
 There are two types of differential equations: linear and non-linear. A linear differential equation is a linear polynomial that consists of a function and its derivatives.
 \begin{definition}{$N$'th order linear differential equation}{}
 A linear $N$'th order differential equation is an equation that takes the form:
@@ -55,7 +55,7 @@ A linear $N$'th order differential equation is an equation that takes the form:
 \end{align*}
 where $a_k(x)$ are continuous functions on a given interval.
 \end{definition}
-\subsection{Solving a Linear Differential Equation of the First Order}
+\subsection{Solving a linear differential equation of the first order}
 Solving  a differential equation is not always easy or possible. For differential equations in certain forms, a general solution can be found.
 
 \begin{theorem}{General solution to a linear differential equation of the first order}{linethe}
@@ -73,82 +73,80 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a gi
 \begin{prof}{}{}
 \Cref{FODE_form} is multiplied by $e^{H(x)}$ on each side:
 \begin{align*}
-\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)}
+\left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=&g(x)e^{H(x)},
 \\
-\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=&g(x)e^{H(x)}
+\dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=&g(x)e^{H(x)}.
 \end{align*}
 Considering the chain and product rules, the left-hand side of the equation can be rewritten as:
 \begin{align*}
-\dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}
+\dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}.
 \end{align*}
 This is because the left-hand side, when differentiated, becomes:
 \begin{align*}
-\dfrac{d}{dx}\left(e^{H(x)}y\right)=&\dfrac{d}{dx}\left(e^{H(x)}\right)y+\dfrac{dy}{dx}e^{H(x)} \\
- =& h(x)ye^{H(x)}+\dfrac{dy}{dx}e^{H(x)}
+\dfrac{d}{dx}\left(e^{H(x)}y\right)=&\dfrac{d}{dx}\left(e^{H(x)}\right)y+\dfrac{dy}{dx}e^{H(x)}, \\
+ =& h(x)ye^{H(x)}+\dfrac{dy}{dx}e^{H(x)}.
 \end{align*}
 Both sides are then integrated with respect to $x$:
 \begin{align*}
-\int\dfrac{d}{dx}\left(e^{H(x)}y\right)\ dx=&\int g(x)e^{H(x)}\ dx
+\int\dfrac{d}{dx}\left(e^{H(x)}y\right)\ dx=&\int g(x)e^{H(x)}\ dx,
 \\
 e^{H(x)}y=&\int g(x)e^{H(x)}\ dx+C,
 \end{align*}
 where $C$ is the constant of integration from the left-hand side of the  equation. By multiplying both sides with $e^{-H(x)}$, the general solution can be found.
 \begin{align}
-y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right)
+y=e^{-H(x)}\left(\int g(x)e^{H(x)}\ dx+C\right).
 \end{align}
 \end{prof}
 
 \begin{example}{Solving a linear differential equation of first order}{}
 Consider the following differential equation with the given initial condition.
 \begin{align}
-	\dfrac{dy}{dx}-2y=e^x  \label{ODE_ex}\\ 
-	y(0) =& 5 \nonumber
+	\dfrac{dy}{dx}-2y=e^x, \label{ODE_ex}\\ 
+	y(0) =& 5. \nonumber
 \end{align}
 Equation \eqref{ODE_ex} can then be rewritten in the form of \eqref{FODE_form}, where:
 %This equation can be rearranged to fit the form of \eqref{FODE_form}, and a general solution, to the differential equation, can then be found using \eqref{FODE_solution}:
 \begin{align*}
-	h(x) =& -2 \\
-	g(x) =& e^x \\
-	H(x) =& \int{-2 \ dx} \\
-	     =& -2x + C
+	h(x) =& -2, \\
+	g(x) =& e^x, \\
+	H(x) =& \int{-2 \ dx}, \\
+	     =& -2x + C.
 \end{align*}
-Substituting the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$, we get: 
-
-% "we" ????
+Substituting the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$: 
 
 \begin{align*}
-	y(x)=&e^{2x+C}(\int{e^{-2x-C}e^x\ dx}+C) \\
-	y(x)=&e^{2x}e^{C}(e^{-C}\int{e^{-2x}e^{x}\ dx}+C) \\
-	y(x)=&e^{2x}(\int{e^{-x}\ dx}+C_{1}),
+	y(x)=&e^{2x+C}\left(\int{e^{-2x-C}e^x\ dx}+C\right), \\
+	y(x)=&e^{2x}e^{C}\left(e^{-C}\int{e^{-2x}e^{x}\ dx}+C\right), \\
+	y(x)=&e^{2x}\left(\int{e^{-x}\ dx}+C_{1}\right),
 \end{align*}
 where $C_{1}$ is the new constant of integration, $C_1=e^{C}C$. \\
 The integral of $e^{-x}$ can then be found. The following result is then reduced:
 \begin{align*}
-	y(x)=&e^{2x}(-e^{-x}+C_{2}+C_{1}) \\
+	y(x)=&e^{2x}\left(-e^{-x}+C_{2}+C_{1}\right), \\
 	y(x)=&-e^x+C_{3} \cdot e^{2x},
 \end{align*}
 where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. $C_{3}$ is then calculated from the initial condition:
 \begin{align*}
-	y(0)=&5 \\
-	5=&-e^0+C_{3} \cdot e^{2 \cdot 0} \\
-	5 =& C_{3}-1 \\
-	C_{3} =& 6
+	y(0)=&5, \\
+	5=&-e^0+C_{3} \cdot e^{2 \cdot 0}, \\
+	5 =& C_{3}-1, \\
+	C_{3} =& 6.
 \end{align*}
 The particular solution to the differential equation is then:
 \begin{align*}
-	y(x) = -e^x+6e^{2x}
+	y(x) = -e^x+6e^{2x}.
 \end{align*}
 To check the validity of this solution, it is substituted into the differential equation:
 \begin{align*}
-	e^x =& \dfrac{dy}{dx} -2y \\
-	e^x =& -e^x+12e^{2x} -2(-e^x+6e^{2x})  \\
-	e^x =& -e^x+2e^x  \\
-	e^x =& e^x
+	e^x =& \dfrac{dy}{dx} -2y, \\
+	e^x =& -e^x+12e^{2x} -2\left(-e^x+6e^{2x}\right),  \\
+	e^x =& -e^x+2e^x,  \\
+	e^x =& e^x.
 \end{align*}
 This must then be a particular solution to the given differential equation.
 \end{example}
 
-\section{Separable Differential Equations}\label{SepDiff}
+\section{Separable differential equations}\label{SepDiff}
 \begin{definition}{Separable differential equations}{def:SDE}
 Given a differential equation in the following form: 
 $$\frac{dy}{dx} = f(x,y),$$
@@ -161,74 +159,74 @@ where $g(x)$ and $p(y)$ are continuous in a given interval.
 \noindent
 By \Cref{def:SDE}, a first order separable differential equation can be written as:
 \begin{align}
-	\frac{dy}{dx}=g(x)p(y)
+	\frac{dy}{dx}=g(x)p(y).
 \end{align}
-In order to solve this equation, rewrite it and note that $h(y) = \frac{1}{p(y)}$.
+In order to solve this equation, rewrite it and note that $h(y) = \dfrac{1}{p(y)}$.
 \begin{align}
-	h(y)dy=g(x)dx
+	h(y)dy=g(x)dx.
 \end{align}
 Both sides of the equation are then integrated:
 \begin{align}
-\int h(y)\ dy =&\int g(x)\ dx   \\
-H(y)=&G(x)+C \label{SDEG}
+\int h(y)\ dy =&\int g(x)\ dx,   \\
+H(y)=&G(x)+C. \label{SDEG}
 \end{align}
 The two constants are merged into one constant $C$. This is the general solution to a differential equation. \cite{diffandcomplex}
 \subsection{Justification} 
-To show that the differentials, $dy$ and $dx$, in $\frac{dy}{dx}$ can be treated algebraically when solving a separable differential equation:
+To show that the differentials, $dy$ and $dx$, in $\dfrac{dy}{dx}$ can be treated algebraically when solving a separable differential equation:
  \begin{align}
-	\frac{dy}{dx} &= g(x)p(y)\nonumber\\
-	h(y)\frac{dy}{dx} &= g(x)\label{eq:1}
+	\frac{dy}{dx} &= g(x)p(y), \nonumber\\
+	h(y)\frac{dy}{dx} &= g(x). \label{eq:1}
  \end{align}
 Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antiderivative of $g(x)$, equation \eqref{eq:1} can be rewritten as: 
  \begin{align}
- 	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}\label{eq:2}
+ 	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}. \label{eq:2}
  \end{align}
 Using the chain rule for differentiation, %$\frac{dH}{dy}\frac{dy}{dx}$ 
-the left-hand side of the equation can be written as the derivative of the composite function $H(y(x))$:
+the left-hand side of the equation can be written as the derivative of the composite function $H\left(y(x)\right)$:
  \begin{align}
-	\frac{d}{dx} H(y(x)) &= \frac{dH}{dy}\frac{dy}{dx}
+	\frac{d}{dx} H\left(y(x)\right) &= \frac{dH}{dy}\frac{dy}{dx}.
 	\label{eq:3}
  \end{align}
 The term in \eqref{eq:3} can be substituted in \eqref{eq:2}, such that
  \begin{align}
- 	\frac{d}{dx}H(y(x)) &= \frac{dG}{dx}\label{eq:4}.
+ 	\frac{d}{dx}H\left(y(x)\right) &= \frac{dG}{dx}\label{eq:4}.
  \end{align}
-Equation \eqref{eq:4} shows that $H(y(x))$ and $G(x)$ have the same derivative, and must differ by a constant $C$ after integrating both sides:
+Equation \eqref{eq:4} shows that $H\left(y(x)\right)$ and $G(x)$ have the same derivative, and must differ by a constant $C$ after integrating both sides:
  \begin{align*}
- 	H(y(x)) &= G(x) + C
+ 	H\left(y(x)\right) &= G(x) + C.
  \end{align*}
-This shows that the same result is found whether $\frac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\frac{dy}{dx}$ algebraically.
+This shows that the same result is found whether $\dfrac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\dfrac{dy}{dx}$ algebraically.
 
 
 \begin{example}{Solving a separable differential equation}{}
 Given the differential equation and initial condition:
 \begin{align*}
-	\dfrac{dy}{dx} =& y^2 4x \\
+	\dfrac{dy}{dx} =& y^2 4x, \\
 	y(1) =& \dfrac{1}{3},
 \end{align*}
 what would the particular solution be?
 \\ \\
 The terms, in this case, are simple to separate: 
 \begin{align*}
-	\dfrac{dy}{dx} y^{-2} =& 4x \\
-	y^{-2} dy =& 4x dx 
+	\dfrac{dy}{dx} y^{-2} =& 4x, \\
+	y^{-2} dy =& 4x dx. 
 \end{align*}
 Both sides of the equation are then integrated, and solved for $y$:
 \begin{align*}
-	\int{y^{-2}\ dy} =& \int{4x\  dx} \\
-	-y^{-1} =& 2x^2 +C \\
-	y =& \dfrac{1}{-2x^2-C}
+	\int{y^{-2}\ dy} =& \int{4x\  dx}, \\
+	-y^{-1} =& 2x^2 +C, \\
+	y =& \dfrac{1}{-2x^2-C}.
 \end{align*}
 Using the initial condition, the integration constant can then be found:
 \begin{align*}
-	y(1) =& \dfrac{1}{3} \\
-	\dfrac{1}{3} =& \dfrac{1}{-2 \cdot 1^2-C} \\
-	3 =& -2-C \\
-	C =& -5
+	y(1) =& \dfrac{1}{3}, \\
+	\dfrac{1}{3} =& \dfrac{1}{-2 \cdot 1^2-C}, \\
+	3 =& -2-C, \\
+	C =& -5.
 \end{align*}
 The particular solution to this equation is then:
 \begin{align*}
-	y(x) = \dfrac{1}{-2x^2+5}
+	y(x) = \dfrac{1}{-2x^2+5}.
 \end{align*}
 
 The validity of the solution can be checked by substituting the solution in the equation:
@@ -236,12 +234,12 @@ The validity of the solution can be checked by substituting the solution in the 
 % "equation" mangler reference til et udtryk
 
 \begin{align*}
-	\dfrac{dy}{dx} =& y^24x \\
-	y(1) =& \dfrac{1}{3}  \\
+	\dfrac{dy}{dx} =& y^24x, \\
+	y(1) =& \dfrac{1}{3},  \\
 	\\
-	\dfrac{d}{dx} \left(\dfrac{1}{-2x^2+5}\right) =& \dfrac{4x}{(-2x^2+5)^2} \\
-	-4x\left(\dfrac{-1}{(-2x^2+5)^2}\right)  =& \dfrac{4x}{(-2x^2+5)^2} \\
-	\dfrac{4x}{(-2x^2+5)^2} =& \dfrac{4x}{(-2x^2+5)^2}
+	\dfrac{d}{dx} \left(\dfrac{1}{-2x^2+5}\right) =& \dfrac{4x}{(-2x^2+5)^2}, \\
+	-4x\left(\dfrac{-1}{(-2x^2+5)^2}\right)  =& \dfrac{4x}{(-2x^2+5)^2}, \\
+	\dfrac{4x}{(-2x^2+5)^2} =& \dfrac{4x}{(-2x^2+5)^2}.
 \end{align*}
 A particular solution to the equation has then been found.
 \end{example}
