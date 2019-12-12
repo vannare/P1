@@ -52,16 +52,16 @@ v_C(t) =& e^{\frac{-t}{RC}}e^{A}.\label{V_eA}
 \end{align}
 Since $A$ is the constant of integration, $e^A$ is constant as well.
 \\
-By definition, the initial voltage of a fully charged capacitor is $v_C(0)=v_0$:
+By definition, the initial voltage of a fully charged capacitor is $v_C(0)=v_{input}$:
  \begin{align*}
 	v_C(0) &= e^{\frac{0}{RC}}e^A, \\
 	v_C(0) &= e^A.
  \end{align*}
-Therefore $e^A = v_0$, and this can be inserted into \eqref{V_eA}:
+Therefore $e^A = v_{input}$, and this can be inserted into \eqref{V_eA}. Furthermore $RC$ is replaced with $\tau$:
 \begin{align}
 \label{V_down}
 \Aboxed{
- v_{discharge}(t) = v_0e^{\frac{-t}{RC}}
+ v_{discharge}(t) = v_{input}e^{\frac{-t}{\tau}}
  }
 \end{align}
 The function in \eqref{V_down} describes how the voltage decreases over time, when the capacitor is discharged.
@@ -70,22 +70,22 @@ The function in \eqref{V_down} describes how the voltage decreases over time, wh
 \textbf{Charging of a capacitor}\\
 In the case of an RC circuit, KVL in section \ref{Klaws} can be rewritten as the following equation:
 \begin{align}
-v_{input}(t)-v_R(t)-v_C(t) =& 0, \nonumber \\
-v_{input}(t) =& v_R(t)+v_C(t), \label{V_B}
+v_{input}-v_R(t)-v_C(t) =& 0, \nonumber \\
+v_{input} =& v_R(t)+v_C(t), \label{V_B}
 \end{align}
-where $v_{input}(t)$ is the voltage of the input source, $v_R(t)$ is the voltage across the resistor, and $v_C(t)$ is the voltage across the capacitor. 
+where $v_{input}$ is the voltage of the input source, $v_R(t)$ is the voltage across the resistor, and $v_C(t)$ is the voltage across the capacitor. 
 \\
 From \eqref{Ohm}, the voltage across the resistor can be expressed as $v_R(t)=i_{R}(t) R$. From \eqref{QCV} the voltage drop across the capacitor can be expressed as $v_C(t)=\dfrac{q_C (t)}{C}$. These voltage definitions are inserted into \eqref{V_B}:
 \begin{align}
-v_{input}(t) =& i_{R}(t) R + \dfrac{q_C (t)}{C}. \label{Vb=IR}
+v_{input} =& i_{R}(t) R + \dfrac{q_C (t)}{C}. \label{Vb=IR}
 \end{align}
 As stated in \eqref{I=dq/dt}, current is defined as $i(t) =\dfrac{dq(t)}{dt}$, and this is inserted into \eqref{Vb=IR}:
  \begin{align*}
- 	v_{input}(t) &= \frac{dq_R(t)}{dt} R + \frac{q_C (t)}{C}.
+ 	v_{input} &= \frac{dq_R(t)}{dt} R + \frac{q_C (t)}{C}.
  \end{align*}
 Both sides are divided by $R$:
 \begin{align}
-\dfrac{v_{input}(t)}{R} &= \dfrac{dq_R(t)}{dt} + \dfrac{1}{RC}q_C(t).\label{Vb/R} 
+\dfrac{v_{input}}{R} &= \dfrac{dq_R(t)}{dt} + \dfrac{1}{RC}q_C(t).\label{Vb/R} 
 \end{align}
 This is now a linear differential equation of the first order in the form of \eqref{FODE_form}:
 \begin{align*}
@@ -109,11 +109,11 @@ g(x) &= \dfrac{v_{input}(t)}{R},
 \end{align*}
 Then the general solution for \eqref{Vb/R} is:
 \begin{align*}
-q_C(t) &= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{v_{input}(t)}{R}dt.
+q_C(t) &= e^{\frac{-t}{RC}}\int_{0}^{t}e^{\frac{t}{RC}}\dfrac{v_{input}}{R}dt.
 \end{align*}
 The constant is placed outside of the integral:
 \begin{align}
-q_C(t) &= e^{\frac{-t}{RC}}\dfrac{v_{input}(t)}{R}\bigg(\int_{0}^{t}e^{\frac{t}{RC}}dt+C \bigg). \label{Q_1}
+q_C(t) &= e^{\frac{-t}{RC}}\dfrac{v_{input}}{R}\bigg(\int_{0}^{t}e^{\frac{t}{RC}}dt+C \bigg). \label{Q_1}
 \end{align}
 The integral is now solved by substitution. First $u$ and $\dfrac{du}{dt}$ are defined:
 \begin{align*}
@@ -125,80 +125,83 @@ dt &=RC du.
 \end{align*} 
 By inserting these definitions into \eqref{Q_1}, the equation looks as follows
 \begin{align*}
-q_C(t) &= e^{\frac{-t}{RC}} \cdot \dfrac{v_{input}(t)}{R}\cdot \int_{0}^{\frac{t}{RC}} R \cdot C \cdot e^u du,
+q_C(t) &= e^{\frac{-t}{RC}} \cdot \dfrac{v_{input}}{R}\cdot \int_{0}^{\frac{t}{RC}} R \cdot C \cdot e^u du,
 \\
-q_C(t) &= e^{\frac{-t}{RC}}\cdot v_{input}(t)\cdot C\cdot \left[e^u\right]_{0}^{\frac{t}{RC}},
+q_C(t) &= e^{\frac{-t}{RC}}\cdot v_{input}\cdot C\cdot \left[e^u\right]_{0}^{\frac{t}{RC}},
 \\
-q_C(t) &= v_{input}(t) \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}-1\right),
+q_C(t) &= v_{input} \cdot C\cdot e^{\frac{-t}{RC}}\cdot\left(e^{\frac{t}{RC}}-1\right),
 \\
-q_C(t) &= v_{input}(t) \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right).
+q_C(t) &= v_{input} \cdot C \cdot \left(1-e^{\frac{-t}{RC}}\right).
 \end{align*} 
-The voltage across a capacitor is given as $v_C(t)=\dfrac{q_C(t)}{C}$. By dividing the equation above with $C$, the function for charging a capacitor is found:
+The voltage across a capacitor is given as $v_C(t)=\dfrac{q_C(t)}{C}$. By dividing the equation above with $C$. Furthermore $RC$ is replaced with $\tau$. The function for charging a capacitor is found:
 \begin{align}
 \label{V_up}
 \Aboxed{
-v_C(t)=v_{charge}(t)\left(1-e^{\frac{-t}{RC}}\right)
+v_{charge}(t)=v_{input}\left(1-e^{\frac{-t}{\tau}}\right)
 }
 \end{align}
 \section{RC circuit experiment} \label{c: RC_exp}
-In the following section an RC circuit experiment has been conducted. Data from an RC circuit will be compared to values from a mathematical model.
+In the following section an RC circuit experiment has been conducted. A step voltage input applies current to the circuit till the capacitor is charged. The capacitor is then discharged. The voltage across the capacitor will be measured for the charge and discharge and will be compared to \eqref{V_down} and \eqref{V_up}.
 
-\subsection{Theoretical values}
-The resistor and capacitor in the experiment had the following values:
+\subsection{Experiment set-up}
+For the experiment, an RC circuit has been constructed with the following values for the resistor, capacitor and input:
 \begin{align*}
  R =& 4770\Omega, \\
- C =& 97.61nF.
+ C =& 97.61nF,
+ \\
+ v_{input} =& 1 V.
 \end{align*}
 The circuit was set up as follows:
 \begin{figure}[H]
 	\input{fig/tikz/excircuit.tex}
-	\caption{A circuit with a resistor (4770$\Omega$) and a capacitor (97.61nF.)}
+	\caption{An RC circuit with a resistor (4770$\Omega$), capacitor (97.61nF). and voltage input (1V).}
 \end{figure}
-\noindent The time constant $\tau$ is defined as $\tau = RC$. In this case $\tau$ is:
-\begin{align}
-	\tau = 4.77 k\Omega \cdot 97.61 nF &= 46.56 \cdot 10^{-5} s. \label{eq:tau}
-\end{align}
-Furthermore, the charging and discharging of the capacitor can then be put in a table. Since the formula $v_{charge}(t)=v_{input}(t)\left(1-e^{\frac{-t}{RC}}\right)$ contains $e^{\frac{-t}{RC}}$, the table values can be calculated for different $\tau$ values. $v_{charge}(t)$ can be calculated as follows for $\tau = 2$: 
-\begin{align*}
-v_{charge}(t)=v_{input}(t) \cdot \left(1-e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{input}(t)(0.865).
-\end{align*}
-Here $86.5\%$ is the table value for two $\tau$. The formula for $v_{discharge}(t)$ was derived in section \ref{sec371} as: $v_{C}(t)=v_{0} \left(e^{\frac{-t}{\tau}} \right)$. $v_{discharge}$ for $\tau = 2$ can be calculated as:
-\begin{align*}
-v_{discharge}(t)=v_{0} \cdot \left(e^{\left(\frac{\left(-2 \cdot \left(46.56 \cdot 10^{-5} \right)\right)}{46.56 \cdot 10^{-5}}\right)} \right) = v_{0}(0.135).
-\end{align*}
-The table value for $\tau = 2$ is therefore $13.5 \%$ for $v_{discharging}(t)$. \\
-Hereby a table can be created for $v_{charge}(t)$ and $v_{discharge}(t)$: \\
-\begin{table}[H]
-\center
-\begin{tabular}{|l|l|l|}
-\hline
-$\tau$ & $v_{charge}(t)$ & $v_{discharge}(t)$ \\ \hline
-1      & 63.2\%       & 36.8\%         \\ \hline
-2      & 86.5\%       & 13.5\%         \\ \hline
-3      & 95.0\%       & 5.0\%          \\ \hline
-4      & 98.2\%       & 1.8\%          \\ \hline
-5      & 99.3\%       & 0.7\%          \\ \hline
-\end{tabular}
-\caption{$\tau$ charge and discharge percentages}
-\end{table}
-\noindent Generally, the capacitor is considered fully charged, or discharged, at $5\tau$. \\
-The time it takes for the capacitor to be fully charged, or discharged, is in this case:
-\begin{align*}
-5\tau &= 5 \cdot 46.56 \cdot 10^{-5} s, \\
-&= 2.33 ms.
-\end{align*}
-
-\subsection{Test values comparison}
+\noindent
+The RC circuit was constructed using the Analog Discovery 2. A representation of this can be seen in figure \ref{rc_flow}.
 \begin{figure}[H]
 	\center
 		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
 	\caption{Setup of the RC circuit used in the experiment.}
 	\label{rc_flow}
 \end{figure}
-% Vær OBS på farvebeskrivelser af ledninger
-This section uses the Analog Discovery 2 for setting up an RC circuit. The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (yellow/white). Hereby, the circuit illustrated in figure \ref{rc_flow} is created with the same values as in the previous section. \\ \\
-To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $107.3 Hz$  ($(4 \cdot 2.33 ms)^{-1} = 107.3 Hz$). \\
-The data from the theoretical values and the test results can now be compared using python:
+\noindent
+ANDERS FIX FIGUREN.
+\\
+The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (black).
+\subsection{Theoretical values}
+In this experiment a step voltage input was used in which the frequency input has to be calculated. To determine this frequency one has to decide how long the capacitor should charge and discharge. To do this, a table with percentual voltage of the capacitor charges and discharges is made from \eqref{V_down} and \eqref{V_up}.
+\\
+After $1\tau$ the percentual voltage of the capacitor when charging can be calculated as follows:
+\begin{align*}
+v_{charge}(1\tau)=v_{input}\bigg(1-e^{\frac{-\tau}{\tau}}\bigg )=0.632v_{input}
+\end{align*}
+\\
+After $1\tau$ the percentual voltage of the capacitor when discharging can be calculated as follows:
+\begin{align*}
+v_{discharge}(1\tau)=v_{input}e^{\frac{-\tau}{\tau}}=0.368v_{input}
+\end{align*}
+Below a table has been made to show how much the capacitor is charged and discharged for different $\tau$ values:
+\begin{table}[H]
+\center
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+                & $1\tau$  & $2\tau$  & $3\tau$  & $4\tau$  & $5\tau$  & $\cdots$ & $10\tau$      \\ \hline
+$v_{charge}$    & $63.2\%$ & $86.5\%$ & $95.0\%$ & $98.2\%$ & $99.3\%$ & $\cdots$ & $ \sim 100\%$ \\ \hline
+$v_{discharge}$ & $36.8\%$ & $13.5\%$ & $5.0\%$  & $1.8\%$  & $0.7\%$  & $\cdots$ & $\sim 0\%$    \\ \hline
+\end{tabular}
+\caption{The calculated percentual change in the voltage across the capacitor when it is charged and discharged at times from $1\tau$ to $10\tau$.}
+\end{table}
+\noindent
+In this experiment firstly the capacitor charges for $10\tau$ where it is considered fully charged. The capacitor is then discharged for $10\tau$ where it is considered fully discharged. The total time the capacitor is charged and then discharged is then:
+\begin{align*}
+2\cdot 10\tau=2\cdot 10 \cdot RC&=2\cdot 10 \cdot 4770\Omega \cdot 97.61 nF
+\\
+&=9.32 ms
+\end{align*} 
+To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $9.32ms^{-1} = 107.3 Hz$.
+\\
+The data from the theoretical values and the test results can now be compared using python.
+\subsection{Data comparison}
 \begin{figure}[H]
 \center
 \includegraphics[scale=0.6]{fig/img/eks_1}

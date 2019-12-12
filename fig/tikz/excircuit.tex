@@ -1,14 +1,9 @@
 \begin{center}
 \begin{circuitikz}[american voltages]
-\draw
-to[sqV, sqV=$1 V$] (0,2)
-to[resistor, R=$4770 \Omega$] (4.5,2)
-
-[short](3,2) to [short] (5,2)
-
-to [short, C=$97.61 nF$] (5,0)
-(0,0) to [short, -] (5,0)
-
-(0,1) to [short, -] (0,2);
+\draw (0,0)
+to[sqV, sqV=$1V$] (0,2)
+to[short, -] (4,2)
+to[C=$97.61nF$] (4,0)
+to[resistor, R=$4770 \Omega$] (0,0);
 \end{circuitikz}
 \end{center}

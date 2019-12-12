@@ -1,0 +1,32 @@
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[ticks=none,
+axis lines =center,
+xlabel={t},
+ylabel={i(t)},
+    height=7cm, width=9cm,
+    xmin=0, xmax=10, ymin=-2, ymax=2]
+\addplot [
+    domain=0:3.14, 
+    samples=100, 
+    color=red,
+]
+{1};
+\addplot +[mark=none, color=red] coordinates {(3.14, 0) (3.14, 1)};
+\addplot [
+    domain=3.14:6.28, 
+    samples=100, 
+    color=red,
+    ]
+    {0)};
+\addplot +[mark=none, color=red] coordinates {(2*3.14, 0) (2*3.14, 1)};
+\addplot [
+    domain=6.28:9.42, 
+    samples=100, 
+    color=red,
+]
+{1};
+\addlegendentry{AC step input}
+\end{axis}
+\end{tikzpicture}
+\end{center}
