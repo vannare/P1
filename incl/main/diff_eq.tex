@@ -62,7 +62,7 @@ has the general solution:
 \begin{align} \label{FODE_solution}
 y=e^{-H(x)}\left(\int e^{H(x)}g(x)\ dx+C\right),
 \end{align}
-where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a given interval, and $C\in \mathbb{R}$.
+where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous on a given interval, and $C\in \mathbb{R}$.
 \end{theorem}
 
 \begin{prof}{}{}
@@ -70,18 +70,17 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous in a gi
 \begin{align*}
 \left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
-%TEKST DER SKAL SKRIVES IND
+Now $e^{H(x)}$ is multiplied into the parentheses:
 \begin{align*}
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
-Considering the chain and product rules, the left-hand side of the equation can be rewritten as:
+In this case due to the chain rule, $h(x)ye^{H(x)} = y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)$:
+\begin{align*}
+\dfrac{d}{dx} \left(y \right) \cdot e^{H(x)} + y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)=& g(x)e^{H(x)}.
+\end{align*}
+From the product rule it is now clear that this can be rewritten as follows:
 \begin{align*}
 \dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}.
-\end{align*}
-This is because the left-hand side, when differentiated, becomes:
-\begin{align*}
-\dfrac{d}{dx}\left(e^{H(x)}y\right)=&\dfrac{d}{dx}\left(e^{H(x)}\right)y+\dfrac{dy}{dx}e^{H(x)}, \\
- =& h(x)ye^{H(x)}+\dfrac{dy}{dx}e^{H(x)}.
 \end{align*}
 Both sides are then integrated with respect to $x$:
 \begin{align*}
@@ -182,13 +181,7 @@ Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antide
  \begin{align}
  	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}. \label{eq:2}
  \end{align}
-Using the chain rule for differentiation, %$\frac{dH}{dy}\frac{dy}{dx}$ 
-the left-hand side of the equation can be written as the derivative of the composite function $H\left(y(x)\right)$:
- \begin{align}
-	\frac{dH}{dy}\frac{dy}{dx} &=\frac{d}{dx} H\left(y(x)\right).
-	\label{eq:3}
- \end{align}
-The term in \eqref{eq:3} can be substituted in \eqref{eq:2}, such that:
+Using the chain rule for differentiation, the left-hand side of the equation can be written as the derivative of the composite function $H \left(y(x) \right)$: $\dfrac{dH}{dy}\dfrac{dy}{dx} =\dfrac{d}{dx} H \left(y(x) \right).$ This can be put on \eqref{eq:2}, such that:
  \begin{align}
  	\frac{d}{dx}H\left(y(x)\right) &= \frac{dG}{dx}\label{eq:4}.
  \end{align}
