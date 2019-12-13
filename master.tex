@@ -62,6 +62,14 @@
   #1
 }
 
+\newtcolorbox[auto counter,number within=chapter,Crefname={Justification}{Justifications}]{justification}[3][]{
+  breakable,
+  colback=gray!10!white,
+  colframe=black,
+  title={Justification of method},
+  label={#3},
+  #1
+}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows.meta,arrows}
 \begin{document}
