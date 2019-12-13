@@ -51,7 +51,7 @@ A linear $N$'th order differential equation is an equation that takes the form:
 where $a_k(x)$ are continuous functions on a given interval.
 \end{definition}
 \subsection{Solving a linear differential equation of the first order}
-Solving  a differential equation is not always easy or possible however, for differential equations in certain forms, a general solution can be found.
+Solving  a differential equation is not always easy or possible, however, for differential equations in certain forms, a general solution can be found.
 
 \begin{theorem}{General solution to a linear differential equation of the first order}{linethe}
 A first order linear differential equation in the form of:
@@ -74,11 +74,11 @@ Now $e^{H(x)}$ is multiplied into the parentheses:
 \begin{align*}
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
-In this case due to the chain rule, $h(x)ye^{H(x)} = y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)$:
+In this case, due to the chain rule, $h(x)ye^{H(x)} = y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)$:
 \begin{align*}
-\dfrac{d}{dx} \left(y \right) \cdot e^{H(x)} + y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)=& g(x)e^{H(x)}.
+\dfrac{dy}{dx} \cdot e^{H(x)} + y \cdot \dfrac{de^{H(x)}}{dx}=& g(x)e^{H(x)}.
 \end{align*}
-From the product rule it is now clear that this can be rewritten as follows:
+From the product rule, it is now clear that this can be rewritten as follows:
 \begin{align*}
 \dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}.
 \end{align*}
@@ -107,7 +107,7 @@ Equation \eqref{ODE_ex} is in the form of \eqref{FODE_form}, where:
 	H(x) =& \int{-2 \ dx}, \\
 	     =& -2x + C.
 \end{align*}
-Substituting the functions in \eqref{FODE_solution} with $H(x)$ and $g(x)$: 
+Substituting these terms into \eqref{FODE_solution} yields: 
 
 \begin{align*}
 	y(x)=&e^{2x-C}\left(\int{e^{-2x+C}e^x\ dx}+C\right), \\
@@ -120,7 +120,7 @@ The integral of $e^{-x}$ can then be found. The following result is then reduced
 	y(x)=&e^{2x}\left(-e^{-x}+C_{2}+C_{1}\right), \\
 	y(x)=&-e^x+C_{3} \cdot e^{2x},
 \end{align*}
-where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. $C_{3}$ is then calculated from the initial condition:
+where $C_{3}$ is the new constant of integration, $C_{3}=C_{2}+C_{1}$. The constant is then found from the initial condition:
 \begin{align*}
 	y(0)=& ~ 5, \\
 	5=&-e^0+C_{3} \cdot e^{2 \cdot 0}, \\
@@ -138,7 +138,7 @@ To check the validity of this solution, it is substituted into the differential 
 	e^x =& -e^x+2e^x,  \\
 	e^x =& e^x.
 \end{align*}
-This must then be a particular solution to the given differential equation.
+This is the particular solution to the given differential equation.
 \end{example}
 
 \section{Separable differential equations}\label{SepDiff}
@@ -152,27 +152,21 @@ f(x,y)=g(x)p(y),
 where $g(x)$ and $p(y)$ are continuous on a given interval.
 \end{definition}
 \noindent
-By \cref{def:SDE}, a first order separable differential equation can be written as:
-\begin{align*}
-	\frac{dy}{dx}=g(x)p(y).
-\end{align*}
-In order to solve this equation, it can be rewritten as:
-\begin{align*}
-	h(y)dy=g(x)dx,
-\end{align*}
-where $h(y) = \dfrac{1}{p(y)}$.\\
-Both sides of the equation are then integrated:
+\begin{theorem}{Solving a separable differential equation}{}
+Given a separable differential equation in the form:
 \begin{align}
-\int h(y)\ dy =&\int g(x)\ dx, \nonumber  \\
-H(y)=&G(x)+C. \label{SDEG}
+\dfrac{dy}{dx}=g(x)p(y), \label{SDEG}
 \end{align}
-The two constants are merged into one constant $C$. This is the general solution of a separable differential equation. 
-
-
-\subsection{Justification of method} 
+it can be solved as follows:
+\begin{align*}
+\int h(y)\ dy =&\int g(x)\ dx.
+\end{align*}
+Where $h(y)=\dfrac{1}{p(y)}$ and $g, p$ and $h$ are continuous functions on a given interval.
+\end{theorem}
+\begin{justification}{}{}
 The differentials, $dy$ and $dx$, in $\dfrac{dy}{dx}$ can be treated algebraically when solving a separable differential equation. 
 \\
-Let $h(x) = \dfrac{1}{g(x)}$:
+Let $h(y) = \dfrac{1}{p(y)}$:
  \begin{align}
 	\frac{dy}{dx} &= g(x)p(y), \nonumber\\
 	h(y)\frac{dy}{dx} &= g(x). \label{eq:1}
@@ -181,7 +175,7 @@ Then by letting $H(y)$ be the antiderivative of $h(y)$, and $G(x)$ be the antide
  \begin{align}
  	\frac{dH}{dy}\frac{dy}{dx} &= \frac{dG}{dx}. \label{eq:2}
  \end{align}
-Using the chain rule for differentiation, the left-hand side of the equation can be written as the derivative of the composite function $H \left(y(x) \right)$: $\dfrac{dH}{dy}\dfrac{dy}{dx} =\dfrac{d}{dx} H \left(y(x) \right).$ This can be put on \eqref{eq:2}, such that:
+Using the chain rule for differentiation, the left-hand side of the equation can be written as the derivative of the composite function $H \left(y(x) \right)$: $\dfrac{dH}{dy}\dfrac{dy}{dx} =\dfrac{d}{dx} H \left(y(x) \right).$ This can be substituted in \eqref{eq:2}, such that:
  \begin{align}
  	\frac{d}{dx}H\left(y(x)\right) &= \frac{dG}{dx}\label{eq:4}.
  \end{align}
@@ -190,16 +184,14 @@ Equation \eqref{eq:4} shows that $H\left(y(x)\right)$ and $G(x)$ have the same d
  	H\left(y(x)\right) &= G(x) + C.
  \end{align*}
 This shows that the same result is found whether $\dfrac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\dfrac{dy}{dx}$ algebraically.
-
+\end{justification}
 
 \begin{example}{Solving a separable differential equation}{}
-Given the differential equation and initial condition:
+Consider the differential equation with the initial condition:
 \begin{align*}
-	\dfrac{dy}{dx} =& y^2 4x, \\
-	y(1) =& \dfrac{1}{3},
+	\dfrac{dy}{dx} = y^2 4x, ~~~
+	y(1) = \dfrac{1}{3},
 \end{align*}
-what would the particular solution be?
-\\ \\
 The terms, in this differential equation is separable: 
 \begin{align*}
 	\dfrac{dy}{dx} y^{-2} =& 4x, \\
@@ -211,7 +203,7 @@ Both sides of the equation are then integrated, and solved for $y$:
 	-y^{-1} =& 2x^2 +C, \\
 	y =& \dfrac{1}{-2x^2-C}.
 \end{align*}
-Using the initial condition, the integration constant can then be found:
+Using the initial condition, the constant of integration can then be found:
 \begin{align*}
 	y(1) =& \dfrac{1}{3}, \\
 	\dfrac{1}{3} =& \dfrac{1}{-2 \cdot 1^2-C}, \\
@@ -228,9 +220,10 @@ The validity of the solution can be checked by substituting the solution in the 
 % "equation" mangler reference til et udtryk
 
 \begin{align*}
-	\dfrac{dy}{dx} =& y^24x, \\
-	y(1) =& \dfrac{1}{3},  \\
-	\\
+	\dfrac{dy}{dx} = y^24x, ~~~
+	y(1) = \dfrac{1}{3},
+\end{align*}
+\begin{align*}
 	\dfrac{d}{dx} \left(\dfrac{1}{-2x^2+5}\right) =& \dfrac{4x}{(-2x^2+5)^2}, \\
 	-4x\left(\dfrac{-1}{(-2x^2+5)^2}\right)  =& \dfrac{4x}{(-2x^2+5)^2}, \\
 	\dfrac{4x}{(-2x^2+5)^2} =& \dfrac{4x}{(-2x^2+5)^2}.
