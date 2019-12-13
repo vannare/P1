@@ -2,7 +2,7 @@
 This chapter is based on the following sources: \cite{complexpaul}, \cite{complexpurple}, \cite{complexnotebook}.
 \\
 \noindent 
-The following chapter will first describe the concept of complex numbers and how to operate them mathematically. Additionally, it will introduce complex numbers in polar coordinates and the complex exponential function. Complex numbers is needed when explaining the laplace transform.
+The following chapter will first describe the concept of complex numbers and how to operate them mathematically. Additionally, it will introduce complex numbers in polar coordinates and the complex exponential function. Complex numbers is needed when explaining the Laplace transform.
 \\\\
 \noindent 
 When using real numbers, you cannot always solve a given equation. An example of this could be the equation $x^2=-1$. To solve this equation, the imaginary unit is introduced. The imaginary unit is defined as:
@@ -14,7 +14,7 @@ When $i$ is raised to a power greater than one, it becomes:
 i^2=-1,\  i^3=-i,\  i^4=1.
 \end{align*}
 
-\noindent If $i$ is raised to a power greater than four, it will loop through the same values: $i, \ -1, \ -i$ and $1$. This can be expressed algebraically. In this case, $n$ is a  positive whole number. 
+\noindent If $i$ is raised to a power greater than four, it will loop through the same values: $i, \ -1, \ -i$ and $1$. This can be expressed algebraically. In this case, $n$ is a  positive integer. 
 \\
 Since: $$i^{4n} = i^4i^4\cdots i^4 = 1,$$
 the greater exponents of $i$ become:
@@ -25,7 +25,7 @@ the greater exponents of $i$ become:
 	i^{4n+4} =& i^{4n}i^4 = 1.
 \end{align*}
 Complex numbers are denoted as $z = a+ib$, where $a,b\in \R$. A complex number consists of a real part and an imaginary part. The real and imaginary part of a complex number is written as $\text{Re}\{z\}=a$ and $\text{Im}\{z\}=b$, respectively.
-An example of a complex number could be: $z=7+3i$, where 7 is the real part, and 3 is the imaginary part. 
+An example of a complex number could be: $z=7+5i$, where 7 is the real part, and 5 is the imaginary part. 
 If $\text{Re}\{z\}=0$, the number is said to be purely imaginary.  
 \\\\
 Complex numbers are plotted in the complex plane. The complex plane consist of two axes: one real along the horizontal axis and a imaginary along the vertical axis.\\
@@ -37,6 +37,7 @@ $$\mid z\mid=\sqrt{a^2+b^2}.$$
 \end{definition}
 \noindent
 Every complex number has a complex conjugate. The conjugate of a complex number has the same real part, but the imaginary part has opposite sign.
+\\
 
 \begin{definition}{Complex number conjugated}{}
 The complex conjugate of $z=a+ib$ is given by:
@@ -48,10 +49,9 @@ $$\bar{z}=a-ib.$$
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.2]{fig/img/complex_plan}
-\caption{The complex plane with the number $z=7+5i$, its conjugate $\bar{z}=7-5i$, and \  $|z|=8,6$}
+\caption{The complex plane with the number $z=7+5i$, its conjugate $\bar{z}=7-5i$, and \  $|z|=8.6$.}
 \end{figure}
 
-%RETTET HERTIL
 
 \section{Addition and subtraction}
 When adding complex numbers, the imaginary unit $i$ can be treated as a constant, as with elementary algebra:
@@ -95,7 +95,7 @@ The product of two complex numbers $z_1=a+ib$ and $z_2=c+id$ has the general for
 \begin{example}{Multiplying complex numbers}{}
 Given two complex numbers $z_1=3+5i$ and $z_2=4-3i$, the product can be found using \cref{def:MCN}:
 \begin{align*}
-(3+5i)(4-3i) = (3\cdot4-5\cdot(-3))+i(3\cdot(-3)+5\cdot4)=27+11i.
+(3+5i)(4-3i) = \big(3\cdot4-5\cdot(-3)\big)+i\big(3\cdot(-3)+5\cdot4\big)=27+11i.
 \end{align*}
 \end{example}
 
@@ -107,9 +107,9 @@ Division of two complex numbers, where $z_1=a+ib$ and $z_2=c+id$, has the genera
 \begin{align*}
 \frac{a + ib}{c + id} = \frac{(a+ib)(c-id)}{(c+id)(c-id)}.
 \end{align*}
-By using \cref{def:MCN}, it becomes:  
+By using \cref{def:MCN} on the numerator, it becomes:  
 \begin{align*}
-&= \frac{(ac+bd)+i(bc-ad)}{c^2+d^2},							\\[1em]
+\frac{(a+ib)(c-id)}{(c+id)(c-id)} &= \frac{(ac+bd)+i(bc-ad)}{c^2+d^2},							\\[1em]
 &= \frac{ac+bd}{c^2+d^2}+i \frac{bc-ad}{c^2+d^2}.				
 \end{align*}
 \end{definition}
@@ -133,7 +133,7 @@ A complex number $z=a+ib$ can be written in polar form as follows:
 \begin{align*}
 z&=r\cos(\theta)+ir\sin(\theta),
 \\
-&=r\left(\cos(\theta)+i\sin(\theta)\right),
+&=r\big(\cos(\theta)+i\sin(\theta)\big),
 \end{align*}
 where $r=\mid z \mid$ and $\theta=\tan^{-1}\left(\dfrac{b}{a} \right).$
 \end{definition}
@@ -176,7 +176,7 @@ z_1 z_2&=r_1 \big( \cos(\theta_1)+ i \sin(\theta_1)\big)r_2 \big( \cos(\theta_2)
 \label{polar_multiplication}
 z_1z_2&=r_1r_2\Big( \big(\cos(\theta_1)\cos(\theta_2)-\sin(\theta_1) \sin(\theta_2)\big)+i\big(\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2)\big)\Big).
 \end{align}
-By definition, the sine and cosine of the sum of two angles, can be written as follows \cite[p. A-14 Appendicies]{calc}:
+By definition, the sine and cosine of the sum of two angles, can be written as follows: \cite[p. A-14 Appendicies]{calc}
 \\
 \begin{align} 
 \sin(\theta_1+\theta_2)=\cos(\theta_1)\sin(\theta_2)+\sin(\theta_1)\cos(\theta_2), \label{sum_cos_sin}
@@ -221,7 +221,7 @@ The numerator and the denominator on the right side are multiplied by $r_2\Big(\
 \begin{align*}
 \dfrac{z_1}{z_2}&=\dfrac{r_1\Big(\cos(\theta_1)+i\sin(\theta_1)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)}{r_2\Big(\cos(\theta_2)+i\sin(\theta_2)\Big)r_2\Big(\cos(\theta_2)-i\sin(\theta_2)\Big)},
 \\
-&=\dfrac{r_1 r_2}{r_2^2}\dfrac{\cos(\theta_1)\cos(\theta_2)-i\cos(\theta_1)\sin(\theta_2)+i\sin(\theta_1)\cos(\theta_2)+sin(\theta_1)\sin(\theta_2)}{\cos^2(\theta_2)-i\sin(\theta_2)\cos\theta_2)+i\sin(\theta_2)\cos\theta_2)+\sin^2(\theta_2)}.
+&=\dfrac{r_1 r_2}{r_2^2}  \dfrac{\cos(\theta_1)\cos(\theta_2)-i\cos(\theta_1)\sin(\theta_2)+i\sin(\theta_1)\cos(\theta_2)+sin(\theta_1)\sin(\theta_2)}{\cos^2(\theta_2)-i\sin(\theta_2)\cos\theta_2)+i\sin(\theta_2)\cos\theta_2)+\sin^2(\theta_2)}.
 \end{align*}
 Since the sine and cosine of the difference between two angles are defined as:
 \begin{align*}
@@ -231,7 +231,7 @@ Since the sine and cosine of the difference between two angles are defined as:
 \end{align*}
 the equation can now be rewritten as:
 \begin{align*}
-\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}\dfrac{\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)}{\cos^2(\theta_2)+\sin^2(\theta_2)}.
+\dfrac{z_1}{z_2}=\dfrac{r_1}{r_2}  \dfrac{\cos(\theta_1-\theta_2)+i\sin(\theta_1-\theta_2)}{\cos^2(\theta_2)+\sin^2(\theta_2)}.
 \end{align*}
 From the fundamental trigonometric identity: 
 \begin{align*}
@@ -239,7 +239,7 @@ From the fundamental trigonometric identity:
 \end{align*}
 The equation can now be written as:
 \begin{align*}
-&=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big).
+\dfrac{z_1}{z_2}&=\dfrac{r_1}{r_2}\Big( \cos(\theta_1-\theta_2)+ i \sin(\theta_1-\theta_2)\Big).
 \end{align*}
 \end{prof}
 \noindent From \cref{the:div_polar}, the following relations can be derived:
@@ -273,7 +273,7 @@ modulus of $z$ is defined as:
 \begin{align}
 |z|=\sqrt{\text{Re}\{z\}^2+\text{Im}\{z\}^2}, \label{eq:mod_euler}
 \end{align}
-where $\text{Re}\{z\}=|e^{i\theta}|=\cos(\theta)$, and $\text{Im}\{z\}=\sin(\theta)$. This is inserted in \eqref{eq:mod_euler}:
+where $\text{Re}\{z\}=\cos(\theta)$, and $\text{Im}\{z\}=\sin(\theta)$. This is inserted in \eqref{eq:mod_euler}:
 \begin{align*}
 |z|=|e^{i\theta}|=\sqrt{\cos^2(\theta)+\sin^2(\theta)}=\sqrt{1}=1.
 \end{align*}
@@ -284,6 +284,7 @@ where $\text{Re}\{z\}=|e^{i\theta}|=\cos(\theta)$, and $\text{Im}\{z\}=\sin(\the
 	\item $\dfrac{d}{dt}e^{z} = e^{z}$
 \end{itemize}
 The complex exponential function can be defined as follows, and it can be shown that this definition will satisfy the given conditions.
+\\
 
 \begin{definition}{The complex exponential function}{complex:exp:eq}
 The complex exponential function is defined as:
