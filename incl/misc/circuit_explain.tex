@@ -57,7 +57,7 @@ p(t)=\dfrac{v^2(t)}{R}. \label{resistor:power}
 \end{align}
 This is defined as the amount of work done per time. 
 \section{Capacitor}
-A capacitor, which is a passive element, consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
+A capacitor, which is a passive element, consists of two similar sized plates. When a current is applied to the circuit, the capacitor gets charged. The capacitance($C$) is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\
 The capacitance is given by the following equation:
 \begin{align*}
@@ -65,7 +65,7 @@ C=\dfrac{\epsilon_{0}A}{d},
 \end{align*}
 where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
 \\
-The charge of a capacitor across a voltage ($v$) and capacitance of ($C$) is equal to: \cite[p.~253]{bcircuit5}
+The charge of a capacitor across a voltage ($v$) and capacitance ($C$) is equal to: \cite[p.~253]{bcircuit5}
 \begin{align}
 \label{QCV}
 q_C(t) = Cv_C(t).	
@@ -78,13 +78,11 @@ The current across a capacitor is then:
 \begin{align*}
 	i_C(t) = \frac{d}{dt}\big(Cv_C(t)\big).
 \end{align*}
-For a capacitor with a constant capacitance, the current can be written as:
+For a capacitor with capacitance ($C$), the current through the capacitor can be written as:
 \begin{align}
 	i_C(t) = C\frac{dv_C(t)}{dt}.\label{iC}
 \end{align}
-
-
-\section{Time constant ($\tau$)}
+\section{Time constant}
 A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$).
 
 % Forslag til første sætning:
