@@ -152,24 +152,18 @@ f(x,y)=g(x)p(y),
 where $g(x)$ and $p(y)$ are continuous on a given interval.
 \end{definition}
 \noindent
-By \cref{def:SDE}, a first order separable differential equation can be written as:
-\begin{align*}
-	\frac{dy}{dx}=g(x)p(y).
-\end{align*}
-In order to solve this equation, it can be rewritten as:
-\begin{align*}
-	h(y)dy=g(x)dx,
-\end{align*}
-where $h(y) = \dfrac{1}{p(y)}$.\\
-Both sides of the equation are then integrated:
+\begin{theorem}{Solving a separable differential equation}{}
+Given a separable differential equation in the form:
 \begin{align}
-\int h(y)\ dy =&\int g(x)\ dx, \nonumber  \\
-H(y)=&G(x)+C. \label{SDEG}
+\dfrac{dy}{dx}=g(x)p(y).
 \end{align}
-The two constants are merged into one constant $C$. This is the general solution of a separable differential equation. 
-
-
-\subsection{Justification of method} 
+Can be solved as follows:
+\begin{align}
+\int h(y)\ dy =&\int g(x)\ dx
+\end{align}
+Where $h(y)=\dfrac{1}{p(y)}$ and $g, p$ and $h$ are continuous functions.
+\end{theorem}
+\begin{justification}{}{}
 The differentials, $dy$ and $dx$, in $\dfrac{dy}{dx}$ can be treated algebraically when solving a separable differential equation. 
 \\
 Let $h(x) = \dfrac{1}{g(x)}$:
@@ -190,7 +184,7 @@ Equation \eqref{eq:4} shows that $H\left(y(x)\right)$ and $G(x)$ have the same d
  	H\left(y(x)\right) &= G(x) + C.
  \end{align*}
 This shows that the same result is found whether $\dfrac{dy}{dx}$ is split algebraically, or the antiderivatives are used together with the chain rule for differentiation. Therefore, it is justified to treat $\dfrac{dy}{dx}$ algebraically.
-
+\end{justification}
 
 \begin{example}{Solving a separable differential equation}{}
 Given the differential equation and initial condition:
