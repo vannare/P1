@@ -54,7 +54,7 @@ a\cdot \int_{0}^\infty e^{-st} f(t)dt+ b \cdot \int_{0}^\infty e^{-st} g(t)dt =a
 \begin{theorem}{Existence of the Laplace transform}{geqleq}
 
 The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
-Thus a function is of exponential order provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p.~320]{diffandcomplex}
+Thus a function is of exponential order provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p. 320]{diffandcomplex}
 \end{theorem}
 \begin{prof}{}{}
 Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq T$. Note that since $s$ is a complex number  $s=\sigma+i\omega$, it can be divided into its real and imaginary parts. It then follows that: $$\lim_{N \to \infty} \int_{0}^{N} \left|f(t)e^{-st} \right|\ dt = \lim_{N \to \infty} \int_{0}^{N} \left|f(t) e^{-i\omega t} e^{-\sigma t} \right| \ dt.$$
@@ -119,7 +119,7 @@ Let $F(s) = \dfrac{4}{s+10}$. When recognising this takes the same form as the r
 \noindent The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high- and low-pass filters, in the next chapter.
 \\
 \begin{theorem}{Laplace transform of a first order derivative}{theorem:lap_diff}
-The Laplace transform of a first order derivative takes the following form: \cite[p.~332]{diffandcomplex}
+The Laplace transform of a first order derivative takes the following form: \cite[p. 332]{diffandcomplex}
 $$\mathcal{L} \left\{\frac{df}{dt} \right\} = s \cdot F(s)-f(0).$$
 \end{theorem}
 \noindent The Laplace transform of the first derivative is using the rule of integration by parts. The rule states the following:
@@ -196,7 +196,7 @@ Both sides are now divided by $s-4$ and the numerator on the right side is simpl
 \begin{align*}
 F(s) = \dfrac{13-2s}{(s-6)(s-4)}.
 \end{align*}
-Now the next step is to find the inverse Laplace transform. This is done using partial-fraction decomposition: \cite[p.~537]{calc}
+Now the next step is to find the inverse Laplace transform. This is done using partial-fraction decomposition: \cite[p. 537]{calc}
 \begin{align}
 F(s) = \dfrac{13-2s}{(s-6)(s-4)} = A \dfrac{1}{s-6} + B \dfrac{1}{s-4}.
 \label{par_dec}

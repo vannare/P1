@@ -101,4 +101,4 @@ plt.plot(time, step_data, "black")
 
 fig = plt.gcf()
 fig.set_size_inches(10, 6)
-fig.savefig('result.pdf', dpi=100)
+fig.savefig('/home/anders/Desktop/test.pdf', dpi=100)

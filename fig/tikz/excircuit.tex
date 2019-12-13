@@ -2,12 +2,8 @@
 \begin{circuitikz}[american voltages]
 \draw (0,0)
 to[sqV, sqV=$1V$] (0,2)
-to (6,2)
 to[short, -] (4,2)
 to[C=$97.61nF$] (4,0)
-to (6,0)
-to (4,0)
-to [resistor, R=$4770 \Omega$] (0,0);
-\draw [>=latex', <->] (6,1.75) -- node[anchor=west] {$v_{C}(t)$} (6,0.25);
+to[resistor, R=$4770 \Omega$] (0,0);
 \end{circuitikz}
 \end{center}
