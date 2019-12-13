@@ -1,26 +1,26 @@
-\chapter{Basic Circuit Theory} \label{ch:basic}
-This chapter is based on: \cite{bcircuit} \cite{bcircuit5}\\
-Electrical circuits are fundamental building blocks in every electronic device. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current. The electrical components in a circuit are typically resistors, capacitors, and an electrical source (a battery, for example).
+\chapter{Basic Circuit Theory}
+This chapter is based on: \cite{bcircuit}\\
+Electrical circuits are fundamental building blocks in every electronic device. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical source (a battery, for instance).
 \\ 
 \\
-The different elements of a circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorb energy, e.g. a light bulb. A circuit with a battery and a light bulb can be represented in the following way:
+The different elements of the circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorb energy, e.g. a light bulb. A circuit with a battery and a bulb can be represented in the following way:
 \begin{figure}[H]
 \input{fig/tikz/bulb}
 \caption{A circuit with a battery and a light bulb.}
 \label{fig:bulb}
 \end{figure} 
-\noindent In figure \ref{fig:bulb}, the active element is a battery, and the passive element is a light bulb. Charge is transported by the current, from the positive terminal of the battery to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
+\noindent In figure \ref{fig:bulb}, the active element is a battery, and the passive element is a light bulb. Charge is transported by the current from the positive terminal of the battery to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
 \\
 
 \input{incl/misc/circuit_explain.tex}
 
 \section{Circuit diagrams}
-Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[p.~32]{bcircuit}. An example of a circuit is shown below:
+Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[page~32]{bcircuit}. An example of a circuit is shown below:
 
 \begin{figure}[H] 
+\label{bcircuit_figure}
  \input{fig/tikz/bcircuit}
  \caption{A circuit with a battery, three resistors and a capacitor.}
- \label{bcircuit_figure}
 \end{figure}
 
 \noindent The circuit diagram in figure \ref{bcircuit_figure} has five branches, which are shown marked in color: a battery (in blue), three resistors ($R_1, R_2,$ and $R_3$, in red), and the capacitor (in green). The three nodes of the circuit ($N_1$, $N_2$, and $N_3$) connect the branches. Additionally, there are three loops, all of which have the same starting and ending point, $V_{B}$. The first loop passes through $R_2$ and $R_1$, and returns to the starting point. Similarly, the second loop passes through $R_3$ and $R_1$, and returns. The third, and final, loop runs through the capacitor, then $R_1$, and returns. 
@@ -32,14 +32,14 @@ Observe a circuit up until a node, past which the path of the circuit splits in 
 \begin{align*}
 \sum_{j=1}^{N} i_{j}(t) = 0,
 \end{align*}
-where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, with $N$ branches connected to the node. \cite[p.~32]{bcircuit}
+where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, with $N$ branches connected to the node. \cite[page~32]{bcircuit}
 \\
 \\
 \textbf{Kirchhoff's voltage law}
 \\
-Kirchhoff's voltage law (KVL) states that the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically as:
+Kirchhoff's voltage law states that the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically as:
 \begin{align*}
 \sum_{j=1}^{N} v_{j}(t) = 0,
 \end{align*}
-where $v_{j}(t)$ is the voltage in the $j$'th voltage with $N$ voltages. \citep[p.~34]{bcircuit}\\
+where $v_{j}(t)$ is the voltage in the $j$'th voltage with $N$ voltages. \citep[page~34]{bcircuit}\\
 
