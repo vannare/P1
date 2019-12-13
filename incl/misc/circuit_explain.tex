@@ -1,14 +1,14 @@
 \section{Current}
-Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
+Current$(i)$ is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
 \begin{align}
 i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int i(t)\ dt,\label{I=dq/dt}
 \end{align}
-where $i(t)$ is the current (in ampere, $A$), to a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb $(C)$.
+where $i(t)$ is the current (in ampere, $A$) at a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in coulomb $(C)$.
 \\
-There exists two types of current: alternating current (AC) and direct current (DC). Per definition, DC current is a constant flow of current, while AC alternates (see figure \ref{fig:ACDC}). 
+There exist two types of current: alternating current (AC) and direct current (DC). Per definition, DC current is a constant flow of current, while AC alternates (see figure \ref{fig:ACDC}). 
 \begin{figure}[H] 
 \input{fig/tikz/ADDC_fig}
-\caption{Current for AC and DC versus time}
+\caption{AC and DC versus time}
 \label{fig:ACDC}
 \end{figure}
 \noindent
@@ -18,13 +18,13 @@ i\left(t, f, A, \theta\right) =& A\cdot \sin{\left(2\pi ft + \theta\right)}, \no
 \\
 =& A \cdot \sin{\left(\omega t + \theta\right)}, \label{eq:omega}
 \end{align}
-where $\omega = 2\pi f$, $t$ is time (in seconds, $s$), $f$ is frequency (in Hertz, $Hz$), which is cycles per second, $A$ is amplitude (a scalar, unitless), and $\theta$ is the phase shift (in seconds, $s$).
+where $f$ is frequency (in hertz, $Hz$), which is cycles per second, $\omega = 2\pi f$ (in radians per second, $s^{-1}$), $t$ is time (in seconds, $s$), $A$ is amplitude (in ampere, $A$), and $\theta$ is the phase shift (in radians, unit-less).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 This function can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
-	\caption{An AC current, shown in green. The current has been phase shifted by $\theta$. The current has amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current with $\text{phase shift} =0$}
+	\caption{Two AC currents, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in dotted blue line and green respectively. The 'green' current has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
 \end{figure}
 \noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage.
 \begin{figure}[H] 
@@ -39,24 +39,23 @@ Voltage ($v$), also called electric potential difference, is the change in poten
 \\
 where $U(q)$ is the function for potential energy (in joules, $J$), given a charge $q$.
 \section{Resistor}
-When a resistor, which is a passive element, is added to the circuit, it creates a resistance. Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
+When a resistor, which is a passive element, is added to a circuit, it creates a resistance($R$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
 \begin{align} 
 \label{Ohm}
 v(t)=R\cdot i(t),\ R\geq0,
 \end{align}
-where $R$ is resistance (in Ohm, $\Omega$). Furthermore, the power can be expressed as: \cite[p.~22]{bcircuit5} 
+where $R$ is resistance (in Ohm, $\Omega$).
+\section{Power} 
+Power ($p$) measures the effect (in watts, $W$). Power can be expressed as: \cite[p. 22]{bcircuit5}.
 \begin{align} 
 \label{power}
 p(t)=v(t)\cdot i(t).
 \end{align}
 By inserting this in equation \eqref{Ohm}, the following expression is found:
 \begin{align}
-p(t)=Ri(t)\cdot i(t), \nonumber \\
-p(t)=R \cdot i^2(t), \nonumber \\
-p(t)=R \cdot \left(\dfrac{v(t)}{R} \right)^2, \nonumber \\
 p(t)=\dfrac{v^2(t)}{R}. \label{resistor:power}
 \end{align}
-The power measures the effect (in watts, $w$). This is defined as the amount of work done per time. 
+This is defined as the amount of work done per time. 
 \section{Capacitor}
 A capacitor, which is a passive element, consists of two similar sized plates. When a voltage is applied to the circuit, the capacitor gets charged. The capacitance is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\

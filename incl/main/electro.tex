@@ -1,15 +1,15 @@
-\chapter{Basic Circuit Theory} \label{ch:basic}
+\chapter{Basic Circuit Theory}
 This chapter is based on: \cite{bcircuit} \cite{bcircuit5}\\
-Electrical circuits are fundamental building blocks in every electronic device. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current, either in an open or closed circuit. The electrical components in a circuit are typically resistors, capacitors,  switches, and an electrical source (a battery, for instance).
+Electrical circuits are fundamental building blocks in every electronic device. The simple act of flipping a switch, e.g. to turn on the light, completes an electrical circuit. The purpose of the circuit is to carry electrical current. The electrical components in a circuit are typically resistors, capacitors, and an electrical source (a battery, for example).
 \\ 
 \\
-The different elements of the circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorb energy, e.g. a light bulb. A circuit with a battery and a bulb can be represented in the following way:
+The different elements of a circuit can be divided into two categories: active and passive. Active elements supply energy to the system, e.g. a battery, whereas passive elements absorb energy, e.g. a light bulb. A circuit with a battery and a light bulb can be represented in the following way:
 \begin{figure}[H]
 \input{fig/tikz/bulb}
 \caption{A circuit with a battery and a light bulb.}
 \label{fig:bulb}
 \end{figure} 
-\noindent In figure \ref{fig:bulb}, the active element is a battery, and the passive element is a light bulb. Charge is transported by the current from the positive terminal of the battery to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
+\noindent In figure \ref{fig:bulb}, the active element is a battery, and the passive element is a light bulb. Charge is transported by the current, from the positive terminal of the battery to the light bulb. The light bulb absorbs the energy from the charge, which is then transported to the negative terminal of the battery.
 \\
 
 \input{incl/misc/circuit_explain.tex}
@@ -37,7 +37,7 @@ where $i_{j}(t)$ is the $j$'th current entering the node through branch $j$, wit
 \\
 \textbf{Kirchhoff's voltage law}
 \\
-Kirchhoff's voltage law states that the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically as:
+Kirchhoff's voltage law (KVL) states that the algebraic sum of all voltages in a loop is equal to zero. This can be expressed mathematically as:
 \begin{align*}
 \sum_{j=1}^{N} v_{j}(t) = 0,
 \end{align*}
