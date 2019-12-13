@@ -1,7 +1,7 @@
 \section{Current}
-Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation:
+Current is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
 \begin{align}
-i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int i(t)\ dt,~~~\text{\cite[page~3]{bcircuit}}\label{I=dq/dt}
+i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int i(t)\ dt,\label{I=dq/dt}
 \end{align}
 where $i(t)$ is the current (in ampere, $A$), to a given time $t$ (in seconds, $s$), and $q(t)$ is the function for charge at a given time $t$. $q(t)$ is measured in Coulomb $(C)$.
 \\
@@ -26,7 +26,7 @@ This function can be plotted as such:
 	\includegraphics[scale=0.7]{fig/img/AC.png}
 	\caption{An AC current, shown in green. The current has been phase shifted by $\theta$. The current has amplitude $A$, and period $P=f^{-1}$. The dotted blue line shows the same current with $\text{phase shift} =0$}
 \end{figure}
-A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage.
+\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage.
 \begin{figure}[H] 
 \input{fig/tikz/AC_step_fig}
 \caption{Current for AC step input}
@@ -39,15 +39,15 @@ Voltage ($v$), also called electric potential difference, is the change in poten
 \\
 where $U(q)$ is the function for potential energy (in joules, $J$), given a charge $q$.
 \section{Resistor}
-When a resistor, which is a passive element, is added to the circuit, it creates a resistance. Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by:
+When a resistor, which is a passive element, is added to the circuit, it creates a resistance. Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
 \begin{align} 
 \label{Ohm}
-v(t)=R\cdot i(t),\ R\geq0,~~~~\text{\cite[page~22]{bcircuit}}
+v(t)=R\cdot i(t),\ R\geq0,
 \end{align}
-where $R$ is resistance (in Ohm, $\Omega$). Furthermore, the power can be expressed as: \cite[p. 25]{bcircuit} 
+where $R$ is resistance (in Ohm, $\Omega$). Furthermore, the power can be expressed as: \cite[p. 22]{bcircuit5} 
 \begin{align} 
 \label{power}
-p(t)=v(t)\cdot i(t).~~~~\text{\cite[p. 25]{bcircuit}}
+p(t)=v(t)\cdot i(t).
 \end{align}
 By inserting this in equation \eqref{Ohm}, the following expression is found:
 \begin{align}
@@ -66,7 +66,7 @@ C=\dfrac{\epsilon_{0}A}{d},
 \end{align*}
 where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
 \\
-The charge of a capacitor across a voltage ($v$) and capacitance of ($C$) is equal to:
+The charge of a capacitor across a voltage ($v$) and capacitance of ($C$) is equal to: \cite[p.~253]{bcircuit5}
 \begin{align}
 \label{QCV}
 q_C(t) = Cv_C(t).	
