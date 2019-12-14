@@ -1,7 +1,8 @@
 \chapter{RC Circuits} \label{chap:RC}
-This project will focus on one type of circuit, RC circuits.
-\\
-An RC circuit is an electrical circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case a capacitor is placed in series with a resistor and a voltage input. When a voltage input is applied the capacitor charges, but if the voltage input is zero the capacitor will begin to discharge. An circuit diagram of an RC circuit is shown below:
+%This project will focus on one type of circuit, RC circuits.
+%\\
+%Behøver det ovenstående at være der?
+An RC circuit is an electrical circuit consisting of resistors and capacitors. In its simplest form, it is composed of one of each. In that case a capacitor is placed in series with a resistor and a voltage input. When a voltage input is applied the capacitor charges, when the voltage input switched off, the capacitor will begin to discharge. A circuit diagram of an RC circuit is shown below:
 \\
 \begin{figure}[H]
  \input{fig/tikz/rc}
@@ -9,7 +10,7 @@ An RC circuit is an electrical circuit consisting of resistors and capacitors. I
 \end{figure}
 \section{Transient analysis}
 \label{sec371}
-To find out how the voltage of a capacitor changes over time when it is charged and discharged, a transient analysis can clarify this through mathematical operations.
+The charging and discharging of a capacitor can be described mathematically. The equations for charging and discharging can be derived mathematically, using transient analysis.
 \\
 \\
 \noindent\textbf{Discharging of a capacitor}\\
@@ -141,10 +142,10 @@ v_{charge}(t)=v_{input}\left(1-e^{\frac{-t}{\tau}}\right)
 }
 \end{align}
 \section{RC circuit experiment} \label{c: RC_exp}
-In the following section an RC circuit experiment has been conducted. A step voltage input applies current to the circuit till the capacitor is charged. The capacitor is then discharged. The voltage across the capacitor will be measured for the charge and discharge and will be compared to \eqref{V_down} and \eqref{V_up}.
+In the following section an RC circuit experiment has been conducted. A step voltage input applies current to the circuit until the capacitor is charged. The current is then switched off, until the capacitor is discharged. The voltage across the capacitor will be measured for the charge and discharge and will be compared to \eqref{V_down} and \eqref{V_up}.
 
 \subsection{Experiment set-up}
-For the experiment, an RC circuit has been constructed with the following values for the resistor, capacitor and input:
+This experiment was conducted by creating an RC circuit, which contained a resistor, capacitor, and a voltage source, with the following values:
 \begin{align*}
  R =& 4770\Omega, \\
  C =& 97.61nF,
@@ -160,14 +161,13 @@ The circuit was set up as follows:
 The RC circuit was constructed using the Analog Discovery 2. A representation of this can be seen in figure \ref{rc_flow}.
 \begin{figure}[H]
 	\center
-		\includegraphics[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]{fig/img/test_circuit_1}
+		\includegraphics{fig/img/charging.pdf}
+		%[clip, trim=0cm 18cm 0cm 0cm, scale=0.6]
 	\caption{Setup of the RC circuit used in the experiment.}
 	\label{rc_flow}
 \end{figure}
 \noindent
-ANDERS FIX FIGUREN.
-\\
-The first step of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope (orange), then the capacitor, and back through a negative scope (orange/white). Lastly, the current passes through a negative scope (blue/white) and into a negative waveform generator (black).
+The first part of the set-up is inserting a positive waveform generator (yellow) and a positive scope (blue) showing the waveforms. The waveform generator uses an AC step voltage. The current then passes through a resistor ($4.77 k\Omega$) and a capacitor ($97.61 nF$). Another scope is inserted to measure the charging and discharging of the capacitor. First, the current passes through a positive scope, then the capacitor, and back through a negative scope. Lastly, the current passes through a negative scope and into ground.
 \subsection{Theoretical values}
 In this experiment a step voltage input was used, for which the frequency input has to be calculated. To determine this frequency one has to decide for how long the capacitor should charge and discharge. To do this, a table with percentual voltage of the capacitor charges and discharges is made with \eqref{V_down} and \eqref{V_up}.
 \\
@@ -180,7 +180,7 @@ After $1\tau$ the percentual voltage of the capacitor when discharging can be ca
 \begin{align*}
 v_{discharge}(1\tau)=v_{input}e^{\frac{-\tau}{\tau}}=0.368v_{input}
 \end{align*}
-Below a table has been made to show how much the capacitor is charged and discharged for different $\tau$ values:
+The following table shows how much the capacitor has charged, or discharged, as a function of time:
 \begin{table}[H]
 \center
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
@@ -192,13 +192,14 @@ $v_{discharge}$ & $36.8\%$ & $13.5\%$ & $5.0\%$  & $1.8\%$  & $0.7\%$  & $\cdots
 \caption{The calculated percentual change in the voltage across the capacitor when it is charged and discharged at times from $1\tau$ to $10\tau$.}
 \end{table}
 \noindent
-In this experiment firstly the capacitor charges for $10\tau$, where it is considered fully charged. The capacitor is then discharged for $10\tau$, where it is considered fully discharged. The total time the capacitor is charged and then discharged is then:
+%In this experiment firstly the capacitor charges for $10\tau$, where it is considered fully charged. The capacitor is then discharged for $10\tau$, where it is considered fully discharged. The total time the capacitor is charged and then discharged is then: rettet til
+The time it takes the capacitor to fully charge ($10\tau$) and discharge ($10\tau$) is used to define the period of the input signal:
 \begin{align*}
 2\cdot 10\tau=2\cdot 10 \cdot RC&=2\cdot 10 \cdot 4770\Omega \cdot 97.61 nF,
 \\
 &=9.32 ms.
 \end{align*} 
-To get the test values compatible with the theoretical values, the frequency input has to be calculated as the hertz needed for the capacitor to charge and discharge. Therefore, the wave generator has to produce $(9.32ms)^{-1} = 107.3 Hz$.
+The frequency of the input signal is then set as the inverse of this period. Meaning the frequency of the input signal is:  $(9.32ms)^{-1} = 107.3 Hz$.
 \\
 The data from the theoretical values and the test results can now be compared using python.
 \subsection{Data comparison}
@@ -209,4 +210,4 @@ The data from the theoretical values and the test results can now be compared us
 \label{fig:Cap}
 \end{figure}
 \noindent
-As shown on figure \ref{fig:Cap}, the test results are very close to the calculated theoretical values. The coefficient of determination, $R^2$, is almost equal to 1, which means that the two plots are almost identical. If the measured data was exactly the same as the simulated data, $R^2$ would be $1$. Uncertainties can be due to a few different factors. The wires in the circuit might have a bit of resistance, and the capacitors integrity might not be perfect, because of usage over time, and there might be a small energy loss when running the experiment since it is not a completely isolated system. 
+As shown on figure \ref{fig:Cap}, the test results are very close to the calculated theoretical values. The coefficient of determination, $R^2$, is almost equal to 1, which means that the two plots are almost identical. If the measured data was exactly the same as the simulated data, $R^2$ would be $1$. Since the model only considered the charging and discharging of the capacitor in an ideal world, there is some uncertainty. This uncertainty could stem from resistance in the wires, which was not accounted for in the simulation, or other unknown sources of error.
