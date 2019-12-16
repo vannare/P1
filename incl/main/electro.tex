@@ -15,7 +15,7 @@ The different elements of a circuit can be divided into two categories: active a
 \input{incl/misc/circuit_explain.tex}
 
 \section{Circuit diagrams}
-Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than than once, is called a \textit{loop} \cite[p.~32]{bcircuit}. An example of a circuit is shown below:
+Electrical circuits are visually represented in circuit diagrams. In addition to the above-mentioned elements, the circuit diagrams introduce three terms: nodes, branches, and loops. Elements are \textit{branches}, i.e.  the voltage supply, resistors, capacitors, and the like. \textit{Nodes} connect the \textit{branches} of the circuit. Lastly, any closed path in the circuit, in which no node is encountered more than once, is called a \textit{loop} \cite[p.~32]{bcircuit}. An example of a circuit is shown below:
 
 \begin{figure}[H] 
  \input{fig/tikz/bcircuit}
@@ -28,7 +28,7 @@ Electrical circuits are visually represented in circuit diagrams. In addition to
 \section{Kirchhoff's laws}\label{Klaws}
 \textbf{Kirchhoff's current law}
 \\
-Observe a circuit up until a node, past which the path of the circuit splits into several new paths. The current encountering the node does not accumulate (as it would, e.g. in a battery). Instead, all electrons flowing to that node is split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law (KCL), which states that the algebraic sum of all currents in a node is equal to zero:
+Observe a circuit up until a node, past which the path of the circuit splits into several new paths. The current encountering the node does not accumulate (as it would, e.g. in a battery). Instead, all electrons flowing to that node is split up between the available paths, and continue to flow through the circuit. This is Kirchhoff’s current law (KCL), which states that the algebraic sum of all currents in a node are equal to zero:
 \begin{align*}
 \sum_{j=1}^{N} i_{j}(t) = 0,
 \end{align*}
