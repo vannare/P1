@@ -194,11 +194,11 @@ $v_{discharge}$ & $36.8\%$ & $13.5\%$ & $5.0\%$  & $1.8\%$  & $0.7\%$  & $\cdots
 \noindent
 %In this experiment firstly the capacitor charges for $10\tau$, where it is considered fully charged. The capacitor is then discharged for $10\tau$, where it is considered fully discharged. The total time the capacitor is charged and then discharged is then: rettet til
 The time it takes the capacitor to fully charge ($10\tau$) and discharge ($10\tau$) is used to define the period of the input signal:
-\begin{align*}
-2\cdot 10\tau=2\cdot 10 \cdot RC&=2\cdot 10 \cdot 4770\Omega \cdot 97.61 nF,
+\begin{align}
+2\cdot 10\tau=2\cdot 10 \cdot RC&=2\cdot 10 \cdot 4770\Omega \cdot 97.61 nF, \nonumber
 \\
-&=9.32 ms.
-\end{align*} 
+&=9.32 ms. \label{rc:tau:full}
+\end{align} 
 The frequency of the input signal is then set as the inverse of this period. Meaning the frequency of the input signal is:  $(9.32ms)^{-1} = 107.3 Hz$.
 \\
 The data from the theoretical values and the test results can now be compared using python.
