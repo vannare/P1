@@ -24,24 +24,25 @@ i\left(t, f, A, \theta\right) =& A\cdot \sin{\left(2\pi ft + \theta\right)}, \no
 \end{align}
 where $f$ is frequency (in hertz, $Hz$), which is cycles per second, $\omega = 2\pi f$ (in radians per second, $s^{-1}$), $t$ is time (in seconds, $s$), $A$ is amplitude (in ampere, $A$), and $\theta$ is the phase shift (in radians, unit-less).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
-This function can be plotted as such:
+Equation \eqref{eq:omega} with and without a phase-shift can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
 	\caption{Two AC currents, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in dotted blue line and green respectively. The 'green' current has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
 \end{figure}
-\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage.
+\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage and the graph for this can be seen in figure \ref{AC_step}.
 \begin{figure}[H] 
 \input{fig/tikz/AC_step_fig}
 \caption{AC step current versus time}
+\label{fig:AC_step}
 \end{figure}
 \section{Voltage}
-Voltage ($v$), also called electric potential difference, is the change in potential energy that a charge undergoes, when it passes through two points in a circuit. This is expressed in the following equation:
+Voltage ($v$), is the amount of work that it takes to move a charge of  $1 C$ through an element. This is expressed in the following equation:
 \begin{align*}
-	v=\dfrac{dU(q)}{dq},
+	v=\dfrac{dw}{dq},
 \end{align*}
 \\
-where $U(q)$ is the function for potential energy (in joules, $J$), given a charge $q$.
+where $w$ is the work (in watts, $W$)
 \section{Resistor}
 When a resistor, which is a passive element, is added to a circuit, it creates a resistance (in ohms, $\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
 \begin{align} 
@@ -86,7 +87,6 @@ For a capacitor with capacitance ($C$), the current across the capacitor can be 
 	i_C(t) = C\frac{dv_C(t)}{dt}.\label{iC}
 \end{align}
 \section{Time constant}
-A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$).
-
+A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$). $\tau$ is a usefull constant when describing the charge and discharge of a capacitor. 
 % Forslag til første sætning:
 % The product of the resistance and capacitance is a useful time constant when looking at RC circuits.
