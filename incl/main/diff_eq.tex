@@ -14,7 +14,7 @@ A differential equation is an equation that contains a function, and one or more
 \noindent%Phenomena
 These equations have a class of functions as a solution, rather than a number. 
 \\
-A differential equation could look like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which is in this case: $y=e^x+C$.
+A differential equation could look like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which in this case is: $y=e^x+C$.
 \\\\
 In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
 \\
@@ -24,7 +24,7 @@ This is formally expressed as:
 	\dfrac{dy}{dx} =& \lim_{x_0\to 0} \dfrac{y(x+x_0)-y(x)}{x_0}.
 \end{align*}
 
-\noindent The solution to a differential equation can either be general or particular. A general solution is a class of functions, that differs by a constant.
+\noindent The solution to a differential equation can either be general or particular. A general solution is a class of functions, that differ by a constant.
 \\
 To find a particular solution to a differential equation an initial condition has to be given. Meaning that if a point on the curve is known, a particular solution from the general solutions can be found.
 
@@ -77,9 +77,9 @@ Now $e^{H(x)}$ is multiplied into the parentheses:
 \begin{align*}
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
-In this case, due to the chain rule, $h(x)ye^{H(x)} = y \cdot \dfrac{d}{dx} \left(e^{H(x)} \right)$:
+In this case, due to the chain rule, $h(x)ye^{H(x)} = y  \dfrac{d}{dx} \left(e^{H(x)} \right)$:
 \begin{align*}
-\dfrac{dy}{dx} \cdot e^{H(x)} + y \cdot \dfrac{d}{dx}e^{H(x)}=& g(x)e^{H(x)}.
+\dfrac{dy}{dx}  e^{H(x)} + y  \dfrac{de^{H(x)}}{dx}=& g(x)e^{H(x)}.
 \end{align*}
 Using the chain rule the equation can then be rewritten:
 \begin{align*}

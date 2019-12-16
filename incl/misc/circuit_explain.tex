@@ -1,9 +1,9 @@
 \section{Electric charge}
-%Jeg skrev noget andet end det her istedet fordi jeg synes det lød mærkeligt. Undskyld Peter <3
+%Jeg skrev noget andet end det her istedet fordi jeg synes det lød mærkeligt. Undskyld Peter <3 Det var ikke mig hilsen Peter
 %Electric charge ($q$) is based on atomic theory, where there is a positive core surrounded by negative electrons. This is measured in coulombs ($C$). When charge is moved through a closed path, like in a circuit, over a time period it is called current.
 The electrical charge (in coulombs , $C$) in a circuit, stems from the negative charge electrons carry. This charge, when moved through a circuit, is what creates a current.   
 \section{Current}
-Current$(i)$ is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
+Current $(i)$ is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
 \begin{align}
 i(t)=\dfrac{dq(t)}{dt} \Leftrightarrow q(t)=\int i(t)\ dt,\label{I=dq/dt}
 \end{align}
@@ -12,7 +12,7 @@ where $i(t)$ is the current (in ampere, $A$) at a given time $t$ (in seconds, $s
 There exist two types of current: alternating current (AC) and direct current (DC). Per definition, DC is a constant flow of current, while AC alternates (see figure \ref{fig:ACDC}). 
 \begin{figure}[H] 
 \input{fig/tikz/ADDC_fig}
-\caption{Sinusoidal AC current, and DC current, versus time}
+\caption{Sinusoidal AC, and DC, versus time}
 \label{fig:ACDC}
 \end{figure}
 \noindent
@@ -28,23 +28,23 @@ Equation \eqref{eq:omega} with and without a phase-shift can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
-	\caption{Two AC currents, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in dotted blue line and green respectively. The 'green' current has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
+	\caption{Two AC's, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in dotted blue line and green respectively. The 'green' current has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
 \end{figure}
-\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage and the graph for this can be seen in figure \ref{AC_step}.
+\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage and the graph for this can be seen in figure \ref{fig:AC_step}.
 \begin{figure}[H] 
 \input{fig/tikz/AC_step_fig}
 \caption{AC step current versus time}
 \label{fig:AC_step}
 \end{figure}
 \section{Voltage}
-Voltage ($v$), is the amount of work that it takes to move a charge of  $1 C$ through an element. This is expressed in the following equation\cite[p. 8]{bcircuit}:
+Voltage ($v$), is the amount of work that it takes to move a charge of  $1 C$ through an element. This is expressed in the following equation: \cite[p. 8]{bcircuit}
 \begin{align*}
 	v=\dfrac{dw}{dq},
 \end{align*}
 \\
-where $w$ is the work (in watts, $W$)
+where $w$ is the work (in watts, $W$).
 \section{Resistor}
-When a resistor, which is a passive element, is added to a circuit, it creates a resistance (in ohms, $\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
+When a resistor, which is a passive element, is added to a circuit, it creates a resistance ($R$, in ohms, $\Omega$). Resistance makes it more difficult for the current to pass through the element. Resistance is defined as the proportional constant between current and voltage. The mathematical relation of this is given by: \cite[p.~22]{bcircuit5}
 \begin{align} 
 \label{Ohm}
 v(t)=R\cdot i(t),\ R\geq0,
