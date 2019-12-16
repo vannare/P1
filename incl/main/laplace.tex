@@ -1,8 +1,8 @@
 \chapter{Laplace Transform}
 This chapter is based on the following sources: \cite{calc}, \cite{diffandcomplex}. \\
-Up until this point, the project has focused on the behaviour of electrical circuits in the time domain. Observing how different signals change with time, yielded a differential equation, as seen in section (\ref{sec371}).
+Up until this point, the project has focused on the behaviour of electrical circuits in the time domain. Observing how different signals change with time, yielded a differential equation, as seen in section ref{sec371}.
 \\ \\
-The solution to a differential equation can often be difficult to derive, and this is where the Laplace transform comes in handy. The Laplace transform converts functions of time to functions of frequency (i.e. from the time domain to the \textit{s}-domain, which is the complex plane that Laplace transforms are graphed on). Since the Laplace transform is an integral transform, the rules of integration can also be applied to the Laplace transform.
+The solution to a differential equation can often be difficult to derive, and this is where the Laplace transform comes in handy. The Laplace transform converts functions of time to functions of frequency (i.e. from the time domain to the \textit{s}-domain, which is the complex plane, where the Laplace transform can be plotted). Since the Laplace transform is an integral transform, the rules of integration can also be applied to the Laplace transform.
 \\ \\
 \noindent When using the Laplace transform on a differential equation, the equation is converted into an algebraic problem. Once the expression has been solved in the \textit{s}-domain, the inverse Laplace transform can be applied to find its corresponding solution in the time domain. Generally, this description can be illustrated in the following way:
 \begin{figure}[H]
@@ -14,7 +14,7 @@ The solution to a differential equation can often be difficult to derive, and th
 
 \section{The Laplace transform}
 \begin{definition}{Laplace transform}{lpdef}
-For a function of time, $f(t)$, the Laplace transform is notated as $\mathcal{L}\left\{ f(t)\right\} = F(s)$, where $s = \sigma + i\omega$ which is the complex frequency:
+For a function of time, $f(t)$, the Laplace transform is denoted as $\mathcal{L}\left\{ f(t)\right\} = F(s)$, where $s = \sigma + i\omega$, which is the complex frequency:
 \begin{align}
 \mathcal{L} \left\{f(t) \right\}=F(s)=\int_{0}^{\infty} e^{-st}\cdot f(t)\ dt.
 \end{align}
@@ -23,7 +23,7 @@ For a function of time, $f(t)$, the Laplace transform is notated as $\mathcal{L}
 \begin{align}
 \int_{0}^{\infty} e^{-st}\cdot f(t)\ dt = \lim_{N \to \infty} \int_{0}^{N} e^{-st}\cdot f(t)\ dt. \label{eq:e(-st)}
 \end{align}
-When solving equations like \eqref{eq:e(-st)}, it has to be taken into consideration, whether the integral converges or diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity.
+When solving integrals like \eqref{eq:e(-st)}, it has to be taken into consideration, whether the integral converges or diverges. Generally, a function converges when it approaches a specific value. A function diverges when it does not approach a specific value, e.g. when approaching infinity.
 
 \begin{theorem}{Linearity of the Laplace transform}{the:lin_laplace}
 The Laplace transform is said to meet the requirements of linearity if:
@@ -54,18 +54,18 @@ a\cdot \int_{0}^\infty e^{-st} f(t)dt+ b \cdot \int_{0}^\infty e^{-st} g(t)dt =a
 \end{prof}
 \begin{theorem}{Existence of the Laplace transform}{geqleq}
 
-The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
-Thus a function is of exponential order provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p.~320]{diffandcomplex}
+The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that: $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
+Thus a function is of exponential order, provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p.~320]{diffandcomplex}
 \end{theorem}
 \begin{prof}{}{}
 Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq T$. Note that since $s$ is a complex number  $s=\sigma+i\omega$, it can be divided into its real and imaginary parts. It then follows that: $$\lim_{N \to \infty} \int_{0}^{N} \left|f(t)e^{-st} \right|\ dt = \lim_{N \to \infty} \int_{0}^{N} \left|f(t) e^{-i\omega t} e^{-\sigma t} \right| \ dt.$$
-By \cref{complex:exp:eq}, the complex number $s$ can also take the form: 
+By \cref{theorem:complex:exp}, the complex number $s$ can also take the form: 
 $$e^{\sigma}e^{i\omega}= e^{\sigma} \big(\cos(\omega)+i\sin(\omega) \big).$$
-Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Then naturally $\left|e^{i\omega t} \right|=1$ for all $\omega \in \mathbb{R}$ as stated in \cref{the:euler_form}. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt. $$ The integral is only going to converge when $(c-\sigma)>0$ or Re$(s)>c$.
+Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Naturally, $\left|e^{i\omega t} \right|=1$ for all $\omega \in \mathbb{R}$ as stated in \cref{the:euler_form}. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt. $$ The integral is only going to converge when $(c-\sigma)>0$ or Re$(s)>c$.
 \end{prof}
 
 \begin{example}{Laplace transform of a constant $k$}{lpone}
-From \Cref{lpdef}, let $f(t)=k$ where $k$ is a constant. In that case:
+From \cref{lpdef}, let $f(t)=k$ where $k$ is a constant. In that case:
 \begin{align*}
 \mathcal{L}\{k\}=\int_{0}^{\infty} e^{-st} \cdot k\ dt.
 \end{align*}
@@ -85,11 +85,11 @@ Now observe what happens when $N$ approaches $\infty$:
 \begin{align*}
 \mathcal{L} \left\{k \right\}=\dfrac{k}{s} \ \ \ ; \ \ \ Re(s) > 0.
 \end{align*}
-Here the real part of $s$ has to be greater than zero, hence it makes $-\dfrac{k}{se^{sN}}$ converge towards zero. If it is less than zero the expression would start to diverge, and would therefore not be well defined.
+Here the real part of $s$ has to be greater than zero, because it makes $-\dfrac{k}{se^{sN}}$ converge towards zero. If it is less than zero the expression would start to diverge, and would therefore not be well defined.
 \end{example}
 
 \begin{example}{Laplace transform of $e^{at}$}{lpe}
-From \Cref{lpdef}, let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case:
+From \cref{lpdef}, let $f(t)=e^{at}$, where $a$ is a constant, and $t$ is time. In that case:
 $$\mathcal{L} \left\{e^{at} \right\}=\int_{0}^{\infty} e^{-st}\cdot e^{at}\ dt.$$
 Since the exponentials have base, $e$, in common, their exponents can be combined. Additionally, $t$ can be factorised:
 $$\mathcal{L} \left\{e^{at} \right\}=\int_{0}^{\infty} e^{-(s-a)t}\ dt.$$
@@ -119,7 +119,7 @@ Let $F(s) = \dfrac{4}{s+10}$. When recognising this takes the same form as the r
 \mathcal{L}^{-1} \big\{F(s) \big\} = 4e^{-10t}.
 \end{align*}
 \end{example}
-\noindent The Laplace transform can be applied to the derivatives of multiple orders. In particular, the Laplace transform of the first order derivative, since it is essential when looking at the high- and low-pass filters, in the next chapter.
+\noindent The Laplace transform can be applied to the derivatives of multiple orders. The Laplace transform of the first order derivative, is essential when looking at the high- and low-pass filters, in the next chapter.
 \\
 \begin{theorem}{Laplace transform of a first order derivative}{theorem:lap_diff}
 The Laplace transform of a first order derivative takes the following form: \cite[p.~332]{diffandcomplex}
@@ -166,7 +166,7 @@ This can be rearranged to the following:
 \caption{Table of common Laplace transforms.}
 \label{lptable}
 \end{table}
-\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. Differential equations can be difficult to solve without the Laplace transform, but can be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed above.
+\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. Differential equations can be difficult to solve without the Laplace transform, but can be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed in table \ref{lptable}.
 \\
 \begin{example}{Solving a differential equation using the Laplace transform}{laplaceexample}
 In this example the following differential equation will be solved using the Laplace transform:
