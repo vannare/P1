@@ -1,12 +1,7 @@
 \chapter{Differential Equations} 
-The theory in this chapter is based on \cite{diffandcomplex}.\\ In this chapter linear differential equations of the first order, separable differential equations, and their solutions will be described with corresponding examples. \\
+The theory in this chapter is based on \cite{diffandcomplex}.\\ The following chapter introduces and describes linear differential questions of the first order, separable differential equations, and their respective solutions, as well as corresponding examples. \\
 
-%Forslag: 
-% The following chapter introduces and describes linear differential questions of the first order, separable differential equations, and their respective solutions, as well as corresponding examples. The chapter is based on (cite), and uses the Leibniz notation for derivatives.
-\noindent Before describing an RC circuit mathematically, the concept of differential equations has to be described. Differential equations are important tools used to describe dynamic systems. An example of this could be an equation describing an increasing population. The growth of a population is usually a function of that same population. This means that it is easier to describe changes in the population, rather than the population as a whole. \\
-
-% Forslag:
-%The concept of differential equations arises when describing RC circuits mathematically. Differential equations are important tools in describing dynamic, physical systems. An example of such an equation could describe an increasing population. The growth of a function is usually a function of that very population.
+\noindent The concept of differential equations arises when describing RC circuits mathematically. Differential equations are important tools in describing dynamic, physical systems. An example of such an equation could describe an increasing population. The growth of a function is usually a function of that very population. This means that it is easier to describe changes in the population, rather than the population as a whole. \\
 
 \begin{definition}{Differential equation}{}
 A differential equation is an equation that contains a function, and one or more of its derivatives.
@@ -16,7 +11,7 @@ These equations have a class of functions as a solution, rather than a number.
 \\
 A differential equation could look like this: $\dfrac{dy}{dx} = y$. This equation asks: "What function is its own derivative?", which in this case is: $y=e^x+C$.
 \\\\
-In this context, $dy$ and $dx$ can be perceived as small changes in $y$, and $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
+In this context, $dy$ and $dx$ can be perceived as small changes in $y$ and $x$. The slight change in $y$ with respect to $x$ can then be described as $\dfrac{dy}{dx}$.
 \\
 This is formally expressed as:
 \\
@@ -26,7 +21,7 @@ This is formally expressed as:
 
 \noindent The solution to a differential equation can either be general or particular. A general solution is a class of functions, that differ by a constant.
 \\
-To find a particular solution to a differential equation an initial condition has to be given. Meaning that if a point on the curve is known, a particular solution from the general solutions can be found.
+To find a particular solution to a differential equation, an initial condition has to be given. If a point on the curve is known, a particular solution from the general solutions can be found.
 
 \clearpage
 
@@ -59,7 +54,7 @@ Solving  a differential equation is not always easy or possible, however, for di
 \begin{theorem}{General solution to a linear differential equation of the first order}{linethe}
 A first order linear differential equation in the form of:
 \begin{align} \label{FODE_form}
-\dfrac{dy}{dx}+h(x)y=g(x),
+\dfrac{dy}{dx}+h(x)y=g(x)
 \end{align}
 has the general solution:
 \begin{align} \label{FODE_solution}
@@ -73,7 +68,7 @@ where $H(x)$ is the antiderivative of $h(x)$, $h$ and $g$ are continuous on a gi
 \begin{align*}
 \left(\dfrac{dy}{dx}+h(x)y\right)e^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
-Now $e^{H(x)}$ is multiplied into the parentheses:
+$e^{H(x)}$ is multiplied into the parentheses:
 \begin{align*}
 \dfrac{dy}{dx}e^{H(x)}+h(x)ye^{H(x)}=& g(x)e^{H(x)}.
 \end{align*}
@@ -81,7 +76,7 @@ In this case, due to the chain rule, $h(x)ye^{H(x)} = y  \dfrac{d}{dx} \left(e^{
 \begin{align*}
 \dfrac{dy}{dx}  e^{H(x)} + y  \dfrac{de^{H(x)}}{dx}=& g(x)e^{H(x)}.
 \end{align*}
-Using the chain rule the equation can then be rewritten:
+Using the chain rule, the equation can then be rewritten:
 \begin{align*}
 \dfrac{d}{dx}\left(e^{H(x)}y\right)=g(x)e^{H(x)}.
 \end{align*}
@@ -147,8 +142,8 @@ This is the particular solution to the given differential equation.
 \section{Separable differential equations}\label{SepDiff}
 \begin{definition}{Separable differential equations}{def:SDE}
 Given a differential equation in the following form: 
-$$\frac{dy}{dx} = f(x,y).$$
-The equation is said to be separable if the right-hand side of the equation can be expressed as the product of two functions, $g(x)$ and $p(y)$, depending only on one variable each, such that:
+$$\frac{dy}{dx} = f(x,y),$$
+the equation is said to be separable, if the right-hand side of the equation can be expressed as the product of two functions, $g(x)$ and $p(y)$, depending only on one variable each, such that:
 \begin{align*}
 f(x,y)=g(x)p(y),
 \end{align*}
@@ -191,9 +186,9 @@ This shows that the same result is found whether $\dfrac{dy}{dx}$ is split algeb
 Consider the differential equation with the initial condition:
 \begin{align*}
 	\dfrac{dy}{dx} = y^2 4x, ~~~
-	y(1) = \dfrac{1}{3},
+	y(1) = \dfrac{1}{3}.
 \end{align*}
-The terms, in this differential equation are separable: 
+The terms in this differential equation are separable: 
 \begin{align*}
 	\dfrac{dy}{dx} y^{-2} =& 4x, \\
 	y^{-2} dy =& 4x dx. 

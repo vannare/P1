@@ -1,6 +1,6 @@
 \chapter{Laplace Transform}
 This chapter is based on the following sources: \cite{calc}, \cite{diffandcomplex}. \\
-Up until this point, the project has focused on the behaviour of electrical circuits in the time domain. Observing how different signals change with time, yielded a differential equation, as seen in section ref{sec371}.
+Up until this point, the project has focused on the behaviour of electrical circuits in the time domain. Observing how different signals change with time, yielded a differential equation, as seen in section \ref{sec:transanal}.
 \\ \\
 The solution to a differential equation can often be difficult to derive, and this is where the Laplace transform comes in handy. The Laplace transform converts functions of time to functions of frequency (i.e. from the time domain to the \textit{s}-domain, which is the complex plane, where the Laplace transform can be plotted). Since the Laplace transform is an integral transform, the rules of integration can also be applied to the Laplace transform.
 \\ \\
@@ -54,18 +54,18 @@ a\cdot \int_{0}^\infty e^{-st} f(t)dt+ b \cdot \int_{0}^\infty e^{-st} g(t)dt =a
 \end{prof}
 \begin{theorem}{Existence of the Laplace transform}{geqleq}
 
-The function $f$ is said to be of exponential order if there exist nonnegative constants $M$, $c$, and $T$  such that: $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
-Thus a function is of exponential order, provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p.~320]{diffandcomplex}
+The function $f$ is said to be of exponential order, if there exist non-negative constants $M$, $c$, and $T$  such that: $$|f(t)| \leq Me^{ct},    \text{   for } t \geq T.$$
+Thus, a function is of exponential order, provided that it grows no more rapidly than a constant multiple of some exponential function with a linear exponent. \cite[p.~320]{diffandcomplex}
 \end{theorem}
 \begin{prof}{}{}
-Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq T$. Note that since $s$ is a complex number  $s=\sigma+i\omega$, it can be divided into its real and imaginary parts. It then follows that: $$\lim_{N \to \infty} \int_{0}^{N} \left|f(t)e^{-st} \right|\ dt = \lim_{N \to \infty} \int_{0}^{N} \left|f(t) e^{-i\omega t} e^{-\sigma t} \right| \ dt.$$
+Since $f$ is of exponential order, then $|f(t)| \leq Me^{ct}$ for all $t \geq T$. Note, that since $s$ is a complex number  $s=\sigma+i\omega$, it can be divided into its real and imaginary parts. It then follows that: $$\lim_{N \to \infty} \int_{0}^{N} \left|f(t)e^{-st} \right|\ dt = \lim_{N \to \infty} \int_{0}^{N} \left|f(t) e^{-i\omega t} e^{-\sigma t} \right| \ dt.$$
 By \cref{theorem:complex:exp}, the complex number $s$ can also take the form: 
 $$e^{\sigma}e^{i\omega}= e^{\sigma} \big(\cos(\omega)+i\sin(\omega) \big).$$
 Since the imaginary parts are defined as functions of cosine and sine, they can not approach $\infty$. Naturally, $\left|e^{i\omega t} \right|=1$ for all $\omega \in \mathbb{R}$ as stated in \cref{the:euler_form}. This now yields: $$\lim_{N \to \infty} \int_{0}^{N} |f(t)e^{-\sigma t}|\ dt \leq \lim_{N \to \infty} \int_{0}^{N} Me^{ct}e^{-\sigma t}\ dt = M \lim_{N \to \infty} \int_{0}^{N}e^{-(c-\sigma)t}\ dt. $$ The integral is only going to converge when $(c-\sigma)>0$ or Re$(s)>c$.
 \end{prof}
 
 \begin{example}{Laplace transform of a constant $k$}{lpone}
-From \cref{lpdef}, let $f(t)=k$ where $k$ is a constant. In that case:
+From \cref{lpdef}, let $f(t)=k$, where $k$ is a constant. In that case:
 \begin{align*}
 \mathcal{L}\{k\}=\int_{0}^{\infty} e^{-st} \cdot k\ dt.
 \end{align*}
@@ -81,11 +81,11 @@ Zero and $N$ are now inserted in place of $t$:
 \begin{align*}
 \mathcal{L} \left\{k \right\}= \lim_{N \to \infty} \left( -\dfrac{k}{s} e^{-sN} - \left(-\dfrac{k}{s}\right) \right).
 \end{align*}
-Now observe what happens when $N$ approaches $\infty$:
+Now observe what happens, when $N$ approaches $\infty$:
 \begin{align*}
 \mathcal{L} \left\{k \right\}=\dfrac{k}{s} \ \ \ ; \ \ \ Re(s) > 0.
 \end{align*}
-Here the real part of $s$ has to be greater than zero, because it makes $-\dfrac{k}{se^{sN}}$ converge towards zero. If it is less than zero the expression would start to diverge, and would therefore not be well defined.
+Herem the real part of $s$ has to be greater than zero in order for $-\dfrac{k}{se^{sN}}$ to converge towards zero. If it is less than zero, the expression would start to diverge, and would therefore not be well defined.
 \end{example}
 
 \begin{example}{Laplace transform of $e^{at}$}{lpe}
@@ -95,7 +95,7 @@ Since the exponentials have base, $e$, in common, their exponents can be combine
 $$\mathcal{L} \left\{e^{at} \right\}=\int_{0}^{\infty} e^{-(s-a)t}\ dt.$$
 Integration by substitution is now applied. Let $u = -(s-a)t$, then $\dfrac{du}{dt}=-(s-a)$. This yields $dt=-\dfrac{1}{s-a}du$. The integral is now no longer from 0 to $\infty$, since new limits are applied. It is now an integral from $u \cdot 0=-(s-a)0=0$ to $u\cdot N=-(s-a)N$.
 \\
-Since $-\dfrac{1}{s-a}$ is a constant it can be moved outside the integral. Thus:
+Since $-\dfrac{1}{s-a}$ is a constant, it can be moved outside the integral. Thus:
 \begin{align*}
 \mathcal{L}\{e^{at}\}=\lim_{N \to \infty} -\dfrac{1}{s-a} \cdot \int_{0}^{-(s-a)N} e^{u} \ du = \lim_{N \to \infty} -\dfrac{1}{s-a} \cdot \left[e^{u} \right]_{0}^{-(s-a)N}.
 \end{align*}
@@ -103,7 +103,7 @@ Then evaluating the integral at the boundaries:
 \begin{align*}
 \mathcal{L} \left\{e^{at} \right\} =\lim_{N \to \infty} -\dfrac{1}{s-a}\cdot (e^{-(s-a)N}-e^{0}).
 \end{align*}
-When $N$ is approaching $\infty$ (if $Re(s) \geq a$), $e^{-(s-a)N}$ will approach $0$. Therefore the equation is going to look as follows:
+When $N$ approaches $\infty$ (if $Re(s) \geq a$), $e^{-(s-a)N}$ will approach $0$. Therefore, the equation is going to look as follows:
 \begin{align*}
 \mathcal{L} \left\{e^{at} \right\} = \dfrac{1}{s-a}.
 \end{align*}
@@ -119,18 +119,18 @@ Let $F(s) = \dfrac{4}{s+10}$. When recognising this takes the same form as the r
 \mathcal{L}^{-1} \big\{F(s) \big\} = 4e^{-10t}.
 \end{align*}
 \end{example}
-\noindent The Laplace transform can be applied to the derivatives of multiple orders. The Laplace transform of the first order derivative, is essential when looking at the high- and low-pass filters, in the next chapter.
+\noindent The Laplace transform can be applied to the derivatives of multiple orders. The Laplace transform of the first order derivative is essential when looking at the high- and low-pass filters in the next chapter.
 \\
 \begin{theorem}{Laplace transform of a first order derivative}{theorem:lap_diff}
 The Laplace transform of a first order derivative takes the following form: \cite[p.~332]{diffandcomplex}
 $$\mathcal{L} \left\{\frac{df}{dt} \right\} = s \cdot F(s)-f(0).$$
 \end{theorem}
-\noindent The Laplace transform of the first derivative is using the rule of integration by parts. The rule states the following:
+\noindent The Laplace transform of the first derivative uses the rule of integration by parts. The rule states the following:
 \begin{align}
 \int_{a}^{b}{u(t) \cdot \dfrac{dv}{dt}dt}=\left[u(t) \cdot v(t) \right]_{a}^{b}-\int_{a}^{b} \frac{du}{dt}\cdot v(t) dt.
 \label{eq:intbyparts}
 \end{align}
-\begin{prof}{Laplace transform of a first order derivative}{lpderiv}
+\begin{prof}{}{lpderiv}
 From \cref{lpdef}, $u(t)$ and $v(t)$ from \eqref{eq:intbyparts} are given by: $u(t) = e^{-st}$ and $v(t) = f(t)$. Furthermore, infinity is replaced with the limit of some value N approaching $\infty$. This yields:
 $$\mathcal{L} \left\{\frac{df}{dt} \right\}=\lim_{N \to \infty} \left(\left[e^{-st}\cdot f(t)\right]_{0}^{N}-\int_{0}^{N} -s\cdot e^{-st}\cdot f(t)\ dt \right).$$
 Because $s$ is a constant, it can be placed outside of the integral, such that:
@@ -141,7 +141,7 @@ Note that the second term of \eqref{eq:Lderivative1} now equals the product of $
 \begin{align}
 \mathcal{L} \left\{\frac{df}{dt} \right\} = \lim_{N \to \infty}\left[\dfrac{1}{e^{s\cdot N}}\cdot f(N)-\dfrac{1}{e^{s\cdot 0}}\cdot f(0)\right]+s\cdot \mathcal{L} \left\{f(t) \right\}. \label{eq:lap:dfdt}
 \end{align}
-From \cref{geqleq}, it follows that the first term in \eqref{eq:lap:dfdt} approaches $0$ if:
+From \cref{geqleq}, it follows that the first term in \eqref{eq:lap:dfdt} approaches $0$, if:
 \begin{align*}
 \lim_{N \to \infty} e^{-s\cdot N}\cdot f(N) &\leq \lim_{N \to \infty} e^{-s\cdot N} Me^{c\cdot N},\\
 &\leq M \cdot \lim_{N \to \infty} e^{(c-s)N},
@@ -166,10 +166,10 @@ This can be rearranged to the following:
 \caption{Table of common Laplace transforms.}
 \label{lptable}
 \end{table}
-\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. Differential equations can be difficult to solve without the Laplace transform, but can be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed in table \ref{lptable}.
+\noindent To fully understand the concept behind figure \ref{lpsol}, an example of finding the solution of a differential equation will be solved using the Laplace transform. A table with the results from the previous examples and proofs is constructed in table \ref{lptable}.
 \\
 \begin{example}{Solving a differential equation using the Laplace transform}{laplaceexample}
-In this example the following differential equation will be solved using the Laplace transform:
+In this example, the following differential equation will be solved using the Laplace transform:
 \begin{align}
 \dfrac{df}{dt}-4f(t)=e^{6t}, \label{eq:lap_ex}
 \end{align} 
@@ -197,11 +197,11 @@ $F(s)$ is factorised on the left side:
 \begin{align*}
 F(s) \cdot (s-4) = \dfrac{1-2(s-6)}{s-6}.
 \end{align*}
-Both sides are now divided by $s-4$ and the numerator on the right side is simplified:
+Both sides are divided by $s-4$, and the numerator on the right side is simplified:
 \begin{align*}
 F(s) = \dfrac{13-2s}{(s-6)(s-4)}.
 \end{align*}
-Now the next step is to find the inverse Laplace transform. This is done using partial-fraction decomposition: \cite[p.~537]{calc}
+The next step is to now find the inverse Laplace transform. This is done using partial-fraction decomposition: \cite[p.~537]{calc}
 \begin{align}
 F(s) = \dfrac{13-2s}{(s-6)(s-4)} = A \dfrac{1}{s-6} + B \dfrac{1}{s-4}.
 \label{par_dec}
@@ -210,11 +210,11 @@ Both sides of the expression above are now multiplied with $\big((s-6)(s-4)\big)
 \begin{align*}
 13-2s = A(s-4) + B(s-6).
 \end{align*}
-Now this is split up in elements that are multiplied by $s$ and elements which are not:
+This is split up in elements that are multiplied by $s$, and elements which are not:
 \begin{align*}
 13-2s = s(A+B)+(-4A-6B).
 \end{align*}
-Now two equations with two unknown variables are created:
+Now, two equations with two unknown variables are created:
 \begin{align*}
 A+B &=-2 \Leftrightarrow A=-2-B, \\
 -4A-6B &=13 \Leftrightarrow -4(-2-B)-6B = 13 \Leftrightarrow 8 + 4B - 6B = 13 \Leftrightarrow -2B = 5 \Leftrightarrow B = -\dfrac{5}{2}.
@@ -228,7 +228,7 @@ These values are now inserted into \eqref{par_dec}:
 \begin{align*}
 F(s) = \dfrac{1}{2} \cdot \dfrac{1}{s-6} - \dfrac{5}{2} \cdot \dfrac{1}{s-4}.
 \end{align*}
-The inverse Laplace transform is now applied. Constants are moved outside the transform, as stated in \cref{the:lin_laplace}:
+The inverse Laplace transform is now applied. Constants can be placed outside of the transform, as stated in \cref{the:lin_laplace}:
 \begin{align*}
 \mathcal{L}^{-1} \big\{F(s) \big\} = \dfrac{1}{2} \cdot \mathcal{L}^{-1} \left\{\dfrac{1}{s-6} \right\} - \dfrac{5}{2} \cdot \mathcal{L}^{-1} \left\{\dfrac{1}{s-4} \right\}.
 \end{align*}
@@ -244,5 +244,5 @@ This result can be tested by inserting the values into \eqref{eq:lap_ex}:
 3e^{6t}-10e^{4t}-2e^{6t}+10e^{4t} &= e^{6t}, \\
 e^{6t} &= e^{6t}.
 \end{align*}
-Hereby the solution to the \eqref{eq:lap_ex} is found using the Laplace transform.
+The solution to \eqref{eq:lap_ex} is hereby found using the Laplace transform.
 \end{example}

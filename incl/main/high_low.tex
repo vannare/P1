@@ -1,9 +1,9 @@
 \chapter{High-pass and low-pass filters} \label{chap:high_low}
 The theory in this chapter is based on \cite{bcircuit}\cite{bcircuit5}.\\
-The main purpose of high- and low-pass filters is to remove unwanted frequencies from a signal. Filters are often used on sound files to control the bass and treble. There are different kinds of filters that can remove unwanted frequencies. This section focuses on high- and low-pass filters.
+The main purpose of high- and low-pass filters is to remove unwanted frequencies from a signal. Filters are often used on sound files to control the bass and treble. While there are multiple kinds of filters that can remove unwanted frequencies, this chapters focuses on high- and low-pass filters.
 
 \section{Definitions}
-In this section the most central terms concerning high- and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in section \ref{Derivations}.
+In this section, the most central terms concerning high- and low-pass filters will be defined. The definitions are essential when understanding the most important derivations in section \ref{Derivations}.
 
 \subsection{Low-pass filters}
 A low-pass filter passes frequencies from  $0~Hz$ to a certain cut-off frequency, after which the amplitude of the signal is decreased.  
@@ -24,11 +24,11 @@ The voltage output is measured across the resistor ($R$) instead of the capacito
 \end{figure} 
 
 \subsection{Cut-off frequencies}
-The cut-off frequency for high- and low-pass filters is when the gain is $-3dB$. The cut-off frequency is also the frequency, where the filtering (both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
+The cut-off frequency for high- and low-pass filters is when the gain is $-3dB$. The cut-off frequency is also the frequency, where the filtering (for both high- and low-pass filters) starts getting efficient. The definition of a cut-off frequency is when the effect is halved. The amount of decibel can be calculated as follows: \cite[p. 596-597]{bcircuit}
 \begin{align} \label{number:db}
 Gain = 10 \log \left(\dfrac{P_{output}}{P_{input}} \right).
 \end{align}
-The point at which the effect is halved, is when $\dfrac{P_{output}}{P_{input}}$ is equal to $\dfrac{1}{2}$. The gain of negative $3\ dB$ is calculated from \eqref{number:db}:
+The point at which the effect is halved, is when $\dfrac{P_{output}}{P_{input}}$ is equal to $\dfrac{1}{2}$. The gain of $-3\ dB$ is calculated from \eqref{number:db}:
 \begin{align*} 
 10 \log \left(\dfrac{1}{2} \right) = -3 dB.
 \end{align*}
@@ -126,7 +126,7 @@ The ratio of the voltages is isolated, and the transfer function for the circuit
 \begin{align*}
 \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+s} = \dfrac{V_{C}(s)}{V_{input}(s)}=H_L(s).
 \end{align*}
-It would now be interesting to see how the ratio between input and output responds to different frequencies. To do this, the previously defined $s$ as $s=i\omega_f$ is used (as in section \ref{sub:imfreq}):
+It would now be interesting to see how the ratio between input and output responds to different frequencies. To do this, the previously defined $s$ as $s=i\omega_f$ is used (as seen in section \ref{sub:imfreq}):
 \begin{align} \label{eq:trans_low}
 H_{L}(i \omega_f) = \dfrac{\dfrac{1}{RC}}{\dfrac{1}{RC}+i \omega_f}. 
 \end{align}
@@ -264,9 +264,9 @@ The following section conducts experiments with high- and low-pass filters, and 
 When testing the low-pass filter, the voltage across the capacitor is measured. When testing the high-pass filter, the voltage across the resistor is measured.
 
 \subsection{Simulation of the circuit}
-Simulated values are generated to test the data from the experiment. This is helpful when testing the validity of the experiment values. There are a couple of essential things to compare when testing the validity of high- and low-pass filters, which are the cut-off frequency and the coefficient of determination. 
+Simulated values are generated to test and validate the data from the experiment. When testing the validity of the high- and low-pass filters, the most essential comparisons are those of the cut-off frequency and the coefficient of determination. 
 \\ \\
-The transfer functions derived from \cref{Derivations} were tested by using them to simulate a physical circuit. The circuit for the low-pass filter was set up as in the previous experiment, which is illustrated in figure \ref{rc_flow}. The only difference is that a sinusoidal wave is used instead. This means that the current now alternates within the circuit. The high-pass filter is set up the same way as the low-pass filter, except the scope is now measuring around the resistor instead of the capacitor.
+The transfer functions derived from \cref{Derivations} were tested by using them to simulate a physical circuit. The circuit for the low-pass filter was set up almost identical to the previous experiment, which is illustrated in figure \ref{rc_flow}. The only difference was the signal output, which in this case was a sinusoidal wave instead. This meant that the current alternated within the circuit. The high-pass filter was set up the same way as the low-pass filter, except the scope measured around the resistor instead of the capacitor.
 \\
 \\
 The resistor in both circuits had a resistance of $4770 \Omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. The frequencies of the input-signal ranged from $1 Hz$ to $100,000 Hz$ in the case of the test for the high-pass filter. In the case of the low-pass filter, the frequencies ranged from $1 Hz$ to $1,622,165.75 Hz$.
@@ -338,8 +338,8 @@ In the following section, the test values for the low-pass filter and its simula
 \\ \\
 When observing figure \ref{fig:lpf:exp}, it becomes clear that the data from the experiment is almost identical to the simulated data. The coefficient of determination is almost equal to one, which underlines that the two functions are almost the same. Because the lower gain in decibel is more difficult to measure, the measuring points of the data become more inaccurate, as the angular frequency increases. As stated in section \ref{sub:bode}, the graph decreases by $20\ dB$ per decade after the cut-off point. Furthermore, the percentual difference between the simulated cut-off frequency versus the measured can be found, using the values in \eqref{sim:cut} and \eqref{lpf:cut}: $$\left|1-\dfrac{2112.22\ \dfrac{rad}{s}}{2148\ \dfrac{rad}{s}}\right|= 0.0167 = 1.67 \%.$$
 \\ \\
-The data from the high-pass filter shown in figure \ref{fig:hpf:exp} is close to the simulated data for the experiment. Moreover, when the frequency is $10^{1}$, the gain is approximately $-45\ dB$. When observing the next decade $10^{2}$, the gain is approximately $-25\ dB$. Therefore the bode plot corresponds with the increasing $20\ dB$ per decade, as stated in section \ref{sub:bode}. Now, the percentual difference between the simulated cut-off frequency  and the cut-off frequency measured from the data can be found: 
+The data from the high-pass filter (shown in figure \ref{fig:hpf:exp}) is close to the simulated data for the experiment. Moreover, when the frequency is $10^{1}$, the gain is approximately $-45\ dB$. When observing the next decade $10^{2}$, the gain is approximately $-25\ dB$. Therefore the bode plot corresponds with the increasing $20\ dB$ per decade, as stated in section \ref{sub:bode}. Now, the percentual difference between the simulated cut-off frequency  and the cut-off frequency measured from the data can be found: 
 $$\left|1-\dfrac{2153.69\ \dfrac{rad}{s}}{2148\ \dfrac{rad}{s}}\right|= 0.0026 = 0.26 \%.$$
 It can now be seen that the two cut-off frequencies are almost identical to the simulated cut-off frequencies.
 \\ \\
-From the comparisons on high- and low-pass filters it is now clear what the biggest source of error is. Both of the experimental graphs are aligned on top of the simulated graphs, at all outputs close to $0\ dB$. The further the output in decibel comes from 0, the more inaccurate the graphs are. Therefore, the most relevant uncertainty in the experiment is the accuracy of the measuring instrument at a really low decibel output.
+From the comparisons on high- and low-pass filters, it is now clear what the biggest source of error is. Both of the experimental graphs are aligned on top of the simulated graphs at all outputs close to $0\ dB$. With a lower signal output strength, the graphs become more inaccurate. Therefore, the most relevant uncertainty in the experiment is the accuracy of the measuring instrument at a very low decibel output.

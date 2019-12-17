@@ -1,7 +1,5 @@
 \section{Electric charge}
-%Jeg skrev noget andet end det her istedet fordi jeg synes det lød mærkeligt. Undskyld Peter <3 Det var ikke mig hilsen Peter
-%Electric charge ($q$) is based on atomic theory, where there is a positive core surrounded by negative electrons. This is measured in coulombs ($C$). When charge is moved through a closed path, like in a circuit, over a time period it is called current.
-The electrical charge (in coulombs , $C$) in a circuit, stems from the negative charge electrons carry. This charge, when moved through a circuit, is what creates a current.   
+The electrical charge (in coulombs, $C$) in a circuit stems from the negative charge electrons carry. This charge, when moved through a circuit, is what creates a current.   
 \section{Current}
 Current $(i)$ is the force that moves charge through a circuit. Current can be defined as an amount of charge moved over a time interval. This can be expressed as the following relation: \cite[p.~3]{bcircuit5}
 \begin{align}
@@ -22,22 +20,22 @@ i\left(t, f, A, \theta\right) =& A\cdot \sin{\left(2\pi ft + \theta\right)}, \no
 \\
 =& A \cdot \sin{\left(\omega t + \theta\right)}, \label{eq:omega}
 \end{align}
-where $f$ is frequency (in hertz, $Hz$), which is cycles per second, $\omega = 2\pi f$ (in radians per second, $s^{-1}$), $t$ is time (in seconds, $s$), $A$ is amplitude (in ampere, $A$), and $\theta$ is the phase shift (in radians, unit-less).
+where $f$ is frequency (in hertz, $Hz$), which is cycles per second, $\omega = 2\pi f$ (in radians per second, $s^{-1}$), $t$ is time (in seconds, $s$), $A$ is amplitude (in ampere, $A$), and $\theta$ is the phase shift (in radians, unitless).
 For ease of understanding, $\omega$ is sometimes used for notation instead of $2\pi f$. $\omega$ is also called the angular frequency of the signal.
 Equation \eqref{eq:omega} with and without a phase-shift can be plotted as such:
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{fig/img/AC.png}
-	\caption{Two AC's, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in dotted blue line and green respectively. The 'green' current has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
+	\caption{Two ACs, $i(t)=A\sin(\omega t)$ and $i(t)=A\sin(\omega t+\theta)$ shown in a dotted blue line and a green, respectively. The current shown in green has been phase shifted by $\theta$. The currents have amplitude $A$, and period $P=f^{-1}$.}
 \end{figure}
-\noindent A certain type of AC exists where the current is constant for a half period and then turned off for half period. This kind of AC is called a step voltage and the graph for this can be seen in figure \ref{fig:AC_step}.
+\noindent A certain type of AC exists, where the current is constant for half a period, and then turned off for other half. This type of AC is called a step voltage, and the graph for this can be seen in figure \ref{fig:AC_step}.
 \begin{figure}[H] 
 \input{fig/tikz/AC_step_fig}
 \caption{AC step current versus time}
 \label{fig:AC_step}
 \end{figure}
 \section{Voltage}
-Voltage ($v$), is the amount of work that it takes to move a charge of  $1 C$ through an element. This is expressed in the following equation: \cite[p. 8]{bcircuit}
+Voltage ($v$) is defined as the amount of work that it requires to move a charge of $1 C$ through an element. This is expressed in the following equation: \cite[p. 8]{bcircuit}
 \begin{align*}
 	v=\dfrac{dw}{dq},
 \end{align*}
@@ -61,13 +59,13 @@ p(t)=\dfrac{v^2(t)}{R}. \label{resistor:power}
 \end{align}
 
 \section{Capacitor}
-A capacitor, which is a passive element, consists of two similar sized plates, with a distance between them. When a current is applied to the circuit, the capacitor gets charged. The capacitance ($C$) is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
+A capacitor, which is a passive element, consists of two similar sized plates with a distance between them. When a current is applied to the circuit, the capacitor gets charged. The capacitance ($C$) is the amount of energy a capacitor can store, when it is fully charged. The capacitor gets charged, when a positive charge is transferred from one plate to another through the circuit.
 \\
 The capacitance is given by the following equation:
 \begin{align*}
 C=\dfrac{\epsilon_{0}A}{d},
 \end{align*}
-where $C$ is the capacitance (in farad, $F$) and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
+where $C$ is the capacitance (in farad, $F$), and $\epsilon_{0}$ is the permittivity of free space, which is equal to $8.85 \cdot 10^{-12}                                                 \frac{F}{m}$. $A$ is the surface area of the plates (in square meters, $m^{2}$), and $d$ is the distance between the two plates (in meters, $m$).
 \\
 The charge of a capacitor across a voltage ($v$) and capacitance ($C$) is equal to: \cite[p.~253]{bcircuit5}
 \begin{align}
@@ -87,6 +85,4 @@ For a capacitor with capacitance ($C$), the current across the capacitor can be 
 	i_C(t) = C\frac{dv_C(t)}{dt}.\label{iC}
 \end{align}
 \section{Time constant}
-A constant that shows up when looking at RC circuits, is the time constant $\tau = R \cdot C$, where $R$ is the resistance of the resistor, $C$ is the capacitance of the capacitor, and $\tau$ is time (in seconds, $s$). $\tau$ is a usefull constant when describing the charge and discharge of a capacitor. 
-% Forslag til første sætning:
-% The product of the resistance and capacitance is a useful time constant when looking at RC circuits.
+When describing the charging and discharging of a capacitor, a useful constant, $\tau$, arises. $\tau$ is called the time constant and defined as the relation between the resistance of the resistor ($R$) and capacitance of the capacitor ($C$), $\tau = R \cdot C$.
