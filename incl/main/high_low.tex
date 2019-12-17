@@ -62,7 +62,12 @@ The relevance of this will become apparent in subsection \ref{sub:TTF}.
 Bode plots are two separate graphical representations of the magnitude response (also called the gain) and phase response of a system with respect to frequency. They are especially useful in analysing frequency-dependent systems and networks such as filters, tuners, and amplifiers. \cite [p. 626]{bcircuit5}  \\
 \\
 The magnitude response is plotted in a coordinate system with a logarithmic horizontal axis. For a low-pass filter, the output wave before the cut-off point will remain almost unchanged. Below the cut-off point, the output decreases by $20\ dB$ per decade compared to the input, and the amplitude decreases and approaches a graph similar to that of DC current. \\
-The bode magnitude plot for a high-pass filter starts in negative decibel and approaches zero. Until it reaches the cut-off point, the graph increases with $20\ dB$ per decade.
+The bode magnitude plot for a high-pass filter starts in negative decibel and approaches zero. Until it reaches the cut-off point, the graph increases with $20\ dB$ per decade. Here is an example of a bode plot for a low-pass filter:
+\begin{figure}[H]
+\center
+	\includegraphics[scale=0.5]{fig/img/bode_example.pdf}
+	\caption{Low-pass filter bode plot.}
+\end{figure}
 
 \subsection{The imaginary angular frequency}\label{sub:imfreq}
 The experiment in chapter \ref{chap:RC} used a AC step voltage, when testing the capacitor. In the case of high- and low-pass filters, a sinusoidal input will be applied. The voltage, in this case, can be written as a wave function:
@@ -269,7 +274,7 @@ Simulated values are generated to test and validate the data from the experiment
 The transfer functions derived from \cref{Derivations} were tested by using them to simulate a physical circuit. The circuit for the low-pass filter was set up almost identical to the previous experiment, which is illustrated in figure \ref{rc_flow}. The only difference was the signal output, which in this case was a sinusoidal wave instead. This meant that the current alternated within the circuit. The high-pass filter was set up the same way as the low-pass filter, except the scope measured around the resistor instead of the capacitor.
 \\
 \\
-The resistor in both circuits had a resistance of $4770 \Omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. The frequencies of the input-signal ranged from $1 Hz$ to $100,000 Hz$ in the case of the test for the high-pass filter. In the case of the low-pass filter, the frequencies ranged from $1 Hz$ to $1,622,165.75 Hz$.
+The resistor in both circuits had a resistance of $4770 \Omega$, and the capacitor had a capacitance of $97.61\cdot 10^{-9} F$. 
 \\
 \\
 Both of the simulations were created using the input data, which were also were used in the experiment. The input data were in units of hertz, which was converted to angular frequencies for the plot.
